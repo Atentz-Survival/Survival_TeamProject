@@ -71,7 +71,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyBoardAndMouse",
                     "action": "Interaction_Place",
                     "isComposite": false,
                     "isPartOfComposite": false
