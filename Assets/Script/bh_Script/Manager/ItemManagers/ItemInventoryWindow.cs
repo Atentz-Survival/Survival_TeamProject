@@ -7,9 +7,19 @@ public class ItemInventoryWindow : MonoBehaviour
     // Start is called before the first frame update
 
     public const int notSelect = -1;
-    public int _selectedIndex = notSelect;
-    
-    public Color inventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
+    public int _SelectedIndex = notSelect;
+    public int _selectedIndex 
+    {
+        get => _SelectedIndex;
+        set => _SelectedIndex = value;
+    }
+
+
+    public Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
+    public Color inventoryNormalColor 
+    {
+        get => InventoryNormalColor;
+    }
 
     ItemInventoryWindowRoom[] itemInventoryWindowRooms;
     ItemInventoryWindowExplanRoom explanRoom;

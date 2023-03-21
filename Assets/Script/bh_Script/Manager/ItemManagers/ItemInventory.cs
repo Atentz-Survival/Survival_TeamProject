@@ -21,8 +21,18 @@ public class ItemInventory : MonoBehaviour
     }
 
     public const int emptySpace = -1;
-    public int emptySpaceStartIndex = 0;
+    public int EmptySpaceStartIndex = 0;
+    public int emptySpaceStartIndex
+    {
+        get => EmptySpaceStartIndex;
+        set => EmptySpaceStartIndex = value;
+    }
 
     public const int notEquip = -1;
-    public int _equipToolIndex = notEquip;
+    public int _EquipToolIndex = notEquip;
+    public int _equipToolIndex 
+    {
+        get => _EquipToolIndex;
+        set => _EquipToolIndex = value;
+    }
 }
