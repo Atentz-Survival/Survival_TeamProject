@@ -9,7 +9,7 @@ public class CharacterBase : MonoBehaviour
 {
 
 
-    /*아녕 나는 김수연이얌*/
+    /*집가고싶어요*/
     [Header("플레이어 데이터")]
     //--------------------Public---------------------------
 
