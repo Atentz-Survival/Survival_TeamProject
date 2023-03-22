@@ -58,6 +58,7 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
         inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
+        inputActions.CharacterMove.Interaction_Place.canceled += OnMaking;
 
         //Time.timeScale = 0.1f;
 
@@ -72,6 +73,7 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
         inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
+        inputActions.CharacterMove.Interaction_Place.canceled -= OnMaking;
         inputActions.CharacterMove.Disable();
 
     }
