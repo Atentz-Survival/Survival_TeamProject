@@ -7,11 +7,36 @@ using UnityEngine.UI;
 public class ItemInventoryWindowExplanRoom : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshProUGUI _itemName;
-    public TextMeshProUGUI _itemExplan;
-    public TextMeshProUGUI _itemTag;
-    public Button _itemUseButton;
-    public Button _itemDumpButton;
+    TextMeshProUGUI _ItemName;
+    public TextMeshProUGUI _itemName
+    {
+        get => _ItemName;
+        set => _ItemName = value;
+    }
+    TextMeshProUGUI _ItemExplan;
+    public TextMeshProUGUI _itemExplan
+    {
+        get => _ItemExplan;
+        set => _ItemExplan = value;
+    }
+    TextMeshProUGUI _ItemTag;
+    public TextMeshProUGUI _itemTag
+    {
+        get => _ItemTag;
+        set => _ItemTag = value;
+    }
+    Button _ItemUseButton;
+    public Button _itemUseButton
+    {
+        get => _ItemUseButton;
+        set => _ItemUseButton = value;
+    }
+    Button _ItemDumpButton;
+    public Button _itemDumpButton
+    {
+        get => _ItemDumpButton;
+        set => _ItemDumpButton = value;
+    }
 
     ItemInventoryWindow itemInventoryWindow;
 
@@ -31,19 +56,19 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         initialize();
     }
 
-    void Start() 
+    void Start()
     {
         itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
         _itemUseButton.onClick.AddListener(ItemUse);
         _itemDumpButton.onClick.AddListener(ItemDump);
     }
 
-    void OnDisable() 
+    void OnDisable()
     {
         initialize();
     }
 
-    void initialize() 
+    void initialize()
     {
         _itemName.text = string.Empty;
         _itemExplan.text = string.Empty;
@@ -52,7 +77,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         _itemDumpButton.gameObject.SetActive(false);
     }
 
-    void ItemUse() 
+    void ItemUse()
     {
         if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Food)
         {
@@ -60,46 +85,6 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
             if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
             {
                 int currentIndex = itemInventoryWindow._selectedIndex;
-                for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
-                {
-                    ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
-                    ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
-                    if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex) 
-                    {
-                        ItemManager.Instance.itemInventory._equipToolIndex -= 1;
-                    }
-                }
-                ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
-                ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
-                ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
-                itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
-                initialize();
-            }
-        }
-        else if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Tool) 
-        {
-            if (ItemManager.Instance.itemInventory._equipToolIndex != itemInventoryWindow._selectedIndex)
-            {
-                ItemManager.Instance.itemInventory._equipToolIndex = itemInventoryWindow._selectedIndex;
-            }
-            else 
-            {
-                ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
-            }
-        }
-        itemInventoryWindow.RefreshItemInventory();
-    }
-
-    void ItemDump()
-    {
-            ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
-            if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
-            {
-                if (ItemManager.Instance.itemInventory._equipToolIndex == itemInventoryWindow._selectedIndex)
-                {
-                    ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
-                }
-                    int currentIndex = itemInventoryWindow._selectedIndex;
                 for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
                 {
                     ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
@@ -115,8 +100,48 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
                 itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
                 initialize();
             }
+        }
+        else if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Tool)
+        {
+            if (ItemManager.Instance.itemInventory._equipToolIndex != itemInventoryWindow._selectedIndex)
+            {
+                ItemManager.Instance.itemInventory._equipToolIndex = itemInventoryWindow._selectedIndex;
+            }
+            else
+            {
+                ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
+            }
+        }
         itemInventoryWindow.RefreshItemInventory();
     }
-        
- // Update is called once per frame
+
+    void ItemDump()
+    {
+        ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
+        if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
+        {
+            if (ItemManager.Instance.itemInventory._equipToolIndex == itemInventoryWindow._selectedIndex)
+            {
+                ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
+            }
+            int currentIndex = itemInventoryWindow._selectedIndex;
+            for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
+            {
+                ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
+                ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
+                if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex)
+                {
+                    ItemManager.Instance.itemInventory._equipToolIndex -= 1;
+                }
+            }
+            ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
+            ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
+            ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
+            itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
+            initialize();
+        }
+        itemInventoryWindow.RefreshItemInventory();
+    }
+
+    // Update is called once per frame
 }

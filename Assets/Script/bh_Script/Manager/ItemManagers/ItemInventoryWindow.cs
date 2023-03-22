@@ -7,16 +7,16 @@ public class ItemInventoryWindow : MonoBehaviour
     // Start is called before the first frame update
 
     public const int notSelect = -1;
-    public int _SelectedIndex = notSelect;
-    public int _selectedIndex 
+    int _SelectedIndex = notSelect;
+    public int _selectedIndex
     {
         get => _SelectedIndex;
         set => _SelectedIndex = value;
     }
 
 
-    public Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
-    public Color inventoryNormalColor 
+    Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
+    public Color inventoryNormalColor
     {
         get => InventoryNormalColor;
     }
@@ -29,7 +29,7 @@ public class ItemInventoryWindow : MonoBehaviour
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
-        itemTagString = new string[] {"음식 아이템", "재료 아이템", "장비 아이템"};
+        itemTagString = new string[] { "음식 아이템", "재료 아이템", "장비 아이템" };
     }
 
     private void Start()
@@ -38,7 +38,7 @@ public class ItemInventoryWindow : MonoBehaviour
         RefreshItemInventory();
     }
 
-    public void PreOnDisble() 
+    public void PreOnDisble()
     {
         if (_selectedIndex != notSelect)
         {
@@ -57,10 +57,10 @@ public class ItemInventoryWindow : MonoBehaviour
                 {
                     itemInventoryWindowRooms[i].SetSpace(ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[i]].IconSprite, ItemManager.Instance.itemInventory.ItemAmountArray[i]);
                 }
-                else 
+                else
                 {
                     bool nowEquip = false;
-                    if (i == ItemManager.Instance.itemInventory._equipToolIndex) 
+                    if (i == ItemManager.Instance.itemInventory._equipToolIndex)
                     {
                         nowEquip = true;
                     }
@@ -75,9 +75,9 @@ public class ItemInventoryWindow : MonoBehaviour
 
     }
 
-    public void SetExplan(int index) 
+    public void SetExplan(int index)
     {
-        if (index == notSelect) 
+        if (index == notSelect)
         {
             itemInventoryWindowRooms[_selectedIndex]._panelImage.color = inventoryNormalColor;
             _selectedIndex = index;

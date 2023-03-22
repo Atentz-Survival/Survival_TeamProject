@@ -90,8 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055dd4f40a454c04d98c1eb55e4ea4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptySpaceStartIndex: 0
-  _equipToolIndex: -1
 --- !u!1 &4586358296951022240
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,9 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be91504eeb2e59848a3a5712238455f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInventory: {fileID: 4586358296242748590}
-  itemInventoryMaxSpace: 16
-  notDropItemTypeAmount: 1
+  ItemInventoryMaxSpace: 16
+  NotDropItemTypeAmount: 1
   itemDatas:
   - {fileID: 11400000, guid: 80c19323ac3a4094b9579d7f3b133437, type: 2}
   - {fileID: 11400000, guid: 263467abc2284c942a52baf484adb1a1, type: 2}

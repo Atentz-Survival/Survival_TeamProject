@@ -7,13 +7,24 @@ using TMPro;
 public class ItemInventoryWindowRoom : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Image _panelImage;
-    public int _index;
+    Image _PanelImage;
+    public Image _panelImage
+    {
+        get => _PanelImage;
+        set => _PanelImage = value;
+    }
+
+    [SerializeField]
+    int _Index;
+    public int _index
+    {
+        get => _Index;
+    }
     Image _itemIcon;
     TextMeshProUGUI _itemAmount;
     Button _selectButton;
     ItemInventoryWindow itemInventoryWindow;
-    
+
     void Awake()
     {
         _panelImage = GetComponent<Image>();
@@ -28,12 +39,12 @@ public class ItemInventoryWindowRoom : MonoBehaviour
         itemInventoryWindow = parent0.GetComponent<ItemInventoryWindow>();
     }
 
-    public void SetSpace(Sprite itemIcon, int itemAmount) 
+    public void SetSpace(Sprite itemIcon, int itemAmount)
     {
         _itemIcon.enabled = true;
         _itemAmount.enabled = true;
         _selectButton.enabled = true;
-        _itemIcon.sprite= itemIcon;
+        _itemIcon.sprite = itemIcon;
         _itemAmount.text = itemAmount.ToString();
     }
 
@@ -47,22 +58,23 @@ public class ItemInventoryWindowRoom : MonoBehaviour
         {
             _itemAmount.text = "-";
         }
-        else 
+        else
         {
             _itemAmount.text = "E";
         }
     }
 
-    public void DisableComponent() 
+    public void DisableComponent()
     {
         _itemIcon.enabled = false;
         _itemAmount.enabled = false;
-        _selectButton.enabled= false;
+        _selectButton.enabled = false;
     }
 
-    void OnSelected() 
+    void OnSelected()
     {
-        if (itemInventoryWindow._selectedIndex != _index) {
+        if (itemInventoryWindow._selectedIndex != _index)
+        {
             _panelImage.color = Color.green;
             itemInventoryWindow.SetExplan(_index);
         }

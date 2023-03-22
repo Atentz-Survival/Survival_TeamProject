@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum ItemType
 {
-    Strawberry = 0, 
+    Strawberry = 0,
     Avocado,
     Peanut,
     StoneAxe,
@@ -14,9 +14,26 @@ public enum ItemType
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public ItemInventory itemInventory;
-    public int itemInventoryMaxSpace;
-    public int notDropItemTypeAmount = 1; 
+    ItemInventory itemsInventory;
+    public ItemInventory itemInventory
+    {
+        get => itemsInventory;
+        set => itemsInventory = value;
+    }
+
+    [SerializeField]
+    int ItemInventoryMaxSpace;
+    public int itemInventoryMaxSpace
+    {
+        get => ItemInventoryMaxSpace;
+    }
+
+    [SerializeField]
+    int NotDropItemTypeAmount = 1;
+    public int notDropItemTypeAmount
+    {
+        get => NotDropItemTypeAmount;
+    }
 
     // Start is called before the first frame update
     [SerializeField]
@@ -29,7 +46,7 @@ public class ItemManager : Singleton<ItemManager>
 
     int ItemTypeCount;
     DropItemPool[] dropItemPools;
-    
+
 
     protected override void PreInitialize()
     {
@@ -43,7 +60,7 @@ public class ItemManager : Singleton<ItemManager>
                 Transform childTransform = transform.GetChild(i);
                 dropItemPools[i] = childTransform.GetComponent<DropItemPool>();
             }
-
+            itemInventory = GetComponentInChildren<ItemInventory>();
             itemInventory.ItemAmountArray = new int[itemInventoryMaxSpace];
             itemInventory.ItemTypeArray = new ItemType[itemInventoryMaxSpace];
             for (int i = 0; i < itemInventoryMaxSpace; i++)

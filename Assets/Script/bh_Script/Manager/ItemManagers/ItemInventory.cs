@@ -14,14 +14,14 @@ public class ItemInventory : MonoBehaviour
     }
 
     ItemType[] itemTypeArray;
-    public ItemType[] ItemTypeArray 
+    public ItemType[] ItemTypeArray
     {
         get => itemTypeArray;
         set { itemTypeArray = value; }
     }
 
     public const int emptySpace = -1;
-    public int EmptySpaceStartIndex = 0;
+    int EmptySpaceStartIndex = 0;
     public int emptySpaceStartIndex
     {
         get => EmptySpaceStartIndex;
@@ -29,8 +29,8 @@ public class ItemInventory : MonoBehaviour
     }
 
     public const int notEquip = -1;
-    public int _EquipToolIndex = notEquip;
-    public int _equipToolIndex 
+    int _EquipToolIndex = notEquip;
+    public int _equipToolIndex
     {
         get => _EquipToolIndex;
         set => _EquipToolIndex = value;

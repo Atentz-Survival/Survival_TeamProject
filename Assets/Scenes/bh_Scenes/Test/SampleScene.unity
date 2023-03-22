@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -817,8 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 5
+  _Index: 5
 --- !u!114 &121238694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,9 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96fa9928c0c0c94eab38c048f82bf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemName: {fileID: 0}
-  _itemExplan: {fileID: 0}
-  _itemTag: {fileID: 0}
 --- !u!1 &225152125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,8 +2215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 13
+  _Index: 13
 --- !u!114 &450457864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2510,8 +2505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 2
+  _Index: 2
 --- !u!114 &529528043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,8 +3321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 14
+  _Index: 14
 --- !u!114 &613591130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,8 +3604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 0
+  _Index: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3761,8 +3753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 7
+  _Index: 7
 --- !u!114 &749076083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3855,8 +3846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 4
+  _Index: 4
 --- !u!114 &810406090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,8 +4412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 9
+  _Index: 9
 --- !u!114 &1099652646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4916,8 +4905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 6
+  _Index: 6
 --- !u!114 &1286931156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5131,8 +5119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 8
+  _Index: 8
 --- !u!114 &1340602879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5360,8 +5347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 12
+  _Index: 12
 --- !u!114 &1366233601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5652,8 +5638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 1
+  _Index: 1
 --- !u!114 &1428736180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6009,8 +5994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4321203b5f7db498058e6ff8d03b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedIndex: -1
-  inventoryNormalColor: {r: 1, g: 0.8901961, b: 0, a: 1}
 --- !u!1 &1542777619
 GameObject:
   m_ObjectHideFlags: 0
@@ -6411,8 +6394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 15
+  _Index: 15
 --- !u!114 &1631073639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7345,8 +7327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 3
+  _Index: 3
 --- !u!114 &1818919291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7439,8 +7420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 11
+  _Index: 11
 --- !u!114 &1866546198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8071,8 +8051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf82dbc46bf08f46a9d8669e22518ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelImage: {fileID: 0}
-  _index: 10
+  _Index: 10
 --- !u!114 &1948591566
 MonoBehaviour:
   m_ObjectHideFlags: 0
