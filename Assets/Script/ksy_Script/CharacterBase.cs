@@ -8,6 +8,7 @@ using static CharacterBase;
 
 public class CharacterBase : MonoBehaviour
 {
+    //뭔가가 이상하다
     [Header("플레이어 데이터")]
     //--------------------Public---------------------------
 
