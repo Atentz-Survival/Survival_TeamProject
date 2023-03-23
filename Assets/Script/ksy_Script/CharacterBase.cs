@@ -13,9 +13,10 @@ public class CharacterBase : MonoBehaviour
     //--------------------Public---------------------------
 
     public float moveSpeed = 5.0f;      //이동속도
-    public float turnSpeed = 10.0f;     //회전속도
+    public float turnSpeed = 2.0f;     //회전속도
 
     //--------------------private---------------------------
+    private float delta;        // 마우스의 위치값
     private int maxHp = 1000;
     private int hp = 1000;
     private bool isAlive = true;
@@ -50,7 +51,7 @@ public class CharacterBase : MonoBehaviour
         ToolMaking      //무기 업그레이드
     }
 
-
+    playerAtive state = playerAtive.Nomal;
 
     //----------------------------------일반 함수-------------------------------
     private void Start()
@@ -77,13 +78,19 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
         inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
+        inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
+
+
 
         //Time.timeScale = 0.1f;
 
     }
 
+
+
     private void OnDisable()
     {
+        inputActions.CharacterMove.MouseMove.performed -= OnMouseMoveInput;
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
         inputActions.CharacterMove.Move.performed -= OnMoveInput;
         inputActions.CharacterMove.Activity.performed -= OnAvtivity;
@@ -111,10 +118,17 @@ public class CharacterBase : MonoBehaviour
         inputDir = dir;
     }
 
+    private void OnMouseMoveInput(InputAction.CallbackContext context)
+    {
+        delta = context.ReadValue<float>();
+        Debug.Log(delta);
+    }
+
     void Move()
     {
-        V3 = new Vector3(0, Input.GetAxis("Mouse X"), 0);
-
+        //V3 = new Vector3(0, Input.GetAxis("Mouse X"), 0);
+        V3 = new Vector3(0, delta, 0);
+        delta = 0.0f;
         transform.Rotate(V3 * turnSpeed);
         rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
     }
@@ -136,7 +150,6 @@ public class CharacterBase : MonoBehaviour
     //---공격용 코루틴---
     IEnumerator ActionCoroutine()
     {
-        GameObject obj = GameObject.FindGameObjectWithTag("axe");
 
         while (true)    //누르면 지속적으로 어택 모션 취하기
         {
@@ -188,12 +201,21 @@ public class CharacterBase : MonoBehaviour
         }
         OnDie();
     }
+    IEnumerator DeCreaseLess()
+    {
+        while (hp > 0)
+        {
+            isAlive = true;
+            yield return new WaitForSeconds(15.0f);
+            hp--;
+        }
+        OnDie();
+    }
 
     private void ConsumeHp()
     {
-        playerAtive playerAtive = playerAtive.Nomal;
         // 채집 관련 함수 예정
-        switch(playerAtive)
+        switch (state)
         {
             case playerAtive.Nomal:
                 break;
