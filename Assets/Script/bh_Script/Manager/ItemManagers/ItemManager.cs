@@ -8,9 +8,6 @@ public enum ItemType
     Strawberry = 0,
     Avocado,
     Peanut,
-    Firewood,
-    FirewoodX3,
-    FirewoodX5,
     StoneAxe,
     Null
 }
