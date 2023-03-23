@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static CharacterBase;
 
 public class CharacterBase : MonoBehaviour
 {
-
-
-    /*안녕하셍료 양희찬입닏자.*/
     [Header("플레이어 데이터")]
     //--------------------Public---------------------------
 
@@ -34,6 +32,23 @@ public class CharacterBase : MonoBehaviour
     IEnumerator DecreaseCoroutine;//실시간 hp -- 코루틴
 
     bool isAction = false;
+
+    //------- 플레이어의 행동 양식 -------
+
+    public enum playerAtive
+    {
+        Nomal = 0,
+
+        Gathering,      //풀채집
+        Fishing,        //낚시
+        TreeFelling,    //벌목
+        Mining,         //채광
+
+        MakingBoat,     //배 제작
+        Sleeping,       //자기
+        ToolMaking      //무기 업그레이드
+    }
+
 
 
     //----------------------------------일반 함수-------------------------------
@@ -166,15 +181,43 @@ public class CharacterBase : MonoBehaviour
     {
         while(hp>0)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(5.0f);
             hp--;
         }
         OnDie();
     }
 
-    private void DecreaseMotionHp()
+    private void ConsumeHp()
     {
+        playerAtive playerAtive = playerAtive.Nomal;
         // 채집 관련 함수 예정
+        switch(playerAtive)
+        {
+            case playerAtive.Nomal:
+                break;
+            case playerAtive.Gathering:
+                hp -= 15;
+                break;
+            case playerAtive.Fishing:
+                hp -= 15;
+                break;
+            case playerAtive.TreeFelling:
+                hp -= 30;
+                break;
+            case playerAtive.Mining:
+                hp -= 30;
+                break;
+
+            case playerAtive.MakingBoat:
+                hp -= 20;
+                break;
+            case playerAtive.Sleeping:
+                hp -= 10;
+                break;
+            case playerAtive.ToolMaking:
+                hp -= 10;
+                break;
+        }
     }
 
     //죽음 처리 함수
