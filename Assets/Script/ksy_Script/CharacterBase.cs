@@ -181,6 +181,7 @@ public class CharacterBase : MonoBehaviour
     {
         while(hp>0)
         {
+            isAlive = true;
             yield return new WaitForSeconds(5.0f);
             hp--;
         }
@@ -212,7 +213,7 @@ public class CharacterBase : MonoBehaviour
                 hp -= 20;
                 break;
             case playerAtive.Sleeping:
-                hp -= 10;
+                //decrese 시간 간격 증가
                 break;
             case playerAtive.ToolMaking:
                 hp -= 10;
@@ -224,7 +225,8 @@ public class CharacterBase : MonoBehaviour
     private void OnDie()
     {
         isAlive = false;
-        anim.SetBool("isDead", true);
+        inputActions.CharacterMove.Disable();
+        anim.SetTrigger("IsDead");
         Debug.Log("나 죽었어");
     }
 }
