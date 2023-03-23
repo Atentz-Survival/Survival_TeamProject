@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static CharacterBase;
 
 public class CharacterBase : MonoBehaviour
 {
-
-
-    /*집가고싶어요*/
+    //뭔가가 이상하다
     [Header("플레이어 데이터")]
     //--------------------Public---------------------------
 
     public float moveSpeed = 5.0f;      //이동속도
-    public float turnSpeed = 10.0f;     //회전속도
+    public float turnSpeed = 2.0f;     //회전속도
 
     //--------------------private---------------------------
+    private float delta;        // 마우스의 위치값
     private int maxHp = 1000;
     private int hp = 1000;
     private bool isAlive = true;
@@ -35,6 +35,23 @@ public class CharacterBase : MonoBehaviour
 
     bool isAction = false;
 
+    //------- 플레이어의 행동 양식 -------
+
+    public enum playerAtive
+    {
+        Nomal = 0,
+
+        Gathering,      //풀채집
+        Fishing,        //낚시
+        TreeFelling,    //벌목
+        Mining,         //채광
+
+        MakingBoat,     //배 제작
+        Sleeping,       //자기
+        ToolMaking      //무기 업그레이드
+    }
+
+    playerAtive state = playerAtive.Nomal;
 
     //----------------------------------일반 함수-------------------------------
     private void Start()
@@ -61,14 +78,19 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
         inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
-        inputActions.CharacterMove.Interaction_Place.canceled += OnMaking;
+        inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
+
+
 
         //Time.timeScale = 0.1f;
 
     }
 
+
+
     private void OnDisable()
     {
+        inputActions.CharacterMove.MouseMove.performed -= OnMouseMoveInput;
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
         inputActions.CharacterMove.Move.performed -= OnMoveInput;
         inputActions.CharacterMove.Activity.performed -= OnAvtivity;
@@ -76,7 +98,6 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
         inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
-        inputActions.CharacterMove.Interaction_Place.canceled -= OnMaking;
         inputActions.CharacterMove.Disable();
 
     }
@@ -97,10 +118,17 @@ public class CharacterBase : MonoBehaviour
         inputDir = dir;
     }
 
+    private void OnMouseMoveInput(InputAction.CallbackContext context)
+    {
+        delta = context.ReadValue<float>();
+        Debug.Log(delta);
+    }
+
     void Move()
     {
-        V3 = new Vector3(0, Input.GetAxis("Mouse X"), 0);
-
+        //V3 = new Vector3(0, Input.GetAxis("Mouse X"), 0);
+        V3 = new Vector3(0, delta, 0);
+        delta = 0.0f;
         transform.Rotate(V3 * turnSpeed);
         rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
     }
@@ -122,7 +150,6 @@ public class CharacterBase : MonoBehaviour
     //---공격용 코루틴---
     IEnumerator ActionCoroutine()
     {
-        GameObject obj = GameObject.FindGameObjectWithTag("axe");
 
         while (true)    //누르면 지속적으로 어택 모션 취하기
         {
@@ -168,22 +195,61 @@ public class CharacterBase : MonoBehaviour
     {
         while(hp>0)
         {
-            yield return new WaitForSeconds(1.0f);
+            isAlive = true;
+            yield return new WaitForSeconds(5.0f);
+            hp--;
+        }
+        OnDie();
+    }
+    IEnumerator DeCreaseLess()
+    {
+        while (hp > 0)
+        {
+            isAlive = true;
+            yield return new WaitForSeconds(15.0f);
             hp--;
         }
         OnDie();
     }
 
-    private void DecreaseMotionHp()
+    private void ConsumeHp()
     {
         // 채집 관련 함수 예정
+        switch (state)
+        {
+            case playerAtive.Nomal:
+                break;
+            case playerAtive.Gathering:
+                hp -= 15;
+                break;
+            case playerAtive.Fishing:
+                hp -= 15;
+                break;
+            case playerAtive.TreeFelling:
+                hp -= 30;
+                break;
+            case playerAtive.Mining:
+                hp -= 30;
+                break;
+
+            case playerAtive.MakingBoat:
+                hp -= 20;
+                break;
+            case playerAtive.Sleeping:
+                //decrese 시간 간격 증가
+                break;
+            case playerAtive.ToolMaking:
+                hp -= 10;
+                break;
+        }
     }
 
     //죽음 처리 함수
     private void OnDie()
     {
         isAlive = false;
-        anim.SetBool("isDead", true);
+        inputActions.CharacterMove.Disable();
+        anim.SetTrigger("IsDead");
         Debug.Log("나 죽었어");
     }
 }
