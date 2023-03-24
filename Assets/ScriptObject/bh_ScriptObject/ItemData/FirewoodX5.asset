@@ -15,5 +15,5 @@ MonoBehaviour:
   amountOfHungerRecovery: 0
   itemName: 
   explan: 
-  tag: 1
+  tag: 0
   iconSprite: {fileID: 0}
