@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 72367177}
   m_Layer: 0
   m_Name: Pick
-  m_TagString: Untagged
+  m_TagString: Pick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 171747860}
   m_Layer: 0
   m_Name: axe
-  m_TagString: axe
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 702830692}
   m_Layer: 0
   m_Name: FishingRod
-  m_TagString: Untagged
+  m_TagString: FisingRod
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 703988137}
   m_Layer: 0
   m_Name: Reap
-  m_TagString: Untagged
+  m_TagString: Reap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
