@@ -118,7 +118,7 @@ public class CharacterBase : MonoBehaviour
         inputDir = dir;
     }
 
-    private void OnMouseMoveInput(InputAction.CallbackContext context)
+    private void OnMouseMoveInput(InputAction.CallbackContext context)      //마우스 x좌표 이동 delta에 저장하기
     {
         delta = context.ReadValue<float>();
         Debug.Log(delta);
@@ -126,11 +126,10 @@ public class CharacterBase : MonoBehaviour
 
     void Move()
     {
-        //V3 = new Vector3(0, Input.GetAxis("Mouse X"), 0);
-        V3 = new Vector3(0, delta, 0);
-        delta = 0.0f;
-        transform.Rotate(V3 * turnSpeed);
-        rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
+        V3 = new Vector3(0, delta, 0);      //마우스 w좌표 이동 y축 회전 값으로 저장
+        delta = 0.0f;                       //쵝화 작업
+        transform.Rotate(V3 * turnSpeed);   // 턴스피드 속도만큼 회전
+        rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);       // 로컬(본인기준 왼오위아래) 방향 이동처리
     }
 
     //--- 공격용 함수(left click)---
