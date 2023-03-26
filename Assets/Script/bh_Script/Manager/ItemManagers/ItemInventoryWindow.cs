@@ -29,7 +29,7 @@ public class ItemInventoryWindow : MonoBehaviour
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
-        itemTagString = new string[] { "음식 아이템", "재료 아이템", "장비 아이템" };
+        itemTagString = new string[] { "음식 아이템", "재료 아이템", "장비 아이템", "기타 아이템"};
     }
 
     private void Start()

@@ -15,6 +15,6 @@ MonoBehaviour:
   amountOfHungerRecovery: 0
   itemName: "\uC7A5\uC791"
   explan: "\uB098\uBB34\uB97C \uBC8C\uBAA9\uD558\uC5EC \uC5BB\uB294 \uC911\uC694\uD55C
-    \uC790\uC6D0"
+    \uC790\uC6D0."
   tag: 1
   iconSprite: {fileID: 21300000, guid: 36d7d1a6d985a1f4881c25452548cd92, type: 3}
