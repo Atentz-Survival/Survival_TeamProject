@@ -18,7 +18,7 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction1(InputAction.CallbackContext _)
     {
-        GameObject obj = ItemManager.Instance.GetObject(ItemType.Shark); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
         obj.transform.position = Vector3.up * 9;
     }
 
