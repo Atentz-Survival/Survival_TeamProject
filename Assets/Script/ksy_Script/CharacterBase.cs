@@ -13,7 +13,7 @@ public class CharacterBase : MonoBehaviour
     //--------------------Public---------------------------
 
     public float moveSpeed = 5.0f;      //이동속도
-    public float turnSpeed = 2.0f;     //회전속도
+    public float turnSpeed = 0.5f;     //회전속도
 
     //--------------------private---------------------------
     private float delta;        // 마우스의 위치값
@@ -26,7 +26,6 @@ public class CharacterBase : MonoBehaviour
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
-
     private Vector3 inputDir = Vector3.zero;
     Vector3 V3;
 
@@ -57,6 +56,9 @@ public class CharacterBase : MonoBehaviour
     private void Start()
     {
         hp = maxHp;
+        state = playerAtive.Mining;
+        Debug.Log(state);
+        
         StartCoroutine(Decrease());
     }
 
@@ -73,10 +75,13 @@ public class CharacterBase : MonoBehaviour
         inputActions.CharacterMove.Enable();
         inputActions.CharacterMove.Move.performed += OnMoveInput;
         inputActions.CharacterMove.Move.canceled += OnMoveInput;
+
         inputActions.CharacterMove.Activity.performed += OnAvtivity;
         inputActions.CharacterMove.Activity.canceled += OnAvtivityStop;
+
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
+
         inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
         inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
 
@@ -111,17 +116,15 @@ public class CharacterBase : MonoBehaviour
     //--- 이동용 함수(wsad)---
     private void OnMoveInput(InputAction.CallbackContext context)
     {
-        Vector3 dir = context.ReadValue<Vector3>();
-
-        anim.SetInteger("InputMove", (int)dir.x);
-        anim.SetInteger("InputMove2", (int)dir.z);
-        inputDir = dir;
+        Vector3 input = context.ReadValue<Vector2>();   // 현재 키보드 입력 상황 받기
+        inputDir.z = input.y;
+        inputDir.x = input.x;
+        anim.SetBool("IsMove", !context.canceled);
     }
 
     private void OnMouseMoveInput(InputAction.CallbackContext context)      //마우스 x좌표 이동 delta에 저장하기
     {
         delta = context.ReadValue<float>();
-        Debug.Log(delta);
     }
 
     void Move()
@@ -134,16 +137,22 @@ public class CharacterBase : MonoBehaviour
 
     //--- 공격용 함수(left click)---
 
-    private void OnAvtivity(InputAction.CallbackContext _obj)
+    private void OnAvtivity(InputAction.CallbackContext context)
     {
-        isAction = true;
-        StartCoroutine(ActionCoroutine());
+        if (state != playerAtive.Nomal)
+        {
+            isAction = true;
+            StartCoroutine(ActionCoroutine());
+        }
     }
 
-    private void OnAvtivityStop(InputAction.CallbackContext _obj)
+    private void OnAvtivityStop(InputAction.CallbackContext context)
     {
-        isAction = false;
-        StopCoroutine(ActionCoroutine());
+        if (state != playerAtive.Nomal)
+        {
+            isAction = false;
+            StopCoroutine(ActionCoroutine());
+        }
     }
 
     //---공격용 코루틴---
@@ -170,7 +179,7 @@ public class CharacterBase : MonoBehaviour
 
     //----------------------------------장소 상호작용 함수-------------------------------
 
-    private void OnMaking(InputAction.CallbackContext obj)
+    private void OnMaking(InputAction.CallbackContext context)
     {
         int useHp = 50;                         // 행동에 따른 hp
 
@@ -200,16 +209,6 @@ public class CharacterBase : MonoBehaviour
         }
         OnDie();
     }
-    IEnumerator DeCreaseLess()
-    {
-        while (hp > 0)
-        {
-            isAlive = true;
-            yield return new WaitForSeconds(15.0f);
-            hp--;
-        }
-        OnDie();
-    }
 
     private void ConsumeHp()
     {
@@ -217,28 +216,30 @@ public class CharacterBase : MonoBehaviour
         switch (state)
         {
             case playerAtive.Nomal:
+                StartCoroutine(Decrease());
+                inputActions.CharacterMove.Activity.Enable();
                 break;
             case playerAtive.Gathering:
-                hp -= 15;
+                //hp -= 15;
                 break;
             case playerAtive.Fishing:
-                hp -= 15;
+                //hp -= 15;
                 break;
             case playerAtive.TreeFelling:
-                hp -= 30;
+                //hp -= 30;
                 break;
             case playerAtive.Mining:
-                hp -= 30;
+                //hp -= 30;
                 break;
 
             case playerAtive.MakingBoat:
-                hp -= 20;
+                //hp -= 20;
                 break;
             case playerAtive.Sleeping:
                 //decrese 시간 간격 증가
                 break;
             case playerAtive.ToolMaking:
-                hp -= 10;
+                //hp -= 10;
                 break;
         }
     }
