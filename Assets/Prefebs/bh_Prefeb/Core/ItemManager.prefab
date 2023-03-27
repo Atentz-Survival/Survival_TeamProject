@@ -46,6 +46,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copyPrefab: {fileID: 7113834730684048331, guid: 1f7aa781c7c68bb47b82762cc40feedd, type: 3}
   poolSize: 8
+--- !u!1 &582278591160359189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6730764307464808510}
+  - component: {fileID: 5778903564727436302}
+  m_Layer: 0
+  m_Name: GameObject (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6730764307464808510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582278591160359189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4586358296951022242}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5778903564727436302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582278591160359189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86efc2b3ac23a4f47a11d9321bddd493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyPrefab: {fileID: 2649880211446831294, guid: d46e52e61efc4a14bbcdbe3b184dd6cb, type: 3}
+  poolSize: 8
 --- !u!1 &2330270952077222786
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +306,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4586358296951022242}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4586358296242748590
 MonoBehaviour:
@@ -312,6 +358,7 @@ Transform:
   - {fileID: 1507005736998205132}
   - {fileID: 8252445789330907917}
   - {fileID: 5630440023563216082}
+  - {fileID: 6730764307464808510}
   - {fileID: 4586358296242748591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -340,6 +387,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f095046453aa5843b2da2e7b500d152, type: 2}
   - {fileID: 11400000, guid: b7f3052b08f6b2644915117acf6aaee0, type: 2}
   - {fileID: 11400000, guid: 699c5310ed8318944b930124be399668, type: 2}
+  - {fileID: 11400000, guid: 0d4fcb6e7cace0647adebc85d2af1bda, type: 2}
   - {fileID: 11400000, guid: 658fd62c2f19bd345943a1d89b5a9080, type: 2}
   - {fileID: 11400000, guid: 54d3790c1c514014585408a8aecc031e, type: 2}
   - {fileID: 11400000, guid: d9b7e9d52907891498f9683dd3802024, type: 2}
