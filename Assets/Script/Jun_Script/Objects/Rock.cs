@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,23 @@ public class Rock : BasementObject
                 obj.transform.position = transform.position;
 
                 // 드랍 아이템 생성
+
+                if (collision.gameObject.name == "Sphere")
+                {
+                    RockDrop1();
+                }
+                else if (collision.gameObject.name == "Cube")
+                {
+                    RockDrop2();
+                }
+                else if (collision.gameObject.name == "Axe")
+                {
+                    RockDrop3();
+                }
+                else
+                {
+                    Debug.Log("None");
+                }
 
                 HP = maxHP;
             }
