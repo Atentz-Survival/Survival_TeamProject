@@ -19,7 +19,7 @@ public class PlaneBase : BasementObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Axe"))
         {
             Debug.Log("TreeStart");
 
@@ -37,6 +37,8 @@ public class PlaneBase : BasementObject
                 obj.transform.position = transform.position;
 
                 Destroy(gameObject);
+
+                ItemDrop();
                 // 드랍아이템 생성
 
                 // 오브젝트가 서서히 사라지는 코드 작성
