@@ -11,6 +11,13 @@ public enum ItemType
     Firewood,
     FirewoodX3,
     FirewoodX5,
+    Gazami,
+    Galchi,
+    Shark,
+    StrawberryGazamiZorim,
+    AvocadoGrilledGalchi,
+    PeanutSteamedShark,
+    EscapeShip,
     StoneAxe,
     Null
 }

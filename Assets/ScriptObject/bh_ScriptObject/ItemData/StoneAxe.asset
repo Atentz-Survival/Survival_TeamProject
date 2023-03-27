@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfHungerRecovery: 0
   itemName: "\uB3CC\uB3C4\uB07C"
-  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uB3C4\uB07C"
+  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uB3C4\uB07C."
   tag: 2
   iconSprite: {fileID: 21300000, guid: 9caa6a0c66df9d04d8d01a157ffa06e1, type: 3}

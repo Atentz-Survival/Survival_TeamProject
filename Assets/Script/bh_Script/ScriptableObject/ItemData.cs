@@ -6,7 +6,8 @@ public enum ItemTag
 {
     Food = 0,
     Material,
-    Tool
+    Tool,
+    Etc
 }
 
 [CreateAssetMenu(menuName = "Scriptable Object/ItemData")]
