@@ -306,7 +306,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4586358296951022242}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4586358296242748590
 MonoBehaviour:
@@ -359,6 +359,8 @@ Transform:
   - {fileID: 8252445789330907917}
   - {fileID: 5630440023563216082}
   - {fileID: 6730764307464808510}
+  - {fileID: 5328594436640607036}
+  - {fileID: 6686186762229697382}
   - {fileID: 4586358296242748591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -388,6 +390,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7f3052b08f6b2644915117acf6aaee0, type: 2}
   - {fileID: 11400000, guid: 699c5310ed8318944b930124be399668, type: 2}
   - {fileID: 11400000, guid: 0d4fcb6e7cace0647adebc85d2af1bda, type: 2}
+  - {fileID: 11400000, guid: e4eb699d50bdcdd498ed2cde9b889d76, type: 2}
+  - {fileID: 11400000, guid: 26e41b1f1b69f0641b0048ebfc5b2594, type: 2}
   - {fileID: 11400000, guid: 658fd62c2f19bd345943a1d89b5a9080, type: 2}
   - {fileID: 11400000, guid: 54d3790c1c514014585408a8aecc031e, type: 2}
   - {fileID: 11400000, guid: d9b7e9d52907891498f9683dd3802024, type: 2}
@@ -485,6 +489,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copyPrefab: {fileID: 3507492992231443360, guid: 820b612b0e4281e4cb5ae92f30c18656, type: 3}
   poolSize: 8
+--- !u!1 &4594540696761768443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5328594436640607036}
+  - component: {fileID: 5999141718086463561}
+  m_Layer: 0
+  m_Name: GameObject (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5328594436640607036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594540696761768443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4586358296951022242}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5999141718086463561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594540696761768443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86efc2b3ac23a4f47a11d9321bddd493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyPrefab: {fileID: 212107234939405584, guid: dbaa96cfa7044104e8f2af04965d1983, type: 3}
+  poolSize: 8
 --- !u!1 &4633661819320215393
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,4 +626,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   copyPrefab: {fileID: 3232089499431826207, guid: 4c5eba4138bdf6e43a3ba98c37aa3111, type: 3}
+  poolSize: 8
+--- !u!1 &8593327877215021754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6686186762229697382}
+  - component: {fileID: 771337760125347149}
+  m_Layer: 0
+  m_Name: GameObject (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6686186762229697382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593327877215021754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4586358296951022242}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771337760125347149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593327877215021754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86efc2b3ac23a4f47a11d9321bddd493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyPrefab: {fileID: 293058973360665487, guid: a49188bfd493248419a1095407f91b9a, type: 3}
   poolSize: 8

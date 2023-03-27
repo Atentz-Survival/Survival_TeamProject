@@ -15,6 +15,8 @@ public enum ItemType
     Galchi,
     Shark,
     Stone,
+    Iron,
+    Gold,
     StrawberryGazamiZorim,
     AvocadoGrilledGalchi,
     PeanutSteamedShark,
