@@ -20,7 +20,7 @@ public class ItemInventory : MonoBehaviour
         set { itemTypeArray = value; }
     }
 
-    public const int emptySpace = -1;
+    //public const int emptySpace = -1;
     int EmptySpaceStartIndex = 0;
     public int emptySpaceStartIndex
     {
