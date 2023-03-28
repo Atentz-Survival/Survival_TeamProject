@@ -96,4 +96,5 @@ public class ItemManager : Singleton<ItemManager>
         GameObject result = dropItemPools[(int)itemType]?.GetObject().gameObject;
         return result;
     }
+    //test
 }
