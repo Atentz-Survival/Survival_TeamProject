@@ -8,7 +8,7 @@ public class Flower : PlaneBase
     {
         Debug.Log("FlowerStart");
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Saw"))
         {
 
             HP--;
@@ -26,7 +26,7 @@ public class Flower : PlaneBase
 
                 Destroy(gameObject);
 
-                if (collision.gameObject.name == "Sphere")      // 다른씬에서 사용시 이곳을 axe와같은 무기 오브젝트의 이름으로 설정하면 된다.
+                if (collision.gameObject.name == "Sphere")
                 {
                     FlowerDrop1();
                 }
