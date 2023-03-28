@@ -35,6 +35,32 @@ public class CharacterBase : MonoBehaviour
     bool isAction = false;
 
     //------- 플레이어의 행동 양식 -------
+    
+    public int Hp           //hp변화 프로퍼티(to Ui)
+    {
+        get => hp;
+        set
+        {
+            if (isAlive)
+            {
+                if (hp > 0)
+                {
+                    GetHp();    // 먹었을 때 함수 실행
+                }
+
+                hp = value;
+                Debug.Log($"hp : {hp}");
+
+                if (hp <= 0)
+                {
+                    OnDie();    // 죽었을 때의 동작이 있는 함수 실행
+                }
+                //OnChangeHp?.Invoke(hp/maxHp);
+            }
+        }
+    }
+
+    //public Action<float> OnChangeHp;  //hp 델리게이트
 
     public enum playerAtive
     {
@@ -55,11 +81,16 @@ public class CharacterBase : MonoBehaviour
     //----------------------------------일반 함수-------------------------------
     private void Start()
     {
-        hp = maxHp;
+        Hp = maxHp;
         state = playerAtive.Mining;
         Debug.Log(state);
-        
-        StartCoroutine(Decrease());
+
+        //OnChangeHp(Time.deltaTime);
+        //CLASSNAME.OnChangeHp += OnUpdateHp;
+    }
+    void OnUpdateHp()
+    {
+        Hp = Hp + 15;
     }
 
     private void Awake()
@@ -197,7 +228,13 @@ public class CharacterBase : MonoBehaviour
     }
 
     //----------------------------------HP 관련 함수-------------------------------
-    
+
+    private void GetHp() 
+    {
+        hp++;
+        Debug.Log("나 먹었어~~");
+    }
+
     //실시간 hp 깎는 코루틴
     IEnumerator Decrease()
     {
