@@ -9,38 +9,44 @@ public class Tree : PlaneBase
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Axe"))
         {
-            HP--;
-            Debug.Log($"First : {HP}");
-            if (HP > 0)
+            Debug.Log("TreeStart");
+
+            if (collision.gameObject.CompareTag("Axe"))
             {
-                GameObject obj = Instantiate(Effect);
-                obj.transform.position = transform.position;
-            }
 
-            else if (HP <= 0)
-            {
-                GameObject obj = Instantiate(Meffect);
-                obj.transform.position = transform.position;
+                HP--;
+                Debug.Log($"First : {HP}");
+                if (HP > 0)
+                {
+                    GameObject obj = Instantiate(Effect);
+                    obj.transform.position = transform.position;
+                }
 
-                Destroy(gameObject);
+                else if (HP <= 0)
+                {
+                    GameObject obj = Instantiate(Meffect);
+                    obj.transform.position = transform.position;
 
-                if (collision.gameObject.name == "Sphere")      // 다른씬에서 사용시 이곳을 axe와같은 무기 오브젝트의 이름으로 설정하면 된다.
-                {
-                    TreeDrop1();
-                }
-                else if (collision.gameObject.name == "Cube")
-                {
-                    TreeDrop2();
-                }
-                else if (collision.gameObject.name == "Axe")
-                {
-                    TreeDrop3();
-                }
-                else
-                {
-                    Debug.Log("None");
+                    Destroy(gameObject);
+
+                    if (collision.gameObject.name == "Sphere")
+                    {
+                        TreeDrop1();
+                    }
+                    else if (collision.gameObject.name == "Cube")
+                    {
+                        TreeDrop2();
+                    }
+                    else if (collision.gameObject.name == "Axe")
+                    {
+                        TreeDrop3();
+                    }
+                    else
+                    {
+                        Debug.Log("None");
+                    }
                 }
             }
         }
