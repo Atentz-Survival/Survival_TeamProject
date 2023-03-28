@@ -7,12 +7,12 @@ public class TestBase : MonoBehaviour
 {
     PlayerInput inputActions;
 
-    protected void Awake()
+    private void Awake()
     {
         inputActions = new PlayerInput();
     }
 
-    protected void OnEnable()
+    private void OnEnable()
     {
         inputActions.Test.Enable();
         inputActions.Test.Test1.performed += Test1;
@@ -22,7 +22,7 @@ public class TestBase : MonoBehaviour
         inputActions.Test.Test5.performed += Test5;
     }
 
-    protected void OnDisable()
+    private void OnDisable()
     {
         inputActions.Test.Test5.performed -= Test5;
         inputActions.Test.Test4.performed -= Test4;

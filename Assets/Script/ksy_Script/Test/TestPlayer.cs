@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using System;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Android;
 
 public class TestPlayer : TestBase
 {
-    public Action<int> A;
+    CharacterBase player;
+    private void Start()
+    {
+        player = FindObjectOfType<CharacterBase>();
+    }
 
     protected override void Test1(InputAction.CallbackContext _)
     {
-        A(20);
+        Transform Axe = player.transform.Find("Axe");
+        if (Axe != null)
+        {
+            Axe.gameObject.SetActive(true);
+        }
     }
 }
