@@ -15,7 +15,7 @@ public class Sunshine : MonoBehaviour
 
     private bool isNight = false;
 
-    public float vecT = 0.25f;
+    public float vecT = 0.5f;    // 6분경과
     float t;
 
     // fog
@@ -35,10 +35,11 @@ public class Sunshine : MonoBehaviour
     {
 
         // [1] 목표 : 12분에 0 ~ 180도만큼 회전 -> 12분에 180 ~ 360도 회전 : 180/720 = 1/4 : 0.25
-        t += Time.deltaTime;
         // transform.Rotate(new Vector3(forTimeInGame * t  , 0f , 0f)); // light의 회전
+
+        t += Time.deltaTime;
         transform.rotation = Quaternion.Euler(vecT * t , 0 , 0);  // 1초에 0.25도 만큼 회전
-        Debug.Log(transform.rotation.x);
+        // Debug.Log(transform.rotation.x);
 
 
         if (transform.eulerAngles.x <= 10) //  0 <= x <= 170
