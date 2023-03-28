@@ -216,7 +216,7 @@ public class BasementObject : MonoBehaviour
             obj.transform.position = transform.position;
 
             new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
 
