@@ -15,5 +15,7 @@ public class PlaneBase : BasementObject
         capsule = GetComponent<CapsuleCollider>();
         //renderers = GetComponent<Renderer>();
         //mat = renderers.material;
+
+
     }
 }
