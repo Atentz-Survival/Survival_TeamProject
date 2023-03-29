@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ead1ac2e2b95f84ab17ece01b94654f, type: 3}
-  m_Name: StoneAxe
+  m_Name: GoldAxe
   m_EditorClassIdentifier: 
   amountOfHungerRecovery: 0
-  itemName: "\uB3CC\uB3C4\uB07C"
-  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uB3C4\uB07C."
+  itemName: "\uAE08\uB3C4\uB07C"
+  explan: "\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uB3C4\uB07C. \uC131\uB2A5\uC774 \uB9E4\uC6B0
+    \uC88B\uB2E4."
   tag: 2
-  iconSprite: {fileID: 21300000, guid: daa387658944b4c42a007fa73ae4810a, type: 3}
+  iconSprite: {fileID: 21300000, guid: 425d4026ce1e70949a091ff983dc49d0, type: 3}
   toolType: 0
-  level: 1
+  level: 3

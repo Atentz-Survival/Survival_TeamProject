@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemInventoryMaxSpace: 16
-  NotDropItemTypeAmount: 5
+  NotDropItemTypeAmount: 16
   itemDatas:
   - {fileID: 11400000, guid: 80c19323ac3a4094b9579d7f3b133437, type: 2}
   - {fileID: 11400000, guid: 263467abc2284c942a52baf484adb1a1, type: 2}
@@ -396,7 +396,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54d3790c1c514014585408a8aecc031e, type: 2}
   - {fileID: 11400000, guid: d9b7e9d52907891498f9683dd3802024, type: 2}
   - {fileID: 11400000, guid: 579943ae9652e304bb27dfe17f2afd79, type: 2}
-  - {fileID: 11400000, guid: 6fedb6cc8988a5b419c682d7a5c4b5e7, type: 2}
+  - {fileID: 11400000, guid: 40195e144ee32db4187acf16b3119b63, type: 2}
+  - {fileID: 11400000, guid: a5ae2e9d024baed428630925f9259c69, type: 2}
+  - {fileID: 11400000, guid: 41c0568dd977a16489141af78014b89b, type: 2}
+  - {fileID: 11400000, guid: aa9796d3957806e4fa31f5ceb0b290b4, type: 2}
+  - {fileID: 11400000, guid: 2ba6621b7d9a57b4d9ac5d77b84b8b3d, type: 2}
+  - {fileID: 11400000, guid: 2e5a8cba04c83d04e81a2f9637d180c0, type: 2}
+  - {fileID: 11400000, guid: f8582c96986c7284a9a635cb1dcb9712, type: 2}
+  - {fileID: 11400000, guid: 65ff12be19db31d44b03750f59b5b6dc, type: 2}
+  - {fileID: 11400000, guid: f14b8392d0f633342b8527b9c478317d, type: 2}
+  - {fileID: 11400000, guid: 45ad772365e58a340a786f3e19e31c1c, type: 2}
+  - {fileID: 11400000, guid: 6bf07830f4b2583468cca1bb51d595e8, type: 2}
+  - {fileID: 11400000, guid: d3126f954d5144641b2a03f30bf519aa, type: 2}
 --- !u!1 &4586358297168579759
 GameObject:
   m_ObjectHideFlags: 0
