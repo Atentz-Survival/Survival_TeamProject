@@ -81,6 +81,8 @@ public class Test_Pool : Test_Base
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].ItemName); // Strawberry의 (한글)이름 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].Explan); // Strawberry의 설명 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].AmountOfHungerRecovery); // Strawberry의 허기회복량 출력
+
+        //Debug.Log(((ToolItemData)(ItemManager.Instance[ItemType.IronAxe])).Level); 
     }
 
     protected override void DoAction5(InputAction.CallbackContext _)

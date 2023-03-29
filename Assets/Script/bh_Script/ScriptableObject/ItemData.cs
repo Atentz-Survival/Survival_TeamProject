@@ -15,18 +15,18 @@ public class ItemData : ScriptableObject
 {
     // Start is called before the first frame update
     [SerializeField]
-    int amountOfHungerRecovery;
+    protected int amountOfHungerRecovery;
     public int AmountOfHungerRecovery { get => amountOfHungerRecovery; }
     [SerializeField]
-    string itemName;
+    protected string itemName;
     public string ItemName { get => itemName; }
     [SerializeField]
-    string explan;
+    protected string explan;
     public string Explan { get => explan; }
     [SerializeField]
-    ItemTag tag;
+    protected ItemTag tag;
     public ItemTag Tag { get => tag; }
     [SerializeField]
-    Sprite iconSprite;
+    protected Sprite iconSprite;
     public Sprite IconSprite { get => iconSprite; }
 }

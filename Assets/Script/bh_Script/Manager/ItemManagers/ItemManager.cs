@@ -22,6 +22,17 @@ public enum ItemType
     PeanutSteamedShark,
     EscapeShip,
     StoneAxe,
+    IronAxe,
+    GoldAxe,
+    StonePickaxe,
+    IronPickaxe,
+    GoldPickaxe,
+    StoneSickle,
+    IronSickle,
+    GoldSickle,
+    StoneFishingrod,
+    IronFishingrod,
+    GoldFishingrod,
     Null
 }
 
