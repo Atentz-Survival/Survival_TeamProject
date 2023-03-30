@@ -21,6 +21,7 @@ public class TestPlayer : TestBase
     protected override void Test1(InputAction.CallbackContext _)
     {
         int a = player.HP;
+        player.HP = 999999999;
         Debug.Log(a);
     }
 }

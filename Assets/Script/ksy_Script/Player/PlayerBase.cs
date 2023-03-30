@@ -24,12 +24,20 @@ public class PlayerBase : MonoBehaviour
         get => hp;
         set
         {
+
+            if (value > 1000)
+            {
+                Debug.LogError("올바르지 않은 값 입력됨");
+            }
+            else
+                hp = value;
+            /*
             hp = value;
 
             if(hp < 1)
             {
                 OnDie();
-            }
+            }*/
         }
     }
 
@@ -52,6 +60,11 @@ public class PlayerBase : MonoBehaviour
     }
     private void OnEnable()
     {
+        //애니메이션 테스트용
+
+        inputActions.Test.Enable();
+        inputActions.Test.Test1.performed += Test1;
+
         //-----입력 Enable----
         inputActions.CharacterMove.Enable();
         inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
@@ -70,6 +83,10 @@ public class PlayerBase : MonoBehaviour
     }
     private void OnDisable()
     {
+        //애니메이션 테스트용
+
+        inputActions.Test.Test1.performed -= Test1;
+        inputActions.Test.Disable();
         //-----입력 Disable----
         inputActions.CharacterMove.MouseMove.performed -= OnMouseMoveInput;
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
@@ -85,6 +102,7 @@ public class PlayerBase : MonoBehaviour
 
         inputActions.CharacterMove.Disable();
     }
+
     private void Start()
     {
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
@@ -187,6 +205,19 @@ public class PlayerBase : MonoBehaviour
                 yield return new WaitForSeconds(2.5f);
         }
     }
+
+    private void Test1(InputAction.CallbackContext obj)
+    {
+        //StartCoroutine(Fishing());
+    }
+
+    IEnumerator Fishing()
+    {
+        anim.SetBool("IsFishing", true);
+        yield return new WaitForSeconds(5.0f);
+        anim.SetBool("IsFishing", false);
+
+    }
     //----------------------------------그랩용 함수-------------------------------
 
     private void OnGrab(InputAction.CallbackContext context)
@@ -203,13 +234,8 @@ public class PlayerBase : MonoBehaviour
         if (hp > useHp)
         {
             anim.SetTrigger("Making_Trigger");
-            hp -= 50;
+            HP -= 50;
             //Debug.Log($"{hp} : 사용 했어요~~");
         }
-       /* else
-        {
-            //Debug.Log($"{hp} : 배고파요");
-
-        }*/
     }
 }
