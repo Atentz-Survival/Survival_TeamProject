@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -253,3 +253,4 @@ public class CharacterBase : MonoBehaviour
         Debug.Log("나 죽었어");
     }
 }
+*/

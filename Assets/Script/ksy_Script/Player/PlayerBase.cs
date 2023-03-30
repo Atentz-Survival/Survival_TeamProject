@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,6 +16,22 @@ public class PlayerBase : MonoBehaviour
     private float mouseDelta;          // 마우스의 위치값
     private int maxHp = 1000;          // 최대 hp
     private int hp = 1000;              // 현재 hp
+
+    bool isAction = false;
+
+    public int HP                      // 현재 hp 프로퍼티 > ui
+    {
+        get => hp;
+        set
+        {
+            hp = value;
+
+            if(hp < 1)
+            {
+                OnDie();
+            }
+        }
+    }
 
     [Header("컴포넌트")]
     private Animator anim;
@@ -41,16 +58,15 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.Move.performed += OnMoveInput;
         inputActions.CharacterMove.Move.canceled += OnMoveInput;
 
-        /*inputActions.CharacterMove.Activity.performed += OnAvtivity;
+        inputActions.CharacterMove.Activity.performed += OnAvtivity;
         inputActions.CharacterMove.Activity.canceled += OnAvtivityStop;
 
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
 
-        inputActions.CharacterMove.Interaction_Place.performed += OnMaking;*/
+        inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
 
         //-----전달 받을 델리게이트----
-        item.onChangeHp += OnUpgradeHp;
     }
     private void OnDisable()
     {
@@ -59,13 +75,13 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
         inputActions.CharacterMove.Move.performed -= OnMoveInput;
 
-        /*inputActions.CharacterMove.Activity.performed -= OnAvtivity;
+        inputActions.CharacterMove.Activity.performed -= OnAvtivity;
         inputActions.CharacterMove.Activity.canceled -= OnAvtivityStop;
 
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
 
-        inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;*/
+        inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
 
         inputActions.CharacterMove.Disable();
     }
@@ -73,6 +89,9 @@ public class PlayerBase : MonoBehaviour
     {
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         hp = maxHp;
+        HpChange();
+        //Debug.Log(hp);
+        item.onChangeHp += OnUpgradeHp; // <<인벤
     }
     private void FixedUpdate()
     {
@@ -104,14 +123,93 @@ public class PlayerBase : MonoBehaviour
 
     void OnUpgradeHp(int getHp)             //인벤에서 전달받을 hp(getHp)
     {
-        if (hp > 0 )
+        if (HP > 0 )
         {
-            hp = hp + getHp;
-            if(hp > maxHp)
+            HP = HP + getHp;
+            if(HP > maxHp)
             {
-                hp = maxHp;
+                HP = maxHp;
             }
-            Debug.Log(hp);
+            //Debug.Log(HP);
         }
+    }
+
+
+    void HpChange()
+    {
+        if (HP > 0)
+        {
+            StartCoroutine(Decrease());
+            OnUpgradeHp(HP);
+        }
+    }
+
+    IEnumerator Decrease()
+    {
+        while (HP > 0)
+        {
+            yield return new WaitForSeconds(1.0f);  //test
+            HP--;
+        }
+    }
+
+    private void OnDie()
+    {
+        StopCoroutine(Decrease());
+        inputActions.CharacterMove.Disable();
+        anim.SetTrigger("IsDead");
+        //Debug.Log("나 죽었어");
+    }
+
+
+    //--- 도끼질 곡갱이 질 함수(left click)---
+    private void OnAvtivity(InputAction.CallbackContext context)
+    {
+        isAction = true;
+        StartCoroutine(ActionCoroutine());
+    }
+
+    private void OnAvtivityStop(InputAction.CallbackContext context)
+    {
+        isAction = false;
+        StopCoroutine(ActionCoroutine());
+    }
+
+    //---공격용 코루틴---
+   IEnumerator ActionCoroutine()
+    {
+        while (true)    //누르면 지속적으로 어택 모션 취하기
+        {
+            if (isAction == true)
+            {
+                anim.SetTrigger("Attack-trigger");
+            }
+                yield return new WaitForSeconds(2.5f);
+        }
+    }
+    //----------------------------------그랩용 함수-------------------------------
+
+    private void OnGrab(InputAction.CallbackContext context)
+    {
+        anim.SetBool("ItemGrab", !context.canceled);
+    }
+
+    //----------------------------------장소 상호작용 함수-------------------------------
+
+    private void OnMaking(InputAction.CallbackContext context)
+    {
+        int useHp = 50;                         // 행동에 따른 hp
+
+        if (hp > useHp)
+        {
+            anim.SetTrigger("Making_Trigger");
+            hp -= 50;
+            //Debug.Log($"{hp} : 사용 했어요~~");
+        }
+       /* else
+        {
+            //Debug.Log($"{hp} : 배고파요");
+
+        }*/
     }
 }
