@@ -205,7 +205,7 @@ public class CharacterBase : MonoBehaviour
         {
             isAlive = true;
             yield return new WaitForSeconds(5.0f);
-            hp--;
+            hp--;  
         }
         OnDie();
     }
