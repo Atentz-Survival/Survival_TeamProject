@@ -85,7 +85,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Food)
         {
             ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
-            onChangeHp?.Invoke(ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].AmountOfHungerRecovery);
+            onChangeHp?.Invoke(((FoodItemData)ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]]).AmountOfHungerRecovery);
             if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
             {
                 int currentIndex = itemInventoryWindow._selectedIndex;
