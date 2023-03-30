@@ -208,7 +208,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Test1(InputAction.CallbackContext obj)
     {
-        //StartCoroutine(Fishing());
+        StartCoroutine(Fishing());
     }
 
     IEnumerator Fishing()
