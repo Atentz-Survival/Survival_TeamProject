@@ -80,8 +80,7 @@ public class Test_Pool : Test_Base
         Debug.Log(ItemManager.Instance.itemInventory.ItemAmountArray[0]); // 아이템 인벤토리 0번째 칸에 있는 아이템의 개수 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].ItemName); // Strawberry의 (한글)이름 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].Explan); // Strawberry의 설명 출력
-        Debug.Log(ItemManager.Instance[ItemType.Strawberry].AmountOfHungerRecovery); // Strawberry의 허기회복량 출력
-
+        Debug.Log(((FoodItemData)(ItemManager.Instance[ItemType.Strawberry])).AmountOfHungerRecovery); // Strawberry의 허기회복량 출력
         //Debug.Log(((ToolItemData)(ItemManager.Instance[ItemType.IronAxe])).Level); 
     }
 

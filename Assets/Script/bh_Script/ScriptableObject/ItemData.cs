@@ -13,10 +13,7 @@ public enum ItemTag
 [CreateAssetMenu(menuName = "Scriptable Object/ItemData")]
 public class ItemData : ScriptableObject
 {
-    // Start is called before the first frame update
-    [SerializeField]
-    protected int amountOfHungerRecovery;
-    public int AmountOfHungerRecovery { get => amountOfHungerRecovery; }
+
     [SerializeField]
     protected string itemName;
     public string ItemName { get => itemName; }

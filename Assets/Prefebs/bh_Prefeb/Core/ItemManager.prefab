@@ -380,8 +380,8 @@ MonoBehaviour:
   ItemInventoryMaxSpace: 16
   NotDropItemTypeAmount: 16
   itemDatas:
-  - {fileID: 11400000, guid: 80c19323ac3a4094b9579d7f3b133437, type: 2}
-  - {fileID: 11400000, guid: 263467abc2284c942a52baf484adb1a1, type: 2}
+  - {fileID: 11400000, guid: a98b224fec93504459731eda93fb193c, type: 2}
+  - {fileID: 11400000, guid: 8f898c2e72a883149aab6b4800d31f46, type: 2}
   - {fileID: 11400000, guid: bd06f0aba8de77b4fa2c17f749ac189b, type: 2}
   - {fileID: 11400000, guid: 3748e2e71d77ded45b7d3323605dfc3d, type: 2}
   - {fileID: 11400000, guid: d9e69b32fa37085458ea9c09b07ddcc2, type: 2}
