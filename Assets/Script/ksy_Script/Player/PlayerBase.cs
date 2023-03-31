@@ -233,14 +233,23 @@ public class PlayerBase : MonoBehaviour
     private void OnGrab(InputAction.CallbackContext context)
     {
         anim.SetBool("ItemGrab", !context.canceled);
-        GameObject leftHand = GameObject.Find("Hand_Left_jnt");
-
-        if(leftHand != null ) 
-        {
-            //OnTriggerEnter();
-        }
     }
 
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        /*if (gameObject.CompareTag("Item"))
+        {
+            DropItem pick = collision.GetComponent<DropItem>();
+            if (pick != null)
+            {
+                pick.Picked();
+            }
+        }*/
+        if(other.gameObject.CompareTag("DropItem"))
+            Debug.Log(other.gameObject.name);
+    }
     //----------------------------------장소 상호작용 함수-------------------------------
 
     private void OnMaking(InputAction.CallbackContext context)
@@ -255,15 +264,4 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        /*if (gameObject.CompareTag("Item"))
-        {
-            DropItem pick = collision.GetComponent<DropItem>();
-            if (pick != null)
-            {
-                pick.Picked();
-            }
-        }*/
-    }
 }
