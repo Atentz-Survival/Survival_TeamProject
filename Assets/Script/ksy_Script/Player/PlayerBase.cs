@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +32,8 @@ public class PlayerBase : MonoBehaviour
             }
             else
                 hp = value;
+
+            onUpgradeHp?.Invoke(HP / maxHp);
             /*
             hp = value;
 
@@ -41,10 +44,14 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
+    public Action<float> onUpgradeHp;
+
     [Header("컴포넌트")]
     private Animator anim;
     private Rigidbody rigid;
     private ItemInventoryWindowExplanRoom item;
+
+    Collider handCollider;
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
@@ -57,6 +64,9 @@ public class PlayerBase : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInput();
+
+        handCollider = GetComponent<Collider>();
+
     }
     private void OnEnable()
     {
@@ -148,7 +158,7 @@ public class PlayerBase : MonoBehaviour
             {
                 HP = maxHp;
             }
-            //Debug.Log(HP);
+            Debug.Log($"{getHp} : 얻음");
         }
     }
 
@@ -208,7 +218,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Test1(InputAction.CallbackContext obj)
     {
-        //StartCoroutine(Fishing());
+        StartCoroutine(Fishing());
     }
 
     IEnumerator Fishing()
@@ -225,6 +235,21 @@ public class PlayerBase : MonoBehaviour
         anim.SetBool("ItemGrab", !context.canceled);
     }
 
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        /*if (gameObject.CompareTag("Item"))
+        {
+            DropItem pick = collision.GetComponent<DropItem>();
+            if (pick != null)
+            {
+                pick.Picked();
+            }
+        }*/
+        if(other.gameObject.CompareTag("DropItem"))
+            Debug.Log(other.gameObject.name);
+    }
     //----------------------------------장소 상호작용 함수-------------------------------
 
     private void OnMaking(InputAction.CallbackContext context)
@@ -238,4 +263,5 @@ public class PlayerBase : MonoBehaviour
             //Debug.Log($"{hp} : 사용 했어요~~");
         }
     }
+
 }
