@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +32,8 @@ public class PlayerBase : MonoBehaviour
             }
             else
                 hp = value;
+
+            onUpgradeHp?.Invoke(HP / maxHp);
             /*
             hp = value;
 
@@ -41,10 +44,14 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
+    public Action<float> onUpgradeHp;
+
     [Header("컴포넌트")]
     private Animator anim;
     private Rigidbody rigid;
     private ItemInventoryWindowExplanRoom item;
+
+    Collider handCollider;
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
@@ -57,6 +64,9 @@ public class PlayerBase : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInput();
+
+        handCollider = GetComponent<Collider>();
+
     }
     private void OnEnable()
     {
@@ -148,7 +158,7 @@ public class PlayerBase : MonoBehaviour
             {
                 HP = maxHp;
             }
-            //Debug.Log(HP);
+            Debug.Log($"{getHp} : 얻음");
         }
     }
 
@@ -223,6 +233,12 @@ public class PlayerBase : MonoBehaviour
     private void OnGrab(InputAction.CallbackContext context)
     {
         anim.SetBool("ItemGrab", !context.canceled);
+        GameObject leftHand = GameObject.Find("Hand_Left_jnt");
+
+        if(leftHand != null ) 
+        {
+            //OnTriggerEnter();
+        }
     }
 
     //----------------------------------장소 상호작용 함수-------------------------------
@@ -237,5 +253,17 @@ public class PlayerBase : MonoBehaviour
             HP -= 50;
             //Debug.Log($"{hp} : 사용 했어요~~");
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        /*if (gameObject.CompareTag("Item"))
+        {
+            DropItem pick = collision.GetComponent<DropItem>();
+            if (pick != null)
+            {
+                pick.Picked();
+            }
+        }*/
     }
 }
