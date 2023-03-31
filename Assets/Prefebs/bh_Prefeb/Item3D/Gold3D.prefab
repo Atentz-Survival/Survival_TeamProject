@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 293058973360665490}
   m_Layer: 0
   m_Name: Gold3D
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
+  itemAmount: 1
+  itemtype: 11
 --- !u!1001 &293058973061255181
 PrefabInstance:
   m_ObjectHideFlags: 0

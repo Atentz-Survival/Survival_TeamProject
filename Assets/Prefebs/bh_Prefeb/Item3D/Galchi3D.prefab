@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
+  itemAmount: 1
+  itemtype: 7
 --- !u!1001 &9194854367194924023
 PrefabInstance:
   m_ObjectHideFlags: 0
