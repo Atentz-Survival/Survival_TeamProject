@@ -1,58 +1,123 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.ProBuilder;
+using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class FishingBase : MonoBehaviour
 {
-    public Transform target;
-    public GameObject fishingEffect;
+    // 이펙트
+    public GameObject fishingEffect;        // 물에 닿았을 때의 이펙트
 
-    Vector3 dropPlace;
+    public Transform target;                // 타겟(종점 좌표)
+
+    //public float flightTime = 2.0f;         // 체공 시간
+    //public float speedRate = 1.0f;          // 허공 시간을 기준으로 한 이동속도의 배율
+    //private const float gravity = -9.8f;    // 중력
+
+    private Vector3 endPos;                 // 타겟의 위치
+    private Vector3 startPos;               // 생성 위치
+
+    // 낚시할때의 대기시간
+    public float waitT = 5.0f;              // 낚시후의 딜레이 시간
+
+    Rigidbody rigid;
+
 
     private bool isTimeCheck = false;
-    private float timer = 0f;
 
     private void Start()
     {
-        if(target == null)
+        endPos = target.transform.position;
+        if (target == null)
         {
             Player player = FindObjectOfType<Player>();
             target = player.transform;
         }
-    }
 
-    private void Update()
-    {
-        if(isTimeCheck)
-        {
-            timer += Time.deltaTime;
-        }
-
-        else
-        {
-            timer += Time.deltaTime * 0f;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("FisingRod"))
         {
             GameObject obj = Instantiate(fishingEffect);
-            obj.transform.position = transform.position;
+            obj.transform.position = target.position;
 
-            isTimeCheck = true;
+            isTimeCheck = false;
 
-            if(timer >= 10.0f)
+            if (isTimeCheck == false)
             {
-                // 낚시대를 빼는 애니메이션 적용필요
+                Debug.Log("Step1");
 
-                GameObject fobj = ItemManager.Instance.GetObject(ItemType.Avocado);
-                fobj.transform.position = obj.transform.position;
+                if (other.gameObject.name == "Sphere")
+                {
+                    Invoke("FishDrop1", waitT);
+                    Debug.Log("Step3");
+                }
 
+                else if (other.gameObject.name == "Cube")
+                {
+                    FishDrop2();
+                    Debug.Log("Step4");
+                }
+
+                else if (other.gameObject.name == "FisingLod")
+                {
+                    FishDrop3();
+                    Debug.Log("Step5");
+                }
+                StopAllCoroutines();
             }
-
-            isTimeCheck= false;
+            isTimeCheck = true;
+            Debug.Log("Step2");
         }
+    }
+
+    public void FishDrop1()
+    {
+        Debug.Log("Alpha");
+        GameObject fobj = ItemManager.Instance.GetObject(ItemType.Galchi);
+        fobj.transform.position = transform.position;
+        startPos = fobj.transform.position;
+        Vector3 disVec = (endPos - startPos) + new Vector3(0 , 50 , 0);
+        rigid = fobj.GetComponent<Rigidbody>();
+        rigid.AddForce(disVec* 10);
+
+        Debug.Log(disVec);
+
+        Destroy(fobj, 5.0f);
+        Debug.Log("Step3-1");
+        // fobj.transform.position = Vector3.Slerp(transform.position, target.position, moveSpeed);
+    }
+
+    private void FishDrop2()
+    {
+        GameObject fobj = ItemManager.Instance.GetObject(ItemType.Gazami);
+        fobj.transform.position = transform.position;
+        startPos = fobj.transform.position;
+        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0);
+        rigid = fobj.GetComponent<Rigidbody>();
+        rigid.AddForce(disVec * 10);
+
+        Destroy(fobj, 5.0f);
+        Debug.Log("Step3-2");
+    }
+
+    private void FishDrop3()
+    {
+        GameObject fobj = ItemManager.Instance.GetObject(ItemType.Shark);
+        fobj.transform.position = transform.position;
+        startPos = fobj.transform.position;
+        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0);
+        rigid = fobj.GetComponent<Rigidbody>();
+        rigid.AddForce(disVec * 10);
+
+        Destroy(fobj, 5.0f);
+        Debug.Log("Step3-3");
     }
 }
