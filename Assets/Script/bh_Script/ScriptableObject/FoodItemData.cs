@@ -11,6 +11,9 @@ public enum AffectStatus
 public class FoodItemData : ItemData
 {
     // Start is called before the first frame update
+    [SerializeField]
+    protected int amountOfHungerRecovery;
+    public int AmountOfHungerRecovery { get => amountOfHungerRecovery; }
 
     [SerializeField]
     protected AffectStatus itemsAffectStatus;

@@ -100,6 +100,7 @@ public class ItemManager : Singleton<ItemManager>
         {
             dropItemPools[i]?.MakeObjectPool();
         }
+        itemInventory.ItemsInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
     }
 
     public GameObject GetObject(ItemType itemType)

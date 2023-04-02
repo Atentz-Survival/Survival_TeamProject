@@ -38,6 +38,14 @@ public class ItemInventoryWindow : MonoBehaviour
         RefreshItemInventory();
     }
 
+    private void OnEnable()
+    {
+        if (explanRoom != null) 
+        {
+            RefreshItemInventory();
+        }
+    }
+
     public void PreOnDisble()
     {
         if (_selectedIndex != notSelect)

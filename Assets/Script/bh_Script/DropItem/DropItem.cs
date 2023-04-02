@@ -6,6 +6,11 @@ public class DropItem : PoolObjectShape
 {
     // Start is called before the first frame update
     public float lifeTime = 10.0f;
+    [SerializeField]
+    int itemAmount;
+    [SerializeField]
+    ItemType itemtype;
+
     void OnEnable() 
     {
         StopAllCoroutines();
@@ -13,5 +18,11 @@ public class DropItem : PoolObjectShape
         {
             StartCoroutine(LifeOver(lifeTime));
         }
+    }
+
+    public void Picked() 
+    {
+        ItemManager.Instance.itemInventory.AddItem(itemtype, itemAmount);
+        this.gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Android;
 
-public class TestPlayer : TestBase
+/*public class TestPlayer : TestBase
 {
     PlayerBase player;
     private void Start()
@@ -24,4 +24,4 @@ public class TestPlayer : TestBase
         player.HP = 999999999;
         Debug.Log(a);
     }
-}
+}*/
