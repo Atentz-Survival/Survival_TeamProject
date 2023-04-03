@@ -15,17 +15,17 @@ public class PlayerUI : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerBase>();
         HPUI = GetComponentInChildren<Slider>();
-        HPText= GetComponentInChildren<TextMeshProUGUI>();
+        HPText = GetComponentInChildren<TextMeshProUGUI>();
         pauseButton = GetComponent<Button>();
-        pauseMenu = FindObjectOfType<PauseMenu>();
 
         pauseButton.onClick.AddListener(CallPauseMenu);
     }
 
     private void Start()
-    {
+    { 
+        player = FindObjectOfType<PlayerBase>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
 
@@ -37,6 +37,6 @@ public class PlayerUI : MonoBehaviour
     private void CallPauseMenu()
     {
         pauseMenu.gameObject.SetActive(true);
-        Debug.Log("¸Þ´º ºÒ·¯¿À±â");
+        Debug.Log("ë©”ë‰´ ë¶ˆëŸ¬ì˜¤ê¸°");
     }
 }   
