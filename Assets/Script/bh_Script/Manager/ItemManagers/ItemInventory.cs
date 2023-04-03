@@ -29,8 +29,8 @@ public class ItemInventory : MonoBehaviour
     }
 
     public const int notEquip = -1;
-    int _EquipToolIndex = notEquip;
-    public int _equipToolIndex
+    int[] _EquipToolIndex;
+    public int[] _equipToolIndex
     {
         get => _EquipToolIndex;
         set => _EquipToolIndex = value;

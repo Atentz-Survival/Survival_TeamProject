@@ -14,6 +14,11 @@ public class ItemInventoryWindow : MonoBehaviour
         set => _SelectedIndex = value;
     }
 
+    int toolItemTag_Length;
+    public int ToolItemTag_Length
+    {
+        get => toolItemTag_Length;
+    }
 
     Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
     public Color inventoryNormalColor
@@ -35,6 +40,7 @@ public class ItemInventoryWindow : MonoBehaviour
     private void Start()
     {
         explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
         RefreshItemInventory();
     }
 
@@ -68,10 +74,15 @@ public class ItemInventoryWindow : MonoBehaviour
                 else
                 {
                     bool nowEquip = false;
-                    if (i == ItemManager.Instance.itemInventory._equipToolIndex)
+                    for (int j = 0; j < ToolItemTag_Length; j++) 
                     {
-                        nowEquip = true;
+                        if (i == ItemManager.Instance.itemInventory._equipToolIndex[j])
+                        {
+                            nowEquip = true;
+                            break;
+                        }
                     }
+
                     itemInventoryWindowRooms[i].SetSpace(ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[i]].IconSprite, nowEquip);
                 }
             }
