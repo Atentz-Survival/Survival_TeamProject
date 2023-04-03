@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEditor.Sprites;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class PlayerBase : MonoBehaviour
     private int maxHp = 1000;          // 최대 hp
     private int hp = 1000;              // 현재 hp
 
-    bool isAction = false;
+    private bool isAction = false;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
     {
@@ -34,17 +35,36 @@ public class PlayerBase : MonoBehaviour
                 hp = value;
 
             onUpgradeHp?.Invoke(HP / maxHp);
-            /*
-            hp = value;
-
-            if(hp < 1)
-            {
-                OnDie();
-            }*/
         }
     }
 
     public Action<float> onUpgradeHp;
+
+    /*플레이어 상태 프로퍼티*/
+    public enum playerState
+    {
+        Nomal,
+        Gathering,      //풀채집
+        Fishing,        //낚시
+        TreeFelling,    //벌목
+        Mining,         //채광
+    }
+
+    public playerState State
+    {
+        get => state;
+        set
+        {
+            playerState state = value;
+        }
+    }
+    
+    playerState state;
+
+    GameObject fishing;
+    GameObject axe;
+    GameObject Reap;
+    GameObject Pick;
 
     [Header("컴포넌트")]
     private Animator anim;
@@ -66,7 +86,6 @@ public class PlayerBase : MonoBehaviour
         inputActions = new PlayerInput();
 
         handCollider = GetComponent<Collider>();
-
     }
     private void OnEnable()
     {
@@ -116,10 +135,21 @@ public class PlayerBase : MonoBehaviour
     private void Start()
     {
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
-        hp = maxHp;
+        HP = maxHp;
         HpChange();
         //Debug.Log(hp);
         item.onChangeHp += OnUpgradeHp; // <<인벤
+
+        fishing = GameObject.Find("FishingRod");
+        fishing.SetActive(false);
+        axe = GameObject.Find("axe");
+        axe.SetActive(false);
+        Reap = GameObject.Find("Reap");
+        Reap.SetActive(false);
+        Pick = GameObject.Find("Pick");
+        Pick.SetActive(false);
+
+        state = playerState.Nomal;
     }
     private void FixedUpdate()
     {
@@ -168,7 +198,7 @@ public class PlayerBase : MonoBehaviour
         if (HP > 0)
         {
             StartCoroutine(Decrease());
-            OnUpgradeHp(HP);
+            OnUpgradeHp(hp);
         }
     }
 
@@ -194,13 +224,29 @@ public class PlayerBase : MonoBehaviour
     private void OnAvtivity(InputAction.CallbackContext context)
     {
         isAction = true;
-        StartCoroutine(ActionCoroutine());
+        if(state == playerState.Fishing)
+        {
+            StartCoroutine(Fishing());
+        }
+        else
+        {
+            StartCoroutine(ActionCoroutine());
+        }
     }
 
     private void OnAvtivityStop(InputAction.CallbackContext context)
-    {
+    { 
         isAction = false;
-        StopCoroutine(ActionCoroutine());
+        if (state == playerState.Fishing)
+        {
+            StopCoroutine(Fishing());
+        }
+        else
+        {
+            StopCoroutine(ActionCoroutine());
+        }
+
+
     }
 
     //---공격용 코루틴---
@@ -212,14 +258,12 @@ public class PlayerBase : MonoBehaviour
             {
                 anim.SetTrigger("Attack-trigger");
             }
-                yield return new WaitForSeconds(2.5f);
+                
+            
+            yield return new WaitForSeconds(2.5f);
         }
     }
 
-    private void Test1(InputAction.CallbackContext obj)
-    {
-        StartCoroutine(Fishing());
-    }
 
     IEnumerator Fishing()
     {
@@ -227,6 +271,59 @@ public class PlayerBase : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         anim.SetBool("IsFishing", false);
 
+    }
+    void Test1(InputAction.CallbackContext context)
+    {
+        switch (state)
+        {
+            case playerState.Gathering:
+                fishing.SetActive(false);
+                axe.SetActive(false);
+                Reap.SetActive(true);
+                Pick.SetActive(false);
+                break;
+            case playerState.Fishing:
+
+                fishing.SetActive(true);
+                axe.SetActive(false);
+                Reap.SetActive(false);
+                Pick.SetActive(false);
+
+                break;
+            case playerState.TreeFelling:
+                fishing.SetActive(false);
+                axe.SetActive(true);
+                Reap.SetActive(false);
+                Pick.SetActive(false);
+                break;
+            case playerState.Mining:
+                fishing.SetActive(false);
+                axe.SetActive(false);
+                Reap.SetActive(false);
+                Pick.SetActive(true);
+                break;
+        }
+        Debug.Log(state);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Tree"))
+        {
+            state = playerState.TreeFelling;
+        }
+        else if(collision.gameObject.CompareTag("Flower"))
+        {
+            state = playerState.Gathering;
+        }
+        else if(collision.gameObject.CompareTag("Rock"))
+        {
+            state = playerState.Mining;
+        }
+        else if(collision.gameObject.CompareTag("Ocean"))
+        {
+            state = playerState.Fishing;
+        }
     }
     //----------------------------------그랩용 함수-------------------------------
 
@@ -239,16 +336,15 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (gameObject.CompareTag("Item"))
+        if (other.gameObject.CompareTag("DropItem"))
         {
-            DropItem pick = collision.GetComponent<DropItem>();
+            DropItem pick = other.GetComponent<DropItem>();
             if (pick != null)
             {
                 pick.Picked();
             }
-        }*/
-        if(other.gameObject.CompareTag("DropItem"))
             Debug.Log(other.gameObject.name);
+        }
     }
     //----------------------------------장소 상호작용 함수-------------------------------
 
@@ -256,7 +352,7 @@ public class PlayerBase : MonoBehaviour
     {
         int useHp = 50;                         // 행동에 따른 hp
 
-        if (hp > useHp)
+        if (HP > useHp)
         {
             anim.SetTrigger("Making_Trigger");
             HP -= 50;
