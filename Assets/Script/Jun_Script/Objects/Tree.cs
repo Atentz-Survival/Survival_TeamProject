@@ -31,7 +31,7 @@ public class Tree : PlaneBase
 
                     Destroy(gameObject);
 
-                    if (collision.gameObject.name == "Sphere")
+                    if (collision.gameObject.name == "axe")
                     {
                         TreeDrop1();
                     }

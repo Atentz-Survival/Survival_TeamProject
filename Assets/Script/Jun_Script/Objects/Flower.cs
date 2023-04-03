@@ -8,7 +8,7 @@ public class Flower : PlaneBase
     {
         Debug.Log("FlowerStart");
 
-        if (collision.gameObject.CompareTag("Saw"))
+        if (collision.gameObject.CompareTag("Reap"))
         {
 
             HP--;
@@ -26,7 +26,7 @@ public class Flower : PlaneBase
 
                 Destroy(gameObject);
 
-                if (collision.gameObject.name == "Sphere")
+                if (collision.gameObject.name == "Reap")
                 {
                     FlowerDrop1();
                 }

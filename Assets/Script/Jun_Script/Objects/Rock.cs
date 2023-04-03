@@ -18,7 +18,7 @@ public class Rock : BasementObject
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Pick"))
         {
             Debug.Log("GetStarted");
 
@@ -40,7 +40,7 @@ public class Rock : BasementObject
 
                 // 드랍 아이템 생성
 
-                if (collision.gameObject.name == "Sphere")
+                if (collision.gameObject.name == "Pick")
                 {
                     RockDrop1();
                 }

@@ -54,7 +54,7 @@ public class FishingBase : MonoBehaviour
             {
                 Debug.Log("Step1");
 
-                if (other.gameObject.name == "Sphere")
+                if (other.gameObject.name == "FishingRod")
                 {
                     Invoke("FishDrop1", waitT);
                     Debug.Log("Step3");
@@ -66,7 +66,7 @@ public class FishingBase : MonoBehaviour
                     Debug.Log("Step4");
                 }
 
-                else if (other.gameObject.name == "FisingLod")
+                else if (other.gameObject.name == "te")
                 {
                     FishDrop3();
                     Debug.Log("Step5");
