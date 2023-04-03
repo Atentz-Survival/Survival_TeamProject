@@ -18,8 +18,9 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction1(InputAction.CallbackContext _)
     {
-        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = Vector3.up * 9;
+        //GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        //obj.transform.position = Vector3.up * 9;
+        ItemManager.Instance.itemInventory.AddItem(ItemType.StonePickaxe, 1);
     }
 
     protected override void DoAction2(InputAction.CallbackContext _)
@@ -73,7 +74,7 @@ public class Test_Pool : Test_Base
         //        ItemManager.Instance.itemInventory.emptySpaceStartIndex++; // 아이템 인벤토리에 Strawberry를 추가한 뒤  그 Strawberry의 개수를 1개 추가
         //    }
         //}
-        ItemManager.Instance.itemInventory.AddItem(ItemType.Strawberry, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.IronSickle, 1);
         //itemInventoryWindow.RefreshItemInventory();
         Debug.Log(ItemManager.Instance.itemInventory.ItemAmountArray[0]); // 아이템 인벤토리 0번째 칸에 있는 아이템의 개수 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].ItemName); // Strawberry의 (한글)이름 출력
@@ -84,7 +85,7 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction5(InputAction.CallbackContext _)
     {
-        ItemManager.Instance.itemInventory.AddItem(ItemType.Avocado, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldFishingrod, 1);
      
         //SceneManager.LoadScene("SampleScene2");
     }

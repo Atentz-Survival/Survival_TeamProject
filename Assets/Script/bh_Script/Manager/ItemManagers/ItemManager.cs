@@ -70,6 +70,7 @@ public class ItemManager : Singleton<ItemManager>
 
     int ItemTypeCount;
     DropItemPool[] dropItemPools;
+    const int notSelect = -1;
 
 
     protected override void PreInitialize()
@@ -87,9 +88,14 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory = GetComponentInChildren<ItemInventory>();
             itemInventory.ItemAmountArray = new int[itemInventoryMaxSpace];
             itemInventory.ItemTypeArray = new ItemType[itemInventoryMaxSpace];
+            itemInventory._equipToolIndex = new int[System.Enum.GetValues(typeof(ToolItemTag)).Length];
             for (int i = 0; i < itemInventoryMaxSpace; i++)
             {
                 itemInventory.ItemTypeArray[i] = ItemType.Null;
+            }
+            for (int i = 0; i < itemInventory._equipToolIndex.Length; i++) 
+            {
+                itemInventory._equipToolIndex[i] = notSelect;
             }
         }
     }
