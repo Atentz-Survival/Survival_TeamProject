@@ -71,6 +71,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rush"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb1e1690-12fa-499a-839b-e18666d678ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoardAndMouse"",
                     ""action"": ""MouseMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdb06a75-d374-46a3-a9cc-519c07799edf"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardAndMouse"",
+                    ""action"": ""Rush"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -310,6 +330,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterMove_Move = m_CharacterMove.FindAction("Move", throwIfNotFound: true);
         m_CharacterMove_Interaction_Place = m_CharacterMove.FindAction("Interaction_Place", throwIfNotFound: true);
         m_CharacterMove_MouseMove = m_CharacterMove.FindAction("MouseMove", throwIfNotFound: true);
+        m_CharacterMove_Rush = m_CharacterMove.FindAction("Rush", throwIfNotFound: true);
         // Test
         m_Test = asset.FindActionMap("Test", throwIfNotFound: true);
         m_Test_Test1 = m_Test.FindAction("Test1", throwIfNotFound: true);
@@ -381,6 +402,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMove_Move;
     private readonly InputAction m_CharacterMove_Interaction_Place;
     private readonly InputAction m_CharacterMove_MouseMove;
+    private readonly InputAction m_CharacterMove_Rush;
     public struct CharacterMoveActions
     {
         private @PlayerInput m_Wrapper;
@@ -390,6 +412,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_CharacterMove_Move;
         public InputAction @Interaction_Place => m_Wrapper.m_CharacterMove_Interaction_Place;
         public InputAction @MouseMove => m_Wrapper.m_CharacterMove_MouseMove;
+        public InputAction @Rush => m_Wrapper.m_CharacterMove_Rush;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMove; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +437,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseMove.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
                 @MouseMove.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
                 @MouseMove.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
+                @Rush.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
+                @Rush.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
+                @Rush.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
             }
             m_Wrapper.m_CharacterMoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -433,6 +459,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseMove.started += instance.OnMouseMove;
                 @MouseMove.performed += instance.OnMouseMove;
                 @MouseMove.canceled += instance.OnMouseMove;
+                @Rush.started += instance.OnRush;
+                @Rush.performed += instance.OnRush;
+                @Rush.canceled += instance.OnRush;
             }
         }
     }
@@ -518,6 +547,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteraction_Place(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
+        void OnRush(InputAction.CallbackContext context);
     }
     public interface ITestActions
     {

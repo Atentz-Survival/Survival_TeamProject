@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -14,12 +15,14 @@ public class PlayerBase : MonoBehaviour
     //--------------------Public---------------------------
     public float moveSpeed = 5.0f;      //이동속도
     public float turnSpeed = 0.5f;     //회전속도
+    public float rushSpeed = 10.0f;
     //--------------------private---------------------------
     private float mouseDelta;          // 마우스의 위치값
     private int maxHp = 1000;          // 최대 hp
     private int hp = 1000;              // 현재 hp
 
     private bool isAction = false;
+    private bool isRun = false;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
     {
@@ -50,16 +53,13 @@ public class PlayerBase : MonoBehaviour
         Mining,         //채광
     }
 
+    playerState state;
+    public Action <playerState> GetState;
     public playerState State
     {
-        get => state;
-        set
-        {
-            playerState state = value;
-        }
+        get=> state;
     }
-    
-    playerState state;
+
 
     GameObject fishing;
     GameObject axe;
@@ -99,6 +99,8 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
         inputActions.CharacterMove.Move.performed += OnMoveInput;
         inputActions.CharacterMove.Move.canceled += OnMoveInput;
+        inputActions.CharacterMove.Rush.performed += OnRunInput;
+        inputActions.CharacterMove.Rush.canceled += OnRunInputStop;
 
         inputActions.CharacterMove.Activity.performed += OnAvtivity;
         inputActions.CharacterMove.Activity.canceled += OnAvtivityStop;
@@ -110,6 +112,8 @@ public class PlayerBase : MonoBehaviour
 
         //-----전달 받을 델리게이트----
     }
+
+
     private void OnDisable()
     {
         //애니메이션 테스트용
@@ -120,6 +124,8 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.MouseMove.performed -= OnMouseMoveInput;
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
         inputActions.CharacterMove.Move.performed -= OnMoveInput;
+        inputActions.CharacterMove.Rush.performed -= OnRunInput;
+        inputActions.CharacterMove.Rush.canceled -= OnRunInputStop;
 
         inputActions.CharacterMove.Activity.performed -= OnAvtivity;
         inputActions.CharacterMove.Activity.canceled -= OnAvtivityStop;
@@ -168,12 +174,30 @@ public class PlayerBase : MonoBehaviour
     {
         mouseDelta = context.ReadValue<float>();
     }
+
+    private void OnRunInput(InputAction.CallbackContext obj)
+    {
+        isRun = true;
+        anim.SetBool("isRun", isRun);
+    }
+    private void OnRunInputStop(InputAction.CallbackContext obj)
+    {
+        isRun = false;
+        anim.SetBool("isRun", isRun);
+    }
     void Move()
     {
         V3 = new Vector3(0, mouseDelta, 0);      //마우스 z좌표 이동 y축 회전 값으로 저장
         mouseDelta = 0.0f;                       //초기하 작업
         transform.Rotate(V3 * turnSpeed);        // 턴스피드 속도만큼 회전
-        rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);       // 로컬(본인기준 왼오위아래) 방향 이동처리
+        if(isRun == true)
+        {
+            rigid.MovePosition(Time.fixedDeltaTime * rushSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
+        }
+        else
+        {
+            rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);       // 로컬(본인기준 왼오위아래) 방향 이동처리
+        }
     }
 
     //----------------------------------Hp 관리용 함수-------------------------------
@@ -283,7 +307,6 @@ public class PlayerBase : MonoBehaviour
                 Pick.SetActive(false);
                 break;
             case playerState.Fishing:
-
                 fishing.SetActive(true);
                 axe.SetActive(false);
                 Reap.SetActive(false);
