@@ -85,7 +85,7 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction5(InputAction.CallbackContext _)
     {
-        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldFishingrod, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.Avocado, 23);
      
         //SceneManager.LoadScene("SampleScene2");
     }

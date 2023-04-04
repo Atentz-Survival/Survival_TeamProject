@@ -130,8 +130,8 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
                     break;
                 }
             }
-            itemInventoryWindow.RefreshItemInventory();
         }
+        itemInventoryWindow.RefreshItemInventory();
     }
 
     void ItemDump()

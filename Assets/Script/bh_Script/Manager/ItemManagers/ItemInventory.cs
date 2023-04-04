@@ -49,10 +49,20 @@ public class ItemInventory : MonoBehaviour
             bool inventoryAlreadyhave = false; // 아이템 인벤토리에 특정 아이템이 있는지 여부를 확인하는 bool 변수
             for (int i = 0; i < emptySpaceStartIndex; i++)
             {
-                if (ItemTypeArray[i] == itemType)
+                if (ItemTypeArray[i] == itemType && ItemAmountArray[i] < ItemManager.Instance.itemInventoryWindowMaxAmount)
                 {
-                    ItemAmountArray[i] += amount;
-                    inventoryAlreadyhave = true;
+                    if (ItemAmountArray[i] + amount <= ItemManager.Instance.itemInventoryWindowMaxAmount)
+                    {
+                        ItemAmountArray[i] += amount;
+                        inventoryAlreadyhave = true;
+                    }
+                    else 
+                    {
+                        int amountOfPart = ItemManager.Instance.itemInventoryWindowMaxAmount - ItemAmountArray[i];
+                        ItemAmountArray[i] += amountOfPart;
+                        AddItem(itemType, amount - amountOfPart);
+                        inventoryAlreadyhave = true;
+                    }
                     break;
                 } //아이템 인벤토리에서 Strawberry가 있는지 검사하고 있다면, 그 위치에 개수 1개 추가
             }
@@ -82,5 +92,10 @@ public class ItemInventory : MonoBehaviour
 
     public void SubtractItem(ItemType itemType, int amount) 
     {
+    }
+
+    public void GetEquipToolLevel() 
+    {
+        
     }
 }
