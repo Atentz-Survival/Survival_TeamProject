@@ -53,6 +53,13 @@ public class ItemManager : Singleton<ItemManager>
     }
 
     [SerializeField]
+    int ItemInventoryWindowMaxAmount;
+    public int itemInventoryWindowMaxAmount
+    {
+        get => ItemInventoryWindowMaxAmount;
+    }
+
+    [SerializeField]
     int NotDropItemTypeAmount = 1;
     public int notDropItemTypeAmount
     {

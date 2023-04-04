@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemInventoryMaxSpace: 16
+  ItemInventoryWindowMaxAmount: 30
   NotDropItemTypeAmount: 16
   itemDatas:
   - {fileID: 11400000, guid: a98b224fec93504459731eda93fb193c, type: 2}
