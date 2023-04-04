@@ -94,8 +94,14 @@ public class ItemInventory : MonoBehaviour
     {
     }
 
-    public void GetEquipToolLevel() 
+    public int GetEquipToolLevel(ToolItemTag toolItemTag) 
     {
-        
+        if (_equipToolIndex[(int)toolItemTag] != notEquip) {
+            return ((ToolItemData)ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[_equipToolIndex[(int)toolItemTag]]]).Level;
+        } 
+        else 
+        {
+            return notEquip;
+        }
     }
 }
