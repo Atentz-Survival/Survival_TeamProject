@@ -28,6 +28,10 @@ public class ItemInventoryWindow : MonoBehaviour
 
     ItemInventoryWindowRoom[] itemInventoryWindowRooms;
     ItemInventoryWindowExplanRoom explanRoom;
+    public ItemInventoryWindowExplanRoom ExplanRoom
+    {
+        get => explanRoom;
+    }
 
     string[] itemTagString;
 
@@ -102,6 +106,7 @@ public class ItemInventoryWindow : MonoBehaviour
             _selectedIndex = index;
             return;
         }
+        itemInventoryWindowRooms[index]._panelImage.color = Color.green;
         if (_selectedIndex != notSelect)
         {
             itemInventoryWindowRooms[_selectedIndex]._panelImage.color = inventoryNormalColor;
@@ -114,4 +119,5 @@ public class ItemInventoryWindow : MonoBehaviour
         _selectedIndex = index;
     }
     // Update is called once per frame
+
 }
