@@ -70,9 +70,19 @@ public class ItemInventory : MonoBehaviour
             {
                 if (emptySpaceStartIndex < ItemManager.Instance.itemInventoryMaxSpace) // 그리고 만약 아이템 인벤토리가 꽉 차지 않았다면
                 {
-                    ItemTypeArray[emptySpaceStartIndex] = itemType;
-                    ItemAmountArray[emptySpaceStartIndex] += amount;
-                    emptySpaceStartIndex++; // 아이템 인벤토리에 Strawberry를 추가한 뒤  그 Strawberry의 개수를 1개 추가
+                    if (amount <= ItemManager.Instance.itemInventoryWindowMaxAmount)
+                    {
+                        ItemTypeArray[emptySpaceStartIndex] = itemType;
+                        ItemAmountArray[emptySpaceStartIndex] += amount;
+                        emptySpaceStartIndex++;
+                    }
+                    else 
+                    {
+                        ItemTypeArray[emptySpaceStartIndex] = itemType;
+                        ItemAmountArray[emptySpaceStartIndex] += ItemManager.Instance.itemInventoryWindowMaxAmount;
+                        emptySpaceStartIndex++;
+                        AddItem(itemType, amount - ItemManager.Instance.itemInventoryWindowMaxAmount);
+                    }
                 }
             }
         }
@@ -80,9 +90,19 @@ public class ItemInventory : MonoBehaviour
         {
             if (emptySpaceStartIndex < ItemManager.Instance.itemInventoryMaxSpace)
             {
-                ItemTypeArray[emptySpaceStartIndex] = itemType;
-                ItemAmountArray[emptySpaceStartIndex] = 1;
-                emptySpaceStartIndex++;
+                if (amount <= 1)
+                {
+                    ItemTypeArray[emptySpaceStartIndex] = itemType;
+                    ItemAmountArray[emptySpaceStartIndex] = 1;
+                    emptySpaceStartIndex++;
+                }
+                else 
+                {
+                    ItemTypeArray[emptySpaceStartIndex] = itemType;
+                    ItemAmountArray[emptySpaceStartIndex] = 1;
+                    emptySpaceStartIndex++;
+                    AddItem(itemType, amount - 1);
+                }
             }
         }
         if (itemsInventoryWindow != null) {
@@ -92,10 +112,119 @@ public class ItemInventory : MonoBehaviour
 
     public void SubtractItem(ItemType itemType, int amount) 
     {
+        int i = 0;
+        if (ItemManager.Instance[itemType].Tag != ItemTag.Tool)
+        {
+            for (; i < emptySpaceStartIndex; i++)
+            {
+                if (ItemTypeArray[i] == itemType)
+                {
+                    if (ItemAmountArray[i] >= amount)
+                    {
+                        ItemAmountArray[i] -= amount;
+                        amount = 0;
+                    }
+                    else
+                    {
+                        amount -= ItemAmountArray[i];
+                        ItemAmountArray[i] = 0;
+                    }
+                    break;
+                }
+            }
+        }
+        else 
+        {
+            for (; i < emptySpaceStartIndex; i++)
+            {
+                if (ItemTypeArray[i] == itemType)
+                {
+                    ItemAmountArray[i] = 0;
+                    amount -= 1;
+                    break;
+                }
+            }
+        }
+
+        if (ItemAmountArray[i] <= 0)
+        {
+            for (int j = 0; j < _equipToolIndex.Length; j++)
+            {
+                if (_equipToolIndex[j] == i)
+                {
+                    _equipToolIndex[j] = notEquip;
+                    break;
+                }
+            }
+            if (itemsInventoryWindow != null)
+            {
+                if (itemsInventoryWindow._selectedIndex == i)
+                {
+                    itemsInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
+                    itemsInventoryWindow.ExplanRoom.initialize();
+                }
+            }
+            int currentIndex = i;
+            for (; currentIndex + 1 < emptySpaceStartIndex; currentIndex++)
+            {
+                ItemTypeArray[currentIndex] = ItemTypeArray[currentIndex + 1];
+                ItemAmountArray[currentIndex] = ItemAmountArray[currentIndex + 1];
+                for (int j = 0; j < _equipToolIndex.Length; j++)
+                {
+                    if (currentIndex + 1 == _equipToolIndex[j])
+                    {
+                        _equipToolIndex[j] -= 1;
+                        break;
+                    }
+                }
+                if (currentIndex + 1 == itemsInventoryWindow._selectedIndex) 
+                {
+                    itemsInventoryWindow.SetExplan(itemsInventoryWindow._selectedIndex - 1);
+                }
+            }
+            ItemTypeArray[currentIndex] = ItemType.Null;
+            ItemAmountArray[currentIndex] = 0;
+            emptySpaceStartIndex -= 1;
+        }
+        if (amount > 0) 
+        {
+            SubtractItem(itemType, amount);
+        }
+        if (itemsInventoryWindow != null)
+        {
+            itemsInventoryWindow.RefreshItemInventory();
+        }
     }
 
-    public void GetEquipToolLevel() 
+    public int GetEquipToolLevel(ToolItemTag toolItemTag) 
     {
-        
+        if (_equipToolIndex[(int)toolItemTag] != notEquip) {
+            return ((ToolItemData)ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[_equipToolIndex[(int)toolItemTag]]]).Level;
+        } 
+        else 
+        {
+            return notEquip;
+        }
+    }
+
+    public bool FindItem(ItemType itemType, int amount) 
+    {
+        bool isInventoryHave = false; // 아이템 인벤토리에 특정 아이템이 있는지 여부를 확인하는 bool 변수
+        for (int i = 0; i < emptySpaceStartIndex; i++)
+        {
+            if (ItemTypeArray[i] == itemType)
+            {
+                if (ItemAmountArray[i] >= amount)
+                {
+                    isInventoryHave = true;
+                    break;
+                }
+                else 
+                {
+                    amount -= ItemAmountArray[i];
+                }
+            } 
+        }
+        return isInventoryHave;
     }
 }

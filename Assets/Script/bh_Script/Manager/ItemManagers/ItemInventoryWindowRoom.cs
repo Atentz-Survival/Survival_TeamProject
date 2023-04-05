@@ -75,7 +75,6 @@ public class ItemInventoryWindowRoom : MonoBehaviour
     {
         if (itemInventoryWindow._selectedIndex != _index)
         {
-            _panelImage.color = Color.green;
             itemInventoryWindow.SetExplan(_index);
         }
     }
