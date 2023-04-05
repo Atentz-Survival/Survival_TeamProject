@@ -87,8 +87,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(gameObject , 4.0f);
         }
     }
 
@@ -112,8 +111,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(gameObject , 4.0f);
         }
     }
 
@@ -139,8 +137,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(gameObject, 4.0f);
         }
     }
 
@@ -164,8 +161,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(gameObject, 4.0f);
         }
     }
 
@@ -189,8 +185,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(gameObject, 4.0f);
         }
     }
 
@@ -215,8 +210,7 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            new WaitForSeconds(2);
-            Destroy(this);
+            Destroy(obj , 4.0f);
         }
     }
 
@@ -241,7 +235,7 @@ public class BasementObject : MonoBehaviour
             obj.transform.position = Vector3.up * 9;
 
             new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(obj , 4.0f);
         }
     }
 
@@ -266,7 +260,7 @@ public class BasementObject : MonoBehaviour
             obj.transform.position = Vector3.up * 9;
 
             new WaitForSeconds(2);
-            Destroy(gameObject);
+            Destroy(obj , 4.0f);
         }
     }
 
