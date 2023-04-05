@@ -71,7 +71,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         initialize();
     }
 
-    void initialize()
+    public void initialize()
     {
         _itemName.text = string.Empty;
         _itemExplan.text = string.Empty;
