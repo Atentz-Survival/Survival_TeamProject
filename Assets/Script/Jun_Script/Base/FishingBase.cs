@@ -84,7 +84,7 @@ public class FishingBase : MonoBehaviour
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Galchi);
         fobj.transform.position = transform.position;
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0 , 50 , 0);
+        Vector3 disVec = (endPos - startPos) + new Vector3(0 , 50 , 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec* 10);
 
@@ -100,7 +100,7 @@ public class FishingBase : MonoBehaviour
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Gazami);
         fobj.transform.position = transform.position;
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0);
+        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 
@@ -113,7 +113,7 @@ public class FishingBase : MonoBehaviour
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Shark);
         fobj.transform.position = transform.position;
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0);
+        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 

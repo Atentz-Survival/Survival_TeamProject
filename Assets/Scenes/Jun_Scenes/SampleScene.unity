@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07064648, g: 0.35282674, b: 0.96832114, a: 1}
+  m_IndirectSpecularColor: {r: 0.07061042, g: 0.35375834, b: 0.97078264, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1935,6 +1935,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!4 &216056864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4468868500850190, guid: b200516e65de5a142a3bbadb73cd77e4, type: 3}
@@ -3449,6 +3450,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &332943847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4527,6 +4529,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &395076939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5194,6 +5197,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1 &464469618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,63 +5276,6 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!1001 &465616244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4586358296951022240, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_Name
-      value: ItemManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
 --- !u!1001 &485605481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5451,6 +5398,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &485708507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5705,6 +5653,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &524140223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7931,6 +7880,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!4 &654487860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562538906941140, guid: d0e76f6d08ce67d48994804f237e67eb, type: 3}
@@ -9686,6 +9636,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &807116596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10274,6 +10225,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1 &890480551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
@@ -10613,6 +10565,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!4 &909145649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4487497722799186, guid: 9d05e0cabe0f8c641b0a87ecc3a9017e, type: 3}
@@ -10894,6 +10847,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &926593487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11820,6 +11774,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &996769041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12785,6 +12740,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1084430150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12879,6 +12835,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507993}
 --- !u!1001 &1103392520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12981,6 +12938,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1 &1109364591
 GameObject:
   m_ObjectHideFlags: 0
@@ -13811,6 +13769,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507993}
 --- !u!1001 &1192728097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14443,8 +14402,8 @@ GameObject:
   - component: {fileID: 1237794049}
   - component: {fileID: 1237794054}
   m_Layer: 0
-  m_Name: Sphere
-  m_TagString: FisingRod
+  m_Name: axe
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15941,6 +15900,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1 &1474951938
 GameObject:
   m_ObjectHideFlags: 0
@@ -16208,7 +16168,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1479270534
 PrefabInstance:
@@ -16344,6 +16304,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1479987482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16852,6 +16813,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1523794936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16990,6 +16952,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1525597229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17688,6 +17651,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1587870670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17935,6 +17899,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1614816751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18131,6 +18096,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4562538906941140, guid: d0e76f6d08ce67d48994804f237e67eb, type: 3}
   m_PrefabInstance: {fileID: 913240557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1633288613
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4586358296951022240, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_Name
+      value: ItemManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
 --- !u!1001 &1640693355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18352,6 +18374,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1645096729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18784,6 +18807,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1675233087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19803,6 +19827,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1745132907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20113,6 +20138,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1765314439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20235,6 +20261,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1771874794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20520,6 +20547,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1821455229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20630,6 +20658,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1827161489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20995,6 +21024,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &1866302308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21285,6 +21315,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1 &1914009430
 GameObject:
   m_ObjectHideFlags: 0
@@ -21329,7 +21360,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914009433
 MonoBehaviour:
@@ -21748,6 +21779,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!4 &1977719384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4687956973215160, guid: 7aec7d7b6b4e5f24f832c33028ee90d9, type: 3}
@@ -22890,6 +22922,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &2055280132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23032,6 +23065,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &2077439051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23310,6 +23344,7 @@ MonoBehaviour:
   HP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!1001 &2097395646
 PrefabInstance:
   m_ObjectHideFlags: 0

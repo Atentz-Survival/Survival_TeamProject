@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class Sunshine : MonoBehaviour
 {
-    public Material skybox;
+    public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
+    public static ReSpawnObject OnRespawn;                 // 다른 클래스에서 호출시키기 위한 변수설정
+
+
+public Material skybox;
     float alpha = 0.0f;
     public float beta = 0.0008f;
 
@@ -17,12 +21,16 @@ public class Sunshine : MonoBehaviour
 
     public float vecT = 0.5f;    // 6분경과
     float t;
+    float round;
+
+    Quaternion vec;
 
     // fog
     private float morningFog;   // 아침의 안개량
 
     private void Start()
     {
+        OnRespawn = SunLight;
         morningFog = RenderSettings.fogDensity;
     }
 
@@ -38,7 +46,9 @@ public class Sunshine : MonoBehaviour
         // transform.Rotate(new Vector3(forTimeInGame * t  , 0f , 0f)); // light의 회전
 
         t += Time.deltaTime;
-        transform.rotation = Quaternion.Euler(vecT * t , 0 , 0);  // 1초에 0.25도 만큼 회전
+        round = vecT * t;
+        vec = Quaternion.Euler(round, 0, 0);
+        transform.rotation = vec;  // 1초에 0.25도 만큼 회전
         // Debug.Log(transform.rotation.x);
 
 
@@ -46,19 +56,19 @@ public class Sunshine : MonoBehaviour
         {
             isNight = false;                    // 낮이 된다.
 
-            if (alpha <= 0.6f && alpha > -1.0f)
+            if (alpha < 0.6f && alpha > -0.1f)
             {
                 alpha += beta * forTimeInGame * t;
                 skybox.SetFloat("_CubemapTransition", alpha);   // CubemapTrasition의 수치가 alpha가 된다. : 0 ~ 0.6
             }
 
-            else if(transform.eulerAngles.x < 0.0f && transform.eulerAngles.x >170.0f)
+            else if(alpha >= maxAlpha)
             {
                 alpha = maxAlpha;                               // 0.6
             }
         }
 
-        else if (transform.eulerAngles.x >= 170)     // Light의 x값이 170보다 커지면
+        else if (transform.eulerAngles.x < 0.0f && transform.eulerAngles.x >= 170)     // Light의 x값이 170보다 커지면
         {
             isNight = true;                     // 밤
         }

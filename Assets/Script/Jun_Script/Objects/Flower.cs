@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flower : PlaneBase
 {
+    private bool isFlower = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("FlowerStart");
@@ -24,7 +26,12 @@ public class Flower : PlaneBase
                 GameObject obj = Instantiate(Meffect);
                 obj.transform.position = transform.position;
 
-                Destroy(gameObject);
+                isFlower = true;                 // 오브젝트 삭제
+                if (isFlower)
+                {
+                    // Destroy(gameObject);
+                    gameObject.SetActive(false);
+                }
 
                 if (collision.gameObject.name == "Reap")
                 {
@@ -42,12 +49,11 @@ public class Flower : PlaneBase
                 {
                     Debug.Log("None");
                 }
-                // 드랍아이템 생성
 
-                // 오브젝트가 서서히 사라지는 코드 작성
-                // mesg filter와 meshrenderer을 사용해서 알파값을 서서히 0으로 낮추는 코드 작성
-                // 페이드인 , 페이드 아웃 사용
-
+                // isFlower = true일 때 오브젝트가 삭제 되며 드랍아이템이 생성
+                // 그 이후 isFlower = false가 되며 Sunshine의 vec의 x.rotation의 값이 0도가 되었을 때 , 리스폰
+                isFlower= false;                 // 오브젝트 활성화를 위한 false
+                
             }
         }
     }
