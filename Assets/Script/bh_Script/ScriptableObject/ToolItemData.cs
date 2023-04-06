@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum ToolItemTag
 {
-    Axe = 0,
-    Pickaxe,
-    Sickle,
-    Fishingrod
+    Axe = 0,    //µµ³¢
+    Pickaxe,    // °î°»
+    Sickle,     // ³´
+    Fishingrod  //³¬
 }
 
 [CreateAssetMenu(menuName = "Scriptable Object/ToolItemData")]

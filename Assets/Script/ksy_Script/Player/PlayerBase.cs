@@ -75,6 +75,7 @@ public class PlayerBase : MonoBehaviour
     private Animator anim;
     private Rigidbody rigid;
     private ItemInventoryWindowExplanRoom item;
+    private ItemInventory inventory;
 
     Collider handCollider;
 
@@ -305,6 +306,12 @@ public class PlayerBase : MonoBehaviour
     {
         switch (state)
         {
+            case playerState.Nomal:
+                fishing.SetActive(false);
+                axe.SetActive(false);
+                Reap.SetActive(false);
+                Pick.SetActive(false);
+                break;
             case playerState.Gathering:
                 fishing.SetActive(false);
                 axe.SetActive(false);
@@ -323,12 +330,14 @@ public class PlayerBase : MonoBehaviour
                 axe.SetActive(true);
                 Reap.SetActive(false);
                 Pick.SetActive(false);
+                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe);
                 break;
             case playerState.Mining:
                 fishing.SetActive(false);
                 axe.SetActive(false);
                 Reap.SetActive(false);
                 Pick.SetActive(true);
+                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe);
                 break;
         }
         Debug.Log(state);
@@ -339,6 +348,8 @@ public class PlayerBase : MonoBehaviour
         if(collision.gameObject.CompareTag("Tree"))
         {
             state = playerState.TreeFelling;
+
+           //isTreeFelling = true;
         }
         else if(collision.gameObject.CompareTag("Flower"))
         {
@@ -349,6 +360,28 @@ public class PlayerBase : MonoBehaviour
             state = playerState.Mining;
         }
         else if(collision.gameObject.CompareTag("Ocean"))
+        {
+            state = playerState.Fishing;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Tree") 
+            || collision.gameObject.CompareTag("Flower")
+            || collision.gameObject.CompareTag("Rock")
+            || collision.gameObject.CompareTag("Ocean"))
+        {
+            state = playerState.TreeFelling;
+        }
+        else if (collision.gameObject.CompareTag("Flower"))
+        {
+            state = playerState.Gathering;
+        }
+        else if (collision.gameObject.CompareTag("Rock"))
+        {
+            state = playerState.Mining;
+        }
+        else if (collision.gameObject.CompareTag("Ocean"))
         {
             state = playerState.Fishing;
         }
