@@ -145,7 +145,10 @@ public class ItemInventory : MonoBehaviour
                 }
             }
         }
-
+        if (i == emptySpaceStartIndex) 
+        {
+            return;
+        }
         if (ItemAmountArray[i] <= 0)
         {
             for (int j = 0; j < _equipToolIndex.Length; j++)
