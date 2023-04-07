@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemInventoryMaxSpace: 16
   ItemInventoryWindowMaxAmount: 30
-  NotDropItemTypeAmount: 16
+  NotDropItemTypeAmount: 17
   itemDatas:
   - {fileID: 11400000, guid: a98b224fec93504459731eda93fb193c, type: 2}
   - {fileID: 11400000, guid: 8f898c2e72a883149aab6b4800d31f46, type: 2}
@@ -409,6 +409,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 45ad772365e58a340a786f3e19e31c1c, type: 2}
   - {fileID: 11400000, guid: 6bf07830f4b2583468cca1bb51d595e8, type: 2}
   - {fileID: 11400000, guid: d3126f954d5144641b2a03f30bf519aa, type: 2}
+  - {fileID: 11400000, guid: 5233417661144654eb910dc914081686, type: 2}
 --- !u!1 &4586358297168579759
 GameObject:
   m_ObjectHideFlags: 0
