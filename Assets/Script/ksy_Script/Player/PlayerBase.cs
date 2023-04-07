@@ -356,7 +356,7 @@ public class PlayerBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Tree"))
+        /*if(collision.gameObject.CompareTag("Tree"))
         {
             state = playerState.TreeFelling;
             isEqualWithState[(int)state] = true;
@@ -377,15 +377,15 @@ public class PlayerBase : MonoBehaviour
         {
             state = playerState.Fishing;
             isEqualWithState[(int)state] = true;
-        }
+        }*/
     }
-    private void OnCollisionExit(Collision collision)
-    {
 
-        if (collision.gameObject.CompareTag("Tree")
-            || collision.gameObject.CompareTag("Flower")
-            || collision.gameObject.CompareTag("Rock")
-            || collision.gameObject.CompareTag("Ocean"))
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Tree")
+           || other.gameObject.CompareTag("Flower")
+           || other.gameObject.CompareTag("Rock")
+           || other.gameObject.CompareTag("Ocean"))
         {
             state = playerState.Nomal;
             for (int i = 0; i < isEqualWithState.Length; i++)
@@ -423,6 +423,29 @@ public class PlayerBase : MonoBehaviour
                 pick.Picked();
             }
             Debug.Log(other.gameObject.name);
+        }
+
+        if (other.gameObject.CompareTag("Tree"))
+        {
+            state = playerState.TreeFelling;
+            isEqualWithState[(int)state] = true;
+
+            //isTreeFelling = true;
+        }
+        else if (other.gameObject.CompareTag("Flower"))
+        {
+            state = playerState.Gathering;
+            isEqualWithState[(int)state] = true;
+        }
+        else if (other.gameObject.CompareTag("Rock"))
+        {
+            state = playerState.Mining;
+            isEqualWithState[(int)state] = true;
+        }
+        else if (other.gameObject.CompareTag("Ocean"))
+        {
+            state = playerState.Fishing;
+            isEqualWithState[(int)state] = true;
         }
     }
     //----------------------------------장소 상호작용 함수-------------------------------

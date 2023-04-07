@@ -68,10 +68,10 @@ public class ItemToolTips : MonoBehaviour
                 {
                     ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
                     ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
-                    if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex)
+                   /* if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex)
                     {
                         ItemManager.Instance.itemInventory._equipToolIndex -= 1;
-                    }
+                    }*/
                 }
                 ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
                 ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
@@ -82,14 +82,14 @@ public class ItemToolTips : MonoBehaviour
         }
         else if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Tool)
         {
-            if (ItemManager.Instance.itemInventory._equipToolIndex != itemInventoryWindow._selectedIndex)
+           /* if (ItemManager.Instance.itemInventory._equipToolIndex != itemInventoryWindow._selectedIndex)
             {
                 ItemManager.Instance.itemInventory._equipToolIndex = itemInventoryWindow._selectedIndex;
             }
             else
             {
                 ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
-            }
+            }*/
         }
         itemInventoryWindow.RefreshItemInventory();
     }
@@ -99,19 +99,19 @@ public class ItemToolTips : MonoBehaviour
         ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
         if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
         {
-            if (ItemManager.Instance.itemInventory._equipToolIndex == itemInventoryWindow._selectedIndex)
+            /*if (ItemManager.Instance.itemInventory._equipToolIndex == itemInventoryWindow._selectedIndex)
             {
                 ItemManager.Instance.itemInventory._equipToolIndex = ItemInventory.notEquip;
-            }
+            }*/
             int currentIndex = itemInventoryWindow._selectedIndex;
             for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
             {
                 ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
                 ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
-                if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex)
+                /*if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex)
                 {
                     ItemManager.Instance.itemInventory._equipToolIndex -= 1;
-                }
+                }*/
             }
             ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
             ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
