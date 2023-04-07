@@ -9,9 +9,9 @@ public class BasementObject : MonoBehaviour
     // 돌 , 꽃 , 나무가 공통으로 가지는 Base
     // 체력 , effect
 
-    public int maxHP = 3;
+    public int objectMaxHP = 3;
 
-    public int HP = 3;
+    public int objectHP = 3;
 
     public GameObject Effect;   // 치집 , 채굴시의 이펙트
     public GameObject Meffect;
@@ -123,6 +123,7 @@ public class BasementObject : MonoBehaviour
 
         if (a_Random <= a)
         {
+            Debug.Log("Step1");
             objectInit1();
         }
         else
@@ -134,10 +135,10 @@ public class BasementObject : MonoBehaviour
 
         void objectInit1()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            Destroy(gameObject, 4.0f);
+            Destroy(obj, 4.0f);
         }
     }
 
@@ -158,10 +159,10 @@ public class BasementObject : MonoBehaviour
 
         void objectInit2()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            Destroy(gameObject, 4.0f);
+            Destroy(obj, 4.0f);
         }
     }
 
@@ -182,10 +183,10 @@ public class BasementObject : MonoBehaviour
 
         void objectInit3()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Null); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
 
-            Destroy(gameObject, 4.0f);
+            Destroy(obj, 4.0f);
         }
     }
 

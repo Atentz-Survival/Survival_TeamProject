@@ -5,36 +5,30 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Tree : PlaneBase
 {
-    public GameObject rotateObject;
-    private bool isTree = false;
+    public Transform rotateObject;
+    private bool isDisTree = false;     // 나무가 사라졌는지 확인하기위한 변수
 
     private void Start()
     {
-        Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행
-
-    }
-    private void Update()
-    {
-        
+        Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
     }
 
     private void Respawn()
     {
-        if (rotateObject.transform.rotation.x >= 0.0f)      // 이거를 update로 올리고 범위를 0.0 ~ 0.01정도로 맞추면 되지않을까....?
+        // Debug.Log(gameObject);
+        if(isDisTree)
         {
-            isTree = false;
-            if (isTree == false)
+            Quaternion qua = rotateObject.rotation;
+            // Debug.Log(qua);
+            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f)) 
             {
-                Debug.Log(gameObject);
+                // 쿼터니안의 범위는 0~ 1.0 ~ 0 ~ -1.0 ~ 0 의 2*sin x 의 그래프와같은 형태이므로 아침이오기전의 값인 -0.001f 와 0.001값부터 아침이되는 0사이에 오브젝트 활성화
                 gameObject.SetActive(true);
-            }
-
-            else
-            {
-                Debug.Log("ERROR");
+                Debug.Log("TreeRespawn");
             }
         }
     }
@@ -43,44 +37,42 @@ public class Tree : PlaneBase
     {
         if (collision.gameObject.CompareTag("Axe"))
         {
-            Debug.Log("TreeStart");
-
-            if (collision.gameObject.CompareTag("Axe"))
+            objectHP--;
+            Debug.Log($"First : {objectHP}");
+            if (objectHP > 0)
             {
+                Debug.Log("TreeStart");
+                GameObject obj = Instantiate(Effect);
+                obj.transform.position = transform.position;
+            }
 
-                HP--;
-                Debug.Log($"First : {HP}");
-                if (HP > 0)
+            else if (objectHP == 0)
+            {
+                Debug.Log($"Second : {objectHP}");
+                GameObject obj = Instantiate(Meffect);
+                obj.transform.position = transform.position;
+
+                gameObject.SetActive(false);
+
+                isDisTree = true;
+
+                if (collision.gameObject.name == "axe")
                 {
-                    GameObject obj = Instantiate(Effect);
-                    obj.transform.position = transform.position;
+                    TreeDrop1();
                 }
-
-                else if (HP <= 0)
+                else if (collision.gameObject.name == "Cube")
                 {
-                    GameObject obj = Instantiate(Meffect);
-                    obj.transform.position = transform.position;
-
-                    isTree = true;
-                    gameObject.SetActive(false);
-
-                    if (collision.gameObject.name == "axe")
-                    {
-                        TreeDrop1();
-                    }
-                    else if (collision.gameObject.name == "Cube")
-                    {
-                        TreeDrop2();
-                    }
-                    else if (collision.gameObject.name == "Axe")
-                    {
-                        TreeDrop3();
-                    }
-                    else
-                    {
-                        Debug.Log("None");
-                    }
+                    TreeDrop2();
                 }
+                else if (collision.gameObject.name == "Axe")
+                {
+                    TreeDrop3();
+                }
+                else
+                {
+                    Debug.Log("None");
+                }
+                objectHP = objectMaxHP;                         // 체력이0이되면서 아이템이 생성되며 오브젝트의 체력을 max체력으로 돌려준다.
             }
         }
     }

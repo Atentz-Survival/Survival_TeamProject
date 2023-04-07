@@ -1,37 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Flower : PlaneBase
 {
-    private bool isFlower = false;
+    public Transform rotateObject;
+    private bool isDisFlower = false;
+
+    private void Start()
+    {
+        Sunshine.OnRespawn += RespawnF;
+    }
+
+    private void RespawnF()
+    {
+        if (isDisFlower)
+        {
+            Quaternion qua = rotateObject.rotation;
+            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f))
+            {
+                gameObject.SetActive(true);
+                Debug.Log("FlowerRespawn");
+            }
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("FlowerStart");
-
         if (collision.gameObject.CompareTag("Reap"))
         {
-
-            HP--;
-            Debug.Log($"First : {HP}");
-            if (HP > 0)
+            objectHP--;
+            Debug.Log($"First : {objectHP}");
+            if (objectHP > 0)
             {
                 GameObject obj = Instantiate(Effect);
                 obj.transform.position = transform.position;
             }
 
-            else if (HP <= 0)
+            else if (objectHP == 0)
             {
+                Debug.Log($"Second : {objectHP}");
                 GameObject obj = Instantiate(Meffect);
                 obj.transform.position = transform.position;
 
-                isFlower = true;                 // 오브젝트 삭제
-                if (isFlower)
-                {
-                    // Destroy(gameObject);
-                    gameObject.SetActive(false);
-                }
+                gameObject.SetActive(false);
+
+                isDisFlower = true;
 
                 if (collision.gameObject.name == "Reap")
                 {
@@ -50,9 +65,7 @@ public class Flower : PlaneBase
                     Debug.Log("None");
                 }
 
-                // isFlower = true일 때 오브젝트가 삭제 되며 드랍아이템이 생성
-                // 그 이후 isFlower = false가 되며 Sunshine의 vec의 x.rotation의 값이 0도가 되었을 때 , 리스폰
-                isFlower= false;                 // 오브젝트 활성화를 위한 false
+                objectHP = objectMaxHP;
                 
             }
         }

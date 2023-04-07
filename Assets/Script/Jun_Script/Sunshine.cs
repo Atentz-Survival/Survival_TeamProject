@@ -7,7 +7,7 @@ using UnityEngine;
 public class Sunshine : MonoBehaviour
 {
     public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
-    public static ReSpawnObject OnRespawn;                 // 다른 클래스에서 호출시키기 위한 변수설정
+    public static ReSpawnObject OnRespawn;                 // 이 클래스내의 함수를 OnRespawn변수로 참조
 
 
 public Material skybox;
@@ -31,17 +31,17 @@ public Material skybox;
     private void Start()
     {
         OnRespawn = SunLight;
+        OnRespawn = SunRotate;
         morningFog = RenderSettings.fogDensity;
     }
 
     private void Update()
     {
-        SunLight();
+        OnRespawn();
     }
 
-    void SunLight()
+    public void SunRotate()
     {
-
         // [1] 목표 : 12분에 0 ~ 180도만큼 회전 -> 12분에 180 ~ 360도 회전 : 180/720 = 1/4 : 0.25
         // transform.Rotate(new Vector3(forTimeInGame * t  , 0f , 0f)); // light의 회전
 
@@ -49,14 +49,17 @@ public Material skybox;
         round = vecT * t;
         vec = Quaternion.Euler(round, 0, 0);
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
-        // Debug.Log(transform.rotation.x);
+                                   // Debug.Log(transform.rotation.x);
+        // Debug.Log(vec);
+    }
 
-
+    void SunLight()
+    {
         if (transform.eulerAngles.x <= 10) //  0 <= x <= 170
         {
             isNight = false;                    // 낮이 된다.
 
-            if (alpha < 0.6f && alpha > -0.1f)
+            if (alpha < 0.6f && alpha >= 0.0f)      // -0.1~
             {
                 alpha += beta * forTimeInGame * t;
                 skybox.SetFloat("_CubemapTransition", alpha);   // CubemapTrasition의 수치가 alpha가 된다. : 0 ~ 0.6
@@ -91,5 +94,4 @@ public Material skybox;
             RenderSettings.fogDensity = morningFog;            // 아침의 fog량은 0.0001로 고정.
         }
     }
-
 }
