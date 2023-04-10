@@ -69,13 +69,15 @@ public class PlayerBase : MonoBehaviour
     private bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
 
     private GameObject[] tools;                     // axe, Reap, Pick, FishingRod 순서대로
-    private string[] toolsNames = { "axe", "Reap", "Pick", "FishingRod" };
+    private string[] toolsNames = { "Axe", "Reap", "Pick", "FishingRod" };
 
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
     private Animator anim;
     private Rigidbody rigid;
     private ItemInventoryWindowExplanRoom item;
+    private Axe axe;
+    private FishinfRod fishingRod;
 
     Collider handCollider;
 
@@ -147,6 +149,8 @@ public class PlayerBase : MonoBehaviour
     private void Start()
     {
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        axe = FindObjectOfType<Axe>();
+        fishingRod = FindObjectOfType<FishinfRod>();
         HP = maxHp;
         HpChange();
         //Debug.Log(hp);
@@ -322,7 +326,7 @@ public class PlayerBase : MonoBehaviour
         anim.SetBool("IsFishing", false);
 
     }
-    void Test1(InputAction.CallbackContext context)
+    public void Test1(InputAction.CallbackContext context)
     {
         switch (state)
         {
@@ -335,50 +339,53 @@ public class PlayerBase : MonoBehaviour
             case playerState.Gathering:
                 WhatKindTool();
                 ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle);
+                Debug.Log(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle));
                 break;
+
             case playerState.Fishing:
                 WhatKindTool();
-                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Fishingrod);
+                fishingRod.OnCangeFishinfRodlLevel();
 
                 break;
             case playerState.TreeFelling:
                 WhatKindTool();
-                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe);
+                axe.OnCangeAxelLevel();
                 break;
             case playerState.Mining:
                 WhatKindTool();
                 ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe);
+                Debug.Log(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe));
                 break;
         }
         Debug.Log(state);
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
-        /*if(collision.gameObject.CompareTag("Tree"))
+        if (collision.gameObject.CompareTag("Tree"))
         {
             state = playerState.TreeFelling;
             isEqualWithState[(int)state] = true;
 
             //isTreeFelling = true;
         }
-        else if(collision.gameObject.CompareTag("Flower"))
+        else if (collision.gameObject.CompareTag("Flower"))
         {
             state = playerState.Gathering;
             isEqualWithState[(int)state] = true;
         }
-        else if(collision.gameObject.CompareTag("Rock"))
+        else if (collision.gameObject.CompareTag("Rock"))
         {
             state = playerState.Mining;
             isEqualWithState[(int)state] = true;
         }
-        else if(collision.gameObject.CompareTag("Ocean"))
+        else if (collision.gameObject.CompareTag("Ocean"))
         {
             state = playerState.Fishing;
             isEqualWithState[(int)state] = true;
-        }*/
-    }
+        }
+    }*/
 
     private void OnTriggerExit(Collider other)
     {
