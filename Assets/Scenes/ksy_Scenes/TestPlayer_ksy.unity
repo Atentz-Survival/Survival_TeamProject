@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &29633593
@@ -581,10 +581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &50826398
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1380,10 +1381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &88757850
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1537,10 +1539,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &89816927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2100,10 +2103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &118427635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2277,10 +2281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &124028920
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3047,10 +3052,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &150475330
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3406,10 +3412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &168761426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3583,10 +3590,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &177271180
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3894,10 +3902,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &206689765
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4059,10 +4068,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &213881789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4176,10 +4186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &228757809
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4671,7 +4682,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh111716
+  m_Name: pb_Mesh26156
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5109,10 +5120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &269182264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5373,8 +5385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &301547595
@@ -5762,10 +5774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &327715099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6317,10 +6330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &354315748
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6521,10 +6535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &355509209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6660,10 +6675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &366922406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7083,10 +7099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &407806430
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7212,10 +7229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &411837457
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7314,7 +7332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh111910
+  m_Name: pb_Mesh26350
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7829,10 +7847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &447693229
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8074,10 +8093,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &481267366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8501,8 +8521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &506319286
@@ -8617,10 +8637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &508420295
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8835,10 +8856,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &532797152
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8952,10 +8974,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &552186771
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9710,10 +9733,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &609363038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10127,10 +10151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &630714246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10795,10 +10820,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &660235547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10934,10 +10960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &666706186
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11317,8 +11344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &693263151
@@ -11445,10 +11472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &694232844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11909,10 +11937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &732671547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12098,10 +12127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &742567383
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12554,8 +12584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &767141529
@@ -12882,10 +12912,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &794150207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13338,8 +13369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &814368622
@@ -13623,8 +13654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &843286852
@@ -14260,10 +14291,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &892629310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14525,10 +14557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &909829321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14632,10 +14665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &911249467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14747,10 +14781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &926090527
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15166,10 +15201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &935003133
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15345,8 +15381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &959005050
@@ -15594,10 +15630,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &975874441
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15785,10 +15822,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &990217199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15914,8 +15952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &990821841
@@ -16165,7 +16203,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh112686
+  m_Name: pb_Mesh27126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16612,10 +16650,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1035539699
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16801,10 +16840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1053305054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16990,10 +17030,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1061698755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17232,10 +17273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1065520285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17773,10 +17815,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1103571103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18026,10 +18069,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1118927626
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18183,10 +18227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1119636940
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18621,10 +18666,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1152773086
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18812,10 +18858,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1176361755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18953,10 +19000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1178662396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19180,10 +19228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1204045672
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19464,10 +19513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1248455150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19611,10 +19661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1260506091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19964,8 +20015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 2
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!4 &1295178294
@@ -20394,10 +20445,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1311527266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20571,8 +20623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1317052952
@@ -20753,10 +20805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1352201438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20856,10 +20909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1354485364
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22217,10 +22271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1487607844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22946,10 +23001,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1584360913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23129,10 +23185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1604391579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23325,10 +23382,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1610349451
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23896,10 +23954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1650477912
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24013,8 +24072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1653200240
@@ -24053,10 +24112,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2426741733543047472, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: hp
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4313370806844459260, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -24190,10 +24245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1662858818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24393,8 +24449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1670874686
@@ -24614,10 +24670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1675451721
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24731,10 +24788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1690056484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24925,8 +24983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1710939061
@@ -25041,10 +25099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1711161549
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25364,10 +25423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1721571406
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25505,10 +25565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1722954489
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25930,10 +25991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1739203055
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26194,10 +26256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1757066381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26311,10 +26374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1769679818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27435,8 +27499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1854245497
@@ -27555,10 +27619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1854944858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27841,10 +27906,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1896380544
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27970,8 +28036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!135 &1897192962
@@ -28098,10 +28164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1898938913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28370,10 +28437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1919739027
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28888,10 +28956,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &1934971121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29305,10 +29374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &1972041043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29903,10 +29973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &2005258268
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30024,10 +30095,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &2012661958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30139,10 +30211,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &2018654537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30503,10 +30576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &2055018574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31321,10 +31395,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!54 &2103293540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31512,10 +31587,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 0}
 --- !u!136 &2115712839
 CapsuleCollider:
   m_ObjectHideFlags: 0
