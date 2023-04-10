@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class PlayerUI : MonoBehaviour
     public PauseMenu pauseMenu;
     public Button pauseButton;
 
+    UIAction uiAction;
+
     private void Awake()
     {
         HPUI = GetComponentInChildren<Slider>();
         HPText = GetComponentInChildren<TextMeshProUGUI>();
         pauseButton = GetComponent<Button>();
+        uiAction = new UIAction();
 
         pauseButton.onClick.AddListener(CallPauseMenu);
     }
@@ -28,6 +32,22 @@ public class PlayerUI : MonoBehaviour
         pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
+    private void OnEnable()
+    {
+        uiAction.Enable();
+        uiAction.UI.Esc.performed += Esc;
+    }
+
+    private void Esc(InputAction.CallbackContext _)
+    {
+        pauseMenu.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        uiAction.UI.Esc.performed -= Esc;
+        uiAction.Disable();
+    }
 
     private void FixedUpdate()
     {
