@@ -40,6 +40,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
     }
 
     public Action<int> onChangeHp;
+    public Action onChangeTool;
 
     ItemInventoryWindow itemInventoryWindow;
 
@@ -122,10 +123,12 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
                     if (ItemManager.Instance.itemInventory._equipToolIndex[i] != itemInventoryWindow._selectedIndex)
                     {
                         ItemManager.Instance.itemInventory._equipToolIndex[i] = itemInventoryWindow._selectedIndex;
+                        onChangeTool?.Invoke();
                     }
                     else
                     {
                         ItemManager.Instance.itemInventory._equipToolIndex[i] = ItemInventory.notEquip;
+                        onChangeTool?.Invoke();
                     }
                     break;
                 }
@@ -144,6 +147,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
                 if (ItemManager.Instance.itemInventory._equipToolIndex[i] == itemInventoryWindow._selectedIndex)
                 {
                     ItemManager.Instance.itemInventory._equipToolIndex[i] = ItemInventory.notEquip;
+                    onChangeTool?.Invoke();
                     break;
                 }
             }

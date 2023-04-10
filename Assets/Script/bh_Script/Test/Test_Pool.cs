@@ -85,7 +85,18 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction5(InputAction.CallbackContext _)
     {
-        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldFishingrod, 5);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.StoneFishingrod, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.IronFishingrod, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldFishingrod, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.StoneAxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.IronAxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldAxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.StonePickaxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.IronPickaxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldPickaxe, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.StoneSickle, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.IronSickle, 1);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.GoldSickle, 1);
         //Debug.Log($"Me:{ItemManager.Instance.itemInventory.FindItem(ItemType.Avocado, 70)}");
         //SceneManager.LoadScene("SampleScene2");
     }
