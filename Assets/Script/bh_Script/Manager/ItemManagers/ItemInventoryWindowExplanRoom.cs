@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 
 public class ItemInventoryWindowExplanRoom : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
     public Action<int> onChangeHp;
     public Action onChangeTool;
 
+    HousingAction housingAction;
     ItemInventoryWindow itemInventoryWindow;
 
     void Awake()
@@ -56,7 +58,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         _itemUseButton = child4.GetComponent<Button>();
         Transform child5 = transform.GetChild(4);
         _itemDumpButton = child5.GetComponent<Button>();
-
+        housingAction = new HousingAction();
         initialize();
     }
 
@@ -65,6 +67,12 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
         _itemUseButton.onClick.AddListener(ItemUse);
         _itemDumpButton.onClick.AddListener(ItemDump);
+    }
+
+    private void OnEnable()
+    {
+        housingAction.Player.Enable();
+        //housingAction.Player.SetUp.performed += D;
     }
 
     void OnDisable()
