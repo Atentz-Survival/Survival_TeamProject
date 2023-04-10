@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4313370806833229841
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4313370807373742689
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4313370807374912428
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,10 +1234,6 @@ PrefabInstance:
     - target: {fileID: 4050279919276028282, guid: 159a087ebc79f4440ab4c872f17fc65c, type: 3}
       propertyPath: m_Name
       value: Pick1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050279919276028282, guid: 159a087ebc79f4440ab4c872f17fc65c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4052802445987585524, guid: 159a087ebc79f4440ab4c872f17fc65c, type: 3}
       propertyPath: m_RootOrder
@@ -1425,10 +1421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4313370806932022860}
     m_Modifications:
-    - target: {fileID: 1384425598329688501, guid: c54d2e567f679aa41ad9ec2a1beb4d5e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4f5b5192e0315b54590912d7697e7bc5, type: 2}
     - target: {fileID: 1396328683522639155, guid: c54d2e567f679aa41ad9ec2a1beb4d5e, type: 3}
       propertyPath: m_Name
       value: Pick2
