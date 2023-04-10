@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject[] pick;
+    private int[] pickLevel = { 1, 2, 3 };
+    private string[] pickNames = { "Pick1", "Pick2", "Pick3" };
+
+
+    private void Start()
     {
-        
+        pick = new GameObject[pickNames.Length];
+        for (int i = 0; i < pickNames.Length; i++)
+        {
+            pick[i] = GameObject.Find(pickNames[i]);
+            pick[i].SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCangePickLevel()
     {
-        
+        if (ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe) == pickLevel[ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe) - 1])
+        {
+            for (int i = 0; i < pickNames.Length; i++)
+            {
+                pick[i].SetActive(false);
+            }
+            pick[ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe) - 1].SetActive(true);
+        }
     }
 }
