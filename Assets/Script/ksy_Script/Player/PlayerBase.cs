@@ -101,8 +101,8 @@ public class PlayerBase : MonoBehaviour
     {
         //애니메이션 테스트용
 
-        inputActions.Test.Enable();
-        inputActions.Test.Test1.performed += Test1;
+        /*inputActions.Test.Enable();
+        inputActions.Test.Test1.performed += Test1;*/
 
         //-----입력 Enable----
         inputActions.CharacterMove.Enable();
@@ -128,8 +128,8 @@ public class PlayerBase : MonoBehaviour
     {
         //애니메이션 테스트용
 
-        inputActions.Test.Test1.performed -= Test1;
-        inputActions.Test.Disable();
+        /*inputActions.Test.Test1.performed -= Test1;
+        inputActions.Test.Disable();*/
         //-----입력 Disable----
         inputActions.CharacterMove.MouseMove.performed -= OnMouseMoveInput;
         inputActions.CharacterMove.Move.canceled -= OnMoveInput;
@@ -159,6 +159,7 @@ public class PlayerBase : MonoBehaviour
         HpChange();
         //Debug.Log(hp);
         item.onChangeHp += OnUpgradeHp; // <<인벤
+        item.onChangeTool += OnUpgradeTool; // << tool
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -169,6 +170,7 @@ public class PlayerBase : MonoBehaviour
 
         state = playerState.Nomal;
     }
+
     private void FixedUpdate()
     {
         Move();
@@ -330,15 +332,43 @@ public class PlayerBase : MonoBehaviour
         anim.SetBool("IsFishing", false);
 
     }
-    public void Test1(InputAction.CallbackContext context)
+    private void OnUpgradeTool()
     {
-        switch (state)
+        for (int i = 0; i < tools.Length; i++)
+        {
+            tools[i].SetActive(false);
+        }
+
+        if (isEqualWithState[1])
+        {
+            tools[0].SetActive(true);
+            axe.OnCangeAxelLevel();
+        }
+        else if (isEqualWithState[2])
+        {
+            tools[1].SetActive(true);
+            reap.OnCangeReapLevel();
+        }
+        else if (isEqualWithState[3])
+        {
+            tools[2].SetActive(true);
+            pick.OnCangePickLevel();
+        }
+        else if (isEqualWithState[4])
+        {
+            tools[3].SetActive(true);
+            fishingRod.OnCangeFishinfRodlLevel();
+        }
+    }
+    /*public void Test1(InputAction.CallbackContext context)
+    {
+        *//*switch (state)
         {
             case playerState.Nomal:
-                    for (int i = 0; i < tools.Length; i++)
-                    {
-                        tools[i].SetActive(false);
-                    }
+                for (int i = 0; i < tools.Length; i++)
+                {
+                    tools[i].SetActive(false);
+                }
                 break;
             case playerState.Gathering:
                 WhatKindTool();
@@ -359,9 +389,9 @@ public class PlayerBase : MonoBehaviour
                 pick.OnCangePickLevel();
                 break;
         }
-        Debug.Log(state);
+        Debug.Log(state);*//*
 
-    }
+    }*/
 
     /*private void OnCollisionEnter(Collision collision)
     {
@@ -389,6 +419,13 @@ public class PlayerBase : MonoBehaviour
         }
     }*/
 
+    //----------------------------------그랩용 함수-------------------------------
+
+    private void OnGrab(InputAction.CallbackContext context)
+    {
+        anim.SetBool("ItemGrab", !context.canceled);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Tree")
@@ -404,22 +441,6 @@ public class PlayerBase : MonoBehaviour
             isEqualWithState[(int)state] = true;        // playerState.Nomal 만 true
         }
     }
-
-    private void WhatKindTool()
-    {
-        for (int i = 0; i < tools.Length; i++)
-        {
-            tools[i].SetActive(false);
-        }
-        tools[(int)state - 1].SetActive(true);
-    }
-    //----------------------------------그랩용 함수-------------------------------
-
-    private void OnGrab(InputAction.CallbackContext context)
-    {
-        anim.SetBool("ItemGrab", !context.canceled);
-    }
-
 
 
     private void OnTriggerEnter(Collider other)

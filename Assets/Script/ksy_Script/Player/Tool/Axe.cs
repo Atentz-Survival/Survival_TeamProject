@@ -5,36 +5,23 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
-    private GameObject[] axes;
-    private int[] axesLevel = {1,2,3};
-    private string[] axesNames = { "Axe1", "Axe2", "Axe3" };
-
-    PlaneBase player;
-
-
-    private void Awake()
-    {
-        player = GetComponent<PlaneBase>();
-    }
-    private void Start()
-    {
-        axes = new GameObject[axesNames.Length];
-        for (int i = 0; i < axesNames.Length; i++)
-        {
-            axes[i] = GameObject.Find(axesNames[i]);
-            axes[i].SetActive(false);
-        }
-    }
-
     public void OnCangeAxelLevel()
     {
-        if(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) == axesLevel[ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) - 1])
+        if (ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) > 0)
         {
-            for (int i = 0; i < axesNames.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                axes[i].SetActive(false);
+                transform.GetChild(i).gameObject.SetActive(false);
             }
-            axes[ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) - 1].SetActive(true);
+            transform.GetChild(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) - 1).gameObject.SetActive(true);
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            this.gameObject.SetActive(false);
         }
     }
 }
