@@ -78,6 +78,8 @@ public class PlayerBase : MonoBehaviour
     private ItemInventoryWindowExplanRoom item;
     private Axe axe;
     private FishinfRod fishingRod;
+    private Reap reap;
+    private Pick pick;
 
     Collider handCollider;
 
@@ -151,6 +153,8 @@ public class PlayerBase : MonoBehaviour
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         axe = FindObjectOfType<Axe>();
         fishingRod = FindObjectOfType<FishinfRod>();
+        reap = FindObjectOfType<Reap>();
+        pick = FindObjectOfType<Pick>();
         HP = maxHp;
         HpChange();
         //Debug.Log(hp);
@@ -338,8 +342,7 @@ public class PlayerBase : MonoBehaviour
                 break;
             case playerState.Gathering:
                 WhatKindTool();
-                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle);
-                Debug.Log(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle));
+                reap.OnCangeReapLevel();
                 break;
 
             case playerState.Fishing:
@@ -353,8 +356,7 @@ public class PlayerBase : MonoBehaviour
                 break;
             case playerState.Mining:
                 WhatKindTool();
-                ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe);
-                Debug.Log(ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe));
+                pick.OnCangePickLevel();
                 break;
         }
         Debug.Log(state);
