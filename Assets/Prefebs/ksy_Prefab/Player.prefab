@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4313370806833229841
 Transform:
   m_ObjectHideFlags: 0
@@ -1049,6 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4313370806932022860}
   - component: {fileID: 996207141}
+  - component: {fileID: 878074846}
   m_Layer: 0
   m_Name: Pick
   m_TagString: Pick
@@ -1088,6 +1089,18 @@ CapsuleCollider:
   m_Height: 1.57
   m_Direction: 0
   m_Center: {x: 0.17, y: -0.02, z: -1.03}
+--- !u!114 &878074846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313370806932022861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207b8b9728f11ef4591b36271d89a3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4313370807373742694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4313370807373742689
 Transform:
   m_ObjectHideFlags: 0
@@ -1159,13 +1172,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4313370807374912428}
   - component: {fileID: 54483349}
+  - component: {fileID: 533088748}
   m_Layer: 0
   m_Name: Reap
   m_TagString: Reap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4313370807374912428
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1212,18 @@ CapsuleCollider:
   m_Height: 0.7847767
   m_Direction: 0
   m_Center: {x: 0.41762736, y: 0.009300495, z: 0.9131252}
+--- !u!114 &533088748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313370807374912429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307a0b52eb37c8d4aabfcb049c42f392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &62915351646196305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4050279919276028282, guid: 159a087ebc79f4440ab4c872f17fc65c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4052802445987585524, guid: 159a087ebc79f4440ab4c872f17fc65c, type: 3}
       propertyPath: m_RootOrder
