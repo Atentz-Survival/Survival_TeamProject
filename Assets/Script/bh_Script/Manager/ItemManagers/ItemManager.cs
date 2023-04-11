@@ -136,17 +136,18 @@ public class ItemManager : Singleton<ItemManager>
     //test
     void SetUpObject(InputAction.CallbackContext _)
     {
+        //Vector2 screenPosition = Mouse.current.position.ReadValue();
+        //Vector2 aaa = UnityEngine.Camera.main.ScreenToWorldPoint(screenPosition);
+        //Vector3 newPositon = new Vector3(aaa.x, 0, aaa.y);
+        //Ray ray = UnityEngine.Camera.main.ScreenPointToRay(newPositon);
         Vector2 screenPosition = Mouse.current.position.ReadValue();
-        Vector2 aaa = UnityEngine.Camera.main.ScreenToWorldPoint(screenPosition);
-        Vector3 newPositon = new Vector3(aaa.x, 0, aaa.y);
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(newPositon);
+        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(screenPosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
+            Debug.Log(hit.point);
             setUpItem.transform.position = hit.point;
         }
         OffHousingMode();
-
-        Debug.Log(screenPosition);
     }
 
     public void OnHousingMode() 

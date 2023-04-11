@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class ItemInventoryWindowExplanRoom : MonoBehaviour
 {
@@ -178,6 +179,32 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         itemInventoryWindow.RefreshItemInventory();
     }
 
+    public void AfterItemUse() 
+    {
+        ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
+        if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
+        {
+            int currentIndex = itemInventoryWindow._selectedIndex;
+            for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
+            {
+                ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
+                ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
+                for (int i = 0; i < ItemManager.Instance.itemInventory._equipToolIndex.Length; i++)
+                {
+                    if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex[i])
+                    {
+                        ItemManager.Instance.itemInventory._equipToolIndex[i] -= 1;
+                        break;
+                    }
+                }
+            }
+            ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
+            ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
+            ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
+            itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
+            initialize();
+        }
+    }
     // Update is called once per frame
 
 }
