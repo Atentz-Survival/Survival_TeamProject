@@ -41,7 +41,7 @@ public partial class @HousingAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""63cef104-458d-4947-9949-906b2891e9f9"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseAndKeyboard"",
