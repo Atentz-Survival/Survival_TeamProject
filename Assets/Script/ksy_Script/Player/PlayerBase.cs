@@ -278,6 +278,16 @@ public class PlayerBase : MonoBehaviour
                 StartCoroutine(ActionCoroutine());
             }
         }
+        else
+        {
+            for (int i = 1; i < isEqualWithState.Length; i++)
+            {
+                if (isEqualWithState[i] == true)
+                {
+                    Debug.Log("사용불가 아이템");
+                }
+            }
+        }
     }
 
     private void OnAvtivityStop(InputAction.CallbackContext context)
@@ -414,13 +424,6 @@ public class PlayerBase : MonoBehaviour
            || other.gameObject.CompareTag("Ocean"))
         {
             state = playerState.Nomal;
-            for (int i = 1; i < isEqualWithState.Length; i++)
-            {
-                if (isEqualWithState[i] == true)
-                {
-                    Debug.Log("사용불가 아이템");
-                }
-            }
             isEqualWithState[(int)state] = true;        // playerState.Nomal 만 true
         }
     }
