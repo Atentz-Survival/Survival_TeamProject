@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     PlayerBase player;
     public PauseMenu pauseMenu;
     public Button pauseButton;
+    // r
 
     private void Awake()
     {
