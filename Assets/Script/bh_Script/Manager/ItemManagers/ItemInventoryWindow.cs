@@ -14,6 +14,17 @@ public class ItemInventoryWindow : MonoBehaviour
         set => _SelectedIndex = value;
     }
 
+    int _SaveSelectedIndex = notSelect;
+    public int _saveSelectedIndex
+    {
+        set => _SaveSelectedIndex = value;
+    }
+
+    int toolItemTag_Length;
+    public int ToolItemTag_Length
+    {
+        get => toolItemTag_Length;
+    }
 
     Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
     public Color inventoryNormalColor
@@ -23,23 +34,33 @@ public class ItemInventoryWindow : MonoBehaviour
 
     ItemInventoryWindowRoom[] itemInventoryWindowRooms;
     ItemInventoryWindowExplanRoom explanRoom;
+    public ItemInventoryWindowExplanRoom ExplanRoom
+    {
+        get => explanRoom;
+    }
 
     string[] itemTagString;
 
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
-        itemTagString = new string[] { "음식 아이템", "재료 아이템", "장비 아이템", "기타 아이템"};
+        itemTagString = new string[] { "음식 아이템", "재료 아이템", "장비 아이템", "기타 아이템", "배치 아이템"};
     }
 
     private void Start()
     {
         explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
         RefreshItemInventory();
     }
 
     private void OnEnable()
     {
+        if (_SaveSelectedIndex != notSelect) 
+        {
+            _selectedIndex = _SaveSelectedIndex;
+            _saveSelectedIndex = notSelect;
+        }
         if (explanRoom != null) 
         {
             RefreshItemInventory();
@@ -68,10 +89,15 @@ public class ItemInventoryWindow : MonoBehaviour
                 else
                 {
                     bool nowEquip = false;
-                    if (i == ItemManager.Instance.itemInventory._equipToolIndex)
+                    for (int j = 0; j < ToolItemTag_Length; j++) 
                     {
-                        nowEquip = true;
+                        if (i == ItemManager.Instance.itemInventory._equipToolIndex[j])
+                        {
+                            nowEquip = true;
+                            break;
+                        }
                     }
+
                     itemInventoryWindowRooms[i].SetSpace(ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[i]].IconSprite, nowEquip);
                 }
             }
@@ -91,6 +117,7 @@ public class ItemInventoryWindow : MonoBehaviour
             _selectedIndex = index;
             return;
         }
+        itemInventoryWindowRooms[index]._panelImage.color = Color.green;
         if (_selectedIndex != notSelect)
         {
             itemInventoryWindowRooms[_selectedIndex]._panelImage.color = inventoryNormalColor;
@@ -103,4 +130,5 @@ public class ItemInventoryWindow : MonoBehaviour
         _selectedIndex = index;
     }
     // Update is called once per frame
+
 }

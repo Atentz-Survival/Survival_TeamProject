@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07064648, g: 0.35282674, b: 0.96832114, a: 1}
+  m_IndirectSpecularColor: {r: 0.07067699, g: 0.35201842, b: 0.9662361, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1206,10 +1206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &102352371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1302,8 +1303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &102352379
@@ -1829,10 +1830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &215285882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1931,10 +1933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &216056864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4468868500850190, guid: b200516e65de5a142a3bbadb73cd77e4, type: 3}
@@ -1946,7 +1949,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24994
+  m_Name: pb_Mesh25006
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2375,10 +2378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &249267214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2492,10 +2496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &252823005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
@@ -2687,10 +2692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &267988293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2926,8 +2932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &277329023
@@ -3275,8 +3281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &318507326
@@ -3408,10 +3414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &332262679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1325612589990884, guid: e377b882a13405d4b9d5c3e8e747595e, type: 3}
@@ -3445,10 +3452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &332943847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4214,8 +4222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &382143448
@@ -4416,10 +4424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &387711862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4820193825655414, guid: 4005b9a03d8625b4990b7a567bf6faa1, type: 3}
@@ -4523,10 +4532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &395076939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4714,17 +4724,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!43 &396918942
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25428
+  m_Name: pb_Mesh25438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5153,10 +5164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &452774515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1858709007138160, guid: 058b5ab120afe6048b4289730cb3e5c9, type: 3}
@@ -5190,10 +5202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &464469618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,63 +5285,6 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!1001 &465616244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4586358296951022240, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_Name
-      value: ItemManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
 --- !u!1001 &485605481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5447,10 +5403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &485708507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5701,10 +5658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &524140223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5818,10 +5776,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &527889588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5935,10 +5894,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &530248433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6180,10 +6140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &548217945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,8 +6539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &559187145
@@ -6728,10 +6689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &574955687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7051,10 +7013,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &589169147
 GameObject:
   m_ObjectHideFlags: 0
@@ -7532,10 +7495,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &600131402
 GameObject:
   m_ObjectHideFlags: 0
@@ -7927,10 +7891,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &654487860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562538906941140, guid: d0e76f6d08ce67d48994804f237e67eb, type: 3}
@@ -8049,10 +8014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &676591734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8375,118 +8341,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4659579814028464, guid: 9020d2933ec6c0544965ea4b12952c42, type: 3}
   m_PrefabInstance: {fileID: 704308917}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &705507993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 705507995}
-  - component: {fileID: 705507994}
-  - component: {fileID: 705507996}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &705507994
+--- !u!108 &705507994 stripped
 Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2517195894619746014, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+  m_PrefabInstance: {fileID: 2517195895056669764}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &705507995
+--- !u!4 &705507995 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+  m_PrefabInstance: {fileID: 2517195895056669764}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.9848078, y: 0, z: 0, w: 0.17364825}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 160, y: 0, z: 0}
---- !u!114 &705507996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580a37abc583dd049b438927d225e946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skybox: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
-  beta: 0.0008
-  maxAlpha: 0.6
-  forTimeInGame: 0.00027777778
-  vecT: 0.5
 --- !u!1 &711034487 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1687792525792312, guid: 566814b1eb74baa449f9fef747a83fd1, type: 3}
@@ -8674,8 +8538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &715594168
@@ -9525,8 +9389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 2
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &802600415
@@ -9682,10 +9546,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &807116596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9811,10 +9676,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &841426970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9919,8 +9785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &841426978
@@ -10093,8 +9959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &865631953
@@ -10217,8 +10083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &867395975
@@ -10270,10 +10136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &890480551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
@@ -10572,10 +10439,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &905318329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1858709007138160, guid: 058b5ab120afe6048b4289730cb3e5c9, type: 3}
@@ -10609,10 +10477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &909145649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4487497722799186, guid: 9d05e0cabe0f8c641b0a87ecc3a9017e, type: 3}
@@ -10788,10 +10657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &917806887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10890,10 +10760,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &926593487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11093,10 +10964,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &950583759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11222,10 +11094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &951233813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4232939154390888, guid: 69bd8802c7c911948ac3cf16cfad287f, type: 3}
@@ -11567,10 +11440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &971794328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11675,8 +11549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &971794336
@@ -11816,10 +11690,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &996769041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11888,7 +11763,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25492
+  m_Name: pb_Mesh25502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12169,10 +12044,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1039317963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12265,8 +12141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &1039317972
@@ -12781,10 +12657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1084430150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12875,10 +12752,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1103392520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12977,10 +12855,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1109364591
 GameObject:
   m_ObjectHideFlags: 0
@@ -13348,10 +13227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1147794392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13465,10 +13345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1157440265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13594,10 +13475,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1182311848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1687792525792312, guid: 566814b1eb74baa449f9fef747a83fd1, type: 3}
@@ -13807,10 +13689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1192728097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13972,8 +13855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &1192926443
@@ -14424,10 +14307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1237794048
 GameObject:
   m_ObjectHideFlags: 0
@@ -14443,8 +14327,8 @@ GameObject:
   - component: {fileID: 1237794049}
   - component: {fileID: 1237794054}
   m_Layer: 0
-  m_Name: Sphere
-  m_TagString: FisingRod
+  m_Name: axe
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14648,8 +14532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &1241629787
@@ -15572,10 +15456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1428006658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15937,10 +15822,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1474951938
 GameObject:
   m_ObjectHideFlags: 0
@@ -16208,7 +16094,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1479270534
 PrefabInstance:
@@ -16340,10 +16226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1479987482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16682,10 +16569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1502081778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16811,10 +16699,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1503664316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1308358589415666, guid: 43bbe6106d9602b418076e5e6955f800, type: 3}
@@ -16848,10 +16737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1523794936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16986,10 +16876,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1525597229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17115,10 +17006,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
+--- !u!1001 &1526742860
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4586358296951022240, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_Name
+      value: ItemManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
 --- !u!1001 &1527358128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17684,10 +17633,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1587870670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17931,10 +17881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1614816751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18348,10 +18299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1645096729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18477,10 +18429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1645745535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18780,10 +18733,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1675233087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19119,10 +19073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &1701100271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505691806356784, guid: d5c8b482981a2af429dd7551de6af107, type: 3}
@@ -19220,8 +19175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &1701970863
@@ -19607,8 +19562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f605752bdcc34b542b86407e028fd5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!54 &1734279648
@@ -19799,10 +19754,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1745132907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20072,10 +20028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1762076660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1687792525792312, guid: 566814b1eb74baa449f9fef747a83fd1, type: 3}
@@ -20109,10 +20066,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1765314439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20123,6 +20081,10 @@ PrefabInstance:
     - target: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
       propertyPath: m_Name
       value: SM_Tree_Generic_Giant_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
       propertyPath: m_TagString
@@ -20231,10 +20193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1771874794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20479,10 +20442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1795013577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
@@ -20516,10 +20480,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1821455229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20626,10 +20591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1827161489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20944,10 +20910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &1851130107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505691806356784, guid: d5c8b482981a2af429dd7551de6af107, type: 3}
@@ -20991,10 +20958,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1866302308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21108,10 +21076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1888311868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21281,10 +21250,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &1914009430
 GameObject:
   m_ObjectHideFlags: 0
@@ -21329,7 +21299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914009433
 MonoBehaviour:
@@ -21744,10 +21714,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!4 &1977719384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4687956973215160, guid: 7aec7d7b6b4e5f24f832c33028ee90d9, type: 3}
@@ -21866,10 +21837,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &1991364414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22375,10 +22347,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2004801229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22504,10 +22477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2008252903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22633,10 +22607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2014082409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22886,10 +22861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2055280132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23028,10 +23004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2077439051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23269,10 +23246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1 &2088869267 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1325612589990884, guid: e377b882a13405d4b9d5c3e8e747595e, type: 3}
@@ -23306,10 +23284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2097395646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23435,10 +23414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2104236689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23764,10 +23744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2141197702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23893,10 +23874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a81ade8e4e672a4ab2e1c1837e6eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
-  HP: 3
+  objectMaxHP: 3
+  objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  rotateObject: {fileID: 705507995}
 --- !u!1001 &2146474421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23959,3 +23941,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4434221626337540, guid: cdcb19fde9e8cba40b7bff849baf2c1b, type: 3}
   m_PrefabInstance: {fileID: 2146474421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2517195895056669764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2517195894619746008, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: vecT
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746013, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_Name
+      value: Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517195894619746015, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff3ad415258a11f4bbe047d96f6e1091, type: 3}

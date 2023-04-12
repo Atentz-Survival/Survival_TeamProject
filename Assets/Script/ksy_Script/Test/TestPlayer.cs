@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Android;
 
-/*public class TestPlayer : TestBase
+public class TestPlayer : TestBase
 {
-    PlayerBase player;
+    /*PlayerBase player;
+    GameObject fishing;
     private void Start()
     {
         player = FindObjectOfType<PlayerBase>();
+        fishing = GameObject.Find("FishingRod");
     }
 
     protected override void OnEnable()
@@ -20,8 +23,10 @@ using UnityEngine.InputSystem.Android;
 
     protected override void Test1(InputAction.CallbackContext _)
     {
-        int a = player.HP;
-        player.HP = 999999999;
-        Debug.Log(a);
-    }
-}*/
+        player.state = PlayerBase.playerState.Fishing;
+                fishing.SetActive(true);
+
+
+        Debug.Log(player.state);
+    }*/
+}

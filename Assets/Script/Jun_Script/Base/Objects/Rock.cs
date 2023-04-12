@@ -23,18 +23,18 @@ public class Rock : BasementObject
             Debug.Log("GetStarted");
 
             // 횟수로 한다.
-            HP--;
+            objectHP--;
 
-            if(HP > 0)
+            if(objectHP > 0)
             {
-                Debug.Log(HP);
+                Debug.Log(objectHP);
                 GameObject obj = Instantiate(Effect);
                 obj.transform.position = transform.position;
             }
 
-            else if(HP <= 0)
+            else if(objectHP <= 0)
             {
-                Debug.Log(HP);
+                Debug.Log(objectHP);
                 GameObject obj = Instantiate(Meffect);
                 obj.transform.position = transform.position;
 
@@ -57,7 +57,7 @@ public class Rock : BasementObject
                     Debug.Log("None");
                 }
 
-                HP = maxHP;
+                objectHP = objectMaxHP;
             }
         }
     }

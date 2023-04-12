@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public enum ItemType
 {
@@ -33,6 +33,7 @@ public enum ItemType
     StoneFishingrod,
     IronFishingrod,
     GoldFishingrod,
+    CraftingTable,
     Null
 }
 
@@ -53,6 +54,13 @@ public class ItemManager : Singleton<ItemManager>
     }
 
     [SerializeField]
+    int ItemInventoryWindowMaxAmount;
+    public int itemInventoryWindowMaxAmount
+    {
+        get => ItemInventoryWindowMaxAmount;
+    }
+
+    [SerializeField]
     int NotDropItemTypeAmount = 1;
     public int notDropItemTypeAmount
     {
@@ -70,7 +78,12 @@ public class ItemManager : Singleton<ItemManager>
 
     int ItemTypeCount;
     DropItemPool[] dropItemPools;
+    const int notSelect = -1;
 
+    HousingAction housingAction;
+    bool isHousingMode = false;
+
+    SetUpItem setUpItem;
 
     protected override void PreInitialize()
     {
@@ -87,10 +100,16 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory = GetComponentInChildren<ItemInventory>();
             itemInventory.ItemAmountArray = new int[itemInventoryMaxSpace];
             itemInventory.ItemTypeArray = new ItemType[itemInventoryMaxSpace];
+            itemInventory._equipToolIndex = new int[System.Enum.GetValues(typeof(ToolItemTag)).Length];
             for (int i = 0; i < itemInventoryMaxSpace; i++)
             {
                 itemInventory.ItemTypeArray[i] = ItemType.Null;
             }
+            for (int i = 0; i < itemInventory._equipToolIndex.Length; i++) 
+            {
+                itemInventory._equipToolIndex[i] = notSelect;
+            }
+            housingAction = new HousingAction();
         }
     }
 
@@ -101,6 +120,12 @@ public class ItemManager : Singleton<ItemManager>
             dropItemPools[i]?.MakeObjectPool();
         }
         itemInventory.ItemsInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
+        setUpItem = FindObjectOfType<SetUpItem>();
+    }
+
+    private void OnDisable()
+    {
+        OffHousingMode();
     }
 
     public GameObject GetObject(ItemType itemType)
@@ -109,4 +134,42 @@ public class ItemManager : Singleton<ItemManager>
         return result;
     }
     //test
+    void SetUpObject(InputAction.CallbackContext _)
+    {
+        //Vector2 screenPosition = Mouse.current.position.ReadValue();
+        //Vector2 aaa = UnityEngine.Camera.main.ScreenToWorldPoint(screenPosition);
+        //Vector3 newPositon = new Vector3(aaa.x, 0, aaa.y);
+        //Ray ray = UnityEngine.Camera.main.ScreenPointToRay(newPositon);
+        Vector2 screenPosition = Mouse.current.position.ReadValue();
+        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(screenPosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            Debug.Log(hit.point);
+            setUpItem.transform.position = hit.point;
+        }
+        OffHousingMode();
+    }
+
+    public void OnHousingMode() 
+    {
+        if (isHousingMode == false) 
+        { 
+            isHousingMode = true;
+            housingAction.Player.Enable();
+            housingAction.Player.SetUp.performed += SetUpObject;
+            Debug.Log("Onせせせせ");
+
+        }   
+    }
+
+    void OffHousingMode() 
+    {
+        if (isHousingMode == true)
+        {
+            isHousingMode = false;
+            housingAction.Player.SetUp.performed -= SetUpObject;
+            housingAction.Player.Disable();
+            Debug.Log("OFFせせせせ");
+        }
+    }
 }
