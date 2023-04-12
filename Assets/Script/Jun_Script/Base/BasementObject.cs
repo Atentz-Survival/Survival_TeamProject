@@ -2,7 +2,9 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BasementObject : MonoBehaviour
 {
@@ -16,31 +18,10 @@ public class BasementObject : MonoBehaviour
     public GameObject Effect;   // 치집 , 채굴시의 이펙트
     public GameObject Meffect;
 
-    //static public bool GetRandomItem(float percentage)
-    //{
-    //    if (Random.value < percentage)
-    //    {
-    //        return true;
-    //    }
-    //    else
-    //        return false;
-    //}
+    public float delayTime = 4.0f;
 
-
-    //       1단1  1단2   1단3   2단1   2단2   2단3   3단1   3단2   3단3
-    // 낫1 : 0.15  0.60   0.15   0.05
-    // 낫2 : 0.50  0.80   0.50   0.15   0.30   0.15
-    // 낫3 : 0.85  1.00   0.85   0.50   0.80   0.50
-    // 곡1 : 0.15  0.60   0.15   0.05
-    // 곡2 : 0.50  0.80   0.50   0.15   0.60   0.40   0.80   0.40
-    // 곡3 : 0.85  1.00   0.85   0.50   0.80   0.80   0.20   0.80   0.40
-    // 도1 : 0.15  0.60   0.15   0.05
-    // 도2 : 0.50  0.80   0.50   0.15   0.30   0.15   0.85   0.15
-    // 도3 : 0.85  1.00   0.85   0.50   0.80   0.50   0.00   0.50   0.50
-
-    // 낫으로 파밍시의 오브젝트 생성
-    // 아이템 확률은 player의 무기쪽에서 다룰것. 확률을 다루게 되면 여기서 오브젝트를 생성
-
+    private GameObject target;
+    
     public void FlowerDrop1()
     {
         float a_Random = Random.Range(0.0f, 1.0f);
@@ -61,9 +42,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
+            target = obj;
 
-            new WaitForSeconds(2);
-            Destroy(gameObject);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -86,8 +67,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
+            target = obj;
 
-            Destroy(gameObject , 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -110,8 +92,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
+            target = obj;
 
-            Destroy(gameObject , 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -130,17 +113,18 @@ public class BasementObject : MonoBehaviour
         {
             Debug.Log("None1");
         }
-
-        // FishingRod
-
-        void objectInit1()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-
-            Destroy(obj, 4.0f);
-        }
     }
+
+    public void objectInit1()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
+        Debug.Log("Time1");
+
+        Invoke("TimeCount", 4.0f);
+    }
+
 
     public void TreeDrop2()
     {
@@ -161,8 +145,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
+            target = obj;
 
-            Destroy(obj, 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -185,8 +170,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
+            target = obj;
 
-            Destroy(obj, 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -209,9 +195,10 @@ public class BasementObject : MonoBehaviour
         void objectInit1()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
+            obj.transform.position = Vector3.up * 9;
+            target = obj;
 
-            Destroy(obj , 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -234,9 +221,9 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = Vector3.up * 9;
+            target = obj;
 
-            new WaitForSeconds(2);
-            Destroy(obj , 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -259,16 +246,15 @@ public class BasementObject : MonoBehaviour
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = Vector3.up * 9;
+            target = obj;
 
-            new WaitForSeconds(2);
-            Destroy(obj , 4.0f);
+            Invoke("TimeCount", 4.0f);
         }
     }
 
-
-    // 이걸 한곳에 다하면 너무 복잡함. 따라서 각각의 스크립트안에 랜덤 함수를 이용해 넣을 필요가있을듯....
-
-    // 리스폰
-    // 만약에 원래좌표에 오브젝트가 없는 경우 밤이지나고 리스폰하는 코드
-
+    private void TimeCount()
+    {
+        Debug.Log(target);
+        target.SetActive(false);
+    }
 }

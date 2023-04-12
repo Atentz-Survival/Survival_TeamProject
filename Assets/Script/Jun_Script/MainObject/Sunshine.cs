@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Sunshine : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class Sunshine : MonoBehaviour
     public float maxAlpha = 0.6f;
     public float forTimeInGame;  // 시간의 경과
 
-    private bool isNight = false;
+    public bool isNight = false;
 
     public float vecT = 0.5f;    // 6분경과
     float t;
@@ -32,7 +34,7 @@ public class Sunshine : MonoBehaviour
     {
         // OnRespawn = SunLight;
         OnRespawn = SunRotate;
-        morningFog = RenderSettings.fogDensity;
+        RenderSettings.fogDensity = morningFog;
     }
 
     private void Update()
@@ -52,13 +54,14 @@ public class Sunshine : MonoBehaviour
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
         if(round >= 360)
-            {
+        {
             t = 0;
         }
         // Debug.Log(vec);
 
         if ((vec.x >= 0 && vec.x <= 0.0001f) || (vec.x >= -0.0001f && vec.x <= 0)) //  0 <= x <= 170
         {
+            RenderSettings.fogDensity = morningFog;             // 아침의 fog량은 0.0001로 고정.
             isNight = false;                    // 낮이 된다.
         }
 
@@ -82,8 +85,6 @@ public class Sunshine : MonoBehaviour
 
         else
         {
-            RenderSettings.fogDensity = morningFog;             // 아침의 fog량은 0.0001로 고정.
-
             if (alpha < 0.6f && alpha >= 0.0f)      // -0.1~
             {
                 alpha += beta * forTimeInGame * t;              // 여기 조정!!!!!!!!!!!!!!!!!!

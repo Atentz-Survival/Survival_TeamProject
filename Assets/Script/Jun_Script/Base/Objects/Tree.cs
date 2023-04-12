@@ -20,11 +20,11 @@ public class Tree : PlaneBase
     private void Respawn()
     {
         // Debug.Log(gameObject);
-        if(isDisTree)
+        if (isDisTree)
         {
             Quaternion qua = rotateObject.rotation;
             // Debug.Log(qua);
-            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f)) 
+            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f))
             {
                 // 쿼터니안의 범위는 0~ 1.0 ~ 0 ~ -1.0 ~ 0 의 2*sin x 의 그래프와같은 형태이므로 아침이오기전의 값인 -0.001f 와 0.001값부터 아침이되는 0사이에 오브젝트 활성화
                 gameObject.SetActive(true);
@@ -53,18 +53,18 @@ public class Tree : PlaneBase
                 obj.transform.position = transform.position;
 
                 gameObject.SetActive(false);
-
                 isDisTree = true;
+                Debug.Log("do");
 
-                if (collision.gameObject.name == "axe")
+                if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
                     TreeDrop1();
                 }
-                else if (collision.gameObject.name == "Cube")
+                else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
                     TreeDrop2();
                 }
-                else if (collision.gameObject.name == "Axe")
+                else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
                     TreeDrop3();
                 }

@@ -70,12 +70,11 @@ public class LoadingText : MonoBehaviour
     private void FullSlider()
     {
         ChargeSlider(1);                                  // 슬라이더의 게이지가 풀
-        // SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync(1);
     }
 
     private void ChargeSlider(float chargeValue)
     {
         slider.value = chargeValue;                              // 슬라이더값을 송출
     }
-
 }
