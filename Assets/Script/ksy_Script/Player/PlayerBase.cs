@@ -1,12 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
-using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -21,7 +16,7 @@ public class PlayerBase : MonoBehaviour
     private int maxHp = 1000;          // 최대 hp
     public int hp = 1000;              // 현재 hp
 
-    private bool isAction = false;
+    public bool isAction = false;
     private bool isRun = false;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
@@ -49,7 +44,7 @@ public class PlayerBase : MonoBehaviour
     public Action<float> onUpgradeHp;
     public Action<bool> onDie;
 
-    /*------------------플레이어 상태 프로퍼티-------------------*/
+    /*------------------플레이어 상태 -------------------*/
     public enum playerState
     {
         Nomal,
@@ -65,23 +60,25 @@ public class PlayerBase : MonoBehaviour
     {
         get=> state;
     }
-
+    /*------------------ToolItem 상태 -------------------*/
     private bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
 
     private GameObject[] tools;                     // axe, Reap, Pick, FishingRod 순서대로
     private string[] toolsNames = { "Axe", "Reap", "Pick", "FishingRod" };
 
+    public Action<ToolItemTag, int> GetToolItem;    //장착 아이템 관련 델리게이트
+
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
     private Animator anim;
     private Rigidbody rigid;
+
     private ItemInventoryWindowExplanRoom item;
+
     private Axe axe;
     private FishinfRod fishingRod;
     private Reap reap;
     private Pick pick;
-
-    Collider handCollider;
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
@@ -94,8 +91,6 @@ public class PlayerBase : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInput();
-
-        handCollider = GetComponent<Collider>();
     }
     private void OnEnable()
     {
@@ -292,17 +287,8 @@ public class PlayerBase : MonoBehaviour
 
     private void OnAvtivityStop(InputAction.CallbackContext context)
     { 
-        isAction = false;
-        if (state == playerState.Fishing)
-        {
-            StopCoroutine(Fishing());
-        }
-        else
-        {
-            StopCoroutine(ActionCoroutine());
-        }
-
-
+        StopCoroutine(Fishing());
+        StopCoroutine(ActionCoroutine());
     }
 
     //---공격용 코루틴---
@@ -313,25 +299,25 @@ public class PlayerBase : MonoBehaviour
             switch (state)
             {
                 case playerState.Nomal:
-                    if (isAction == true)
+                    if (isAction)
                     {
-                        anim.SetTrigger("Making_Trigger");
+                        anim.SetTrigger("Hand_Trigger");
                     }
                     break;
                 case playerState.TreeFelling:
-                    if (isAction == true)
+                    if (isAction)
                     {
                         anim.SetTrigger("Axe_Trigger");
                     }
                     break;
                 case playerState.Gathering:
-                    if (isAction == true)
+                    if (isAction)
                     {
                         anim.SetTrigger("Reap_Trigger");
                     }
                     break;
                 case playerState.Mining:
-                    if (isAction == true)
+                    if (isAction)
                     {
                         anim.SetTrigger("Pick_Trigger");
                     }
@@ -406,34 +392,17 @@ public class PlayerBase : MonoBehaviour
                 isEqualWithState[4] = true;
                 break;
         }
+        GetToolItem?.Invoke(toolItem, level);
     }
 
     //----------------------------------그랩용 함수-------------------------------
 
-    private void OnGrab(InputAction.CallbackContext context)
-    {
-        anim.SetBool("ItemGrab", !context.canceled);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        isAction = false;
-        if (other.gameObject.CompareTag("Tree")
-           || other.gameObject.CompareTag("Flower")
-           || other.gameObject.CompareTag("Rock")
-           || other.gameObject.CompareTag("Ocean"))
-        {
-            state = playerState.Nomal;
-            isEqualWithState[(int)state] = true;        // playerState.Nomal 만 true
-        }
-    }
-
-
     private void OnTriggerEnter(Collider other)
     {
-        isAction = true;
+        // 아이템과 트리거가 닿았을 때
         if (other.gameObject.CompareTag("DropItem"))
         {
+            isAction = false;
             DropItem pick = other.GetComponent<DropItem>();
             if (pick != null)
             {
@@ -442,6 +411,9 @@ public class PlayerBase : MonoBehaviour
             Debug.Log(other.gameObject.name);
         }
 
+        // 맵 오브젝트와 트리거가 닿았을 때
+        isAction = true;
+        isEqualWithState[0] = true;
         if (other.gameObject.CompareTag("Tree"))
         {
             state = playerState.TreeFelling;
@@ -480,6 +452,30 @@ public class PlayerBase : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isAction = false;   //행동막기
+        if (other.gameObject.CompareTag("Tree")
+           || other.gameObject.CompareTag("Flower")
+           || other.gameObject.CompareTag("Rock")
+           || other.gameObject.CompareTag("Ocean"))
+        {
+            state = playerState.Nomal;
+            for (int i = 0; i < isEqualWithState.Length; i++)
+            {
+                isEqualWithState[i] = false;
+            }
+            isEqualWithState[(int)state] = true;        // playerState.Nomal 만 true
+        }
+    }
+
+    private void OnGrab(InputAction.CallbackContext context)
+    {
+        anim.SetBool("ItemGrab", !context.canceled);
+    }
+
+
     //----------------------------------장소 상호작용 함수-------------------------------
 
     private void OnMaking(InputAction.CallbackContext context)
@@ -489,8 +485,9 @@ public class PlayerBase : MonoBehaviour
         if (HP > useHp)
         {
             anim.SetTrigger("Making_Trigger");
-            HP -= 50;
+            HP -= 50;                               // 행동에 따른 hp
             //Debug.Log($"{hp} : 사용 했어요~~");
+
         }
     }
 
