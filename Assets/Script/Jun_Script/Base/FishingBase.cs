@@ -27,6 +27,8 @@ public class FishingBase : MonoBehaviour
 
     Rigidbody rigid;
 
+    private GameObject desTarget;
+
 
     private bool isTimeCheck = false;
 
@@ -83,28 +85,29 @@ public class FishingBase : MonoBehaviour
         Debug.Log("Alpha");
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Galchi);
         fobj.transform.position = transform.position;
+        desTarget = fobj;
+
         startPos = fobj.transform.position;
         Vector3 disVec = (endPos - startPos) + new Vector3(0 , 50 , 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec* 10);
 
-        Debug.Log(disVec);
-
-        Destroy(fobj, 5.0f);
+        Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-1");
-        // fobj.transform.position = Vector3.Slerp(transform.position, target.position, moveSpeed);
     }
 
     private void FishDrop2()
     {
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Gazami);
         fobj.transform.position = transform.position;
+        desTarget = fobj;
+
         startPos = fobj.transform.position;
         Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 
-        Destroy(fobj, 5.0f);
+        Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-2");
     }
 
@@ -112,12 +115,19 @@ public class FishingBase : MonoBehaviour
     {
         GameObject fobj = ItemManager.Instance.GetObject(ItemType.Shark);
         fobj.transform.position = transform.position;
+        desTarget = fobj;
+
         startPos = fobj.transform.position;
         Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 
-        Destroy(fobj, 5.0f);
+        Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-3");
+    }
+
+    private void FishFalse()
+    {
+        desTarget.SetActive(false);
     }
 }
