@@ -1,19 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Android;
 
 public class TestPlayer : TestBase
 {
     /*PlayerBase player;
-    GameObject fishing;
+    int i;
+    ToolItemTag a;
     private void Start()
     {
         player = FindObjectOfType<PlayerBase>();
-        fishing = GameObject.Find("FishingRod");
     }
 
     protected override void OnEnable()
@@ -21,12 +21,16 @@ public class TestPlayer : TestBase
         base.OnEnable();
     }
 
+
     protected override void Test1(InputAction.CallbackContext _)
     {
-        player.state = PlayerBase.playerState.Fishing;
-                fishing.SetActive(true);
+        player.GetToolItem += Getitem;
+    }
 
-
-        Debug.Log(player.state);
+    private void Getitem(ToolItemTag arg1, int arg2)
+    {
+        i = arg2;
+        a = arg1;
+        Debug.Log($"{i} / {a}");
     }*/
 }

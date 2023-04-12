@@ -14,6 +14,12 @@ public class ItemInventoryWindow : MonoBehaviour
         set => _SelectedIndex = value;
     }
 
+    int _SaveSelectedIndex = notSelect;
+    public int _saveSelectedIndex
+    {
+        set => _SaveSelectedIndex = value;
+    }
+
     int toolItemTag_Length;
     public int ToolItemTag_Length
     {
@@ -50,6 +56,11 @@ public class ItemInventoryWindow : MonoBehaviour
 
     private void OnEnable()
     {
+        if (_SaveSelectedIndex != notSelect) 
+        {
+            _selectedIndex = _SaveSelectedIndex;
+            _saveSelectedIndex = notSelect;
+        }
         if (explanRoom != null) 
         {
             RefreshItemInventory();
