@@ -40,15 +40,15 @@ public class Rock : BasementObject
 
                 // 드랍 아이템 생성
 
-                if (collision.gameObject.name == "Pick")
+                if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
                     RockDrop1();
                 }
-                else if (collision.gameObject.name == "Cube")
+                else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
                     RockDrop2();
                 }
-                else if (collision.gameObject.name == "Axe")
+                else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
                     RockDrop3();
                 }

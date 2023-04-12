@@ -48,15 +48,15 @@ public class Flower : PlaneBase
 
                 isDisFlower = true;
 
-                if (collision.gameObject.name == "Reap")
+                if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
                     FlowerDrop1();
                 }
-                else if (collision.gameObject.name == "Cube")
+                else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
                     FlowerDrop2();
                 }
-                else if (collision.gameObject.name == "Axe")
+                else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
                     FlowerDrop3();
                 }

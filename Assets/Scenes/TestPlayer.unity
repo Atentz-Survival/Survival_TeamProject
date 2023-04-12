@@ -206,6 +206,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &29633593
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -266,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingEffect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
-  target: {fileID: 0}
+  target: {fileID: 6575142552643132484, guid: 9638426e84640dc43a2b3a37cfdd5ac8, type: 3}
   waitT: 5
 --- !u!65 &41791894
 BoxCollider:
@@ -507,6 +508,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &50826398
 CapsuleCollider:
@@ -1032,6 +1034,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &88757850
 CapsuleCollider:
@@ -1190,6 +1193,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &89816927
 Rigidbody:
@@ -1558,6 +1562,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &118427635
 Rigidbody:
@@ -1736,6 +1741,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &124028920
 CapsuleCollider:
@@ -2052,6 +2058,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &150475330
 CapsuleCollider:
@@ -2513,6 +2520,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &168761426
 Rigidbody:
@@ -2691,6 +2699,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &177271180
 CapsuleCollider:
@@ -3079,6 +3088,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &206689765
 Rigidbody:
@@ -3245,6 +3255,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &213881789
 CapsuleCollider:
@@ -3363,6 +3374,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &228757809
 CapsuleCollider:
@@ -3948,6 +3960,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &269182264
 CapsuleCollider:
@@ -4074,6 +4087,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &301547595
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4463,6 +4477,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &327715099
 Rigidbody:
@@ -4715,6 +4730,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &354315748
 CapsuleCollider:
@@ -4920,6 +4936,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &355509209
 Rigidbody:
@@ -5060,6 +5077,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &366922406
 Rigidbody:
@@ -5469,6 +5487,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &407806430
 CapsuleCollider:
@@ -5599,6 +5618,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &411837457
 CapsuleCollider:
@@ -6276,6 +6296,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &447693229
 CapsuleCollider:
@@ -6522,6 +6543,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &481267366
 Rigidbody:
@@ -6946,6 +6968,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &506319286
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7062,6 +7085,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &508420295
 CapsuleCollider:
@@ -7281,6 +7305,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &532797152
 CapsuleCollider:
@@ -7399,6 +7424,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &552186771
 CapsuleCollider:
@@ -7769,6 +7795,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &609363038
 CapsuleCollider:
@@ -8052,6 +8079,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &630714246
 Rigidbody:
@@ -8403,6 +8431,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &660235547
 Rigidbody:
@@ -8543,6 +8572,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &666706186
 Rigidbody:
@@ -8923,6 +8953,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &693263151
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9051,6 +9082,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &694232844
 Rigidbody:
@@ -9381,6 +9413,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &732671547
 Rigidbody:
@@ -9571,6 +9604,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &742567383
 Rigidbody:
@@ -9931,6 +9965,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &767141529
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10183,6 +10218,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &794150207
 CapsuleCollider:
@@ -10421,6 +10457,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &814368622
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10533,6 +10570,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &843286852
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10793,6 +10831,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &892629310
 CapsuleCollider:
@@ -11059,6 +11098,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &909829321
 Rigidbody:
@@ -11167,6 +11207,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &911249467
 Rigidbody:
@@ -11283,6 +11324,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &926090527
 CapsuleCollider:
@@ -11703,6 +11745,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &935003133
 CapsuleCollider:
@@ -11879,6 +11922,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &959005050
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12007,6 +12051,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &975874441
 CapsuleCollider:
@@ -12199,6 +12244,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &990217199
 CapsuleCollider:
@@ -12325,6 +12371,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &990821841
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12947,6 +12994,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1035539699
 Rigidbody:
@@ -13213,6 +13261,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1053305054
 Rigidbody:
@@ -13403,6 +13452,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1061698755
 CapsuleCollider:
@@ -13525,6 +13575,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1065520285
 Rigidbody:
@@ -14135,6 +14186,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1103571103
 Rigidbody:
@@ -14582,6 +14634,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1118927626
 CapsuleCollider:
@@ -14740,6 +14793,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1119636940
 Rigidbody:
@@ -15044,6 +15098,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1152773086
 CapsuleCollider:
@@ -15236,6 +15291,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1176361755
 CapsuleCollider:
@@ -15378,6 +15434,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1178662396
 Rigidbody:
@@ -15606,6 +15663,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1204045672
 CapsuleCollider:
@@ -15933,6 +15991,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1248455150
 Rigidbody:
@@ -16081,6 +16140,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1260506091
 Rigidbody:
@@ -16283,6 +16343,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!4 &1295178294
 Transform:
   m_ObjectHideFlags: 0
@@ -16544,6 +16605,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1311527266
 Rigidbody:
@@ -16718,6 +16780,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1317052952
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16976,6 +17039,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1352201438
 Rigidbody:
@@ -17080,6 +17144,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1354485364
 CapsuleCollider:
@@ -18017,6 +18082,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1487607844
 Rigidbody:
@@ -18505,6 +18571,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1584360913
 CapsuleCollider:
@@ -18689,6 +18756,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1604391579
 Rigidbody:
@@ -18793,6 +18861,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1610349451
 CapsuleCollider:
@@ -19104,6 +19173,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1650477912
 CapsuleCollider:
@@ -19218,6 +19288,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1653200240
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19391,6 +19462,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1662858818
 CapsuleCollider:
@@ -19591,6 +19663,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1670874686
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19719,6 +19792,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1675451721
 CapsuleCollider:
@@ -19837,6 +19911,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1690056484
 CapsuleCollider:
@@ -20028,6 +20103,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1710939061
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20144,6 +20220,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1711161549
 CapsuleCollider:
@@ -20468,6 +20545,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1721571406
 CapsuleCollider:
@@ -20610,6 +20688,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1722954489
 Rigidbody:
@@ -20850,6 +20929,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1739203055
 CapsuleCollider:
@@ -20980,6 +21060,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1757066381
 CapsuleCollider:
@@ -21098,6 +21179,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1769679818
 CapsuleCollider:
@@ -22017,6 +22099,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1854245497
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22137,6 +22220,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1854944858
 Rigidbody:
@@ -22303,6 +22387,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1896380544
 CapsuleCollider:
@@ -22429,6 +22514,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   Meffect: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
+  delayTime: 4
 --- !u!135 &1897192962
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22557,6 +22643,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1898938913
 CapsuleCollider:
@@ -22737,6 +22824,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1919739027
 CapsuleCollider:
@@ -23135,6 +23223,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &1934971121
 CapsuleCollider:
@@ -23375,6 +23464,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &1972041043
 Rigidbody:
@@ -23853,6 +23943,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &2005258268
 CapsuleCollider:
@@ -23975,6 +24066,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &2012661958
 Rigidbody:
@@ -24091,6 +24183,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &2018654537
 Rigidbody:
@@ -24335,6 +24428,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &2055018574
 Rigidbody:
@@ -24773,6 +24867,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!54 &2103293540
 Rigidbody:
@@ -24889,6 +24984,7 @@ MonoBehaviour:
   objectHP: 3
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  delayTime: 4
   rotateObject: {fileID: 0}
 --- !u!136 &2115712839
 CapsuleCollider:
