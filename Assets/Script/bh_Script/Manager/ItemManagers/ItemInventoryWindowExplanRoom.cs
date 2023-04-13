@@ -138,6 +138,13 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         else if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Deployment)
         {
             ItemManager.Instance.OnHousingMode();
+            if (itemInventoryWindow.gameObject.activeSelf == true)
+            {
+                itemInventoryWindow._saveSelectedIndex = itemInventoryWindow._selectedIndex;
+                itemInventoryWindow.PreOnDisble();
+                itemInventoryWindow.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
         itemInventoryWindow.RefreshItemInventory();
     }
@@ -204,6 +211,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
             itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
             initialize();
         }
+        itemInventoryWindow.RefreshItemInventory();
     }
     // Update is called once per frame
 

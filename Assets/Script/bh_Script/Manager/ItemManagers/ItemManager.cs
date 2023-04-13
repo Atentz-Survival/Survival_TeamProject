@@ -125,7 +125,7 @@ public class ItemManager : Singleton<ItemManager>
 
     private void OnDisable()
     {
-        OffHousingMode();
+        OffHousingMode(false);
     }
 
     public GameObject GetObject(ItemType itemType)
@@ -140,14 +140,15 @@ public class ItemManager : Singleton<ItemManager>
         //Vector2 aaa = UnityEngine.Camera.main.ScreenToWorldPoint(screenPosition);
         //Vector3 newPositon = new Vector3(aaa.x, 0, aaa.y);
         //Ray ray = UnityEngine.Camera.main.ScreenPointToRay(newPositon);
+        bool isUse = false;
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(screenPosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log(hit.point);
             setUpItem.transform.position = hit.point;
+            isUse = true;
         }
-        OffHousingMode();
+        OffHousingMode(isUse);
     }
 
     public void OnHousingMode() 
@@ -162,7 +163,7 @@ public class ItemManager : Singleton<ItemManager>
         }   
     }
 
-    void OffHousingMode() 
+    void OffHousingMode(bool isUse) 
     {
         if (isHousingMode == true)
         {
@@ -170,6 +171,11 @@ public class ItemManager : Singleton<ItemManager>
             housingAction.Player.SetUp.performed -= SetUpObject;
             housingAction.Player.Disable();
             Debug.Log("OFFせせせせ");
+            if (itemInventory.ItemsInventoryWindow.gameObject.activeSelf == false)
+            {
+                itemInventory.ItemsInventoryWindow.gameObject.SetActive(true);
+                itemInventory.ItemsInventoryWindow.AfterItemUse(isUse);
+            }
         }
     }
 }
