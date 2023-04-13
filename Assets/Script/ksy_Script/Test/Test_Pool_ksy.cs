@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Test_Pool : Test_Base
+public class Test_Pool_ksy : Test_Base
 {
     ItemInventoryWindow itemInventoryWindow;
     ItemInventoryWindowExplanRoom explanRoom;
@@ -74,7 +74,7 @@ public class Test_Pool : Test_Base
         //        ItemManager.Instance.itemInventory.emptySpaceStartIndex++; // 아이템 인벤토리에 Strawberry를 추가한 뒤  그 Strawberry의 개수를 1개 추가
         //    }
         //}
-        ItemManager.Instance.itemInventory.AddItem(ItemType.Avocado, 6);
+        ItemManager.Instance.itemInventory.SubtractItem(ItemType.GoldFishingrod, 3);
         //itemInventoryWindow.RefreshItemInventory();
         Debug.Log(ItemManager.Instance.itemInventory.ItemAmountArray[0]); // 아이템 인벤토리 0번째 칸에 있는 아이템의 개수 출력
         Debug.Log(ItemManager.Instance[ItemType.Strawberry].ItemName); // Strawberry의 (한글)이름 출력

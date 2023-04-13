@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class FishinfRod : MonoBehaviour
 {
-    private int[] fishingRodLevel = { 1, 2, 3 };
+    public Action<int> UsingTool;
+    public Collider fishigrodCollider;
+    int useToolHp;
 
     private void Start()
     {
+        fishigrodCollider = GetComponent<Collider>();
+        fishigrodCollider.enabled = false;
     }
 
     public void OnCangeFishinfRodlLevel()
@@ -28,6 +32,35 @@ public class FishinfRod : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             this.gameObject.SetActive(false);
+        }
+    }
+
+    private int UsingToolFishingRod(int hp)
+    {
+        int toolLevel = ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Fishingrod);
+        switch (toolLevel)
+        {
+            case 1:
+                hp = -35;
+                break;
+            case 2:
+                hp = -25;
+                break;
+            case 3:
+                hp = -15;
+                break;
+        }
+        UsingTool?.Invoke(hp);
+        Debug.Log(hp);
+        return hp;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Ocean"))
+        {
+            UsingToolFishingRod(useToolHp);
         }
     }
 }

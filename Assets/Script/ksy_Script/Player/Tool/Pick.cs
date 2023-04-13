@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
+    public Action<int> UsingTool;
+    public Collider pickCollider;
+    int useToolHp;
+
+    private void Start()
+    {
+        pickCollider = GetComponent<Collider>();
+        pickCollider.enabled = false;
+    }
     public void OnCangePickLevel()
     {
         if (ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe) > 0)
@@ -21,6 +31,35 @@ public class Pick : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             this.gameObject.SetActive(false);
+        }
+    }
+
+    private int UsingToolPick(int hp)
+    {
+        int toolLevel = ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Pickaxe);
+        switch (toolLevel)
+        {
+            case 1:
+                hp = -35;
+                break;
+            case 2:
+                hp = -25;
+                break;
+            case 3:
+                hp = -15;
+                break;
+        }
+        UsingTool?.Invoke(hp);
+        Debug.Log(hp);
+        return hp;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            UsingToolPick(useToolHp);
         }
     }
 }

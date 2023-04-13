@@ -1,9 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Reap : MonoBehaviour
 {
+    public Action<int> UsingTool;
+    public Collider ReapCollider;
+    int useToolHp;
+
+    private void Start()
+    {
+        ReapCollider = GetComponent<Collider>();
+        ReapCollider.enabled = false;
+    }
     public void OnCangeReapLevel()
     {
         if (ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle) > 0)
@@ -21,6 +31,35 @@ public class Reap : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             this.gameObject.SetActive(false);
+        }
+    }
+
+    private int UsingToolReap(int hp)
+    {
+        int toolLevel = ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Sickle);
+        switch (toolLevel)
+        {
+            case 1:
+                hp = -35;
+                break;
+            case 2:
+                hp = -25;
+                break;
+            case 3:
+                hp = -15;
+                break;
+        }
+        UsingTool?.Invoke(hp);
+        Debug.Log(hp);
+        return hp;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Flower"))
+        {
+            UsingToolReap(useToolHp);
         }
     }
 }

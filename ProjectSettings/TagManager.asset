@@ -15,6 +15,7 @@ TagManager:
   - FisingRod
   - Reap
   - Ocean
+  - RightHand
   layers:
   - Default
   - TransparentFX
