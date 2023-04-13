@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -117,11 +118,11 @@ public class ItemInventoryWindow : MonoBehaviour
             _selectedIndex = index;
             return;
         }
-        itemInventoryWindowRooms[index]._panelImage.color = Color.green;
         if (_selectedIndex != notSelect)
         {
             itemInventoryWindowRooms[_selectedIndex]._panelImage.color = inventoryNormalColor;
         }
+        itemInventoryWindowRooms[index]._panelImage.color = Color.green;
         explanRoom._itemName.text = ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[index]].ItemName;
         explanRoom._itemExplan.text = ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[index]].Explan;
         explanRoom._itemTag.text = itemTagString[(int)(ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[index]].Tag)];
@@ -131,4 +132,16 @@ public class ItemInventoryWindow : MonoBehaviour
     }
     // Update is called once per frame
 
+    public void AfterItemUse(bool isUse)
+    {
+        if (ExplanRoom.gameObject.activeSelf == false)
+        {
+            ExplanRoom.gameObject.SetActive(true);
+            SetExplan(_selectedIndex);
+        }
+        if (isUse)
+        {
+            ExplanRoom.AfterItemUse();
+        }
+    }
 }

@@ -39,6 +39,7 @@ public class ItemInventory : MonoBehaviour
     ItemInventoryWindow itemsInventoryWindow;
     public ItemInventoryWindow ItemsInventoryWindow
     {
+        get => itemsInventoryWindow;
         set => itemsInventoryWindow = value; 
     }
 
