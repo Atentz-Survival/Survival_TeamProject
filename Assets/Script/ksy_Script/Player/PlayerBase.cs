@@ -29,9 +29,9 @@ public class PlayerBase : MonoBehaviour
             {
                 HP = maxHp;
             }
-                hp = value;
+            hp = value;
 
-            if(hp < 1)
+            if (hp < 1)
             {
                 OnDie();
             }
@@ -55,10 +55,10 @@ public class PlayerBase : MonoBehaviour
     }
 
     playerState state;
-    public Action <playerState> GetState;
+    public Action<playerState> GetState;
     public playerState State
     {
-        get=> state;
+        get => state;
     }
     /*------------------ToolItem 상태 -------------------*/
     private bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
@@ -145,30 +145,35 @@ public class PlayerBase : MonoBehaviour
 
     private void Start()
     {
+        //컴포턴트 찾기
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         axe = FindObjectOfType<Axe>();
         fishingRod = FindObjectOfType<FishinfRod>();
         reap = FindObjectOfType<Reap>();
         pick = FindObjectOfType<Pick>();
-        HP = maxHp;
-        HpChange();
-        //Debug.Log(hp);
+
+        //델리게이트 받기
         item.onChangeHp += OnUpgradeHp; // <<인벤
+        axe.UsingTool += OnUpgradeHp;
         item.onChangeTool += OnUpgradeTool; // << tool
 
+        //배열로 tool게임오브젝트 찾기
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
         {
             tools[i] = GameObject.Find(toolsNames[i]);
             tools[i].SetActive(false);
         }
-
+        //배열로 tool의 불배열 모두 false로 돌리기
         for (int i = 0; i < isEqualWithState.Length; i++)
         {
             isEqualWithState[i] = false;
         }
 
-        state = playerState.Nomal;
+        inputActions.CharacterMove.Activity.Disable();  //시작할때 마우스클릭 막기
+        state = playerState.Nomal;      //플레이어의 상태는 노멀
+        HP = maxHp;                 //hp 초기화
+        HpChange();                 //hp깎기
     }
 
     private void FixedUpdate()
@@ -202,9 +207,9 @@ public class PlayerBase : MonoBehaviour
     void Move()
     {
         V3 = new Vector3(0, mouseDelta, 0);      //마우스 z좌표 이동 y축 회전 값으로 저장
-        mouseDelta = 0.0f;                       //초기하 작업
+        mouseDelta = 0.0f;                       //초기화 작업
         transform.Rotate(V3 * turnSpeed);        // 턴스피드 속도만큼 회전
-        if(isRun == true)
+        if (isRun == true)
         {
             rigid.MovePosition(Time.fixedDeltaTime * rushSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
         }
@@ -219,10 +224,10 @@ public class PlayerBase : MonoBehaviour
 
     void OnUpgradeHp(int getHp)             //인벤에서 전달받을 hp(getHp)
     {
-        if (HP > 0 )
+        if (HP > 0)
         {
             HP = HP + getHp;
-            if(HP > maxHp)
+            if (HP > maxHp)
             {
                 HP = maxHp;
             }
@@ -262,68 +267,53 @@ public class PlayerBase : MonoBehaviour
     //--- 도끼질 곡갱이 질 함수(left click)---
     private void OnAvtivity(InputAction.CallbackContext context)
     {
-        if (isAction)
+        isAction = true;
+        if (state == playerState.Fishing && isEqualWithState[4] == true)
         {
-            if (state == playerState.Fishing)
-            {
-                StartCoroutine(Fishing());
-            }
-            else
-            {
-                StartCoroutine(ActionCoroutine());
-            }
+            StartCoroutine(Fishing());
         }
         else
         {
-            for (int i = 1; i < isEqualWithState.Length; i++)
-            {
-                if (isEqualWithState[i] == true)
-                {
-                    Debug.Log("사용불가 아이템");
-                }
-            }
+            StartCoroutine(ActionCoroutine());
         }
     }
 
     private void OnAvtivityStop(InputAction.CallbackContext context)
-    { 
-        StopCoroutine(Fishing());
-        StopCoroutine(ActionCoroutine());
+    {
+        isAction = false;
+        if (state == playerState.Fishing && isEqualWithState[4] == true)
+        {
+            StopCoroutine(Fishing());
+        }
+        else
+        { 
+            StartCoroutine(ActionCoroutine()); 
+        }
+
+        Debug.Log("손땔게");
     }
 
     //---공격용 코루틴---
-   IEnumerator ActionCoroutine()
+    IEnumerator ActionCoroutine()
     {
-        while (true)    //누르면 지속적으로 어택 모션 취하기
+        while (isAction == true)    //누르면 지속적으로 어택 모션 취하기
         {
             switch (state)
             {
                 case playerState.Nomal:
-                    if (isAction)
-                    {
-                        anim.SetTrigger("Hand_Trigger");
-                    }
+                    anim.SetTrigger("Hand_Trigger");
                     break;
                 case playerState.TreeFelling:
-                    if (isAction)
-                    {
-                        anim.SetTrigger("Axe_Trigger");
-                    }
+                    anim.SetTrigger("Axe_Trigger");
                     break;
                 case playerState.Gathering:
-                    if (isAction)
-                    {
-                        anim.SetTrigger("Reap_Trigger");
-                    }
+                    anim.SetTrigger("Reap_Trigger");
                     break;
                 case playerState.Mining:
-                    if (isAction)
-                    {
-                        anim.SetTrigger("Pick_Trigger");
-                    }
+                    anim.SetTrigger("Pick_Trigger");
                     break;
             }
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
@@ -340,59 +330,43 @@ public class PlayerBase : MonoBehaviour
         switch (toolItem)
         {
             case ToolItemTag.Axe:
-                for (int i = 0; i < tools.Length; i++)
-                {
-                    tools[i].SetActive(false);
-                }
-                for (int i = 0; i < isEqualWithState.Length; i++)
-                {
-                    isEqualWithState[i] = false;
-                }
+                ResetToolSetting();
                 tools[0].SetActive(true);
                 axe.OnCangeAxelLevel();
                 isEqualWithState[1] = true;
                 break;
             case ToolItemTag.Sickle:
-                for (int i = 0; i < tools.Length; i++)
-                {
-                    tools[i].SetActive(false);
-                }
-                for (int i = 0; i < isEqualWithState.Length; i++)
-                {
-                    isEqualWithState[i] = false;
-                }
+                ResetToolSetting();
                 tools[1].SetActive(true);
                 reap.OnCangeReapLevel();
                 isEqualWithState[2] = true;
                 break;
             case ToolItemTag.Pickaxe:
-                for (int i = 0; i < tools.Length; i++)
-                {
-                    tools[i].SetActive(false);
-                }
-                for (int i = 0; i < isEqualWithState.Length; i++)
-                {
-                    isEqualWithState[i] = false;
-                }
+                ResetToolSetting();
                 tools[2].SetActive(true);
                 pick.OnCangePickLevel();
                 isEqualWithState[3] = true;
                 break;
             case ToolItemTag.Fishingrod:
-                for (int i = 0; i < tools.Length; i++)
-                {
-                    tools[i].SetActive(false);
-                }
-                for (int i = 0; i < isEqualWithState.Length; i++)
-                {
-                    isEqualWithState[i] = false;
-                }
+                ResetToolSetting();
                 tools[3].SetActive(true);
                 fishingRod.OnCangeFishinfRodlLevel();
                 isEqualWithState[4] = true;
                 break;
         }
         GetToolItem?.Invoke(toolItem, level);
+    }
+
+    void ResetToolSetting()                     //툴 리셋하는 함수
+    {
+        for (int i = 0; i < tools.Length; i++)
+        {
+            tools[i].SetActive(false);
+        }
+        for (int i = 0; i < isEqualWithState.Length; i++)
+        {
+            isEqualWithState[i] = false;
+        }
     }
 
     //----------------------------------그랩용 함수-------------------------------
@@ -402,7 +376,6 @@ public class PlayerBase : MonoBehaviour
         // 아이템과 트리거가 닿았을 때
         if (other.gameObject.CompareTag("DropItem"))
         {
-            isAction = false;
             DropItem pick = other.GetComponent<DropItem>();
             if (pick != null)
             {
@@ -412,20 +385,19 @@ public class PlayerBase : MonoBehaviour
         }
 
         // 맵 오브젝트와 트리거가 닿았을 때
-        isAction = true;
         isEqualWithState[0] = true;
         if (other.gameObject.CompareTag("Tree"))
         {
+            inputActions.CharacterMove.Activity.Enable();
             state = playerState.TreeFelling;
             if (isEqualWithState[2] || isEqualWithState[3] || isEqualWithState[4] == true)
             {
                 Debug.Log("사용불가 아이템");
             }
-
-            //isTreeFelling = true;
         }
         else if (other.gameObject.CompareTag("Flower"))
         {
+            inputActions.CharacterMove.Activity.Enable();
             state = playerState.Gathering;
             isEqualWithState[(int)state] = true;
             if (isEqualWithState[1] || isEqualWithState[3] || isEqualWithState[4] == true)
@@ -435,6 +407,7 @@ public class PlayerBase : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Rock"))
         {
+            inputActions.CharacterMove.Activity.Enable();
             state = playerState.Mining;
             isEqualWithState[(int)state] = true;
             if (isEqualWithState[1] || isEqualWithState[2] || isEqualWithState[4] == true)
@@ -444,6 +417,7 @@ public class PlayerBase : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Ocean"))
         {
+            inputActions.CharacterMove.Activity.Enable();
             state = playerState.Fishing;
             isEqualWithState[(int)state] = true;
             if (isEqualWithState[1] || isEqualWithState[2] || isEqualWithState[3] == true)
@@ -455,12 +429,12 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        isAction = false;   //행동막기
         if (other.gameObject.CompareTag("Tree")
            || other.gameObject.CompareTag("Flower")
            || other.gameObject.CompareTag("Rock")
            || other.gameObject.CompareTag("Ocean"))
         {
+            inputActions.CharacterMove.Activity.Disable();
             state = playerState.Nomal;
             for (int i = 0; i < isEqualWithState.Length; i++)
             {
@@ -474,7 +448,6 @@ public class PlayerBase : MonoBehaviour
     {
         anim.SetBool("ItemGrab", !context.canceled);
     }
-
 
     //----------------------------------장소 상호작용 함수-------------------------------
 
@@ -490,5 +463,4 @@ public class PlayerBase : MonoBehaviour
 
         }
     }
-
 }
