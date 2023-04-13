@@ -413,7 +413,6 @@ public class PlayerBase : MonoBehaviour
         // 아이템과 트리거가 닿았을 때
         if (other.gameObject.CompareTag("DropItem"))
         {
-            isAction = false;
             DropItem pick = other.GetComponent<DropItem>();
             if (pick != null)
             {
