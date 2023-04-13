@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dd8fdbab142ba4ea499ac05bad9a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axeCollider: {fileID: 1249699451}
 --- !u!1 &4313370806844666256
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +864,8 @@ MonoBehaviour:
   turnSpeed: 0.5
   rushSpeed: 10
   hp: 3
+  isAction: 0
+  isDoing: 0
 --- !u!135 &1241787317645028039
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1014,9 +1017,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4313370806844404684}
   - component: {fileID: 763258898}
+  - component: {fileID: 1046923992}
   m_Layer: 0
   m_Name: Hand_Right_jnt
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,6 +1057,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.66
   m_Center: {x: 0.39, y: 0.45, z: -0.38}
+--- !u!114 &1046923992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313370806844915538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6097025b2bf185418b556465b3ff676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rHandCollider: {fileID: 763258898}
 --- !u!1 &4313370806932022861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207b8b9728f11ef4591b36271d89a3a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickCollider: {fileID: 996207141}
 --- !u!1 &4313370807373742694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc7ee912e5cfc84389cad58636f6c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishigrodCollider: {fileID: 41731559}
 --- !u!1 &4313370807374912429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307a0b52eb37c8d4aabfcb049c42f392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReapCollider: {fileID: 54483349}
 --- !u!1001 &282915027563704776
 PrefabInstance:
   m_ObjectHideFlags: 0

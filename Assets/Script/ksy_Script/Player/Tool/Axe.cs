@@ -7,7 +7,14 @@ using UnityEngine;
 public class Axe : MonoBehaviour
 {
     public Action<int> UsingTool;
+    public Collider axeCollider;
     int useToolHp;
+
+    private void Start()
+    {
+        axeCollider = GetComponent<Collider>();
+        axeCollider.enabled = false;
+    }
     public void OnCangeAxelLevel()
     {
         if (ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe) > 0)
@@ -30,7 +37,6 @@ public class Axe : MonoBehaviour
 
     private int UsingToolAxe(int hp)
     {
-        hp = 0;
         int toolLevel = ItemManager.Instance.itemInventory.GetEquipToolLevel(ToolItemTag.Axe);
         switch(toolLevel)
         {
@@ -45,13 +51,16 @@ public class Axe : MonoBehaviour
                 break;
         }
         UsingTool?.Invoke(hp);
+        Debug.Log(hp);
         return hp;
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
         if(other.gameObject.CompareTag("Tree"))
+        {
             UsingToolAxe(useToolHp);
+        }
     }
 }
