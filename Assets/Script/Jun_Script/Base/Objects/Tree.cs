@@ -32,7 +32,6 @@ public class Tree : PlaneBase
             }
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Axe"))

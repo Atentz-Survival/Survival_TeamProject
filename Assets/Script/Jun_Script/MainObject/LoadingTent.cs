@@ -32,7 +32,7 @@ public class LoadingTent : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Axe"))
+        if(other.CompareTag("Player"))
         {
             Debug.Log(isTent);
             if (isTent)
