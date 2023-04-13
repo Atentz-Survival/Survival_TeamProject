@@ -9,6 +9,12 @@ TagManager:
   - FxTemporaire
   - Flower
   - DropItem
+  - Hand
+  - Axe
+  - Pick
+  - FisingRod
+  - Reap
+  - Ocean
   layers:
   - Default
   - TransparentFX

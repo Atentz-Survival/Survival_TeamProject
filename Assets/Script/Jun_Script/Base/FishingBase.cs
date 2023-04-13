@@ -56,24 +56,23 @@ public class FishingBase : MonoBehaviour
             {
                 Debug.Log("Step1");
 
-                if (other.gameObject.name == "FishingRod")
+                if (other.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
                     Invoke("FishDrop1", waitT);
                     Debug.Log("Step3");
                 }
 
-                else if (other.gameObject.name == "Cube")
+                else if (other.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    FishDrop2();
+                    Invoke("FishDrop2", waitT);
                     Debug.Log("Step4");
                 }
 
-                else if (other.gameObject.name == "te")
+                else if (other.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
-                    FishDrop3();
+                    Invoke("FishDrop3", waitT);
                     Debug.Log("Step5");
                 }
-                StopAllCoroutines();
             }
             isTimeCheck = true;
             Debug.Log("Step2");
