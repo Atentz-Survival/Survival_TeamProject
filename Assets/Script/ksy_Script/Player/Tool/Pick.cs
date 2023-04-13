@@ -54,14 +54,6 @@ public class Pick : MonoBehaviour
         return hp;
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.gameObject.CompareTag("Rock"))
-        {
-            UsingToolPick(useToolHp);
-        }
-    }*/
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Rock"))

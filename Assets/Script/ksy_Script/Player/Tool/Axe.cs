@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Axe : MonoBehaviour
@@ -54,15 +53,6 @@ public class Axe : MonoBehaviour
         Debug.Log(hp);
         return hp;
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-
-        if(other.gameObject.CompareTag("Tree"))
-        {
-            UsingToolAxe(useToolHp);
-        }
-    }*/
 
     private void OnCollisionEnter(Collision other)
     {
