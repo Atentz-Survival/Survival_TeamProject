@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.001
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.07044028, g: 0.35368115, b: 0.9708182, a: 1}
-=======
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
->>>>>>> main
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -517,7 +513,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &50826398
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1178,7 +1174,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &88757850
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1216,17 +1212,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 505264924}
     m_Modifications:
-    - target: {fileID: 89816926, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
-      propertyPath: rotateObject
-      value: 
-      objectReference: {fileID: 500067208}
     - target: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
       propertyPath: m_Name
       value: SM_Tree_Generic_Giant_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553866496212010, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553866496212010, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1268,6 +1284,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 136906618729676680, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136906618729676680, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_Center.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 136906618729676680, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_Center.z
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 136906618729676680, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 205232115495334008, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+      propertyPath: m_LODs.Array.data[0].renderers.Array.data[0].renderer
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
 --- !u!4 &89816924 stripped
@@ -1275,6 +1311,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4869555021460592, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
   m_PrefabInstance: {fileID: 89816923}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &89816925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1992559430955086, guid: 5301afbcc2367b5469f618258a227b39, type: 3}
+  m_PrefabInstance: {fileID: 89816923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &89816926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89816925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04989f97d48c5924791deb7ffc94f686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectMaxHP: 3
+  objectHP: 3
+  Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  delayTime: 4
+  rotateObject: {fileID: 0}
+--- !u!54 &89816927
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89816925}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &95923910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1749,7 +1824,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &118427635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1928,7 +2003,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &124028920
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2245,7 +2320,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &150475330
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2711,7 +2786,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &168761426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2890,7 +2965,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &177271180
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2927,11 +3002,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_Name: pb_Mesh27368
-=======
   m_Name: pb_Mesh32372
->>>>>>> main
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3523,7 +3594,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &206689765
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3690,7 +3761,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &213881789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3809,7 +3880,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &228757809
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4087,11 +4158,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_Name: pb_Mesh26168
-=======
   m_Name: pb_Mesh31172
->>>>>>> main
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4399,7 +4466,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &269182264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5117,7 +5184,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &327715099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5446,7 +5513,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &354315748
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5652,7 +5719,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &355509209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5793,7 +5860,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &366922406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6415,7 +6482,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &407806430
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6546,7 +6613,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &411837457
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7195,7 +7262,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &447693229
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7592,7 +7659,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &481267366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7693,7 +7760,6 @@ GameObject:
   m_Component:
   - component: {fileID: 500067208}
   - component: {fileID: 500067207}
-  - component: {fileID: 500067209}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -7771,31 +7837,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500067206}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &500067209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500067206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580a37abc583dd049b438927d225e946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skybox: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
-  beta: 0.0008
-  maxAlpha: 0.6
-  forTimeInGame: 0
-  isNight: 0
-  vecT: 0.5
 --- !u!1 &500603372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8157,7 +8205,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &508420295
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8470,7 +8518,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &532797152
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8711,7 +8759,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &552186771
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9415,7 +9463,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &609363038
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10095,7 +10143,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &630714246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10447,7 +10495,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &660235547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10664,7 +10712,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &666706186
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11178,7 +11226,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &694232844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11858,7 +11906,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &732671547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12277,7 +12325,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &742567383
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13313,7 +13361,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &794150207
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14328,7 +14376,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &892629310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14595,7 +14643,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &909829321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14704,7 +14752,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &911249467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14821,7 +14869,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &926090527
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15364,7 +15412,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &935003133
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15981,7 +16029,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &975874441
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16309,7 +16357,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &990217199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17110,7 +17158,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1035539699
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17591,7 +17639,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1053305054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18048,7 +18096,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1061698755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18171,7 +18219,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1065520285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18858,7 +18906,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1103571103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19306,7 +19354,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1118927626
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19465,7 +19513,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1119636940
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20026,7 +20074,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1152773086
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20219,7 +20267,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1176361755
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20362,7 +20410,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1178662396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20819,7 +20867,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1204045672
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21375,7 +21423,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1248455150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21661,7 +21709,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1260506091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22382,7 +22430,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1311527266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23062,7 +23110,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1352201438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23167,7 +23215,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1354485364
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24679,7 +24727,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1487607844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26089,7 +26137,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1584360913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26274,7 +26322,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1604391579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26379,7 +26427,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1610349451
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26771,7 +26819,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1650477912
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26926,14 +26974,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1249699451, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249699451, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2426741733543047472, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
       propertyPath: hp
       value: 800
@@ -26985,18 +27025,6 @@ PrefabInstance:
     - target: {fileID: 4313370806844886264, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4313370806932022861, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4313370807373742694, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4313370807374912429, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed16eb6e2d11b4a4a9d4d19703ce9c25, type: 3}
@@ -27169,7 +27197,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1662858818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27547,7 +27575,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1675451721
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27666,7 +27694,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1690056484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28072,7 +28100,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1711161549
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28397,7 +28425,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1721571406
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28540,7 +28568,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1722954489
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28916,7 +28944,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1739203055
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29047,7 +29075,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1757066381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29301,7 +29329,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1769679818
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30481,7 +30509,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1854944858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30876,7 +30904,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1896380544
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31136,7 +31164,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1898938913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31438,7 +31466,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1919739027
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31837,7 +31865,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &1934971121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32026,63 +32054,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944476314}
   m_CullTransparentMesh: 1
---- !u!1001 &1945556244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4586358296951022240, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_Name
-      value: ItemManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_RootOrder
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586358296951022242, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 77180ad041752d846a6ad1a0fd465e28, type: 3}
 --- !u!1001 &1969559627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32164,37 +32135,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5991b8efe7e0044888b9058f6d3119f, type: 3}
---- !u!1 &1969559628 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3918036935182654285, guid: b5991b8efe7e0044888b9058f6d3119f, type: 3}
-  m_PrefabInstance: {fileID: 1969559627}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1969559629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969559628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6921c8e49b8f1d544ab7d3935dc50a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &1969559634
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969559628}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: -2.186353e-16, y: 1.0244613, z: 1.2}
 --- !u!1001 &1972041039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32287,7 +32227,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &1972041043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32887,7 +32827,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &2005258268
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33010,7 +32950,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &2012661958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33127,7 +33067,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &2018654537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33465,7 +33405,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &2055018574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34102,7 +34042,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!54 &2103293540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34219,7 +34159,7 @@ MonoBehaviour:
   Effect: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   Meffect: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   delayTime: 4
-  rotateObject: {fileID: 500067208}
+  rotateObject: {fileID: 0}
 --- !u!136 &2115712839
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34256,11 +34196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_Name: pb_Mesh26460
-=======
   m_Name: pb_Mesh31464
->>>>>>> main
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
