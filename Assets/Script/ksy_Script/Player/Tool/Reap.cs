@@ -54,15 +54,6 @@ public class Reap : MonoBehaviour
         return hp;
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.gameObject.CompareTag("Flower"))
-        {
-            UsingToolReap(useToolHp);
-        }
-    }*/
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Flower"))

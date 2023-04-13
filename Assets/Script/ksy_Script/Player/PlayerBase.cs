@@ -14,19 +14,18 @@ public class PlayerBase : MonoBehaviour
     //--------------------private---------------------------
     private float mouseDelta;          // 마우스의 위치값
     private int maxHp = 1000;          // 최대 hp
-    public int hp = 1000;              // 현재 hp
+    private int hp = 1000;              // 현재 hp
 
-    public bool isAction = false;
+    private bool isAction = false;
     private bool isRun = false;
 
-    public bool isDoing = false;
+    private bool isDoing = false;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
     {
         get => hp;
         set
         {
-
             if (value > 1000)
             {
                 HP = maxHp;
@@ -37,7 +36,6 @@ public class PlayerBase : MonoBehaviour
             {
                 OnDie();
             }
-
 
             onUpgradeHp?.Invoke(HP / maxHp);
         }
