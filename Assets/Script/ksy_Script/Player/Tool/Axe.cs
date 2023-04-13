@@ -55,12 +55,21 @@ public class Axe : MonoBehaviour
         return hp;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
 
         if(other.gameObject.CompareTag("Tree"))
         {
             UsingToolAxe(useToolHp);
         }
+    }*/
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Tree"))
+        {
+            UsingToolAxe(useToolHp);
+        }
+
     }
 }
