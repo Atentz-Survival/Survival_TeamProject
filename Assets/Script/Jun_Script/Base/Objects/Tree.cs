@@ -36,6 +36,7 @@ public class Tree : PlaneBase
     {
         if (collision.gameObject.CompareTag("Axe"))
         {
+            Debug.Log("AXE");
             objectHP--;
             Debug.Log($"First : {objectHP}");
             if (objectHP > 0)

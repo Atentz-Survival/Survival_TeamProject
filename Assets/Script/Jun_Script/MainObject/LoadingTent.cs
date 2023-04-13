@@ -34,13 +34,12 @@ public class LoadingTent : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log(isTent);
             if (isTent)
             {
                 // 여기서 텐트에 G키 활성화 시키기.
                 if (Input.GetKeyDown(KeyCode.G))
                 {
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadSceneAsync(0);
                 }
             }
         }
