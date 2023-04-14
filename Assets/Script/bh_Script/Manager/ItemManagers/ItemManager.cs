@@ -145,8 +145,13 @@ public class ItemManager : Singleton<ItemManager>
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(screenPosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            setUpItem.transform.position = hit.point;
-            isUse = true;
+            if (hit.collider.gameObject.CompareTag("HousingPlace"))
+            {
+                setUpItem.SetUp();
+                setUpItem.transform.position = hit.point;
+                isUse = true;
+            }
+            Debug.Log(hit.collider.gameObject.name);
         }
         OffHousingMode(isUse);
     }
@@ -178,4 +183,6 @@ public class ItemManager : Singleton<ItemManager>
             }
         }
     }
+
+
 }
