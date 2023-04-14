@@ -16,6 +16,7 @@ TagManager:
   - Reap
   - Ocean
   - RightHand
+  - HousingPlace
   layers:
   - Default
   - TransparentFX

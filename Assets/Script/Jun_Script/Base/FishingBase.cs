@@ -48,7 +48,7 @@ public class FishingBase : MonoBehaviour
         if (other.gameObject.CompareTag("FisingRod"))
         {
             GameObject obj = Instantiate(fishingEffect);
-            obj.transform.position = target.position;
+            obj.transform.position = transform.position;
 
             isTimeCheck = false;
 

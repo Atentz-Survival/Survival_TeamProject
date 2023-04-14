@@ -194,8 +194,8 @@ public class BasementObject : MonoBehaviour
 
         void objectInit1()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = Vector3.up * 9;
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            obj.transform.position = transform.position + Vector3.up * 2;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
@@ -219,8 +219,8 @@ public class BasementObject : MonoBehaviour
 
         void objectInit2()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = Vector3.up * 9;
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            obj.transform.position = transform.position + Vector3.up * 2;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
@@ -244,8 +244,8 @@ public class BasementObject : MonoBehaviour
 
         void objectInit3()
         {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = Vector3.up * 9;
+            GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+            obj.transform.position = transform.position + Vector3.up * 2;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
