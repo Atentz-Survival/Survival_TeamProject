@@ -8,39 +8,66 @@ using UnityEngine.InputSystem;
 
 public class PlayerUI : MonoBehaviour
 {
-    TextMeshProUGUI HPText;
+    // TextMeshProUGUI HPText;
     Slider HPUI;
     PlayerBase player;
-    PauseMenu pauseMenu;
+    public PauseMenu pauseMenu;
     public Button pauseButton;
-    bool IsClosed = true;
+    // r
 
-    UIAct uiAct;
+    UIAction uiAction;
 
     private void Awake()
     {
-        uiAct = new UIAct();
-        pauseMenu = transform.Find("PauseMenu").GetComponent<PauseMenu>();
-        int i = 0;
+        HPUI = GetComponentInChildren<Slider>();
+        HPText = GetComponentInChildren<TextMeshProUGUI>();
+        pauseButton = GetComponent<Button>();
+        uiAction = new UIAction();
+
+        pauseButton.onClick.AddListener(CallPauseMenu);
     }
 
     private void Start()
-    {
+    { 
         player = FindObjectOfType<PlayerBase>();
+<<<<<<< Updated upstream
+        pauseMenu = FindObjectOfType<PauseMenu>();
+    }
+
+    private void OnEnable()
+    {
+        uiAction.Enable();
+        uiAction.UI.Esc.performed += Esc;
+    }
+
+    private void Esc(InputAction.CallbackContext _)
+    {
+        pauseMenu.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        uiAction.UI.Esc.performed -= Esc;
+        uiAction.Disable();
+=======
         pauseButton = GameObject.Find("Pause").GetComponent<Button>();
         HPUI = GetComponentInChildren<Slider>();
-        HPText = GetComponentInChildren<TextMeshProUGUI>();
+        // HPText = GetComponentInChildren<TextMeshProUGUI>();
         pauseButton.onClick.AddListener(CallPauseMenu);
+>>>>>>> Stashed changes
     }
 
     private void FixedUpdate()
     {
         HPUI.value = player.HP;
-        HPText.text = $"{player.HP} / 1000";
+        // HPText.text = $"{player.HP} / 1000";
     }
-
     private void CallPauseMenu()
     {
+<<<<<<< Updated upstream
+        pauseMenu.gameObject.SetActive(true);
+        Debug.Log("메뉴 불러오기");
+=======
         if(pauseMenu != null)
         {
             pauseMenu.gameObject.SetActive(true);
@@ -56,34 +83,7 @@ public class PlayerUI : MonoBehaviour
         {
             Debug.Log("퍼즈메뉴 오류");
         }
+        Debug.Log("퍼즈");
+>>>>>>> Stashed changes
     }
-
-    private void OnEnable()
-    {
-        uiAct.UI.Enable();
-        uiAct.UI.Esc.performed += Esc;
-    }
-
-    private void OnDisable()
-    {
-        uiAct.UI.Esc.performed -= Esc;
-        uiAct.UI.Disable();
-    }
-
-    private void Esc(InputAction.CallbackContext _)
-    {
-        if (IsClosed)
-        {
-            pauseMenu.gameObject.SetActive(true);
-            Time.timeScale = 0;
-            IsClosed = false;
-        }
-        else
-        {
-            pauseMenu.gameObject.SetActive(false);
-            Time.timeScale = 1;
-            IsClosed = true;
-        }
-    }
-
-}
+}   

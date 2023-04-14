@@ -1,35 +1,43 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : PlayerUI
 {
-    TextMeshPro resumeText;
-    TextMeshPro saveText;
-    TextMeshPro mainText;
     Button resume;
     Button save;
     Button main;
+    Button option;
 
     private void Awake()
     {
         resume = GameObject.Find("Resume").GetComponent<Button>();
         save = GameObject.Find("Save").GetComponent<Button>();
         main = GameObject.Find("Main").GetComponent<Button>();
+        option = GameObject.Find("Option").GetComponent<Button>();
         gameObject.SetActive(false);
     }
 
     private void Start()
     {
+<<<<<<< Updated upstream
+        // resume.onClick.AddListener(//ResumeGame());
+    }
+
+=======
         resume.onClick.AddListener(ResumeGame);
         save.onClick.AddListener(CallSaveMenu);
         main.onClick.AddListener(CallMainMenu);
+        option.onClick.AddListener(CallOptionMenu);
     }
 
+    private void ResumeGame()
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
     private void CallMainMenu()
     {
         SceneManager.LoadScene("StartUI");
@@ -40,9 +48,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("SaveLoad");
     }
 
-    private void ResumeGame()
+    private void CallOptionMenu()
     {
-        gameObject.SetActive(false);
-        Time.timeScale = 1.0f;
+        throw new NotImplementedException();
     }
+>>>>>>> Stashed changes
 }
