@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3359978962782292391}
   - component: {fileID: 780006128737844566}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 'Mesh Object (Missing Prefab with guid: cae3f9537776dea41855a724b56dd2c9)'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,13 +44,13 @@ GameObject:
   - component: {fileID: 780006129525758566}
   - component: {fileID: 780006129525758565}
   - component: {fileID: 780006129525758564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6575142552643132484
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +176,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cae3f9537776dea41855a724b56dd2c9, type: 3}
       propertyPath: m_Name
       value: Mesh Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cae3f9537776dea41855a724b56dd2c9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1320344850454072318, guid: cae3f9537776dea41855a724b56dd2c9, type: 3}
       propertyPath: m_Materials.Array.data[0]
