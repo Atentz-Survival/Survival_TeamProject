@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerUI : MonoBehaviour
 {
-    TextMeshProUGUI HPText;
+    // TextMeshProUGUI HPText;
     Slider HPUI;
     PlayerBase player;
     public PauseMenu pauseMenu;
@@ -30,6 +30,7 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     { 
         player = FindObjectOfType<PlayerBase>();
+<<<<<<< Updated upstream
         pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
@@ -48,16 +49,41 @@ public class PlayerUI : MonoBehaviour
     {
         uiAction.UI.Esc.performed -= Esc;
         uiAction.Disable();
+=======
+        pauseButton = GameObject.Find("Pause").GetComponent<Button>();
+        HPUI = GetComponentInChildren<Slider>();
+        // HPText = GetComponentInChildren<TextMeshProUGUI>();
+        pauseButton.onClick.AddListener(CallPauseMenu);
+>>>>>>> Stashed changes
     }
 
     private void FixedUpdate()
     {
         HPUI.value = player.HP;
-        HPText.text = $"{player.HP} / 1000";
+        // HPText.text = $"{player.HP} / 1000";
     }
     private void CallPauseMenu()
     {
+<<<<<<< Updated upstream
         pauseMenu.gameObject.SetActive(true);
         Debug.Log("메뉴 불러오기");
+=======
+        if(pauseMenu != null)
+        {
+            pauseMenu.gameObject.SetActive(true);
+            IsClosed = false;
+            Time.timeScale = 0;
+        }
+        else if(pauseMenu != null && !IsClosed)
+        {
+            pauseMenu.gameObject.SetActive(true);
+            IsClosed = true;
+        }
+        else
+        {
+            Debug.Log("퍼즈메뉴 오류");
+        }
+        Debug.Log("퍼즈");
+>>>>>>> Stashed changes
     }
 }   
