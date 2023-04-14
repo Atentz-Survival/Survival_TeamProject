@@ -34,6 +34,7 @@ public class Sunshine : MonoBehaviour
     {
         // OnRespawn = SunLight;
         OnRespawn = SunRotate;
+        // instance = this;
         RenderSettings.fogDensity = morningFog;
     }
 
@@ -53,6 +54,7 @@ public class Sunshine : MonoBehaviour
         vec = Quaternion.Euler(round, 0, 0);
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
+        // 로테이션값을 시간처럼 시각화하기
         if(round >= 360)
         {
             t = 0;

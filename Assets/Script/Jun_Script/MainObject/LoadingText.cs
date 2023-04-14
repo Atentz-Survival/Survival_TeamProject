@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,25 +12,24 @@ public class LoadingText : MonoBehaviour
     [SerializeField] TextMeshProUGUI text1 = null;
     [SerializeField] Slider slider = null;
     [SerializeField] TextMeshProUGUI text2 = null;
+    [SerializeField] TextMeshProUGUI texx3 = null;
+
+    //public static LoadingText instance;
+    //private Action<float> loadingdeli;
+    
+    Player player;
 
     private float nowTime;              // 현재
-    private float startTime;            // 시작
-    private float endTime = 6;          // 끝
 
     void Start()
     {
-        nowTime = endTime;
-        startTime = Time.time;
-        ChargeSlider(0);
-        StartCoroutine(ChnageText(1.5f, text1, text2));
+        player = GetComponent<Player>();
+        slider.value = 0.0f;
+        StartCoroutine(ChnageText(1.5f, text1, text2 , texx3));
+        StartCoroutine(ChargeSlider());
     }
 
-    void Update()
-    {
-        Check_Loading();
-    }
-
-    public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j)
+    public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j, TextMeshProUGUI k)
     {
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         j.color = new Color(j.color.r, j.color.g, j.color.b, 0);
@@ -40,6 +40,7 @@ public class LoadingText : MonoBehaviour
             yield return null;
         }
         i.color = new Color(i.color.r, i.color.g, i.color.b, 1);
+
         while (i.color.a > 0.0f)
         {
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / time));
@@ -52,29 +53,74 @@ public class LoadingText : MonoBehaviour
             yield return null;
         }
         j.color = new Color(j.color.r, j.color.g, j.color.b, 1);
-    }
 
-    private void Check_Loading()
-    {
-        nowTime = Time.time - startTime;              // 현재 시간 = 이기능의 시작시간 - 첫동작 시간
-        if (nowTime < endTime)                    // 현재시간이 로딩 시간보다 작을경우
+        while (j.color.a > 0.0f)
         {
-            ChargeSlider(nowTime / endTime);    // 슬라이더의 게이지 = 현재시간 / 로딩시간
+            j.color = new Color(j.color.r, j.color.g, j.color.b, j.color.a - (Time.deltaTime / time));
+            yield return null;
         }
-        else
+        j.color = new Color(j.color.r, j.color.g, j.color.b, 1);
+
+        while (k.color.a < 1.0f)
         {
-            FullSlider();                                  // 현재시간이 로딩시간보다 크거나 같을경우
+            k.color = new Color(k.color.r, k.color.g, k.color.b, k.color.a + (Time.deltaTime / time));
+            yield return null;
+        }
+        k.color = new Color(k.color.r, k.color.g, k.color.b, 1);
+
+        while (k.color.a > 0.0f)
+        {   
+            k.color = new Color(k.color.r, k.color.g, k.color.b, k.color.a - (Time.deltaTime / time));
+            yield return null;
+        }
+        k.color = new Color(k.color.r, k.color.g, k.color.b, 1);
+    }
+
+    IEnumerator ChargeSlider()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        operation.allowSceneActivation = false;
+
+        while(!operation.isDone)
+        {
+            nowTime += Time.deltaTime;
+            slider.value = nowTime / 10f;
+
+
+            if (nowTime > 10.0f)
+            {
+                slider.value = 10.0f;
+                operation.allowSceneActivation = true;
+                //SceneManager.LoadSceneAsync(1);
+                DontDestroyOnLoad(player);
+            }
+
+            yield return null;
         }
     }
 
-    private void FullSlider()
-    {
-        ChargeSlider(1);                                  // 슬라이더의 게이지가 풀
-        SceneManager.LoadSceneAsync(1);
-    }
+    //private void Check_Loading()
+    //{
+    //    nowTime = Time.time - startTime;          // 현재 시간 = 이기능의 시작시간 - 첫동작 시간
+    //    if (nowTime < endTime)                    // 현재시간이 로딩 시간보다 작을경우
+    //    {
+    //        ChargeSlider(nowTime / endTime);    // 슬라이더의 게이지 = 현재시간 / 로딩시간
+    //    }
+    //    else
+    //    {
+    //        FullSlider();                                  // 현재시간이 로딩시간보다 크거나 같을경우
+    //    }
+    //}
 
-    private void ChargeSlider(float chargeValue)
-    {
-        slider.value = chargeValue;                              // 슬라이더값을 송출
-    }
+    //private void FullSlider()
+    //{
+    //    ChargeSlider(1);                                  // 슬라이더의 게이지가 풀
+    //    SceneManager.LoadSceneAsync(1);
+    //    DontDestroyOnLoad(player);
+    //}
+
+    //private void ChargeSlider(float chargeValue)
+    //{
+    //    slider.value = chargeValue;                              // 슬라이더값을 송출
+    //}
 }
