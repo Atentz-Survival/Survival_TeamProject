@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,10 @@ public class BasementObject : MonoBehaviour
     public float delayTime = 4.0f;
 
     private GameObject target;
-    
+
     public void FlowerDrop1()
     {
-        float a_Random = Random.Range(0.0f, 1.0f);
+        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
         float a = 0.90f;
 
         if (a_Random <= a)
@@ -50,7 +51,7 @@ public class BasementObject : MonoBehaviour
 
     public void FlowerDrop2()
     {
-        float b_Random = Random.Range(0.0f, 1.0f);
+        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float b = 0.90f;
 
@@ -75,7 +76,7 @@ public class BasementObject : MonoBehaviour
 
     public void FlowerDrop3()
     {
-        float c_Random = Random.Range(0.0f, 1.0f);
+        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float c = 0.90f;
 
@@ -101,7 +102,7 @@ public class BasementObject : MonoBehaviour
 
     public void TreeDrop1()
     {
-        float a_Random = Random.Range(0.0f, 1.0f);
+        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
         float a = 0.90f;
 
         if (a_Random <= a)
@@ -128,7 +129,7 @@ public class BasementObject : MonoBehaviour
 
     public void TreeDrop2()
     {
-        float b_Random = Random.Range(0.0f, 1.0f);
+        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float b = 0.90f;
 
@@ -153,7 +154,7 @@ public class BasementObject : MonoBehaviour
 
     public void TreeDrop3()
     {
-        float c_Random = Random.Range(0.0f, 1.0f);
+        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float c = 0.90f;
 
@@ -178,7 +179,7 @@ public class BasementObject : MonoBehaviour
 
     public void RockDrop1()
     {
-        float a_Random = Random.Range(0.0f, 1.0f);
+        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
         float a = 0.90f;
 
         if (a_Random <= a)
@@ -204,7 +205,7 @@ public class BasementObject : MonoBehaviour
 
     public void RockDrop2()
     {
-        float b_Random = Random.Range(0.0f, 1.0f);
+        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float b = 0.90f;
 
@@ -229,7 +230,7 @@ public class BasementObject : MonoBehaviour
 
     public void RockDrop3()
     {
-        float c_Random = Random.Range(0.0f, 1.0f);
+        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
 
         float c = 0.90f;
 
