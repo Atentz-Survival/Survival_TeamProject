@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Flower : PlaneBase
 {
+    Action<int> FlowerHp;
+
     public Transform rotateObject;
     private bool isDisFlower = false;
 
     private void Start()
     {
         Sunshine.OnRespawn += RespawnF;
+        FlowerHp += FlowerObject;
     }
 
     private void RespawnF()
@@ -69,5 +72,10 @@ public class Flower : PlaneBase
                 
             }
         }
+    }
+
+    void FlowerObject(int Hp)
+    {
+        Hp = objectHP;
     }
 }

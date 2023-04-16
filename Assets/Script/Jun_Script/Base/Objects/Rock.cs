@@ -7,6 +7,8 @@ public class Rock : BasementObject
 {
     // public GameObject DropRock;
 
+    public Action<int> RockHp;
+
     Rigidbody rigid;
     SphereCollider sphere;
 
@@ -14,6 +16,10 @@ public class Rock : BasementObject
     {
         rigid = GetComponent<Rigidbody>();
         sphere = GetComponent<SphereCollider>();
+    }
+    private void Start()
+    {
+        RockHp += RockObject;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,5 +66,11 @@ public class Rock : BasementObject
                 objectHP = objectMaxHP;
             }
         }
+    }
+
+
+    void RockObject(int Hp)
+    {
+        Hp = objectHP;
     }
 }
