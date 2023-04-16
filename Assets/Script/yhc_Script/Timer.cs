@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    //public Text timeText;
-    //public float gameTime = 0;
+    TimeManager timeManager;
+    TextMeshProUGUI timerText;
 
-    //private void Update()
-    //{
-    //    gameTime += Time.deltaTime;
+    private void Awake()
+    {
+        timerText = GetComponent<TextMeshProUGUI>();
+        timeManager = FindObjectOfType<TimeManager>();
+    }
 
-    //    timeText.text = $"{gameTime}";
-    //}
+    private void FixedUpdate()
+    {
+        timerText.text = $"Day : {timeManager.Day}\n Time : {timeManager.Hour} : {timeManager.Minute}";
+    }
 }
