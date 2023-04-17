@@ -143,7 +143,9 @@ public class ItemManager : Singleton<ItemManager>
         bool isUse = false;
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(screenPosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        int layerMask = (1 << LayerMask.NameToLayer("Player"));
+        layerMask = ~layerMask;
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
         {
             if (hit.collider.gameObject.CompareTag("HousingPlace"))
             {
