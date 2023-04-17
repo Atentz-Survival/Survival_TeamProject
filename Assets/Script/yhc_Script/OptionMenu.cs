@@ -11,14 +11,14 @@ public class OptionMenu : MonoBehaviour
     Image brightness;
     UIAct uiact;
     float bValue;
-    bool isClosed;
+    public bool optionClosed;
 
     private void Awake()
     {
         brightnessSlider = GetComponentInChildren<Slider>();
         brightness = GameObject.Find("Brightness").GetComponent<Image>();
         uiact = new UIAct();
-        isClosed = true;
+        optionClosed = true;
     }
 
     private void OnEnable()
@@ -40,7 +40,7 @@ public class OptionMenu : MonoBehaviour
     }
     private void ESC(InputAction.CallbackContext _)
     {
-        if(isClosed)
+        if(optionClosed)
         {
             gameObject.SetActive(false);
         }

@@ -19,9 +19,7 @@ public class PauseMenu : MonoBehaviour
         save = GameObject.Find("Save").GetComponent<Button>();
         main = GameObject.Find("Main").GetComponent<Button>();
         option = GameObject.Find("Option").GetComponent<Button>();
-        optionMenu = GetComponentInChildren<OptionMenu>();
-        gameObject.SetActive(false);
-        optionMenu.gameObject.SetActive(false);
+        optionMenu = GameObject.Find("OptionMenu").GetComponent<OptionMenu>();
     }
 
     private void Start()
@@ -30,6 +28,8 @@ public class PauseMenu : MonoBehaviour
         save.onClick.AddListener(CallSaveMenu);
         main.onClick.AddListener(CallMainMenu);
         option.onClick.AddListener(CallOptionMenu);
+        gameObject.SetActive(false);
+        optionMenu.gameObject.SetActive(false);
     }
 
     private void ResumeGame()

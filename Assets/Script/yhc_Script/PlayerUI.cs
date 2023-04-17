@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     Button pauseButton;
     PauseMenu pauseMenu;
     UIAct uikey;
+    OptionMenu optionMenu;
 
     bool menuClosed;
 
@@ -20,10 +21,9 @@ public class PlayerUI : MonoBehaviour
     private void Awake()
     {
         HPUI = GetComponentInChildren<Slider>();
-        pauseButton = GetComponent<Button>();
+        pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
+        optionMenu = FindObjectOfType<OptionMenu>();
         uikey = new UIAct();
-
-        pauseButton.onClick.AddListener(CallPauseMenu);
     }
 
     private void Start()
@@ -31,12 +31,14 @@ public class PlayerUI : MonoBehaviour
         player = FindObjectOfType<PlayerBase>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         menuClosed = true;
+        pauseButton.onClick.AddListener(CallPauseMenu);
     }
 
-    private void FixedUpdate()
-    {
-        HPUI.value = player.HP;
-    }
+    // 합칠때 다시 살려야됨, HP업데이트
+    //private void FixedUpdate()
+    //{
+    //    HPUI.value = player.HP;
+    //}
 
     private void OnEnable()
     {
@@ -56,11 +58,17 @@ public class PlayerUI : MonoBehaviour
         {
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0.0f;
+            menuClosed = !menuClosed;
         }
-        else
+        else if(!menuClosed)
         {
+            if(optionMenu.optionClosed == false)
+            {
+                optionMenu.gameObject.SetActive(false);
+            }
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
+            menuClosed = !menuClosed;
         }
     }
 
@@ -70,13 +78,13 @@ public class PlayerUI : MonoBehaviour
         {
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
-            menuClosed = false;
+            menuClosed = !menuClosed;
         }
         else if( pauseMenu != null && !menuClosed ) 
         {
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
-            menuClosed = true;
+            menuClosed = !menuClosed;
         }
         else
         {
