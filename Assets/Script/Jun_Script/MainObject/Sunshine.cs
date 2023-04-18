@@ -76,20 +76,28 @@ public class Sunshine : MonoBehaviour
 
         if (isNight)                            // 밤이 되면
         {
-            RenderSettings.fogDensity += 0.00002f;              // 여기 조정!!!!!!!!!!!!!!!!!!
-            if (RenderSettings.fogDensity >= 0.6f)              // 여기 조정!!!!!!!!!!!!!!!!!!
+            RenderSettings.fogDensity += 0.000004f;              // 여기 조정!!!!!!!!!!!!!!!!!!
+            if (RenderSettings.fogDensity >= 0.1f)              // 여기 조정!!!!!!!!!!!!!!!!!!
             {
-                RenderSettings.fogDensity = 0.6f;
+                RenderSettings.fogDensity = 0.1f;
             }
-
-            skybox.SetFloat("_CubemapTransition", 0.7f);    
+            
+            if(alpha >= 0.6f && alpha < 0.8f)
+            {
+                alpha += beta * forTimeInGame;
+                skybox.SetFloat("_CubemapTransition", alpha);
+            }
+            else
+            {
+                skybox.SetFloat("_CubemapTransition", 0.8f);
+            } 
         }
 
         else
         {
             if (alpha < 0.6f && alpha >= 0.0f)      // -0.1~
             {
-                alpha += beta * forTimeInGame * t;              // 여기 조정!!!!!!!!!!!!!!!!!!
+                alpha += beta * forTimeInGame;              // 여기 조정!!!!!!!!!!!!!!!!!!
                 skybox.SetFloat("_CubemapTransition", alpha);   // CubemapTrasition의 수치가 alpha가 된다. : 0 ~ 0.6
             }
 

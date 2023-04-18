@@ -13,8 +13,10 @@ public class BasementObject : MonoBehaviour
     // 체력 , effect
 
     public int objectMaxHP = 3;
-
     public int objectHP = 3;
+
+    public int handObjectMaxHp = 5;
+    public int handObjectHp = 5;
 
     public GameObject Effect;   // 치집 , 채굴시의 이펙트
     public GameObject Meffect;
@@ -196,7 +198,7 @@ public class BasementObject : MonoBehaviour
         void objectInit1()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up * 2;
+            obj.transform.position = transform.position + Vector3.up;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
@@ -221,7 +223,7 @@ public class BasementObject : MonoBehaviour
         void objectInit2()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up * 2;
+            obj.transform.position = transform.position + Vector3.up;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
@@ -246,7 +248,7 @@ public class BasementObject : MonoBehaviour
         void objectInit3()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up * 2;
+            obj.transform.position = transform.position + Vector3.up;
             target = obj;
 
             Invoke("TimeCount", 4.0f);
@@ -257,5 +259,30 @@ public class BasementObject : MonoBehaviour
     {
         Debug.Log(target);
         target.SetActive(false);
+    }
+
+    public void Hand_Drop1()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    public void Hand_Drop2()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    public void Hand_Drop3()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
     }
 }

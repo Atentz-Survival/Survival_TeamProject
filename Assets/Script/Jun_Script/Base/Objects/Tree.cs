@@ -14,6 +14,8 @@ public class Tree : PlaneBase
     public Transform rotateObject;
     private bool isDisTree = false;     // 나무가 사라졌는지 확인하기위한 변수
 
+    PlayerBase playerBase;
+
     private void Start()
     {
         Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
@@ -77,6 +79,62 @@ public class Tree : PlaneBase
                 }
                 objectHP = objectMaxHP;                         // 체력이0이되면서 아이템이 생성되며 오브젝트의 체력을 max체력으로 돌려준다.
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("RightHand"))
+        {
+            Debug.Log("RightHand");
+            handObjectHp--;
+
+            Debug.Log(handObjectHp);
+
+            float Hand_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+            Debug.Log(Hand_Random);
+
+            if (handObjectHp > 0)
+            {
+                GameObject obj = Instantiate(Effect);
+                obj.transform.position = transform.position;
+            }
+            else if (handObjectHp <= 0)
+            {
+                GameObject obj = Instantiate(Meffect);
+                obj.transform.position = transform.position;
+
+                gameObject.SetActive(false);
+                isDisTree = true;
+                float a_Hand = 0.25f;
+                float b_Hand = 0.50f;
+                float c_Hand = 0.75f;
+                float d_Hand = 1.00f;
+                if (Hand_Random <= a_Hand)
+                {
+                    Hand_Drop1();
+                }
+                else if (Hand_Random <= b_Hand && Hand_Random > a_Hand)
+                {
+                    Hand_Drop2();
+                }
+                else if (Hand_Random <= c_Hand && Hand_Random > b_Hand)
+                {
+                    Hand_Drop3();
+                }
+                else if (Hand_Random <= d_Hand && Hand_Random > c_Hand)
+                {
+                    // 플레이어의 체력 증가
+                }
+                else
+                {
+                    Debug.Log("ERROR");
+                }
+                handObjectHp = handObjectMaxHp;
+            }
+        }
+        else
+        {
+            Debug.Log("None");
         }
     }
 

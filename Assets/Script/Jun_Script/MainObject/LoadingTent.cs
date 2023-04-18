@@ -17,32 +17,38 @@ public class LoadingTent : MonoBehaviour
         sun = GameObject.Find("Directional Light").GetComponent<Sunshine>();
     }
 
-    private void Update()
-    {
-        if(sun.isNight == true)
-        {
-            // Debug.Log("밤"); 
-            isTent = true;
-        }
-        else
-        {
-            // Debug.Log("밤이 아닙니다.");
-        }
-    }
+    //private void Update()
+    //{
+    //    if(sun.isNight == true)
+    //    {
+    //        // Debug.Log("밤"); 
+    //        isTent = true;
+    //    }
+    //    else
+    //    {
+    //        // Debug.Log("밤이 아닙니다.");
+    //    }
+    //}
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (sun.isNight == true)
         {
-            if (isTent)
+            isTent= true;
             {
-                // 여기서 텐트에 G키 활성화 시키기.
-                if (Input.GetKeyDown(KeyCode.G))
+                if (other.CompareTag("Player"))
                 {
-                    SceneManager.LoadSceneAsync(0);
+                    if (isTent)
+                    {
+                        // 여기서 텐트에 G키 활성화 시키기.
+                        if (Input.GetKeyDown(KeyCode.G))
+                        {
+                            SceneManager.LoadSceneAsync(0);
+                        }
+                    }
                 }
             }
+            isTent = false;
         }
-
     }
 }

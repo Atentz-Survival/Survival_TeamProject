@@ -33,6 +33,7 @@ public class LoadingText : MonoBehaviour
     {
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         j.color = new Color(j.color.r, j.color.g, j.color.b, 0);
+        k.color = new Color(k.color.r, k.color.g, k.color.b, 0);
 
         while (i.color.a < 1.0f)
         {
@@ -59,7 +60,6 @@ public class LoadingText : MonoBehaviour
             j.color = new Color(j.color.r, j.color.g, j.color.b, j.color.a - (Time.deltaTime / time));
             yield return null;
         }
-        j.color = new Color(j.color.r, j.color.g, j.color.b, 1);
 
         while (k.color.a < 1.0f)
         {
@@ -73,13 +73,13 @@ public class LoadingText : MonoBehaviour
             k.color = new Color(k.color.r, k.color.g, k.color.b, k.color.a - (Time.deltaTime / time));
             yield return null;
         }
-        k.color = new Color(k.color.r, k.color.g, k.color.b, 1);
     }
 
     IEnumerator ChargeSlider()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(1);
         operation.allowSceneActivation = false;
+
 
         while(!operation.isDone)
         {
@@ -91,8 +91,8 @@ public class LoadingText : MonoBehaviour
             {
                 slider.value = 10.0f;
                 operation.allowSceneActivation = true;
-                //SceneManager.LoadSceneAsync(1);
-                DontDestroyOnLoad(player);
+                Debug.Log(nowTime);
+                // DontDestroyOnLoad(player);
             }
 
             yield return null;
