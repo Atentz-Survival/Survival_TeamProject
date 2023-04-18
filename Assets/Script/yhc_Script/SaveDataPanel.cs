@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -13,6 +13,8 @@ public class SaveDataPanel : MonoBehaviour
     Button slot3;
     TMP_InputField inputField;
     SaveData saveData;
+
+    public Action<string> nameData;
 
     private void Awake()
     {
@@ -32,7 +34,6 @@ public class SaveDataPanel : MonoBehaviour
         slot2.onClick.AddListener(InputNamer);
         slot3.onClick.AddListener(InputNamer);
         inputField.onEndEdit.AddListener(InputNames);
-
     }
 
     private void InputNamer()
@@ -42,6 +43,8 @@ public class SaveDataPanel : MonoBehaviour
 
     void InputNames(string text)
     {
-        Debug.Log($"이름입력");
+        string nameText = text.ToString();
+        nameData?.Invoke(nameText);
+        inputField.gameObject.SetActive(false);
     }
 }
