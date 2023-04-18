@@ -151,39 +151,41 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
 
     void ItemDump()
     {
-        ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
-        if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
-        {
-            for (int i = 0; i < ItemManager.Instance.itemInventory._equipToolIndex.Length; i++)
+        if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag != ItemTag.Deployment) {
+            ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;
+            if (ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] <= 0)
             {
-                if (ItemManager.Instance.itemInventory._equipToolIndex[i] == itemInventoryWindow._selectedIndex)
-                {
-                    ItemManager.Instance.itemInventory._equipToolIndex[i] = ItemInventory.notEquip;
-                    onChangeTool?.Invoke((ToolItemTag)i, ItemInventory.notEquip);
-                    break;
-                }
-            }
-            int currentIndex = itemInventoryWindow._selectedIndex;
-            for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
-            {
-                ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
-                ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
                 for (int i = 0; i < ItemManager.Instance.itemInventory._equipToolIndex.Length; i++)
                 {
-                    if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex[i])
+                    if (ItemManager.Instance.itemInventory._equipToolIndex[i] == itemInventoryWindow._selectedIndex)
                     {
-                        ItemManager.Instance.itemInventory._equipToolIndex[i] -= 1;
+                        ItemManager.Instance.itemInventory._equipToolIndex[i] = ItemInventory.notEquip;
+                        onChangeTool?.Invoke((ToolItemTag)i, ItemInventory.notEquip);
                         break;
                     }
                 }
+                int currentIndex = itemInventoryWindow._selectedIndex;
+                for (; currentIndex + 1 < ItemManager.Instance.itemInventory.emptySpaceStartIndex; currentIndex++)
+                {
+                    ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex + 1];
+                    ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex + 1];
+                    for (int i = 0; i < ItemManager.Instance.itemInventory._equipToolIndex.Length; i++)
+                    {
+                        if (currentIndex + 1 == ItemManager.Instance.itemInventory._equipToolIndex[i])
+                        {
+                            ItemManager.Instance.itemInventory._equipToolIndex[i] -= 1;
+                            break;
+                        }
+                    }
+                }
+                ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
+                ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
+                ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
+                itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
+                initialize();
             }
-            ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
-            ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
-            ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
-            itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
-            initialize();
+            itemInventoryWindow.RefreshItemInventory();
         }
-        itemInventoryWindow.RefreshItemInventory();
     }
 
     public void AfterItemUse() 

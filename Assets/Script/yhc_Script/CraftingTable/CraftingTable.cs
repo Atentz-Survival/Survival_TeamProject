@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,105 +7,42 @@ using UnityEngine.UI;
 
 public class CraftingTable : ItemInventory
 {
-    public GameObject equip_Button;
-    public GameObject housing_Button;
-    public GameObject boat_Button;
-    public GameObject sickle_Menu;
-    public GameObject axe_Menu;
-    public GameObject pickaxe_Menu;
-    public GameObject fishing_Menu;
-    public GameObject housing_Menu;
-    public GameObject boat_Menu;
-    public GameObject sickle_Button;
-    public GameObject axe_Button;
-    public GameObject pickaxe_Button;
-    public GameObject fishing_Button;
+    Button equip;
+    Button housing;
+    Button boat;
+    Button sickle;
+    Button axe;
+    Button pickaxe;
+    Button fishing;
 
     private void Awake()
     {
-        Button equip = equip_Button.GetComponent<Button>();
-        Button housing = housing_Button.GetComponent<Button>();
-        Button boat = boat_Button.GetComponent<Button>();
-        Button sickle = sickle_Button.GetComponent<Button>();
-        Button axe = axe_Button.GetComponent<Button>();
-        Button pickaxe = pickaxe_Button.GetComponent<Button>();
-        Button fishing = fishing_Button.GetComponent<Button>();
+        equip = GameObject.Find("Equip").GetComponent<Button>();
+        housing = GameObject.Find("Housing").GetComponent<Button>();
+        boat = GameObject.Find("Boat").GetComponent<Button>();
 
-        equip.onClick.AddListener(ActiveSubCate);
-        housing.onClick.AddListener(ActiveHousing);
-        boat.onClick.AddListener(ActiveBoat);
-        sickle.onClick.AddListener(ActiveSickleMenu);
-        axe.onClick.AddListener(ActiveAxeMenu);
-        pickaxe.onClick.AddListener(ActivePickaxeMenu);
-        fishing.onClick.AddListener(ActiveFishingMenu);
+        sickle = equip.transform.GetChild(1).GetComponent<Button>();
+        axe = equip.transform.GetChild(2).GetComponent<Button>();
+        pickaxe = equip.transform.GetChild(3).GetComponent<Button>();
+        fishing = equip.transform.GetChild(4).GetComponent<Button>();
     }
 
     private void Start()
     {
+        gameObject.SetActive(true);
+
+        equip.onClick.AddListener(CallLowMenu);
     }
 
-    protected virtual void MenuInitialize()
+    private void CallLowMenu()
     {
-        sickle_Menu.gameObject.SetActive(false);
-        axe_Menu.gameObject.SetActive(false);
-        pickaxe_Menu.gameObject.SetActive(false);
-        fishing_Menu.gameObject.SetActive(false);
-        housing_Menu.gameObject.SetActive(false);
-        boat_Menu.gameObject.SetActive(false);
-        sickle_Button.gameObject.SetActive(false);
-        axe_Button.gameObject.SetActive(false);
-        pickaxe_Button.gameObject.SetActive(false);
-        fishing_Button.gameObject.SetActive(false);
-    }
-    private void ActiveSubCate()
-    {
-        MenuInitialize();
-        sickle_Button.gameObject.SetActive(true);
-        axe_Button.gameObject.SetActive(true);
-        pickaxe_Button.gameObject.SetActive(true);
-        fishing_Button.gameObject.SetActive(true);
-        Debug.Log("활성화");
-    }
+        equip.gameObject.SetActive(false);
+        housing.gameObject.SetActive(false);
+        boat.gameObject.SetActive(false);
 
-    private void ActiveHousing()
-    {
-        MenuInitialize();
-        housing_Menu.gameObject.SetActive(true);
-        Debug.Log("하우징 메뉴 활성화");
-    }
-    private void ActiveBoat()
-    {
-        MenuInitialize();
-        boat_Menu.gameObject.SetActive(true);
-        Debug.Log("보트 메뉴 활성화");
-    }
-
-
-    private void ActiveSickleMenu()
-    {
-        MenuInitialize();
-        sickle_Menu.gameObject.SetActive(true);
-        Debug.Log("낫 메뉴 활성화");
-    }
-
-    private void ActiveAxeMenu()
-    {
-        MenuInitialize();
-        axe_Menu.gameObject.SetActive(true);
-        Debug.Log("도끼 메뉴 활성화");
-    }
-
-    private void ActivePickaxeMenu()
-    {
-        MenuInitialize();
-        pickaxe_Menu.gameObject.SetActive(true);
-        Debug.Log("곡괭이 메뉴 활성화");
-    }
-
-    private void ActiveFishingMenu()
-    {
-        MenuInitialize();
-        fishing_Menu.gameObject.SetActive(true);
-        Debug.Log("낚싯대 메뉴 활성화");
+        sickle.gameObject.SetActive(true);
+        axe.gameObject.SetActive(true);
+        pickaxe.gameObject.SetActive(true);
+        fishing.gameObject.SetActive(true);
     }
 }

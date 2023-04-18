@@ -43,6 +43,8 @@ public class PlayerBase : MonoBehaviour
 
     public Action<float> onUpgradeHp;
     public Action<bool> onDie;
+    public Action onMaking;
+    public Action onInventory;
 
     /*------------------플레이어 상태 -------------------*/
     public enum playerState
@@ -113,6 +115,7 @@ public class PlayerBase : MonoBehaviour
 
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
+        inputActions.CharacterMove.Inventory.performed += Oninventory;
 
         inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
 
@@ -138,11 +141,14 @@ public class PlayerBase : MonoBehaviour
 
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
+        inputActions.CharacterMove.Inventory.performed -= Oninventory;
 
         inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
 
         inputActions.CharacterMove.Disable();
     }
+
+   
 
     private void Start()
     {
@@ -484,17 +490,46 @@ public class PlayerBase : MonoBehaviour
 
     //----------------------------------장소 상호작용 함수-------------------------------
 
-    private void OnMaking(InputAction.CallbackContext context)
+    private void OnMaking(InputAction.CallbackContext context)      //F키
     {
-        int useHp = 50;                         // 행동에 따른 hp
+        StopActionAtMake();
+        onMaking?.Invoke();
+    }
 
-        if (HP > useHp)
+    private void StopActionAtInventory()
+    {
+        GameObject obj = GameObject.Find("ItemInventoryWindow");
+        if (obj.activeSelf == true)
         {
-            anim.SetTrigger("Making_Trigger");
-            HP -= 50;                               // 행동에 따른 hp
-            //Debug.Log($"{hp} : 사용 했어요~~");
-
+            inputActions.CharacterMove.Activity.Disable();
+            inputActions.CharacterMove.MouseMove.Disable();
         }
+        else
+        {
+            inputActions.CharacterMove.Activity.Enable();
+            inputActions.CharacterMove.MouseMove.Enable();
+        }
+    }
+
+    private void StopActionAtMake()
+    {
+        GameObject obj = GameObject.Find("CraftingTable");
+        if(obj.activeSelf == true)
+        {
+            inputActions.CharacterMove.Activity.Disable();
+           inputActions.CharacterMove.MouseMove.Disable();
+        }
+        else
+        {
+            inputActions.CharacterMove.Activity.Enable();
+            inputActions.CharacterMove.MouseMove.Enable();
+        }
+    }
+
+    private void Oninventory(InputAction.CallbackContext obj)   // i키
+    {
+        StopActionAtInventory();
+        onInventory.Invoke();
     }
 
 }

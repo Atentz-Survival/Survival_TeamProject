@@ -6,13 +6,23 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    //public Text timeText;
-    //public float gameTime = 0;
+    TextMeshProUGUI timerText;
+    int day = 1;
+    float hour = 0;
 
-    //private void Update()
-    //{
-    //    gameTime += Time.deltaTime;
+    private void Awake()
+    {
+        timerText = GetComponent<TextMeshProUGUI>();
+    }
 
-    //    timeText.text = $"{gameTime}";
-    //}
+    private void FixedUpdate()
+    {
+        hour += Time.fixedDeltaTime;
+        if(hour > 24)
+        {
+            day++;
+            hour = 0;
+        }
+        timerText.text = $"Day : {day} \nHour : {(int)hour}";
+    }
 }
