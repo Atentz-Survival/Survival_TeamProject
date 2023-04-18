@@ -42,6 +42,8 @@ public class ItemInventoryWindow : MonoBehaviour
 
     string[] itemTagString;
 
+    bool IsActive = true;
+
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
@@ -52,6 +54,8 @@ public class ItemInventoryWindow : MonoBehaviour
     {
         explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
+        PlayerBase playerBase = FindObjectOfType<PlayerBase>();
+        playerBase.onInventory += () => OnAndOff();
         RefreshItemInventory();
     }
 
@@ -142,6 +146,24 @@ public class ItemInventoryWindow : MonoBehaviour
         if (isUse)
         {
             ExplanRoom.AfterItemUse();
+        }
+    }
+
+    void OnAndOff()
+    {
+        if (IsActive == true)
+        {
+            IsActive = false;
+            PreOnDisble();
+            gameObject.SetActive(false);
+            explanRoom.gameObject.SetActive(false);
+            
+        }
+        else
+        {
+            IsActive = true;
+            gameObject.SetActive(true);
+            explanRoom.gameObject.SetActive(true);
         }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6366785412056088982}
   m_Layer: 0
   m_Name: CraftingTable
-  m_TagString: Untagged
+  m_TagString: Workbench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
