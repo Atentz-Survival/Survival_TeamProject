@@ -82,6 +82,7 @@ public class ItemManager : Singleton<ItemManager>
 
     HousingAction housingAction;
     bool isHousingMode = false;
+    public bool IsHousingMode => isHousingMode;
 
     SetUpItem setUpItem;
 
