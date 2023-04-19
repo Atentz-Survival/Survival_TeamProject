@@ -151,16 +151,18 @@ public class ItemInventoryWindow : MonoBehaviour
 
     void OnAndOff()
     {
-        if (gameObject.activeSelf == true)
-        {
-            PreOnDisble();
-            gameObject.SetActive(false);
-            explanRoom.gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-            explanRoom.gameObject.SetActive(true);
+        if (!ItemManager.Instance.IsHousingMode) {
+            if (gameObject.activeSelf == true)
+            {
+                PreOnDisble();
+                gameObject.SetActive(false);
+                explanRoom.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+                explanRoom.gameObject.SetActive(true);
+            }
         }
     }
 }
