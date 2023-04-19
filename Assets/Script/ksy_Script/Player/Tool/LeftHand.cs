@@ -11,10 +11,23 @@ public class LeftHand : MonoBehaviour
 
         if (other.gameObject.CompareTag("DropItem"))
         {
-            DropItem pick = other.GetComponent<DropItem>();
-            if (pick != null)
+            Debug.Log("나 잡았다");
+
+            DropItem pick = other.GetComponentInParent<DropItem>();
+            if (pick == null)
             {
-                pick.Picked();
+                pick = other.GetComponent<DropItem>();
+                if (pick != null)
+                {
+                    pick.Picked();
+                }
+            }
+            else
+            {
+                if (pick != null)
+                {
+                    pick.Picked();
+                }
             }
 
         }

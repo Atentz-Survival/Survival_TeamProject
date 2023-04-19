@@ -16,8 +16,9 @@ public class PlayerBase : MonoBehaviour
     private int maxHp = 1000;          // 최대 hp
     private int hp = 1000;              // 현재 hp
 
-    private bool isAction = false;
+    public bool isAction = false;
     private bool isRun = false;
+    private bool isDead = false;
 
     private bool isDoing = false;
 
@@ -26,18 +27,24 @@ public class PlayerBase : MonoBehaviour
         get => hp;
         set
         {
+            Debug.Log(hp);
             if (value > 1000)
             {
-                HP = maxHp;
+                hp = maxHp;
             }
-            hp = value;
 
-            if (hp < 1)
+            else if (value < 1 && isDead==false)
             {
+                isDead = true;
+                hp = 0;
                 OnDie();
             }
+            else
+            {
+                hp = value;
+            }
 
-            onUpgradeHp?.Invoke(HP / maxHp);
+            onUpgradeHp?.Invoke(hp / maxHp);
         }
     }
 
@@ -158,11 +165,12 @@ public class PlayerBase : MonoBehaviour
         reap = FindObjectOfType<Reap>();
         pick = FindObjectOfType<Pick>();
         rHand = FindObjectOfType<RightHand>();
+
         HP = maxHp;
         HpChange();
+
         //Debug.Log(hp);
         item.onChangeHp += OnUpgradeHp; // <<인벤
-
         axe.UsingTool += OnUpgradeHp;
         reap.UsingTool += OnUpgradeHp;
         pick.UsingTool += OnUpgradeHp;
@@ -234,44 +242,22 @@ public class PlayerBase : MonoBehaviour
 
     void OnUpgradeHp(int getHp)             //인벤에서 전달받을 hp(getHp)
     {
-        if (HP > 0)
-        {
-            HP = HP + getHp;
-            if (HP > maxHp)
-            {
-                HP = maxHp;
-            }
-            else if(HP < 1)
-            {
-                HP = HP - getHp;
-                Debug.Log("행동 불가능 합니다.");
-            }
-            Debug.Log($"{getHp} : 얻음");
-        }
+        HP = HP + getHp;
     }
 
 
     void HpChange()
     {
-        if (HP > 0)
-        {
-            StartCoroutine(Decrease());
-            OnUpgradeHp(hp);
-        }
-        else if(HP < 1)
-        {
-            OnDie();
-            HP = 0;
-        }
+       StartCoroutine(Decrease());
     }
 
     IEnumerator Decrease()
     {
-        while (HP > 0)
-        {
-            yield return new WaitForSeconds(1.0f);  //test
-            HP--;
-        }
+            while (HP > 0 && isDead==false)
+            {
+                yield return new WaitForSeconds(1.0f);  //test
+                HP--;
+            }
     }
 
     private void OnDie()
@@ -279,7 +265,6 @@ public class PlayerBase : MonoBehaviour
         StopCoroutine(Decrease());
         inputActions.CharacterMove.Disable();
         anim.SetTrigger("IsDead");
-        //Debug.Log("나 죽었어");
         onDie?.Invoke(true);
     }
 
@@ -518,6 +503,4 @@ public class PlayerBase : MonoBehaviour
             inputActions.CharacterMove.MouseMove.Disable();
         }
     }
-
-
 }

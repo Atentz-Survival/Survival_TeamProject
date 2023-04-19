@@ -5,27 +5,31 @@ using UnityEngine;
 
 public class RightHand : MonoBehaviour
 {
+    PlayerBase player;
     public Action<int> UsingTool;
     public Collider rHandCollider;
-    int useToolHp;
+    int useToolHp = -50;
 
     private void Start()
     {
         rHandCollider = GetComponent<Collider>();
     }
 
-    private int UsingRhand(int hp)
+    private void Awake()
     {
-        hp = -50;
-        UsingTool?.Invoke(hp);
-        Debug.Log(hp);
-        return hp;
+        player = FindObjectOfType<PlayerBase>();
+    }
+
+    private void UsingRhand()
+    {
+            UsingTool?.Invoke(useToolHp);
+            Debug.Log(useToolHp);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Ocean") || collision.gameObject.CompareTag("Rock") || collision.gameObject.CompareTag("Flower"))
         {
-            UsingRhand(useToolHp);
+            UsingRhand();
         }
     }
 
