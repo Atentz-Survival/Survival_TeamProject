@@ -7,8 +7,12 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     TextMeshProUGUI timerText;
+
+    public int timeSpeed = 1;
+
     int day = 1;
     float hour = 0;
+    float time = 0;
 
     private void Awake()
     {
@@ -17,8 +21,13 @@ public class Timer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        hour += Time.fixedDeltaTime;
-        if(hour > 24)
+        time += Time.fixedDeltaTime * timeSpeed;
+        if(time >= 15)
+        {
+            hour++;
+            time = 0;
+        }
+        if(hour >= 24)
         {
             day++;
             hour = 0;

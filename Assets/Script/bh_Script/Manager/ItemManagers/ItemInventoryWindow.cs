@@ -47,15 +47,15 @@ public class ItemInventoryWindow : MonoBehaviour
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
-        itemTagString = new string[] { "À½½Ä ¾ÆÀÌÅÛ", "Àç·á ¾ÆÀÌÅÛ", "Àåºñ ¾ÆÀÌÅÛ", "±âÅ¸ ¾ÆÀÌÅÛ", "¹èÄ¡ ¾ÆÀÌÅÛ"};
+        itemTagString = new string[] { "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"};
     }
 
     private void Start()
     {
         explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
-        PlayerBase playerBase = FindObjectOfType<PlayerBase>();
-        playerBase.onInventory += () => OnAndOff();
+        PlayerBase playerbase = FindObjectOfType<PlayerBase>();
+        playerbase.onInventory += OnAndOff;
         RefreshItemInventory();
     }
 
@@ -151,17 +151,14 @@ public class ItemInventoryWindow : MonoBehaviour
 
     void OnAndOff()
     {
-        if (IsActive == true)
+        if (gameObject.activeSelf == true)
         {
-            IsActive = false;
             PreOnDisble();
             gameObject.SetActive(false);
             explanRoom.gameObject.SetActive(false);
-            
         }
         else
         {
-            IsActive = true;
             gameObject.SetActive(true);
             explanRoom.gameObject.SetActive(true);
         }
