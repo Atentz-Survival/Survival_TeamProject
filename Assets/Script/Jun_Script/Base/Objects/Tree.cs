@@ -14,12 +14,11 @@ public class Tree : PlaneBase
     public Transform rotateObject;
     private bool isDisTree = false;     // 나무가 사라졌는지 확인하기위한 변수
 
-    PlayerBase playerBase;
-
     private void Start()
     {
         Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
         TreeHp += TreeObject;
+        
     }
 
     private void Respawn()
@@ -80,10 +79,8 @@ public class Tree : PlaneBase
                 objectHP = objectMaxHP;                         // 체력이0이되면서 아이템이 생성되며 오브젝트의 체력을 max체력으로 돌려준다.
             }
         }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("RightHand"))
+
+        else if (collision.gameObject.CompareTag("RightHand"))
         {
             Debug.Log("RightHand");
             handObjectHp--;
@@ -132,12 +129,7 @@ public class Tree : PlaneBase
                 handObjectHp = handObjectMaxHp;
             }
         }
-        else
-        {
-            Debug.Log("None");
-        }
     }
-
     void TreeObject(int Hp)
     {
         Hp = objectHP;

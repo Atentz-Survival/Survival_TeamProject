@@ -11,9 +11,24 @@ public class BasementObject : MonoBehaviour
 {
     // 돌 , 꽃 , 나무가 공통으로 가지는 Base
     // 체력 , effect
-
     public int objectMaxHP = 3;
     public int objectHP = 3;
+
+    int ObjectHP
+    {
+        get => objectHP;
+        set
+        {
+            if(objectHP != value)
+            {
+                objectHP = value;
+                playerHpDel?.Invoke(objectHP);
+            }
+        }
+    }
+
+    public Action<int> playerHpDel;
+
 
     public int handObjectMaxHp = 5;
     public int handObjectHp = 5;
@@ -24,6 +39,11 @@ public class BasementObject : MonoBehaviour
     public float delayTime = 4.0f;
 
     private GameObject target;
+
+    private void Start()
+    {
+        
+    }
 
     public void FlowerDrop1()
     {
@@ -284,5 +304,10 @@ public class BasementObject : MonoBehaviour
         target = obj;
 
         Invoke("TimeCount", 4.0f);
+    }
+
+    public void Hand_HpCare()
+    {
+        
     }
 }

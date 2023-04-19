@@ -12,6 +12,21 @@ public class Sunshine : MonoBehaviour
     public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
     public static ReSpawnObject OnRespawn;                 // 이 클래스내의 함수를 OnRespawn변수로 참조
 
+    //Quaternion Vec
+    //{
+    //    get => vec;
+    //    set
+    //    {
+    //        if(vec != value)
+    //        {
+    //            vec = value;
+    //            DayTimeDeli?.Invoke(vec);
+    //        }
+    //    }
+    //}
+
+    public Action<Quaternion> DayTimeDeli;
+
     public Material skybox;
     float alpha = 0.0f;
     public float beta = 0.0008f;
@@ -21,7 +36,7 @@ public class Sunshine : MonoBehaviour
 
     public bool isNight = false;
 
-    public float vecT = 0.5f;    // 6분경과
+    public float vecT = 0.5f;    // 6분경과 : 0.3333f
     float t;
     float round;
 
@@ -40,6 +55,7 @@ public class Sunshine : MonoBehaviour
 
     private void Update()
     {
+        OnRespawn?.Invoke();
         OnRespawn();
         SunRotate();
     }
@@ -54,8 +70,9 @@ public class Sunshine : MonoBehaviour
         vec = Quaternion.Euler(round, 0, 0);
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
+        DayTimeDeli?.Invoke(vec);
         // 로테이션값을 시간처럼 시각화하기
-        if(round >= 360)
+        if (round >= 360)
         {
             t = 0;
         }
@@ -101,9 +118,13 @@ public class Sunshine : MonoBehaviour
                 skybox.SetFloat("_CubemapTransition", alpha);   // CubemapTrasition의 수치가 alpha가 된다. : 0 ~ 0.6
             }
 
-            else if (alpha >= maxAlpha)
+            else if (alpha >= maxAlpha&& alpha < 0.7f)
             {
                 alpha = maxAlpha;                               // 0.6
+            }
+            else
+            {
+                alpha = 0.0f;
             }
         }
 

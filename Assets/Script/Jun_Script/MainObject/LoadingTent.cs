@@ -7,28 +7,27 @@ using UnityEngine.SceneManagement;
 public class LoadingTent : MonoBehaviour
 {
     Sunshine sun;
-
     private bool isTent = false;
-    TextMeshProUGUI text;
     // bool isSunNow = false;
+    PlayerBase player;
 
+    public static LoadingTent Instance;
+
+    private void Awake()
+    {
+        player = FindObjectOfType<PlayerBase>();
+        if(Instance != null)
+        {
+            Destroy(player);
+            return;
+        }
+        Instance= this;
+        DontDestroyOnLoad(player);
+    }
     private void Start()
     {
         sun = GameObject.Find("Directional Light").GetComponent<Sunshine>();
     }
-
-    //private void Update()
-    //{
-    //    if(sun.isNight == true)
-    //    {
-    //        // Debug.Log("밤"); 
-    //        isTent = true;
-    //    }
-    //    else
-    //    {
-    //        // Debug.Log("밤이 아닙니다.");
-    //    }
-    //}
 
     private void OnTriggerStay(Collider other)
     {
@@ -43,7 +42,7 @@ public class LoadingTent : MonoBehaviour
                         // 여기서 텐트에 G키 활성화 시키기.
                         if (Input.GetKeyDown(KeyCode.G))
                         {
-                            SceneManager.LoadSceneAsync(0);
+                            SceneManager.LoadScene(0);
                         }
                     }
                 }

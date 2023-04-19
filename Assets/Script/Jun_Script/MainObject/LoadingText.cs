@@ -17,13 +17,20 @@ public class LoadingText : MonoBehaviour
     //public static LoadingText instance;
     //private Action<float> loadingdeli;
     
-    Player player;
+    PlayerBase player;
 
     private float nowTime;              // 현재
 
+    private void Awake()
+    {
+        //var player = FindObjectsOfType<PlayerBase>();
+        //if (player.Length == 1)
+        //{
+        //    DontDestroyOnLoad(player[0]);
+        //}
+    }
     void Start()
     {
-        player = GetComponent<Player>();
         slider.value = 0.0f;
         StartCoroutine(ChnageText(1.5f, text1, text2 , texx3));
         StartCoroutine(ChargeSlider());
@@ -83,19 +90,22 @@ public class LoadingText : MonoBehaviour
 
         while(!operation.isDone)
         {
+
+            yield return null;
+
             nowTime += Time.deltaTime;
-            slider.value = nowTime / 10f;
 
-
-            if (nowTime > 10.0f)
+            if (nowTime < 10.0f)
+            {
+                slider.value = nowTime / 10f;
+            }
+            else
             {
                 slider.value = 10.0f;
                 operation.allowSceneActivation = true;
-                Debug.Log(nowTime);
-                // DontDestroyOnLoad(player);
+                yield break;
             }
 
-            yield return null;
         }
     }
 

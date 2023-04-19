@@ -72,11 +72,8 @@ public class Flower : PlaneBase
                 
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("RightHand"))
+        else if (collision.gameObject.CompareTag("RightHand"))
         {
             Debug.Log("RightHand");
             handObjectHp--;
@@ -130,6 +127,7 @@ public class Flower : PlaneBase
             Debug.Log("None");
         }
     }
+
 
     void FlowerObject(int Hp)
     {

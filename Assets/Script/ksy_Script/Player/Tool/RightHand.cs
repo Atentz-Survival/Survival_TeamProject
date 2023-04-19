@@ -21,13 +21,20 @@ public class RightHand : MonoBehaviour
         Debug.Log(hp);
         return hp;
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-
-        if (other.gameObject.CompareTag("Tree") || other.gameObject.CompareTag("Ocean")|| other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Flower"))
+        if (collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Ocean") || collision.gameObject.CompareTag("Rock") || collision.gameObject.CompareTag("Flower"))
         {
             UsingRhand(useToolHp);
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+
+    //    if (other.gameObject.CompareTag("Tree") || other.gameObject.CompareTag("Ocean")|| other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Flower"))
+    //    {
+    //        UsingRhand(useToolHp);
+    //    }
+    //}
 }
