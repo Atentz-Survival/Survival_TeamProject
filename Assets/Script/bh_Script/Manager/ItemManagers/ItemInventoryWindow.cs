@@ -47,7 +47,7 @@ public class ItemInventoryWindow : MonoBehaviour
     void Awake()
     {
         itemInventoryWindowRooms = GetComponentsInChildren<ItemInventoryWindowRoom>();
-        itemTagString = new string[] { "ю╫╫д ╬фюлеш", "юГ╥А ╬фюлеш", "юЕ╨Я ╬фюлеш", "╠Бе╦ ╬фюлеш", "╧Хд║ ╬фюлеш"};
+        itemTagString = new string[] { "О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫", "О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫", "О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫", "О©╫О©╫е╦ О©╫О©╫О©╫О©╫О©╫О©╫", "О©╫О©╫д║ О©╫О©╫О©╫О©╫О©╫О©╫"};
     }
 
     private void Start()

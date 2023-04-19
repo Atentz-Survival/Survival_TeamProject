@@ -414,17 +414,6 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // 아이템과 트리거가 닿았을 때
-        if (other.gameObject.CompareTag("DropItem"))
-        {
-            DropItem pick = other.GetComponent<DropItem>();
-            if (pick != null)
-            {
-                pick.Picked();
-            }
-            Debug.Log(other.gameObject.name);
-        }
-
         // 맵 오브젝트와 트리거가 닿았을 때
         isEqualWithState[0] = true;
         if (other.gameObject.CompareTag("Tree"))
@@ -496,21 +485,6 @@ public class PlayerBase : MonoBehaviour
         onMaking?.Invoke();
     }
 
-    private void StopActionAtInventory()
-    {
-        GameObject obj = GameObject.Find("ItemInventoryWindow");
-        if (obj.activeSelf == true)
-        {
-            inputActions.CharacterMove.Activity.Disable();
-            inputActions.CharacterMove.MouseMove.Disable();
-        }
-        else
-        {
-            inputActions.CharacterMove.Activity.Enable();
-            inputActions.CharacterMove.MouseMove.Enable();
-        }
-    }
-
     private void StopActionAtMake()
     {
         GameObject obj = GameObject.Find("CraftingTable");
@@ -525,11 +499,25 @@ public class PlayerBase : MonoBehaviour
             inputActions.CharacterMove.MouseMove.Enable();
         }
     }
-
     private void Oninventory(InputAction.CallbackContext obj)   // i키
     {
         StopActionAtInventory();
         onInventory.Invoke();
     }
+
+    private void StopActionAtInventory()
+    {
+        if (item.gameObject.activeSelf == true)
+        {
+            inputActions.CharacterMove.Activity.Enable();
+            inputActions.CharacterMove.MouseMove.Enable();
+        }
+        else if (item.gameObject.activeSelf == false)
+        {
+            inputActions.CharacterMove.Activity.Disable();
+            inputActions.CharacterMove.MouseMove.Disable();
+        }
+    }
+
 
 }
