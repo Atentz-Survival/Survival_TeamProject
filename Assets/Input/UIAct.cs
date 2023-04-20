@@ -35,6 +35,15 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeySet"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecb729b0-a772-4dec-97c2-67182f6941c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -46,6 +55,17 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8768e506-d45a-4a88-914b-a6765232a0e4"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeySet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -74,6 +94,7 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
+        m_UI_KeySet = m_UI.FindAction("KeySet", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -134,11 +155,13 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Esc;
+    private readonly InputAction m_UI_KeySet;
     public struct UIActions
     {
         private @UIAct m_Wrapper;
         public UIActions(@UIAct wrapper) { m_Wrapper = wrapper; }
         public InputAction @Esc => m_Wrapper.m_UI_Esc;
+        public InputAction @KeySet => m_Wrapper.m_UI_KeySet;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -151,6 +174,9 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
                 @Esc.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
                 @Esc.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
                 @Esc.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEsc;
+                @KeySet.started -= m_Wrapper.m_UIActionsCallbackInterface.OnKeySet;
+                @KeySet.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnKeySet;
+                @KeySet.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnKeySet;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -158,6 +184,9 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
                 @Esc.started += instance.OnEsc;
                 @Esc.performed += instance.OnEsc;
                 @Esc.canceled += instance.OnEsc;
+                @KeySet.started += instance.OnKeySet;
+                @KeySet.performed += instance.OnKeySet;
+                @KeySet.canceled += instance.OnKeySet;
             }
         }
     }
@@ -174,5 +203,6 @@ public partial class @UIAct : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnEsc(InputAction.CallbackContext context);
+        void OnKeySet(InputAction.CallbackContext context);
     }
 }

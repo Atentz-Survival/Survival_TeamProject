@@ -6,18 +6,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class NewGame : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
     Button newGame;
 
     private void Awake()
     {
         newGame = GetComponent<Button>();
-        newGame.onClick.AddListener(OnPlayingUI);
+        newGame.onClick.AddListener(OnSaveLoadUIScene);
     }
 
-    private void OnPlayingUI()
+    private void OnSaveLoadUIScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("SaveLoadUI");
     }
 }

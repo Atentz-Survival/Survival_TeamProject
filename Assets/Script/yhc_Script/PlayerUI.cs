@@ -17,22 +17,28 @@ public class PlayerUI : MonoBehaviour
     OptionMenu optionMenu;
     Transform diePanel;
     Button returnMainButton;
+    TextMeshProUGUI hpAlarm;
+    Transform keySet;
+    Transform help;
 
     float diePanelOpen;
     bool menuClosed;
-
+    bool keySetOn = false;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerBase>();
         HPUI = GetComponentInChildren<Slider>();
         pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
+        pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
+        hpAlarm = GameObject.Find("HPAlarm").GetComponent<TextMeshProUGUI>();
         optionMenu = FindObjectOfType<OptionMenu>();
+        keySet = transform.GetChild(4);
         diePanel = transform.GetChild(5);
+        help = transform.GetChild(6);
         returnMainButton = diePanel.GetComponentInChildren<Button>();
-        diePanel.gameObject.SetActive(false);
+
         uikey = new UIAct();
-        player.onDie += OneDiePanel;
     }
 
 
@@ -41,14 +47,18 @@ public class PlayerUI : MonoBehaviour
     {
         diePanelOpen = 0.0f;
         player = FindObjectOfType<PlayerBase>();
-        pauseMenu = FindObjectOfType<PauseMenu>();
         menuClosed = true;
-        pauseButton.onClick.AddListener(CallPauseMenu);
+        
+        diePanel.gameObject.SetActive(false);
+        keySet.gameObject.SetActive(false);
 
+        player.onDie += OneDiePanel;
+        pauseButton.onClick.AddListener(CallPauseMenu);
         returnMainButton.onClick.AddListener(CallMainMenu);
 
+        StartCoroutine(OnHelpPanel());
+        // player.onUpgradeHp += OnHpAlarm(i);
     }
-
 
 
     // 합칠때 다시 살려야됨, HP업데이트
@@ -61,10 +71,14 @@ public class PlayerUI : MonoBehaviour
     {
         uikey.UI.Enable();
         uikey.UI.Esc.performed += ESC;
+        uikey.UI.KeySet.performed += OnKeySet;
+
     }
+
 
     private void OnDisable()
     {
+        uikey.UI.KeySet.performed -= OnKeySet;
         uikey.UI.Esc.performed -= ESC;
         uikey.UI.Disable();
     }
@@ -79,10 +93,6 @@ public class PlayerUI : MonoBehaviour
         }
         else if(!menuClosed)
         {
-            if(optionMenu.optionClosed == false)
-            {
-                optionMenu.gameObject.SetActive(false);
-            }
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1.0f;
             menuClosed = !menuClosed;
@@ -120,8 +130,36 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    private void OnKeySet(InputAction.CallbackContext _)
+    {
+        if (keySetOn == false)
+        {
+            keySet.gameObject.SetActive(true);
+            keySetOn = !keySetOn;
+        }
+        else
+        {
+            keySet.gameObject.SetActive(false);
+            keySetOn = !keySetOn;
+        }
+    }
+
     private void CallMainMenu()
     {
-        // SceneManager.LoadScene();
+        SceneManager.LoadScene("StartUI");
     }
+
+
+    IEnumerator OnHelpPanel()
+    {
+        help.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        help.gameObject.SetActive(false);
+        StopCoroutine(OnHelpPanel());
+    }
+
+    // private Action<float> OnHpAlarm()
+    // {
+    //     // hpAlarm.text = "Hp가 회복되었습니다.";
+    // }
 }

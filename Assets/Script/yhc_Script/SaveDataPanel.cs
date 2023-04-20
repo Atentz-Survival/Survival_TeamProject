@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveDataPanel : MonoBehaviour
@@ -27,7 +28,6 @@ public class SaveDataPanel : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
         inputField.gameObject.SetActive(false);
         slot0.onClick.AddListener(InputNamer);
         slot1.onClick.AddListener(InputNamer);
@@ -43,8 +43,8 @@ public class SaveDataPanel : MonoBehaviour
 
     void InputNames(string text)
     {
-        string nameText = text.ToString();
-        nameData?.Invoke(nameText);
+        nameData?.Invoke(text);
         inputField.gameObject.SetActive(false);
+        SceneManager.LoadScene("TestPlayScene");
     }
 }
