@@ -38,6 +38,7 @@ public class OptionMenu : MonoBehaviour
     {
         brightness.color = new Color (0,0,0, brightnessSlider.value);
     }
+
     private void ESC(InputAction.CallbackContext _)
     {
         if(optionClosed)
