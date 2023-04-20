@@ -14,7 +14,6 @@ public class SaveData
     public float playerPositionY;      //위치
     public float playerPositionZ;      //위치
 
-    public int[] itemNum = null;               //아이템 번호
     public int[] itemCount = null;             // 갯수
     public string[] itemTypes = null;          // 종류
 
