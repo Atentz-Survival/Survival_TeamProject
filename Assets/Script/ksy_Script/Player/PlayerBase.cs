@@ -53,6 +53,9 @@ public class PlayerBase : MonoBehaviour
     public Action onMaking;
     public Action onInventory;
 
+    /*------------------저장처리 -------------------*/
+    Save save;
+
     /*------------------플레이어 상태 -------------------*/
     public enum playerState
     {
@@ -166,6 +169,8 @@ public class PlayerBase : MonoBehaviour
         pick = FindObjectOfType<Pick>();
         rHand = FindObjectOfType<RightHand>();
 
+        save = FindObjectOfType<Save>();
+
         HP = maxHp;
         HpChange();
 
@@ -178,6 +183,9 @@ public class PlayerBase : MonoBehaviour
         rHand.UsingTool += OnUpgradeHp;
 
         item.onChangeTool += OnUpgradeTool; // << tool
+        save.onChangeTool += OnUpgradeTool; // << save
+
+        save.LoadHp += LoadingHp;
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -192,6 +200,11 @@ public class PlayerBase : MonoBehaviour
         }
         isEqualWithState[0] = true;
         state = playerState.Nomal;
+    }
+
+    private void LoadingHp(int obj)
+    {
+        HP = obj;
     }
 
     private void FixedUpdate()
