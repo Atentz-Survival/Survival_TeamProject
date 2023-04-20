@@ -12,18 +12,18 @@ public class Sunshine : MonoBehaviour
     public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
     public static ReSpawnObject OnRespawn;                 // 이 클래스내의 함수를 OnRespawn변수로 참조
 
-    //Quaternion Vec
-    //{
-    //    get => vec;
-    //    set
-    //    {
-    //        if(vec != value)
-    //        {
-    //            vec = value;
-    //            DayTimeDeli?.Invoke(vec);
-    //        }
-    //    }
-    //}
+    public Quaternion Vec
+    {
+        get => vec;
+        set
+        {
+            if(vec != value)
+            {
+                vec = value;
+                DayTimeDeli?.Invoke(vec);
+            }
+        }
+    }
 
     public Action<Quaternion> DayTimeDeli;
 
