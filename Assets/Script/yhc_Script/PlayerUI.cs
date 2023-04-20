@@ -18,6 +18,7 @@ public class PlayerUI : MonoBehaviour
     Transform diePanel;
     Button returnMainButton;
 
+    float diePanelOpen;
     bool menuClosed;
 
 
@@ -38,6 +39,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
+        diePanelOpen = 0.0f;
         player = FindObjectOfType<PlayerBase>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         menuClosed = true;
@@ -49,7 +51,7 @@ public class PlayerUI : MonoBehaviour
 
 
 
-    // ÇÕÄ¥¶§ ´Ù½Ã »ì·Á¾ßµÊ, HP¾÷µ¥ÀÌÆ®
+    // í•©ì¹ ë•Œ ë‹¤ì‹œ ì‚´ë ¤ì•¼ë¨, HPì—…ë°ì´íŠ¸
     //private void FixedUpdate()
     //{
     //    HPUI.value = player.HP;
@@ -103,14 +105,19 @@ public class PlayerUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("ÆÛÁî ¸Þ´º ºÒ·¯¿À±â ½ÇÆÐ");
+            Debug.LogWarning("í¼ì¦ˆ ë©”ë‰´ ë¶ˆëŸ¬ì˜¤ê¸° ì‹¤íŒ¨");
         }
-        Debug.Log("ÆÛÁî");
+        Debug.Log("í¼ì¦ˆ");
     }
 
-    private void OneDiePanel(bool obj)
+    private void OneDiePanel()
     {
-        diePanel.gameObject.SetActive(true);
+        float delay = 4.0f;
+        diePanelOpen += Time.deltaTime;
+        if (diePanelOpen > delay)
+        {
+            diePanel.gameObject.SetActive(true);
+        }
     }
 
     private void CallMainMenu()
