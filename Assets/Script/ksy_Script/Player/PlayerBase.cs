@@ -49,7 +49,7 @@ public class PlayerBase : MonoBehaviour
     }
 
     public Action<float> onUpgradeHp;
-    public Action<bool> onDie;
+    public Action onDie;
     public Action onMaking;
     public Action onInventory;
 
@@ -265,7 +265,7 @@ public class PlayerBase : MonoBehaviour
         StopCoroutine(Decrease());
         inputActions.CharacterMove.Disable();
         anim.SetTrigger("IsDead");
-        onDie?.Invoke(true);
+        onDie?.Invoke();
     }
 
 
