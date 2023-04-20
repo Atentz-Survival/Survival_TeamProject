@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,8 @@ public class Timer : MonoBehaviour
     float hour = 0;
     float time = 0;
 
+    public Action dayChange;
+
     private void Awake()
     {
         timerText = GetComponent<TextMeshProUGUI>();
@@ -24,13 +27,14 @@ public class Timer : MonoBehaviour
         time += Time.fixedDeltaTime * timeSpeed;
         if(time >= 15)
         {
-            hour++;
             time = 0;
+            hour++;
         }
         if(hour >= 24)
         {
-            day++;
             hour = 0;
+            day++;
+            dayChange?.Invoke();
         }
         timerText.text = $"Day : {day} \nHour : {(int)hour}";
     }
