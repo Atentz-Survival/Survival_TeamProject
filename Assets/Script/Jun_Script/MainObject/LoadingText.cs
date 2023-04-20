@@ -16,7 +16,10 @@ public class LoadingText : MonoBehaviour
 
     //public static LoadingText instance;
     //private Action<float> loadingdeli;
-    
+
+    // 로딩 씬 중 플레이어의 체력이 깍이는 것을 방지하기위한 델리게이트
+    public Action<int> isloading;
+
     PlayerBase player;
 
     private float nowTime;              // 현재

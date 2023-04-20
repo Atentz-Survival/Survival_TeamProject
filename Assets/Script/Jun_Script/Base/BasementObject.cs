@@ -14,6 +14,11 @@ public class BasementObject : MonoBehaviour
     public int objectMaxHP = 3;
     public int objectHP = 3;
 
+    public int handObjectMaxHp = 5;
+    public int handObjectHp = 5;
+
+    private int myNumber;
+
     int ObjectHP
     {
         get => objectHP;
@@ -29,11 +34,9 @@ public class BasementObject : MonoBehaviour
 
     public Action<int> playerHpDel;
 
+    public Action<int> playerHpGift;        // 델리게이트를 주기위한 차선책 1 (return 값으로 나오지않고 int a값만 받아오면 가능할듯...)
 
-    public Action<int> playerHpGift;
-
-    public int handObjectMaxHp = 5;
-    public int handObjectHp = 5;
+    Func<int, float, int> gift;             // Func으로 int형으로 변경후 return 값을 받아오는 형식
 
     public GameObject Effect;   // 치집 , 채굴시의 이펙트
     public GameObject Meffect;
@@ -282,16 +285,25 @@ public class BasementObject : MonoBehaviour
         Debug.Log(target);
         target.SetActive(false);
     }
+    // 맨손 Tree--------------------------------------------------------------------------------------
 
-    public void Hand_Drop1()
+    public void Hand_Drop_Tree1()
     {
-        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold);
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
 
         Invoke("TimeCount", 4.0f);
     }
-    public void Hand_Drop2()
+    public void Hand_Drop_Tree2()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    public void Hand_Drop_Tree3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5);
         obj.transform.position = transform.position + Vector3.up;
@@ -299,7 +311,53 @@ public class BasementObject : MonoBehaviour
 
         Invoke("TimeCount", 4.0f);
     }
-    public void Hand_Drop3()
+    // 맨손 Rock--------------------------------------------------------------------------------------
+
+    public void Hand_Drop_Rock1()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    public void Hand_Drop_Rock2()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    public void Hand_Drop_Rock3()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+    // 맨손 Flower------------------------------------------------------------------------------------
+
+    public void Hand_Drop_Flower1()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+
+    public void Hand_Drop_Flower2()
+    {
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado);
+        obj.transform.position = transform.position + Vector3.up;
+        target = obj;
+
+        Invoke("TimeCount", 4.0f);
+    }
+
+    public void Hand_Drop_Flower3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut);
         obj.transform.position = transform.position + Vector3.up;
@@ -308,9 +366,21 @@ public class BasementObject : MonoBehaviour
         Invoke("TimeCount", 4.0f);
     }
 
+    // 맨손 체력회복-------------------------------------------------------------------------------------
     public void Hand_HpCare()
     {
-        int playerForHp = 150;
-        playerHpGift?.Invoke(playerForHp);
+        //playerHpGift = HealingHp();
+
+        // 델리게이트안에서 계산....................................(1)
+        // a의값만 playerHpGift(a);로 플레이어 쪽에서 입력하면 될듯...?
+        // playerHpGift = (int a) => { int sum = a + (int)(a*0.25f);};         // 현재 체력 + 현재체력의 25%
+        gift = (int a, float b) => { b = a * 0.25f; int sum = a + (int)b; return sum; };
+    }
+
+
+    int HealingHp(int a)
+    {
+        int playerHeal = a + (int)(a*0.25f);
+        return playerHeal;
     }
 }

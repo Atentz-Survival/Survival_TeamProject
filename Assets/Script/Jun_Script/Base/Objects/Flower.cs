@@ -101,19 +101,20 @@ public class Flower : PlaneBase
                 float d_Hand = 1.00f;
                 if (Hand_Random <= a_Hand)
                 {
-                    Hand_Drop1();
+                    Hand_Drop_Flower1();
                 }
-                else if (Hand_Random <= b_Hand && Hand_Random > a_Hand)
+                else if (Hand_Random <= b_Hand)
                 {
-                    Hand_Drop2();
+                    Hand_Drop_Flower2();
                 }
-                else if (Hand_Random <= c_Hand && Hand_Random > b_Hand)
+                else if (Hand_Random <= c_Hand)
                 {
-                    Hand_Drop3();
+                    Hand_Drop_Flower3();
                 }
-                else if (Hand_Random <= d_Hand && Hand_Random > c_Hand)
+                else if (Hand_Random <= d_Hand)
                 {
                     // 플레이어의 체력 증가
+                    Hand_HpCare();
                 }
                 else
                 {
