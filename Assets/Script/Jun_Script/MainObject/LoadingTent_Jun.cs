@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadingTent : MonoBehaviour
+public class LoadingTent_Jun : MonoBehaviour
 {
     Sunshine sun;
     private bool isTent = false;

@@ -21,19 +21,18 @@ public class LoadingText : MonoBehaviour
 
     private float nowTime;              // 현재
 
-    private void Awake()
-    {
-        //var player = FindObjectsOfType<PlayerBase>();
-        //if (player.Length == 1)
-        //{
-        //    DontDestroyOnLoad(player[0]);
-        //}
-    }
     void Start()
     {
+        player = FindObjectOfType<PlayerBase>();
         slider.value = 0.0f;
         StartCoroutine(ChnageText(1.5f, text1, text2 , texx3));
         StartCoroutine(ChargeSlider());
+    }
+
+    private void Update()
+    {
+        player.transform.position = Vector3.zero;
+        player.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j, TextMeshProUGUI k)
@@ -84,7 +83,7 @@ public class LoadingText : MonoBehaviour
 
     IEnumerator ChargeSlider()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(2);
         operation.allowSceneActivation = false;
 
 

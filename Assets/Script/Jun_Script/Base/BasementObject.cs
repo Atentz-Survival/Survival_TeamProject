@@ -30,6 +30,8 @@ public class BasementObject : MonoBehaviour
     public Action<int> playerHpDel;
 
 
+    public Action<int> playerHpGift;
+
     public int handObjectMaxHp = 5;
     public int handObjectHp = 5;
 
@@ -308,6 +310,7 @@ public class BasementObject : MonoBehaviour
 
     public void Hand_HpCare()
     {
-        
+        int playerForHp = 150;
+        playerHpGift?.Invoke(playerForHp);
     }
 }
