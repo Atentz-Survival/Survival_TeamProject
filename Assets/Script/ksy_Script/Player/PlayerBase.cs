@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -184,23 +183,12 @@ public class PlayerBase : MonoBehaviour
         fishingRod.UsingTool += OnUpgradeHp;
         rHand.UsingTool += OnUpgradeHp;
 
-        item.onChangeTool += OnUpgradeTool; // << tool
-
-<<<<<<< HEAD
-        /*save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;*/
-=======
-<<<<<<< Updated upstream
-        save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;
-=======
+        item.onChangeTool += OnUpgradeTool; 
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
 
         /*save.onChangeTool += OnUpgradeTool; // << save
         save.LoadHp += LoadingHp;*/
->>>>>>> Stashed changes
->>>>>>> 08ddd8247ee228ecd9df1dbaeeb2ad34a9dc1cd8
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
