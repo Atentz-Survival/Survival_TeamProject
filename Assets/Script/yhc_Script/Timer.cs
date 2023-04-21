@@ -13,11 +13,23 @@ public class Timer : MonoBehaviour
     public int timeSpeed = 1;
 
     int day = 1;
+    public int Day
+    {
+        get { return day; }
+    }
+
     float hour = 0;
-    float time = 0;
+    float minute = 0;
+    float preMinute;
+    float preHour;
+
+    bool ison = true;
+
+    WaitForSeconds wait = new WaitForSeconds(1);
 
     public Action<int> dayChange;
-    public Action<float> hourChange;
+
+    // public Action<float> hourChange;
 
     private void Awake()
     {
@@ -27,29 +39,30 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        sunshine.DayTimeDeli += onTimeChange;
+        sunshine.DayTimeDeli += onTimeChange; // 1초 60번
+    }
+
+    IEnumerator OnChange()
+    {
+        yield return wait;
+        ison = true;
     }
 
     private void onTimeChange(Quaternion quaternion)
     {
-        hour = (float)sunshine.Vec.eulerAngles.magnitude * 15.0f;
+        if (ison)
+        {
+            ison= false;
+            hour = sunshine.Vec.eulerAngles.magnitude / 15;
+            minute = sunshine.Vec.eulerAngles.magnitude % 15;
+            Debug.Log(minute);
+            
+            dayChange?.Invoke(day);
+
+            timerText.text = $"Day : {day} \nHour : {(int)hour}";
+            StopAllCoroutines();
+            StartCoroutine(OnChange());
+        }
     }
 
-    private void FixedUpdate()
-    {
-        time += Time.fixedDeltaTime * timeSpeed;
-        if(time >= 15)
-        {
-            time = 0;
-            hour++;
-            hourChange?.Invoke(hour);
-        }
-        if(hour >= 24)
-        {
-            hour = 0;
-            day++;
-            dayChange?.Invoke(day);
-        }
-        timerText.text = $"Day : {day} \nHour : {(int)hour}";
-    }
 }
