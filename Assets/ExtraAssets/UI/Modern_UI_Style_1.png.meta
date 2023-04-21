@@ -9276,7 +9276,7 @@ TextureImporter:
       name: Modern_UI_Style_1_436
       rect:
         serializedVersion: 2
-        x: 481
+        x: 492
         y: 288
         width: 14
         height: 14
@@ -13592,26 +13592,26 @@ TextureImporter:
       Modern_UI_Style_1_548: 122123212
       Modern_UI_Style_1_286: -1749215416
       Modern_UI_Style_1_295: 1575925782
-      Modern_UI_Style_1_290: 291280275
-      Modern_UI_Style_1_373: -1684143761
-      Modern_UI_Style_1_282: -555016486
       Modern_UI_Style_1_96: 1322462479
-      Modern_UI_Style_1_482: 1620390234
+      Modern_UI_Style_1_282: -555016486
+      Modern_UI_Style_1_30: 585046277
+      Modern_UI_Style_1_290: 291280275
       Modern_UI_Style_1_272: 1053552092
       Modern_UI_Style_1_136: -297419220
+      Modern_UI_Style_1_357: -1044313576
       Modern_UI_Style_1_217: 801531716
       Modern_UI_Style_1_208: -1909771397
       Modern_UI_Style_1_18: 927613922
       Modern_UI_Style_1_127: -1868886471
       Modern_UI_Style_1_210: -154566250
-      Modern_UI_Style_1_561: 2067669364
-      Modern_UI_Style_1_357: -1044313576
+      Modern_UI_Style_1_482: 1620390234
+      Modern_UI_Style_1_379: -821157928
+      Modern_UI_Style_1_373: -1684143761
       Modern_UI_Style_1_233: 2095839226
       Modern_UI_Style_1_141: -1606277345
-      Modern_UI_Style_1_598: 1019852856
+      Modern_UI_Style_1_561: 2067669364
       Modern_UI_Style_1_422: -1015387131
-      Modern_UI_Style_1_379: -821157928
-      Modern_UI_Style_1_30: 585046277
+      Modern_UI_Style_1_598: 1019852856
       Modern_UI_Style_1_104: -1368464992
       Modern_UI_Style_1_27: -422428709
       Modern_UI_Style_1_163: 430892075
@@ -13770,19 +13770,19 @@ TextureImporter:
       Modern_UI_Style_1_334: 1897678755
       Modern_UI_Style_1_493: -1404757549
       Modern_UI_Style_1_507: -220020770
-      Modern_UI_Style_1_351: -1398743668
       Modern_UI_Style_1_6: 1135629720
+      Modern_UI_Style_1_351: -1398743668
       Modern_UI_Style_1_512: 1303319351
       Modern_UI_Style_1_92: -2025744178
       Modern_UI_Style_1_75: -710791483
+      Modern_UI_Style_1_85: 804238171
       Modern_UI_Style_1_176: 1442834579
-      Modern_UI_Style_1_343: -1609935371
       Modern_UI_Style_1_171: -1831823590
       Modern_UI_Style_1_346: 645268166
-      Modern_UI_Style_1_558: -1387680874
-      Modern_UI_Style_1_85: 804238171
-      Modern_UI_Style_1_215: 75974171
       Modern_UI_Style_1_2: 330119878
+      Modern_UI_Style_1_215: 75974171
+      Modern_UI_Style_1_558: -1387680874
+      Modern_UI_Style_1_343: -1609935371
       Modern_UI_Style_1_273: -796332546
       Modern_UI_Style_1_500: 1790317039
       Modern_UI_Style_1_570: 428826975
@@ -14016,6 +14016,7 @@ TextureImporter:
       Modern_UI_Style_1_365: -113102756
       Modern_UI_Style_1_279: 1924626053
       Modern_UI_Style_1_327: 1588101812
+      Modern_UI_Style_1_634: -1895751023
       Modern_UI_Style_1_369: 164215100
       Modern_UI_Style_1_212: -1253448716
       Modern_UI_Style_1_314: 908742358
