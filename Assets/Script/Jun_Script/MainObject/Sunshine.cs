@@ -36,6 +36,8 @@ public class Sunshine : MonoBehaviour
 
     public bool isNight = false;
 
+    public Action HourChange;
+
     public float vecT = 0.5f;    // 6분경과 : 0.3333f
     float t;
     float round;
@@ -44,6 +46,9 @@ public class Sunshine : MonoBehaviour
 
     // fog
     private float morningFog;   // 아침의 안개량
+
+    //15도마다 델리게이트를 송신하기 위한 체크용 변수.
+    int currentRound = 0;
 
     private void Start()
     {
@@ -68,13 +73,24 @@ public class Sunshine : MonoBehaviour
         t += Time.deltaTime;
         round = vecT * t;
         vec = Quaternion.Euler(round, 0, 0);
+        
+        
+
+        if( (int)(round%15)==0 && currentRound != (int)round && (int)round !=360)
+        {
+            //델리게이트
+            currentRound = (int)round;
+            Debug.Log("SunRotate에서 15도 초과로 인한 델리게이트 발생");
+            HourChange?.Invoke();
+        }
+        
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
         DayTimeDeli?.Invoke(vec);
         // 로테이션값을 시간처럼 시각화하기
-        if (round >= 360)
+        if (round > 360f)
         {
-            t = 0;
+            t = 0f;
         }
         // Debug.Log(vec);
 
