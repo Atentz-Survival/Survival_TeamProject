@@ -50,6 +50,8 @@ public class FishingBase : MonoBehaviour
             GameObject obj = Instantiate(fishingEffect);
             obj.transform.position = transform.position;
 
+            float fish_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+
             isTimeCheck = false;
 
             if (isTimeCheck == false)
@@ -58,20 +60,50 @@ public class FishingBase : MonoBehaviour
 
                 if (other.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
-                    Invoke("FishDrop1", waitT);
-                    Debug.Log("Step3");
+                    if(fish_Random<= 0.75f)
+                    {
+                        Invoke("FishDrop1", waitT);
+                    }
+                    else if(fish_Random <= 0.95f)
+                    {
+                        Invoke("FishDrop2", waitT);
+                    }
+                    else
+                    {
+                        Invoke("FishDrop3", waitT);
+                    }
                 }
 
                 else if (other.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    Invoke("FishDrop2", waitT);
-                    Debug.Log("Step4");
+                    if(fish_Random <= 0.6f)
+                    {
+                        Invoke("FishDrop1", waitT);
+                    }
+                    else if(fish_Random <= 0.85f)
+                    {
+                        Invoke("FishDrop2", waitT);
+                    }
+                    else
+                    {
+                        Invoke("FishDrop3", waitT);
+                    }
                 }
 
                 else if (other.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
-                    Invoke("FishDrop3", waitT);
-                    Debug.Log("Step5");
+                    if(fish_Random <= 0.45f)
+                    {
+                        Invoke("FishDrop1", waitT);
+                    }
+                    else if(fish_Random <= 0.7f)
+                    {
+                        Invoke("FishDrop2", waitT);
+                    }
+                    else
+                    {
+                        Invoke("FishDrop3", waitT);
+                    }
                 }
             }
             isTimeCheck = true;

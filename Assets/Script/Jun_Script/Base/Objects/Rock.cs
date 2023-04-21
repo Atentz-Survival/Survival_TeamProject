@@ -31,7 +31,9 @@ public class Rock : BasementObject
             // 횟수로 한다.
             objectHP--;
 
-            if(objectHP > 0)
+            float rock_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+
+            if (objectHP > 0)
             {
                 Debug.Log(objectHP);
                 GameObject obj = Instantiate(Effect);
@@ -48,15 +50,48 @@ public class Rock : BasementObject
 
                 if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
-                    RockDrop1();
+                    if(rock_Random <= 0.75f)
+                    {
+                        RockDrop1();
+                    }
+                    else if(rock_Random <= 0.95f)
+                    {
+                        RockDrop2();
+                    }
+                    else
+                    {
+                        RockDrop3();
+                    }
                 }
                 else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    RockDrop2();
+                    if(rock_Random <= 0.6f)
+                    {
+                        RockDrop1();
+                    }
+                    else if(rock_Random <= 0.85f)
+                    {
+                        RockDrop2();
+                    }
+                    else
+                    {
+                        RockDrop3();
+                    }
                 }
                 else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
-                    RockDrop3();
+                    if(rock_Random <= 0.45f)
+                    {
+                        RockDrop1();
+                    }
+                    else if(rock_Random <= 0.7f)
+                    {
+                        RockDrop2();
+                    }
+                    else
+                    {
+                        RockDrop3();
+                    }
                 }
                 else
                 {
@@ -66,13 +101,8 @@ public class Rock : BasementObject
                 objectHP = objectMaxHP;
             }
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("RightHand"))
+        else if (collision.gameObject.CompareTag("RightHand"))
         {
-            Debug.Log("RightHand");
             handObjectHp--;
 
             Debug.Log(handObjectHp);
@@ -90,27 +120,26 @@ public class Rock : BasementObject
                 GameObject obj = Instantiate(Meffect);
                 obj.transform.position = transform.position;
 
-                float a_Hand = 0.25f;
-                float b_Hand = 0.50f;
-                float c_Hand = 0.75f;
-                float d_Hand = 1.00f;
+                float a_Hand = 0.5f;
+                float b_Hand = 0.8f;
+                float c_Hand = 1.0f;
                 if (Hand_Random <= a_Hand)
                 {
-                    Hand_Drop_Rock1();
+                    Debug.Log("None");
                 }
                 else if (Hand_Random <= b_Hand)
                 {
-                    Hand_Drop_Rock2();
+                    Hand_Drop_Rock1();
                 }
                 else if (Hand_Random <= c_Hand)
                 {
-                    Hand_Drop_Rock3();
+                    Hand_Drop_Rock2();
                 }
-                else if (Hand_Random <= d_Hand)
-                {
-                    // 플레이어의 체력 증가
-                    Hand_HpCare();
-                }
+                //else if (Hand_Random <= d_Hand)
+                //{
+                //    // 플레이어의 체력 증가
+                //    Hand_HpCare();
+                //}
                 else
                 {
                     Debug.Log("ERROR");
@@ -118,12 +147,7 @@ public class Rock : BasementObject
                 handObjectHp = handObjectMaxHp;
             }
         }
-        else
-        {
-            Debug.Log("None");
-        }
     }
-
 
     void RockObject(int Hp)
     {

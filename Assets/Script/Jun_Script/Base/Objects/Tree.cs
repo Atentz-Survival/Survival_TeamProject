@@ -43,6 +43,9 @@ public class Tree : PlaneBase
             Debug.Log("AXE");
             objectHP--;
             Debug.Log($"First : {objectHP}");
+
+            float tree_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+
             if (objectHP > 0)
             {
                 Debug.Log("TreeStart");
@@ -62,15 +65,49 @@ public class Tree : PlaneBase
 
                 if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
-                    TreeDrop1();
+                    if(tree_Random <= 0.75f)
+                    {
+                        TreeDrop1();
+                    }
+                    else if(tree_Random <= 0.95f)
+                    {
+                        TreeDrop2();
+                    }
+                    else
+                    {
+                        TreeDrop3();
+                    }
                 }
                 else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    TreeDrop2();
+                    if(tree_Random <= 0.6f)
+                    {
+                        TreeDrop1();
+                    }
+                    else if(tree_Random <= 0.85f)
+                    {
+
+                        TreeDrop2();
+                    }
+                    else
+                    {
+                        TreeDrop3();
+                    }
                 }
                 else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
-                    TreeDrop3();
+                    if(tree_Random <= 0.45f)
+                    {
+                        TreeDrop1();
+                    }
+                    else if(tree_Random <= 0.7f)
+                    {
+                        TreeDrop2();
+                    }
+                    else
+                    {
+                        TreeDrop3();
+                    }
                 }
                 else
                 {
@@ -102,27 +139,27 @@ public class Tree : PlaneBase
 
                 gameObject.SetActive(false);
                 isDisTree = true;
-                float a_Hand = 0.25f;
-                float b_Hand = 0.50f;
-                float c_Hand = 0.75f;
-                float d_Hand = 1.00f;
+                float a_Hand = 0.50f;
+                float b_Hand = 0.80f;
+                float c_Hand = 1.00f;
+                // float d_Hand = 0.00f;
                 if (Hand_Random <= a_Hand)
                 {
-                    Hand_Drop_Tree1();
+                    Debug.Log("None");
                 }
                 else if (Hand_Random <= b_Hand)
                 {
-                    Hand_Drop_Tree2();
+                    Hand_Drop_Tree1();
                 }
                 else if (Hand_Random <= c_Hand)
                 {
-                    Hand_Drop_Tree3();
+                    Hand_Drop_Tree2();
                 }
-                else if (Hand_Random <= d_Hand)
-                {
-                    // 플레이어의 체력 증가
-                    Hand_HpCare();
-                }
+                //else if (Hand_Random <= d_Hand)
+                //{
+                //    // 플레이어의 체력 증가
+                //    Hand_Drop_Tree3();
+                //}
                 else
                 {
                     Debug.Log("ERROR");
