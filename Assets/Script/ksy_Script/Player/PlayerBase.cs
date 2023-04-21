@@ -95,6 +95,8 @@ public class PlayerBase : MonoBehaviour
     private Pick pick;
     private RightHand rHand;
 
+    private CraftingWindow craft;
+
     [Header("입력 처리용")]
     private PlayerInput inputActions;
     private Vector3 inputDir = Vector3.zero;
@@ -134,7 +136,6 @@ public class PlayerBase : MonoBehaviour
         //-----전달 받을 델리게이트----
     }
 
-
     private void OnDisable()
     {
         //애니메이션 테스트용
@@ -156,7 +157,6 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.Inventory.performed -= Oninventory;
 
         inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
-
         inputActions.CharacterMove.Disable();
     }
 
@@ -186,8 +186,8 @@ public class PlayerBase : MonoBehaviour
 
         item.onChangeTool += OnUpgradeTool; // << tool
 
-        save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;
+        /*save.onChangeTool += OnUpgradeTool; // << save
+        save.LoadHp += LoadingHp;*/
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -479,7 +479,7 @@ public class PlayerBase : MonoBehaviour
 
     //----------------------------------장소 상호작용 함수-------------------------------
 
-    private void OnMaking(InputAction.CallbackContext context)      //F키
+    private void OnMaking(InputAction.CallbackContext obj)
     {
         StopActionAtMake();
         onMaking?.Invoke();
@@ -487,11 +487,10 @@ public class PlayerBase : MonoBehaviour
 
     private void StopActionAtMake()
     {
-        GameObject obj = GameObject.Find("CraftingTable");
-        if(obj.activeSelf == true)
+        if(craft.gameObject.activeSelf == true)
         {
             inputActions.CharacterMove.Activity.Disable();
-           inputActions.CharacterMove.MouseMove.Disable();
+            inputActions.CharacterMove.MouseMove.Disable();
         }
         else
         {

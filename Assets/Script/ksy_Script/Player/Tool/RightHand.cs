@@ -10,32 +10,11 @@ public class RightHand : MonoBehaviour
     PlayerBase player;
     public Action<int> UsingTool;
     public Collider rHandCollider;
-    int useToolHp = -50;
-    public int ToolHP                      // 현재 hp 프로퍼티 > ui
-    {
-        get => useToolHp;
-        set
-        {
-            
-            useToolHp = value;
-
-            UsingTool?.Invoke(useToolHp);
-        }
-    }
-
-    private Tree tree;
-    private Rock rock;
-    private Flower flower;
+    int useToolHp = -17;
 
     private void Start()
     {
         rHandCollider = GetComponent<Collider>();
-        flower = FindObjectOfType<Flower>();
-        rock = FindObjectOfType<Rock>();
-        tree = FindObjectOfType<Tree>();
-        flower.FlowerHp += OnUpgradeObjectHp;
-        tree.TreeHp += OnUpgradeObjectHp;
-        rock.RockHp += OnUpgradeObjectHp;
 
     }
 
@@ -47,11 +26,7 @@ public class RightHand : MonoBehaviour
 
     private void UsingRhand()
     {
-        ToolHP = ToolHP;
-    }
-    private void OnUpgradeObjectHp(int obj)
-    {
-        ToolHP = ToolHP + obj;
+        UsingTool?.Invoke(useToolHp);
     }
     private void OnCollisionEnter(Collision collision)
     {
