@@ -172,7 +172,7 @@ public class PlayerBase : MonoBehaviour
         rHand = FindObjectOfType<RightHand>();
 
         save = FindObjectOfType<SaveFileUI>();
-
+        craft = FindObjectOfType<CraftingWindow>();
         HP = maxHp;
         HpChange();
 /*--------------------HP 델리게이트 전달 받기-------------------------------*/
@@ -186,8 +186,21 @@ public class PlayerBase : MonoBehaviour
 
         item.onChangeTool += OnUpgradeTool; // << tool
 
+<<<<<<< HEAD
         /*save.onChangeTool += OnUpgradeTool; // << save
         save.LoadHp += LoadingHp;*/
+=======
+<<<<<<< Updated upstream
+        save.onChangeTool += OnUpgradeTool; // << save
+        save.LoadHp += LoadingHp;
+=======
+        craft.DoAction += CraftDoAction;
+        craft.DontAction += CraftDontAction;
+
+        /*save.onChangeTool += OnUpgradeTool; // << save
+        save.LoadHp += LoadingHp;*/
+>>>>>>> Stashed changes
+>>>>>>> 08ddd8247ee228ecd9df1dbaeeb2ad34a9dc1cd8
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -204,7 +217,7 @@ public class PlayerBase : MonoBehaviour
         state = playerState.Nomal;
     }
 
-    
+
 
     private void LoadingHp(int obj)
     {
@@ -481,23 +494,33 @@ public class PlayerBase : MonoBehaviour
 
     private void OnMaking(InputAction.CallbackContext obj)
     {
-        StopActionAtMake();
         onMaking?.Invoke();
     }
+    private void CraftDontAction()
+    {
+        inputActions.CharacterMove.Activity.Disable();
+        inputActions.CharacterMove.MouseMove.Disable();
+    }
 
-    private void StopActionAtMake()
+    private void CraftDoAction()
+    {
+        inputActions.CharacterMove.Activity.Enable();
+        inputActions.CharacterMove.MouseMove.Enable();
+    }
+
+    /*private void StopActionAtMake()
     {
         if(craft.gameObject.activeSelf == true)
         {
             inputActions.CharacterMove.Activity.Disable();
             inputActions.CharacterMove.MouseMove.Disable();
         }
-        else
+        else if(item.gameObject.activeSelf == false)
         {
             inputActions.CharacterMove.Activity.Enable();
             inputActions.CharacterMove.MouseMove.Enable();
         }
-    }
+    }*/
     private void Oninventory(InputAction.CallbackContext obj)   // i키
     {
         StopActionAtInventory();
