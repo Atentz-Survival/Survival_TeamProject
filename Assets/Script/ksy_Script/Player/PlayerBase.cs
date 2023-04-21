@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerBase : MonoBehaviour
     public bool isAction = false;
     private bool isRun = false;
     private bool isDead = false;
+    private bool isConsumeHP = false;
+    int usehp = 0;
 
     private bool isDoing = false;
 
@@ -27,21 +30,20 @@ public class PlayerBase : MonoBehaviour
         get => hp;
         set
         {
-            Debug.Log(hp);
             if (value > 1000)
             {
                 hp = maxHp;
             }
-
+            else if(1<value && value< 1000)
+            {
+                hp = value;
+                Debug.Log(hp);
+            }
             else if (value < 1 && isDead==false)
             {
                 isDead = true;
                 hp = 0;
                 OnDie();
-            }
-            else
-            {
-                hp = value;
             }
 
             onUpgradeHp?.Invoke(hp / maxHp);
@@ -54,7 +56,6 @@ public class PlayerBase : MonoBehaviour
     public Action onInventory;
 
     /*------------------저장처리 -------------------*/
-    Save save;
 
     /*------------------플레이어 상태 -------------------*/
     public enum playerState
@@ -82,6 +83,7 @@ public class PlayerBase : MonoBehaviour
 
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
+    SaveFileUI save;
     private Animator anim;
     private Rigidbody rigid;
 
@@ -169,13 +171,13 @@ public class PlayerBase : MonoBehaviour
         pick = FindObjectOfType<Pick>();
         rHand = FindObjectOfType<RightHand>();
 
-        save = FindObjectOfType<Save>();
+        save = FindObjectOfType<SaveFileUI>();
 
         HP = maxHp;
         HpChange();
-
-        //Debug.Log(hp);
+/*--------------------HP 델리게이트 전달 받기-------------------------------*/
         item.onChangeHp += OnUpgradeHp; // <<인벤
+
         axe.UsingTool += OnUpgradeHp;
         reap.UsingTool += OnUpgradeHp;
         pick.UsingTool += OnUpgradeHp;
@@ -183,8 +185,8 @@ public class PlayerBase : MonoBehaviour
         rHand.UsingTool += OnUpgradeHp;
 
         item.onChangeTool += OnUpgradeTool; // << tool
-        save.onChangeTool += OnUpgradeTool; // << save
 
+        save.onChangeTool += OnUpgradeTool; // << save
         save.LoadHp += LoadingHp;
 
         tools = new GameObject[toolsNames.Length];
@@ -201,6 +203,8 @@ public class PlayerBase : MonoBehaviour
         isEqualWithState[0] = true;
         state = playerState.Nomal;
     }
+
+    
 
     private void LoadingHp(int obj)
     {
@@ -257,8 +261,6 @@ public class PlayerBase : MonoBehaviour
     {
         HP = HP + getHp;
     }
-
-
     void HpChange()
     {
        StartCoroutine(Decrease());

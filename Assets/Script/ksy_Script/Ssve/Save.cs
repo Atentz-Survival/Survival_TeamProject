@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -78,7 +78,7 @@ public class Save : MonoBehaviour
         currentTimeZ = sun.z;
     }
 
-    /*public void SavePlayerData()
+    *//*public void SavePlayerData()
     {
         // 저장할 데이터를 생성합니다.
         SaveData playerData = new SaveData();
@@ -88,7 +88,7 @@ public class Save : MonoBehaviour
         // JSON 파일을 생성하고 데이터를 저장합니다.
         string filePath = Application.dataPath + "/Resources/player_data.json";
         File.WriteAllText(filePath, json);
-    }*/
+    }*//*
 
     void SaveItem()
     {
@@ -155,7 +155,7 @@ public class Save : MonoBehaviour
             string json = File.ReadAllText(fullPath);                   // 텍스트 파일 읽기
             SaveData loadData = JsonUtility.FromJson<SaveData>(json);   // json문자열을 파싱해서 SaveData에 넣기
         }
-        /*else
+        *//*else
         {
             // 파일에서 못읽었으면 디폴트 값 주기
             int size = rankLines.Length;
@@ -172,7 +172,7 @@ public class Save : MonoBehaviour
                 temp = (char)((byte)temp + i);
                 rankerNames[i] = $"{temp}{temp}{temp}";     // AAA,BBB,CCC,DDD,EEE
             }
-        }*/
+        }*//*
         RefreshSet();     // 로딩이 되었으니 RankLines 갱신
         return result;
     }
@@ -202,3 +202,4 @@ public class Save : MonoBehaviour
         //ui
     }
 }
+*/

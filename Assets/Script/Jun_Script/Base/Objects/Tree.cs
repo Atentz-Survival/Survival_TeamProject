@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class Tree : PlaneBase
 {
-    Action<int> TreeHp;
+    public Action<int> TreeHp;
 
     public Transform rotateObject;
     private bool isDisTree = false;     // 나무가 사라졌는지 확인하기위한 변수

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Flower : PlaneBase
 {
-    Action<int> FlowerHp;
+    int giveHp = 0;
+
+    public Action<int> FlowerHp;
 
     public Transform rotateObject;
     private bool isDisFlower = false;
@@ -13,7 +15,6 @@ public class Flower : PlaneBase
     private void Start()
     {
         Sunshine.OnRespawn += RespawnF;
-        FlowerHp += FlowerObject;
     }
 
     private void RespawnF()
@@ -35,9 +36,6 @@ public class Flower : PlaneBase
         {
             objectHP--;
             Debug.Log($"First : {objectHP}");
-
-            float flower_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
             if (objectHP > 0)
             {
                 GameObject obj = Instantiate(Effect);
@@ -56,48 +54,15 @@ public class Flower : PlaneBase
 
                 if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
-                    if(flower_Random <= 0.75f)
-                    {
-                        FlowerDrop1();
-                    }
-                    else if(flower_Random<= 0.95f)
-                    {
-                        FlowerDrop2();
-                    }
-                    else
-                    {
-                        FlowerDrop3();
-                    }
+                    FlowerDrop1();
                 }
                 else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    if(flower_Random <= 0.6f)
-                    {
-                        FlowerDrop1();
-                    }
-                    else if(flower_Random <= 0.85f)
-                    {
-                        FlowerDrop2();
-                    }
-                    else
-                    {
-                        FlowerDrop3();
-                    }
+                    FlowerDrop2();
                 }
                 else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
                 {
-                    if(flower_Random <= 0.45f)
-                    {
-                        FlowerDrop1();
-                    }
-                    else if(flower_Random <= 0.7f)
-                    {
-                        FlowerDrop2();
-                    }
-                    else
-                    {
-                        FlowerDrop3();
-                    }
+                    FlowerDrop3();
                 }
                 else
                 {
@@ -105,7 +70,7 @@ public class Flower : PlaneBase
                 }
 
                 objectHP = objectMaxHP;
-                
+
             }
         }
 
@@ -131,42 +96,51 @@ public class Flower : PlaneBase
 
                 gameObject.SetActive(false);
                 isDisFlower = true;
-                float a_Hand = 0.5f;
-                float b_Hand = 0.8f;
-                float c_Hand = 1.0f;
-                if (Hand_Random <= a_Hand)
-                {
-                    Debug.Log("None");
-                }
-                else if (Hand_Random <= b_Hand)
+                if (Hand_Random < 0.1f)
                 {
                     Hand_Drop_Flower1();
                 }
-                else if (Hand_Random <= c_Hand)
+                else if (Hand_Random < 0.2f)
                 {
                     Hand_Drop_Flower2();
                 }
-                //else if (Hand_Random <= c_Hand)
-                //{
-                //    // 플레이어의 체력 증가
-                //    Hand_HpCare();
-                //}
+                else if (Hand_Random < 0.3f)
+                {
+                    Hand_Drop_Flower3();
+                }
                 else
                 {
-                    Debug.Log("ERROR");
+                    HPControll();
                 }
-                handObjectHp = handObjectMaxHp;
             }
-        }
-        else
-        {
-            Debug.Log("None");
+            else
+            {
+                Debug.Log("None");
+                    handObjectHp = handObjectMaxHp;
+            }
         }
     }
 
-
-    void FlowerObject(int Hp)
+    void HPControll()
     {
-        Hp = objectHP;
+        float rand = UnityEngine.Random.Range(0.0f, 1.0f);
+        giveHp = 0;
+        if (rand < 0.25f)
+        {
+            giveHp = 250;
+        }
+        else if (rand < 0.5f)
+        {
+            giveHp = 350;
+        }
+        else if (rand < 0.75)
+        {
+            giveHp = 450;
+        }
+        else
+        {
+            giveHp = 500;
+        }
+        FlowerHp?.Invoke(giveHp);
     }
 }

@@ -13,11 +13,10 @@ public class Timer : MonoBehaviour
     public int timeSpeed = 1;
 
     int day = 1;
-    float hour = 0;
-    float time = 0;
+    int hour = 6;
 
     public Action<int> dayChange;
-    public Action<float> hourChange;
+    public Action<int> hourChange;
 
     private void Awake()
     {
@@ -27,29 +26,20 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        sunshine.DayTimeDeli += onTimeChange;
+        sunshine.HourChange += OnHourChange;
     }
 
-    private void onTimeChange(Quaternion quaternion)
+    private void OnHourChange()
     {
-        hour = (float)sunshine.Vec.eulerAngles.magnitude * 15.0f;
-    }
-
-    private void FixedUpdate()
-    {
-        time += Time.fixedDeltaTime * timeSpeed;
-        if(time >= 15)
+        hour = hour + 1;
+        if(hour >23)
         {
-            time = 0;
-            hour++;
-            hourChange?.Invoke(hour);
-        }
-        if(hour >= 24)
-        {
-            hour = 0;
             day++;
-            dayChange?.Invoke(day);
+            hour =0;
         }
-        timerText.text = $"Day : {day} \nHour : {(int)hour}";
+        timerText.text = $"Day : {day} \nHour : {hour}";
+        dayChange?.Invoke(day);
+        hourChange?.Invoke(hour);
     }
+
 }

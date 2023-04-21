@@ -18,7 +18,7 @@ public class LoadingText : MonoBehaviour
     //private Action<float> loadingdeli;
 
     // 로딩 씬 중 플레이어의 체력이 깍이는 것을 방지하기위한 델리게이트
-    public Action<int> isloading;
+    public Action isloading;
 
     PlayerBase player;
 
@@ -30,6 +30,7 @@ public class LoadingText : MonoBehaviour
         slider.value = 0.0f;
         StartCoroutine(ChnageText(1.5f, text1, text2 , texx3));
         StartCoroutine(ChargeSlider());
+        isloading?.Invoke();
     }
 
     private void Update()
