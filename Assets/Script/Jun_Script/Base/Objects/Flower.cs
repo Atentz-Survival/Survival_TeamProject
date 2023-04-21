@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Flower : PlaneBase
 {
-    Action<int> FlowerHp;
+    public Action<int> FlowerHp;
 
     public Transform rotateObject;
     private bool isDisFlower = false;

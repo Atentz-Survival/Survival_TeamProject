@@ -54,7 +54,6 @@ public class PlayerBase : MonoBehaviour
     public Action onInventory;
 
     /*------------------저장처리 -------------------*/
-    Save save;
 
     /*------------------플레이어 상태 -------------------*/
     public enum playerState
@@ -82,6 +81,7 @@ public class PlayerBase : MonoBehaviour
 
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
+    Save save;
     private Animator anim;
     private Rigidbody rigid;
 
@@ -92,6 +92,10 @@ public class PlayerBase : MonoBehaviour
     private Reap reap;
     private Pick pick;
     private RightHand rHand;
+
+    private Tree tree;
+    private Rock rock;
+    private Flower22 flower;
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
@@ -171,21 +175,27 @@ public class PlayerBase : MonoBehaviour
 
         save = FindObjectOfType<Save>();
 
+        flower = FindObjectOfType<Flower22>();
+        rock = FindObjectOfType<Rock>();
+        tree = FindObjectOfType<Tree>();
+
         HP = maxHp;
         HpChange();
-
-        //Debug.Log(hp);
+/*--------------------HP 델리게이트 전달 받기-------------------------------*/
         item.onChangeHp += OnUpgradeHp; // <<인벤
         axe.UsingTool += OnUpgradeHp;
         reap.UsingTool += OnUpgradeHp;
         pick.UsingTool += OnUpgradeHp;
         fishingRod.UsingTool += OnUpgradeHp;
         rHand.UsingTool += OnUpgradeHp;
+        flower.FlowerHp += OnUpgradeHp;
+        tree.TreeHp += OnUpgradeHp;
+        rock.RockHp += OnUpgradeHp;
 
         item.onChangeTool += OnUpgradeTool; // << tool
-        save.onChangeTool += OnUpgradeTool; // << save
 
-        save.LoadHp += LoadingHp;
+        //save.onChangeTool += OnUpgradeTool; // << save
+        //save.LoadHp += LoadingHp;
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -202,10 +212,10 @@ public class PlayerBase : MonoBehaviour
         state = playerState.Nomal;
     }
 
-    private void LoadingHp(int obj)
+    /*private void LoadingHp(int obj)
     {
         HP = obj;
-    }
+    }*/
 
     private void FixedUpdate()
     {
