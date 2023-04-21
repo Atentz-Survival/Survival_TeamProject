@@ -166,8 +166,6 @@ public class Flower : PlaneBase
             Debug.Log("None");
         }
     }
-
-
     void FlowerObject(int Hp)
     {
         Hp = objectHP;
