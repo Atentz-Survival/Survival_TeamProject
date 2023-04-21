@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -94,6 +93,7 @@ public class PlayerBase : MonoBehaviour
     private Reap reap;
     private Pick pick;
     private RightHand rHand;
+    private CraftingWindow craft;
 
     [Header("입력 처리용")]
     private PlayerInput inputActions;
@@ -186,16 +186,13 @@ public class PlayerBase : MonoBehaviour
 
         item.onChangeTool += OnUpgradeTool; // << tool
 
-<<<<<<< Updated upstream
-        save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;
-=======
+        /*save.onChangeTool += OnUpgradeTool; // << save
+        save.LoadHp += LoadingHp;*/
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
 
         /*save.onChangeTool += OnUpgradeTool; // << save
         save.LoadHp += LoadingHp;*/
->>>>>>> Stashed changes
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -493,14 +490,14 @@ public class PlayerBase : MonoBehaviour
     }
     private void CraftDontAction()
     {
-        inputActions.CharacterMove.Activity.Disable();
-        inputActions.CharacterMove.MouseMove.Disable();
+        stopAction = true;
+        StopAction();
     }
 
     private void CraftDoAction()
     {
-        inputActions.CharacterMove.Activity.Enable();
-        inputActions.CharacterMove.MouseMove.Enable();
+        stopAction = false;
+        StopAction();
     }
 
     /*private void StopActionAtMake()
@@ -527,10 +524,25 @@ public class PlayerBase : MonoBehaviour
     {
         if (item.gameObject.activeSelf == true)
         {
+            stopAction = false;
+        }
+        else if (item.gameObject.activeSelf == false)
+        {
+            stopAction = true;
+        }
+        StopAction();
+    }
+
+    bool stopAction = false;
+
+    void StopAction()
+    {
+        if(stopAction == false)
+        {
             inputActions.CharacterMove.Activity.Enable();
             inputActions.CharacterMove.MouseMove.Enable();
         }
-        else if (item.gameObject.activeSelf == false)
+        else
         {
             inputActions.CharacterMove.Activity.Disable();
             inputActions.CharacterMove.MouseMove.Disable();
