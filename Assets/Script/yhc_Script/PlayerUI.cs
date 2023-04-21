@@ -31,7 +31,7 @@ public class PlayerUI : MonoBehaviour
         HPUI = GetComponentInChildren<Slider>();
         pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
         pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
-        hpAlarm = GameObject.Find("HPAlarm").GetComponent<TextMeshProUGUI>();
+        // hpAlarm = GameObject.Find("HPAlarm").GetComponent<TextMeshProUGUI>();
         optionMenu = FindObjectOfType<OptionMenu>();
         keySet = transform.GetChild(4);
         diePanel = transform.GetChild(5);
