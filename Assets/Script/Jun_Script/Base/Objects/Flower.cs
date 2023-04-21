@@ -109,6 +109,7 @@ public class Flower : PlaneBase
             }
         }
 
+        // 맨손 -----------------------------------------------------------------
         else if (collision.gameObject.CompareTag("RightHand"))
         {
             Debug.Log("RightHand");
@@ -157,6 +158,8 @@ public class Flower : PlaneBase
                 }
                 handObjectHp = handObjectMaxHp;
             }
+
+
         }
         else
         {
