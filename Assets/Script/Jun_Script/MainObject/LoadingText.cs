@@ -98,13 +98,13 @@ public class LoadingText : MonoBehaviour
 
             nowTime += Time.deltaTime;
 
-            if (nowTime < 10.0f)
+            if (nowTime < 9.0f)
             {
-                slider.value = nowTime / 10f;
+                slider.value = nowTime / 9.0f;
             }
             else
             {
-                slider.value = 10.0f;
+                slider.value = 9.0f;
                 operation.allowSceneActivation = true;
                 yield break;
             }
