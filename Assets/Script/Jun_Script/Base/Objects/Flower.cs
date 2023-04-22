@@ -158,12 +158,10 @@ public class Flower : PlaneBase
                 }
                 handObjectHp = handObjectMaxHp;
             }
-
-
         }
         else
         {
-            Debug.Log("None");
+            Debug.Log("This Tool can not be used");
         }
     }
     void FlowerObject(int Hp)

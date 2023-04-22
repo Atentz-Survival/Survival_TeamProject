@@ -167,6 +167,10 @@ public class Tree : PlaneBase
                 handObjectHp = handObjectMaxHp;
             }
         }
+        else
+        {
+            Debug.Log("This Tool can not be used");
+        }
     }
     void TreeObject(int Hp)
     {

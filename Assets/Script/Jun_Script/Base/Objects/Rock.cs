@@ -147,6 +147,10 @@ public class Rock : BasementObject
                 handObjectHp = handObjectMaxHp;
             }
         }
+        else
+        {
+            Debug.Log("This Tool can not be used");
+        }
     }
 
     void RockObject(int Hp)

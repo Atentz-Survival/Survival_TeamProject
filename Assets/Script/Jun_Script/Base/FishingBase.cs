@@ -109,6 +109,10 @@ public class FishingBase : MonoBehaviour
             isTimeCheck = true;
             Debug.Log("Step2");
         }
+        else
+        {
+            Debug.Log("This Tool can not be used");
+        }
     }
 
     public void FishDrop1()
