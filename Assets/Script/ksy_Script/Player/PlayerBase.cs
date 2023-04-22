@@ -19,10 +19,10 @@ public class PlayerBase : MonoBehaviour
     public bool isAction = false;
     private bool isRun = false;
     private bool isDead = false;
-    private bool isConsumeHP = false;
-    int usehp = 0;
 
     private bool isDoing = false;
+
+    private bool ifCraft = false;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
     {
@@ -97,7 +97,7 @@ public class PlayerBase : MonoBehaviour
     private CraftingWindow craft;
 
     [Header("입력 처리용")]
-    private PlayerInput inputActions;
+    private PlayerInput inputActions; 
     private Vector3 inputDir = Vector3.zero;
     Vector3 V3;
 
@@ -117,6 +117,7 @@ public class PlayerBase : MonoBehaviour
 
         //-----입력 Enable----
         inputActions.CharacterMove.Enable();
+        inputActions.OpenWindow.Enable();
         inputActions.CharacterMove.MouseMove.performed += OnMouseMoveInput;
         inputActions.CharacterMove.Move.performed += OnMoveInput;
         inputActions.CharacterMove.Move.canceled += OnMoveInput;
@@ -128,9 +129,9 @@ public class PlayerBase : MonoBehaviour
 
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
-        inputActions.CharacterMove.Inventory.performed += Oninventory;
 
-        inputActions.CharacterMove.Interaction_Place.performed += OnMaking;
+        inputActions.OpenWindow.OpenItemWindow.performed += Oninventory;
+        inputActions.OpenWindow.OpenCraftWindow.performed += OnMaking;
 
         //-----전달 받을 델리게이트----
     }
@@ -153,10 +154,8 @@ public class PlayerBase : MonoBehaviour
 
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
         inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
-        inputActions.CharacterMove.Inventory.performed -= Oninventory;
-
-        inputActions.CharacterMove.Interaction_Place.performed -= OnMaking;
         inputActions.CharacterMove.Disable();
+        inputActions.OpenWindow.Disable();
     }
 
    
@@ -284,7 +283,6 @@ public class PlayerBase : MonoBehaviour
         onDie?.Invoke();
     }
 
-
     //--- 도끼질 곡갱이 질 함수(left click)---
     private void OnAvtivity(InputAction.CallbackContext context)
     {
@@ -301,7 +299,6 @@ public class PlayerBase : MonoBehaviour
             }
         }
     }
-
     private void OnAvtivityStop(InputAction.CallbackContext context)
     {
         isDoing = false;
@@ -357,7 +354,6 @@ public class PlayerBase : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
     }
-
 
     IEnumerator Fishing()
     {
@@ -415,6 +411,10 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("Workbench"))
+        {
+            ifCraft = true;
+        }
         // 맵 오브젝트와 트리거가 닿았을 때
         isEqualWithState[0] = true;
         if (other.gameObject.CompareTag("Tree"))
@@ -463,6 +463,10 @@ public class PlayerBase : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Workbench"))
+        {
+            ifCraft = false;
+        }
         if (other.gameObject.CompareTag("Tree")
            || other.gameObject.CompareTag("Flower")
            || other.gameObject.CompareTag("Rock")
@@ -482,33 +486,18 @@ public class PlayerBase : MonoBehaviour
 
     private void OnMaking(InputAction.CallbackContext obj)
     {
-        onMaking?.Invoke();
+        if(ifCraft == true)
+            onMaking?.Invoke();
     }
     private void CraftDontAction()
     {
-        inputActions.CharacterMove.Activity.Disable();
-        inputActions.CharacterMove.MouseMove.Disable();
+        inputActions.CharacterMove.Disable();
     }
 
     private void CraftDoAction()
     {
-        inputActions.CharacterMove.Activity.Enable();
-        inputActions.CharacterMove.MouseMove.Enable();
+        inputActions.CharacterMove.Enable();
     }
-
-    /*private void StopActionAtMake()
-    {
-        if(craft.gameObject.activeSelf == true)
-        {
-            inputActions.CharacterMove.Activity.Disable();
-            inputActions.CharacterMove.MouseMove.Disable();
-        }
-        else if(item.gameObject.activeSelf == false)
-        {
-            inputActions.CharacterMove.Activity.Enable();
-            inputActions.CharacterMove.MouseMove.Enable();
-        }
-    }*/
     private void Oninventory(InputAction.CallbackContext obj)   // i키
     {
         StopActionAtInventory();
@@ -524,8 +513,7 @@ public class PlayerBase : MonoBehaviour
         }
         else if (item.gameObject.activeSelf == false)
         {
-            inputActions.CharacterMove.Activity.Disable();
-            inputActions.CharacterMove.MouseMove.Disable();
+            inputActions.CharacterMove.Disable();
         }
     }
 }

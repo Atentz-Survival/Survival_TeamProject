@@ -33,15 +33,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interaction_Place",
-                    "type": "Button",
-                    "id": "2db08ba2-3dff-4469-9786-093a5605b1b6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MouseMove",
                     "type": "Value",
                     "id": "a38ee063-05b6-4857-bbe6-e2302bdd391e",
@@ -54,15 +45,6 @@
                     "name": "Rush",
                     "type": "Button",
                     "id": "eb1e1690-12fa-499a-839b-e18666d678ab",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "8a0baecf-1465-41e1-b6bf-666207b9f87e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -89,17 +71,6 @@
                     "processors": "",
                     "groups": "KeyBoardAndMouse",
                     "action": "Interaction_Item",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de0a7d30-f966-4f97-a979-20294dc302c5",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardAndMouse",
-                    "action": "Interaction_Place",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -177,17 +148,6 @@
                     "processors": "",
                     "groups": "KeyBoardAndMouse",
                     "action": "Rush",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7a10bfd6-428f-4188-9c4b-43724f0fd705",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardAndMouse",
-                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -296,6 +256,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "Test5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "OpenWindow",
+            "id": "80af42f6-ef94-4b0c-9b29-63a5665475cd",
+            "actions": [
+                {
+                    "name": "OpenItemWindow",
+                    "type": "Button",
+                    "id": "56db5f89-66f5-47cc-9c4c-2a5c09ea6bce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenCraftWindow",
+                    "type": "Button",
+                    "id": "c7a86f0e-4a93-40dc-bcee-be584de0f595",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d7785a48-c83b-4712-ae88-71a00fde11f6",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardAndMouse",
+                    "action": "OpenItemWindow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b51fe0a7-f87d-41c8-aa31-ce2eff32c431",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardAndMouse",
+                    "action": "OpenCraftWindow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

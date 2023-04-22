@@ -55,15 +55,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Interaction_Place"",
-                    ""type"": ""Button"",
-                    ""id"": ""2db08ba2-3dff-4469-9786-093a5605b1b6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MouseMove"",
                     ""type"": ""Value"",
                     ""id"": ""a38ee063-05b6-4857-bbe6-e2302bdd391e"",
@@ -76,15 +67,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": ""Rush"",
                     ""type"": ""Button"",
                     ""id"": ""eb1e1690-12fa-499a-839b-e18666d678ab"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Inventory"",
-                    ""type"": ""Button"",
-                    ""id"": ""8a0baecf-1465-41e1-b6bf-666207b9f87e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -111,17 +93,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoardAndMouse"",
                     ""action"": ""Interaction_Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""de0a7d30-f966-4f97-a979-20294dc302c5"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoardAndMouse"",
-                    ""action"": ""Interaction_Place"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -199,17 +170,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoardAndMouse"",
                     ""action"": ""Rush"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7a10bfd6-428f-4188-9c4b-43724f0fd705"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoardAndMouse"",
-                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -322,6 +282,54 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OpenWindow"",
+            ""id"": ""80af42f6-ef94-4b0c-9b29-63a5665475cd"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenItemWindow"",
+                    ""type"": ""Button"",
+                    ""id"": ""56db5f89-66f5-47cc-9c4c-2a5c09ea6bce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenCraftWindow"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7a86f0e-4a93-40dc-bcee-be584de0f595"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d7785a48-c83b-4712-ae88-71a00fde11f6"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardAndMouse"",
+                    ""action"": ""OpenItemWindow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b51fe0a7-f87d-41c8-aa31-ce2eff32c431"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardAndMouse"",
+                    ""action"": ""OpenCraftWindow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -348,10 +356,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterMove_Activity = m_CharacterMove.FindAction("Activity", throwIfNotFound: true);
         m_CharacterMove_Interaction_Item = m_CharacterMove.FindAction("Interaction_Item", throwIfNotFound: true);
         m_CharacterMove_Move = m_CharacterMove.FindAction("Move", throwIfNotFound: true);
-        m_CharacterMove_Interaction_Place = m_CharacterMove.FindAction("Interaction_Place", throwIfNotFound: true);
         m_CharacterMove_MouseMove = m_CharacterMove.FindAction("MouseMove", throwIfNotFound: true);
         m_CharacterMove_Rush = m_CharacterMove.FindAction("Rush", throwIfNotFound: true);
-        m_CharacterMove_Inventory = m_CharacterMove.FindAction("Inventory", throwIfNotFound: true);
         // Test
         m_Test = asset.FindActionMap("Test", throwIfNotFound: true);
         m_Test_Test1 = m_Test.FindAction("Test1", throwIfNotFound: true);
@@ -359,6 +365,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Test_Test3 = m_Test.FindAction("Test3", throwIfNotFound: true);
         m_Test_Test4 = m_Test.FindAction("Test4", throwIfNotFound: true);
         m_Test_Test5 = m_Test.FindAction("Test5", throwIfNotFound: true);
+        // OpenWindow
+        m_OpenWindow = asset.FindActionMap("OpenWindow", throwIfNotFound: true);
+        m_OpenWindow_OpenItemWindow = m_OpenWindow.FindAction("OpenItemWindow", throwIfNotFound: true);
+        m_OpenWindow_OpenCraftWindow = m_OpenWindow.FindAction("OpenCraftWindow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -421,10 +431,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMove_Activity;
     private readonly InputAction m_CharacterMove_Interaction_Item;
     private readonly InputAction m_CharacterMove_Move;
-    private readonly InputAction m_CharacterMove_Interaction_Place;
     private readonly InputAction m_CharacterMove_MouseMove;
     private readonly InputAction m_CharacterMove_Rush;
-    private readonly InputAction m_CharacterMove_Inventory;
     public struct CharacterMoveActions
     {
         private @PlayerInput m_Wrapper;
@@ -432,10 +440,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Activity => m_Wrapper.m_CharacterMove_Activity;
         public InputAction @Interaction_Item => m_Wrapper.m_CharacterMove_Interaction_Item;
         public InputAction @Move => m_Wrapper.m_CharacterMove_Move;
-        public InputAction @Interaction_Place => m_Wrapper.m_CharacterMove_Interaction_Place;
         public InputAction @MouseMove => m_Wrapper.m_CharacterMove_MouseMove;
         public InputAction @Rush => m_Wrapper.m_CharacterMove_Rush;
-        public InputAction @Inventory => m_Wrapper.m_CharacterMove_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMove; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -454,18 +460,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMove;
-                @Interaction_Place.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInteraction_Place;
-                @Interaction_Place.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInteraction_Place;
-                @Interaction_Place.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInteraction_Place;
                 @MouseMove.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
                 @MouseMove.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
                 @MouseMove.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnMouseMove;
                 @Rush.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
                 @Rush.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
                 @Rush.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnRush;
-                @Inventory.started -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInventory;
-                @Inventory.performed -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInventory;
-                @Inventory.canceled -= m_Wrapper.m_CharacterMoveActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_CharacterMoveActionsCallbackInterface = instance;
             if (instance != null)
@@ -479,18 +479,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Interaction_Place.started += instance.OnInteraction_Place;
-                @Interaction_Place.performed += instance.OnInteraction_Place;
-                @Interaction_Place.canceled += instance.OnInteraction_Place;
                 @MouseMove.started += instance.OnMouseMove;
                 @MouseMove.performed += instance.OnMouseMove;
                 @MouseMove.canceled += instance.OnMouseMove;
                 @Rush.started += instance.OnRush;
                 @Rush.performed += instance.OnRush;
                 @Rush.canceled += instance.OnRush;
-                @Inventory.started += instance.OnInventory;
-                @Inventory.performed += instance.OnInventory;
-                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -560,6 +554,47 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public TestActions @Test => new TestActions(this);
+
+    // OpenWindow
+    private readonly InputActionMap m_OpenWindow;
+    private IOpenWindowActions m_OpenWindowActionsCallbackInterface;
+    private readonly InputAction m_OpenWindow_OpenItemWindow;
+    private readonly InputAction m_OpenWindow_OpenCraftWindow;
+    public struct OpenWindowActions
+    {
+        private @PlayerInput m_Wrapper;
+        public OpenWindowActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenItemWindow => m_Wrapper.m_OpenWindow_OpenItemWindow;
+        public InputAction @OpenCraftWindow => m_Wrapper.m_OpenWindow_OpenCraftWindow;
+        public InputActionMap Get() { return m_Wrapper.m_OpenWindow; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OpenWindowActions set) { return set.Get(); }
+        public void SetCallbacks(IOpenWindowActions instance)
+        {
+            if (m_Wrapper.m_OpenWindowActionsCallbackInterface != null)
+            {
+                @OpenItemWindow.started -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenItemWindow;
+                @OpenItemWindow.performed -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenItemWindow;
+                @OpenItemWindow.canceled -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenItemWindow;
+                @OpenCraftWindow.started -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenCraftWindow;
+                @OpenCraftWindow.performed -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenCraftWindow;
+                @OpenCraftWindow.canceled -= m_Wrapper.m_OpenWindowActionsCallbackInterface.OnOpenCraftWindow;
+            }
+            m_Wrapper.m_OpenWindowActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @OpenItemWindow.started += instance.OnOpenItemWindow;
+                @OpenItemWindow.performed += instance.OnOpenItemWindow;
+                @OpenItemWindow.canceled += instance.OnOpenItemWindow;
+                @OpenCraftWindow.started += instance.OnOpenCraftWindow;
+                @OpenCraftWindow.performed += instance.OnOpenCraftWindow;
+                @OpenCraftWindow.canceled += instance.OnOpenCraftWindow;
+            }
+        }
+    }
+    public OpenWindowActions @OpenWindow => new OpenWindowActions(this);
     private int m_KeyBoardAndMouseSchemeIndex = -1;
     public InputControlScheme KeyBoardAndMouseScheme
     {
@@ -574,10 +609,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnActivity(InputAction.CallbackContext context);
         void OnInteraction_Item(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnInteraction_Place(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnRush(InputAction.CallbackContext context);
-        void OnInventory(InputAction.CallbackContext context);
     }
     public interface ITestActions
     {
@@ -586,5 +619,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnTest3(InputAction.CallbackContext context);
         void OnTest4(InputAction.CallbackContext context);
         void OnTest5(InputAction.CallbackContext context);
+    }
+    public interface IOpenWindowActions
+    {
+        void OnOpenItemWindow(InputAction.CallbackContext context);
+        void OnOpenCraftWindow(InputAction.CallbackContext context);
     }
 }
