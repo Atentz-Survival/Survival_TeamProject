@@ -27,4 +27,10 @@ public class ItemData : ScriptableObject
     [SerializeField]
     protected Sprite iconSprite;
     public Sprite IconSprite { get => iconSprite; }
+    [SerializeField]
+    protected List<ItemType> productionMaterialTypeList;
+    public List<ItemType> ProductionMaterialTypeList { get => productionMaterialTypeList; }
+    [SerializeField]
+    protected List<int> productionMaterialAmountList;
+    public List<int> ProductionMaterialAmountList { get => productionMaterialAmountList; }
 }

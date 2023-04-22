@@ -157,6 +157,7 @@ public class ItemInventory : MonoBehaviour
                 if (_equipToolIndex[j] == i)
                 {
                     _equipToolIndex[j] = notEquip;
+                    itemsInventoryWindow.ExplanRoom.onChangeTool?.Invoke((ToolItemTag)j, ItemInventory.notEquip);
                     break;
                 }
             }
@@ -230,5 +231,22 @@ public class ItemInventory : MonoBehaviour
             } 
         }
         return isInventoryHave;
+    }
+
+    public void MakeItem(ItemType itemType, int amount)
+    {
+        for (int i = 0; i < ItemManager.Instance[itemType].ProductionMaterialTypeList.Count; i++)
+        {
+            if (!FindItem(ItemManager.Instance[itemType].ProductionMaterialTypeList[i], ItemManager.Instance[itemType].ProductionMaterialAmountList[i] * amount))
+            {
+                return;
+            }
+        }
+
+        for (int i = 0; i < ItemManager.Instance[itemType].ProductionMaterialTypeList.Count; i++)
+        {
+            SubtractItem(ItemManager.Instance[itemType].ProductionMaterialTypeList[i], ItemManager.Instance[itemType].ProductionMaterialAmountList[i] * amount);
+        }
+        AddItem(itemType, amount);
     }
 }

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead1ac2e2b95f84ab17ece01b94654f, type: 3}
   m_Name: StonePickaxe
   m_EditorClassIdentifier: 
-  amountOfHungerRecovery: 0
   itemName: "\uB3CC\uACE1\uAD2D\uC774"
   explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uACE1\uAD2D\uC774."
   tag: 2
   iconSprite: {fileID: 21300000, guid: f7b7750c0fc542449bb405e3d2b30177, type: 3}
+  productionMaterialTypeList: 000000000300000009000000
+  productionMaterialAmountList: 030000000200000003000000
   toolType: 1
   level: 1

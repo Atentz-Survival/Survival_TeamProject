@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead1ac2e2b95f84ab17ece01b94654f, type: 3}
   m_Name: IronPickaxe
   m_EditorClassIdentifier: 
-  amountOfHungerRecovery: 0
   itemName: "\uCCA0\uACE1\uAD2D\uC774"
   explan: "\uCCA0\uB85C \uB9CC\uB4E0 \uACE1\uAD2D\uC774. \uC131\uB2A5\uC774 \uC88B\uB2E4."
   tag: 2
   iconSprite: {fileID: 21300000, guid: 202698b230d1c3e408eda1ca9ff2535a, type: 3}
+  productionMaterialTypeList: 0000000001000000030000000a0000000b00000013000000
+  productionMaterialAmountList: 04000000030000000a000000040000000100000001000000
   toolType: 1
   level: 2
