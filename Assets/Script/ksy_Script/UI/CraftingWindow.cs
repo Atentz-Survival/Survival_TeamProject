@@ -28,11 +28,6 @@ public class CraftingWindow : MonoBehaviour
         startCraft.onClick.AddListener(OnMakeTool);
     }
 
-    private void FixedUpdate()
-    {
-        startCraft.interactable = canMakeTool;  //불값의 변경에 따른 클릭 가능 여부 계속 체크
-    }
-
     void OnMakeTool()
     {
         if(canMakeTool == true)
@@ -52,6 +47,7 @@ public class CraftingWindow : MonoBehaviour
        {
            gameObject.SetActive(true);
             DontAction?.Invoke();
+            startCraft.interactable = canMakeTool;  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
        }
     }
 }
