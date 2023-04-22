@@ -10,15 +10,22 @@ public class OptionMenu : MonoBehaviour
     Slider brightnessSlider;
     Image brightness;
     UIAct uiact;
-    float bValue;
+    Button opCloseButton;
     public bool optionClosed;
+
 
     private void Awake()
     {
         brightnessSlider = GetComponentInChildren<Slider>();
         brightness = GameObject.Find("Brightness").GetComponent<Image>();
+        opCloseButton = GetComponentInChildren<Button>();
         uiact = new UIAct();
         optionClosed = true;
+    }
+
+    private void Start()
+    {
+        opCloseButton.onClick.AddListener(CloseOption);
     }
 
     private void OnEnable()
@@ -42,6 +49,14 @@ public class OptionMenu : MonoBehaviour
     private void ESC(InputAction.CallbackContext _)
     {
         if(optionClosed)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void CloseOption()
+    {
+        if (optionClosed)
         {
             gameObject.SetActive(false);
         }

@@ -31,7 +31,6 @@ public class PlayerUI : MonoBehaviour
         HPUI = GetComponentInChildren<Slider>();
         pauseButton = GameObject.Find("PauseButton").GetComponent<Button>();
         pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
-        // hpAlarm = GameObject.Find("HPAlarm").GetComponent<TextMeshProUGUI>();
         optionMenu = FindObjectOfType<OptionMenu>();
         keySet = transform.GetChild(4);
         diePanel = transform.GetChild(5);
@@ -57,15 +56,12 @@ public class PlayerUI : MonoBehaviour
         returnMainButton.onClick.AddListener(CallMainMenu);
 
         StartCoroutine(OnHelpPanel());
-        // player.onUpgradeHp += OnHpAlarm(i);
     }
 
-
-    // 합칠때 다시 살려야됨, HP업데이트
-    //private void FixedUpdate()
-    //{
-    //    HPUI.value = player.HP;
-    //}
+    private void FixedUpdate()
+    {
+        HPUI.value = player.HP;
+    }
 
     private void OnEnable()
     {
@@ -158,8 +154,4 @@ public class PlayerUI : MonoBehaviour
         StopCoroutine(OnHelpPanel());
     }
 
-    // private Action<float> OnHpAlarm()
-    // {
-    //     // hpAlarm.text = "Hp가 회복되었습니다.";
-    // }
 }
