@@ -34598,7 +34598,7 @@ GameObject:
   - component: {fileID: 3480451803209363754}
   - component: {fileID: 3480451803209363755}
   m_Layer: 5
-  m_Name: Button
+  m_Name: startCraft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
