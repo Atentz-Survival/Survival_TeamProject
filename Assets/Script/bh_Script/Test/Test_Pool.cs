@@ -12,8 +12,8 @@ public class Test_Pool : Test_Base
 
     void Start() 
     {
-        itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
-        explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        //itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
+        //explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
     }
 
     protected override void DoAction1(InputAction.CallbackContext _)
@@ -28,6 +28,13 @@ public class Test_Pool : Test_Base
     {
         //GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Strawberry 게임오브젝트를 ItemManager에서 가져와 활성화
         //obj.transform.position = Vector3.up * 9;
+        if (itemInventoryWindow == null) 
+        {
+            itemInventoryWindow = ItemManager.Instance.itemInventory.ItemsInventoryWindow;
+            explanRoom = ItemManager.Instance.itemInventory.ItemsInventoryWindow.ExplanRoom;
+        }
+
+
         if (itemInventoryWindow.gameObject.activeSelf == true)
         {
             itemInventoryWindow.PreOnDisble();
