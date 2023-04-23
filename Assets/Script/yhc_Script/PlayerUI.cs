@@ -17,7 +17,6 @@ public class PlayerUI : MonoBehaviour
     OptionMenu optionMenu;
     Transform diePanel;
     Button returnMainButton;
-    TextMeshProUGUI hpAlarm;
     Transform keySet;
     Transform help;
 
@@ -39,7 +38,6 @@ public class PlayerUI : MonoBehaviour
 
         uikey = new UIAct();
     }
-
 
 
     private void Start()
@@ -142,7 +140,7 @@ public class PlayerUI : MonoBehaviour
 
     private void CallMainMenu()
     {
-        SceneManager.LoadScene("StartUI");
+        SceneManager.LoadScene(0);  // 죽고 난 후 main버튼 클릭시 0번씬으로 이동하도록 변경
     }
 
 
@@ -153,5 +151,4 @@ public class PlayerUI : MonoBehaviour
         help.gameObject.SetActive(false);
         StopCoroutine(OnHelpPanel());
     }
-
 }

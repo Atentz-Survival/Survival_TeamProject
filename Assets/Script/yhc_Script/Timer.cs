@@ -14,26 +14,25 @@ public class Timer : MonoBehaviour
     public int hour = 6;
 
     private void Awake()
-
     { 
         timerText = GetComponent<TextMeshProUGUI>();
         sunshine = FindObjectOfType<Sunshine>();
     }
 
-private void Start()
-{
-    sunshine.HourChange += OnHourChange;
-}
-
-private void OnHourChange()
-{
-    hour = hour + 1;
-    if (hour > 23)
+    private void Start()
     {
-        day++;
-        hour = 0;
+        timerText.text = $"Day : {day} \nHour : {hour}"; // 시계 초기값 1일차 6시로 설정
+        sunshine.HourChange += OnHourChange;
     }
-    timerText.text = $"Day : {day} \nHour : {hour}";
-}
 
+    private void OnHourChange()
+    {
+        hour = hour + 1;
+        if (hour > 23)
+        {
+            day++;
+            hour = 0;
+        }
+        timerText.text = $"Day : {day} \nHour : {hour}";
+    }
 }
