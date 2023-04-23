@@ -33,6 +33,15 @@ public class RightHand : MonoBehaviour
         if (collision.gameObject.CompareTag("Tree") || collision.gameObject.CompareTag("Ocean") || collision.gameObject.CompareTag("Rock") || collision.gameObject.CompareTag("Flower"))
         {
             UsingRhand();
+            StartCoroutine(SetUpTrigger());
         }
+    }
+
+    IEnumerator SetUpTrigger()
+    {
+        yield return null;
+        rHandCollider.isTrigger = true;
+        yield return new WaitForSeconds(0.7f);
+        rHandCollider.isTrigger = false;
     }
 }

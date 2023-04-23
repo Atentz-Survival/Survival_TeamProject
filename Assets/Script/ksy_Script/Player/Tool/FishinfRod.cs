@@ -41,13 +41,13 @@ public class FishinfRod : MonoBehaviour
         switch (toolLevel)
         {
             case 1:
-                hp = -35;
+                hp = -20;
                 break;
             case 2:
-                hp = -25;
+                hp = -14;
                 break;
             case 3:
-                hp = -15;
+                hp = -11;
                 break;
         }
         UsingTool?.Invoke(hp);
