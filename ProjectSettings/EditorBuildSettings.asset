@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ksy_Scenes/TestLoadScene/StartScene.unity
     guid: 21809cf9befc63646ae489f434ae7395
   - enabled: 1
-    path: Assets/Scenes/Jun_Scenes/LoadingInNight.unity
-    guid: 4dd8db371e007b646bb7e19b874bdedd
+    path: Assets/Scenes/ksy_Scenes/TestLoadScene/LoadingInNight.unity
+    guid: 59bbc4f088db58c4b9c058c5f48c7e63
   - enabled: 1
-    path: Assets/Scenes/TestPlayScene.unity
-    guid: 8ab50cc6541562748ab13916f96105c3
+    path: Assets/Scenes/ksy_Scenes/TestLoadScene/TestPlayScene.unity
+    guid: 02a63a2ec51e2d645ac5e43e600f6678
   - enabled: 1
-    path: Assets/Scenes/Jun_Scenes/TestPlay_Jun.unity
-    guid: da6ad2d948352f644a3f094ce2d7b8c3
+    path: Assets/Scenes/ksy_Scenes/TestLoadScene/TestPlay_Jun.unity
+    guid: 9a747047ae473ef4380aa5f8c92d15a1
   m_configObjects: {}

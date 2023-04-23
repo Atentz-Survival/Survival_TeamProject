@@ -5,16 +5,21 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SaveFileUI : MonoBehaviour
 {
+    PauseMenu pauseMenu;
+
     Button save1;
 
-    SaveDataPanel playerInputName;
+    PlayInfo playInfo;
     SetUpItem setUpItem;
     Sunshine sunshine;
     Timer timer;
 
+    PlayerBase player;
+    TextMeshProUGUI recordName;
     string playerName;         //이름
     int playerHp;
     float playerPositionX;      //위치
@@ -44,37 +49,42 @@ public class SaveFileUI : MonoBehaviour
     public Action<Quaternion> onLoardRotate;
     public Action<int> onLoardDay;
     public Action<int> onLoardTime;
+    private void Start()
+    {
+        gameObject.transform.parent.gameObject.SetActive(false);
+        pauseMenu.onSave += SaveFileStart;
+        LoadRankingData();
+    }
 
     private void Awake()
     {
-        playerInputName = GetComponent<SaveDataPanel>();
         setUpItem = FindObjectOfType<SetUpItem>();
         timer = GetComponent<Timer>();
         save1 = transform.GetChild(0).GetComponent<Button>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
 
+        player = FindObjectOfType<PlayerBase>();
+        playInfo = GetComponent<PlayInfo>();
     }
     private void OnEnable()
     {
         save1.onClick.AddListener(SaveFile);
-        playerInputName.nameData += PlayerGetName;
-        sunshine.DayTimeDeli += CurrentTime;
-        timer.dayChange += DayChange;
-        timer.hourChange += HourChange;
     }
 
-    private void HourChange(int obj)
+    private void SaveFileStart()
     {
-        currentTime = obj;
-    }
+        gameObject.SetActive(true);
 
-    private void DayChange(int obj)
-    {
-        currentDay = obj;
-    }
-
-    private void PlayerGetName(string obj)
-    {
-        playerName = obj;
+        currentDay = timer.day;
+        currentTime = timer.hour;
+        PlayerData(player);
+        currentTimeX = sunshine.Vec.x;
+        currentTimeY = sunshine.Vec.y;
+        currentTimeZ = sunshine.Vec.z;
+        SaveItem();
+        workbenchPositionX = setUpItem.transform.position.x;
+        workbenchPositionY = setUpItem.transform.position.y;
+        workbenchPositionZ = setUpItem.transform.position.z;
     }
 
     private void PlayerData(PlayerBase player)
@@ -89,13 +99,13 @@ public class SaveFileUI : MonoBehaviour
         toolName = (int)toolTag;
     }
 
-    private void CurrentTime(Quaternion sun)
+    /*private void CurrentTime(Quaternion sun)
     {
         //시간 저장
         currentTimeX = sun.x;
         currentTimeY = sun.y;
         currentTimeZ = sun.z;
-    }
+    }*/
 
     void SaveItem()
     {
@@ -165,6 +175,12 @@ public class SaveFileUI : MonoBehaviour
             string json = File.ReadAllText(fullPath);                   // 텍스트 파일 읽기
             SaveData loadData = JsonUtility.FromJson<SaveData>(json);   // json문자열을 파싱해서 SaveData에 넣기
         }
+        else
+        {
+            char temp = 'A';
+            temp = (char)((byte)temp);
+            playerName = $"{temp}{temp}{temp}";     // AAA,BBB,CCC,DDD,EEE
+        }
         RefreshSet();     // 로딩이 되었으니 RankLines 갱신
         return result;
     }
@@ -194,10 +210,14 @@ public class SaveFileUI : MonoBehaviour
         //ui
         onLoardDay?.Invoke(currentDay);
         onLoardTime?.Invoke(currentTime);
+
+        SaveFile();
     }
 
     private void SaveFile()
     {
-
+        playInfo.SetData(currentDay, currentTime);
+        SaveRankingData();  // 새로 저장하고 
+        RefreshSet(); // UI 갱신
     }
 }
