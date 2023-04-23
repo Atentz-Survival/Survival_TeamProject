@@ -186,8 +186,8 @@ public class PlayerBase : MonoBehaviour
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
 
-        /*save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;*/
+        save.onChangeTool += OnUpgradeTool; // << save
+        save.LoadHp += LoadingHp;
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
@@ -508,8 +508,7 @@ public class PlayerBase : MonoBehaviour
     {
         if (item.gameObject.activeSelf == true)
         {
-            inputActions.CharacterMove.Activity.Enable();
-            inputActions.CharacterMove.MouseMove.Enable();
+            inputActions.CharacterMove.Enable();
         }
         else if (item.gameObject.activeSelf == false)
         {

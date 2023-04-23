@@ -13,6 +13,9 @@ public class PauseMenu : MonoBehaviour
     Button option;
     OptionMenu optionMenu;
 
+    public Action onSave;
+
+
     private void Awake()
     {
         resume = GameObject.Find("Resume").GetComponent<Button>();
@@ -40,12 +43,12 @@ public class PauseMenu : MonoBehaviour
 
     private void CallSaveMenu()
     {
-        SceneManager.LoadScene("SaveUI");
+        onSave?.Invoke();
     }
 
     private void CallMainMenu()
     {
-        SceneManager.LoadScene("StartUI");
+        SceneManager.LoadScene(0);
     }
 
     private void CallOptionMenu()

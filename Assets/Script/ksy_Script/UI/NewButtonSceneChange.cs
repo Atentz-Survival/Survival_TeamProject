@@ -10,6 +10,8 @@ public class NewButtonSceneChange : MonoBehaviour
     Button newButton;
     Button LoadGame;
 
+    public Action whatIsYOurNAme;
+
     private void Awake()
     {
         newButton = transform.GetChild(0).GetComponent<Button>();
@@ -29,6 +31,6 @@ public class NewButtonSceneChange : MonoBehaviour
 
     void TestFunction()
     {
-        SceneManager.LoadScene(2);
+        whatIsYOurNAme?.Invoke();
     }
 }
