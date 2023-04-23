@@ -17,7 +17,6 @@ public class PlayerUI : MonoBehaviour
     OptionMenu optionMenu;
     Transform diePanel;
     Button returnMainButton;
-    TextMeshProUGUI hpAlarm;
     Transform keySet;
     Transform help;
 
@@ -39,7 +38,6 @@ public class PlayerUI : MonoBehaviour
 
         uikey = new UIAct();
     }
-
 
 
     private void Start()
@@ -153,5 +151,4 @@ public class PlayerUI : MonoBehaviour
         help.gameObject.SetActive(false);
         StopCoroutine(OnHelpPanel());
     }
-
 }
