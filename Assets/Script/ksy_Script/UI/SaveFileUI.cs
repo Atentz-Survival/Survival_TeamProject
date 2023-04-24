@@ -1,13 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
 
-public class SaveFileUI : MonoBehaviour
+
+/*public class SaveFileUI : MonoBehaviour
 {
     Button save1;
 
@@ -228,10 +221,4 @@ public class SaveFileUI : MonoBehaviour
 
         Debug.Log("저장~~~~~~~~~");
     }
-   /* private void SaveFile()
-    {
-        playInfo.SetData(currentDay, currentTime);
-        SaveRankingData();  // 새로 저장하고 
-        RefreshSet(); // UI 갱신
-    }*/
-}
+}*/
