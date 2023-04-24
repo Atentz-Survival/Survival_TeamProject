@@ -21,7 +21,7 @@ public class PlayerUI : MonoBehaviour
     Transform help;
 
     float diePanelOpen;
-    bool menuClosed;
+    public bool menuClosed;
     bool keySetOn = false;
 
     private void Awake()
@@ -98,7 +98,7 @@ public class PlayerUI : MonoBehaviour
         if (pauseMenu != null && menuClosed)
         {
             pauseMenu.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0.0f;
             menuClosed = !menuClosed;
         }
         else if( pauseMenu != null && !menuClosed ) 

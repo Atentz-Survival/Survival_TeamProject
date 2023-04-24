@@ -11,7 +11,9 @@ public class PauseMenu : MonoBehaviour
     Button save;
     Button main;
     Button option;
+    Button menuClosedButton;    // 퍼즈 메뉴 닫기 버튼 추가
     OptionMenu optionMenu;
+    PlayerUI playerUI;
 
 
     public Action onSave;
@@ -29,6 +31,8 @@ public class PauseMenu : MonoBehaviour
         main = gameObject.transform.GetChild(4).GetComponent<Button>();
         option = gameObject.transform.GetChild(2).GetComponent<Button>();
         optionMenu = gameObject.transform.GetChild(5).GetComponent<OptionMenu>();
+        menuClosedButton = gameObject.transform.GetChild(6).GetComponent<Button>(); // 퍼즈 메뉴 닫기버튼
+        playerUI = FindObjectOfType<PlayerUI>();
     }
 
     private void Start()
@@ -37,9 +41,12 @@ public class PauseMenu : MonoBehaviour
         save.onClick.AddListener(CallSaveMenu);
         main.onClick.AddListener(CallMainMenu);
         option.onClick.AddListener(CallOptionMenu);
+        menuClosedButton.onClick.AddListener(ClosePauseMenu);   // 퍼즈 메뉴 닫기버튼
         gameObject.SetActive(false);
         optionMenu.gameObject.SetActive(false);
     }
+
+
 
     private void ResumeGame()
     {
@@ -60,5 +67,15 @@ public class PauseMenu : MonoBehaviour
     private void CallOptionMenu()
     {
         optionMenu.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// 퍼즈 메뉴에 닫기 버튼 추가한 것
+    /// </summary>
+    private void ClosePauseMenu()
+    {
+        gameObject.SetActive(false);
+        playerUI.menuClosed = !playerUI.menuClosed;
+        Time.timeScale = 1.0f;
     }
 }
