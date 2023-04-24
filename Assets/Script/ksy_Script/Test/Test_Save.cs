@@ -12,7 +12,6 @@ public class Test_Save : MonoBehaviour
     Button slot2;
     Button slot3;
     TMP_InputField inputField;
-    SaveData saveData;
 
     public Action<string> nameData;
 

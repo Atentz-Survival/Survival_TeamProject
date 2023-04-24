@@ -23,8 +23,6 @@ public class PlayInfo : MonoBehaviour
 
     public void SetData(int record, int record2)
     {
-        SaveData saveData = new();
-        recordText.text = saveData.playerName;
         recordText2.text = record.ToString();
         recordText3.text = record2.ToString();
     }
