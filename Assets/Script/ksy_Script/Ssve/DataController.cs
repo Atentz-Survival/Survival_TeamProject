@@ -17,8 +17,8 @@ public class Save : MonoBehaviour
     int playerHp;
     float playerPositionX;      //위치
     float playerPositionY;
-    float playerPositionZ; 
-    
+    float playerPositionZ;
+
     int[] itemCount = null;             // 갯수
     int[] itemTypes = new int[ItemManager.Instance.itemInventory.ItemTypeArray.Length];        // 종류
 
@@ -78,7 +78,7 @@ public class Save : MonoBehaviour
         currentTimeZ = sun.z;
     }
 
-    *//*public void SavePlayerData()
+    public void SavePlayerData()
     {
         // 저장할 데이터를 생성합니다.
         SaveData playerData = new SaveData();
@@ -88,11 +88,11 @@ public class Save : MonoBehaviour
         // JSON 파일을 생성하고 데이터를 저장합니다.
         string filePath = Application.dataPath + "/Resources/player_data.json";
         File.WriteAllText(filePath, json);
-    }*//*
+    }
 
     void SaveItem()
     {
-       itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
+        itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
         for (int i = 0; i < ItemManager.Instance.itemInventory.ItemTypeArray.Length; i++)
         {
             itemTypes[i] = (int)ItemManager.Instance.itemInventory.ItemTypeArray[i];
@@ -155,7 +155,7 @@ public class Save : MonoBehaviour
             string json = File.ReadAllText(fullPath);                   // 텍스트 파일 읽기
             SaveData loadData = JsonUtility.FromJson<SaveData>(json);   // json문자열을 파싱해서 SaveData에 넣기
         }
-        *//*else
+        else
         {
             // 파일에서 못읽었으면 디폴트 값 주기
             int size = rankLines.Length;
@@ -172,7 +172,7 @@ public class Save : MonoBehaviour
                 temp = (char)((byte)temp + i);
                 rankerNames[i] = $"{temp}{temp}{temp}";     // AAA,BBB,CCC,DDD,EEE
             }
-        }*//*
+        }
         RefreshSet();     // 로딩이 되었으니 RankLines 갱신
         return result;
     }
@@ -182,7 +182,7 @@ public class Save : MonoBehaviour
     /// </summary>
     void RefreshSet()
     {
-       //플레이어
+        //플레이어
         PlayerBase player = FindObjectOfType<PlayerBase>();
         player.transform.position = new UnityEngine.Vector3(playerPositionX, playerPositionY, playerPositionZ);
         LoadHp?.Invoke(playerHp);
@@ -203,3 +203,84 @@ public class Save : MonoBehaviour
     }
 }
 */
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using System;
+
+public class DataController : MonoBehaviour
+{
+    GameData playerData = new GameData();
+
+    static GameObject _container;
+    static GameObject Container
+    {
+        get
+        {
+            return _container;
+        }
+    }
+
+    static DataController _instance;
+    public static DataController Instance
+    {
+        get
+        {
+            if(!_instance)
+            {
+                _container = new GameObject();
+                _container.name = "DataController";
+                _instance = _container.AddComponent(typeof(DataController)) as DataController;
+                DontDestroyOnLoad(_container);
+            }
+            return _instance;
+        }
+    }
+
+    public string GameDataFileName = "Save.json";
+
+    public GameData _gameData;
+    public GameData gameData
+    {
+        get
+        {
+            if(_gameData == null)
+            {
+                LoadGameData();
+                SaveGameData();
+            }
+            return _gameData;
+        }
+    }
+
+    private void Start()
+    {
+    }
+
+    public void LoadGameData()
+    {
+        string filePath = Application.persistentDataPath + GameDataFileName;
+        if(File.Exists(filePath))
+        {
+            Debug.Log("불러오기 성공");
+            string FromJsonData = File.ReadAllText(filePath);
+            _gameData = JsonUtility.FromJson<GameData>(FromJsonData);
+        }
+        else
+        {
+            Debug.Log("새로운 파일 생성");
+
+            _gameData= new GameData();
+        }
+    }
+
+    public void SaveGameData()
+    {
+        string ToJsonData = JsonUtility.ToJson(gameData);
+        string filePath = Application.persistentDataPath + GameDataFileName;
+        File.WriteAllText(filePath, ToJsonData);
+        Debug.Log("저장완료");
+    }
+}

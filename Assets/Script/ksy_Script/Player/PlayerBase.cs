@@ -82,7 +82,6 @@ public class PlayerBase : MonoBehaviour
 
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
-    SaveFileUI save;
     private Animator anim;
     private Rigidbody rigid;
 
@@ -168,8 +167,6 @@ public class PlayerBase : MonoBehaviour
         reap = FindObjectOfType<Reap>();
         pick = FindObjectOfType<Pick>();
         rHand = FindObjectOfType<RightHand>();
-
-        save = FindObjectOfType<SaveFileUI>();
         craft = FindObjectOfType<CraftingWindow>();
         HP = maxHp;
         HpChange();
@@ -185,9 +182,6 @@ public class PlayerBase : MonoBehaviour
         item.onChangeTool += OnUpgradeTool; 
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
-
-        save.onChangeTool += OnUpgradeTool; // << save
-        save.LoadHp += LoadingHp;
 
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
