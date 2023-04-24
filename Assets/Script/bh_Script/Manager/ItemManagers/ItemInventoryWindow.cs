@@ -25,6 +25,7 @@ public class ItemInventoryWindow : MonoBehaviour
     public int ToolItemTag_Length
     {
         get => toolItemTag_Length;
+        set => toolItemTag_Length = value;
     }
 
     Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
@@ -38,11 +39,10 @@ public class ItemInventoryWindow : MonoBehaviour
     public ItemInventoryWindowExplanRoom ExplanRoom
     {
         get => explanRoom;
+        set => explanRoom = value;
     }
 
     string[] itemTagString;
-
-    bool IsActive = true;
 
     void Awake()
     {
@@ -52,11 +52,11 @@ public class ItemInventoryWindow : MonoBehaviour
 
     private void Start()
     {
-        explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
-        toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
-        PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-        playerbase.onInventory += OnAndOff;
-        RefreshItemInventory();
+        //explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        //toolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
+        //PlayerBase playerbase = FindObjectOfType<PlayerBase>();
+        //playerbase.onInventory += OnAndOff;
+        //RefreshItemInventory();
     }
 
     private void OnEnable()
@@ -149,7 +149,7 @@ public class ItemInventoryWindow : MonoBehaviour
         }
     }
 
-    void OnAndOff()
+    public void OnAndOff()
     {
         if (!ItemManager.Instance.IsHousingMode) {
             if (gameObject.activeSelf == true)

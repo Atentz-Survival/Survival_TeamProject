@@ -45,6 +45,10 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
     public Action<ToolItemTag, int> onChangeTool;
 
     ItemInventoryWindow itemInventoryWindow;
+    public ItemInventoryWindow ItemInventoryWindow_p
+    {
+        set => itemInventoryWindow = value;
+    }
 
     void Awake()
     {
@@ -63,9 +67,9 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
 
     void Start()
     {
-        itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
-        _itemUseButton.onClick.AddListener(ItemUse);
-        _itemDumpButton.onClick.AddListener(ItemDump);
+        //itemInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
+        //_itemUseButton.onClick.AddListener(ItemUse);
+        //_itemDumpButton.onClick.AddListener(ItemDump);
     }
 
     void OnDisable()
@@ -82,7 +86,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         _itemDumpButton.gameObject.SetActive(false);
     }
 
-    void ItemUse()
+    public void ItemUse()
     {
         if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag == ItemTag.Food)
         {
@@ -149,7 +153,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         itemInventoryWindow.RefreshItemInventory();
     }
 
-    void ItemDump()
+    public void ItemDump()
     {
         if (ItemManager.Instance[ItemManager.Instance.itemInventory.ItemTypeArray[itemInventoryWindow._selectedIndex]].Tag != ItemTag.Deployment) {
             ItemManager.Instance.itemInventory.ItemAmountArray[itemInventoryWindow._selectedIndex] -= 1;

@@ -13,16 +13,22 @@ public class PauseMenu : MonoBehaviour
     Button option;
     OptionMenu optionMenu;
 
+
     public Action onSave;
 
 
     private void Awake()
     {
-        resume = GameObject.Find("Resume").GetComponent<Button>();
+        /*resume = GameObject.Find("Resume").GetComponent<Button>();
         save = GameObject.Find("Save").GetComponent<Button>();
         main = GameObject.Find("Main").GetComponent<Button>();
         option = GameObject.Find("Option").GetComponent<Button>();
-        optionMenu = GameObject.Find("OptionMenu").GetComponent<OptionMenu>();
+        optionMenu = GameObject.Find("OptionMenu").GetComponent<OptionMenu>();*/
+        resume = gameObject.transform.GetChild(1).GetComponent<Button>();
+        save = gameObject.transform.GetChild(3).GetComponent<Button>();
+        main = gameObject.transform.GetChild(4).GetComponent<Button>();
+        option = gameObject.transform.GetChild(2).GetComponent<Button>();
+        optionMenu = gameObject.transform.GetChild(5).GetComponent<OptionMenu>();
     }
 
     private void Start()

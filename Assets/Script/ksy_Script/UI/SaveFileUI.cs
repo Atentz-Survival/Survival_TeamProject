@@ -9,9 +9,9 @@ using TMPro;
 
 public class SaveFileUI : MonoBehaviour
 {
-    PauseMenu pauseMenu;
-
     Button save1;
+
+    PauseMenu startSave;
 
     PlayInfo playInfo;
     SetUpItem setUpItem;
@@ -19,7 +19,6 @@ public class SaveFileUI : MonoBehaviour
     Timer timer;
 
     PlayerBase player;
-    TextMeshProUGUI recordName;
     string playerName;         //이름
     int playerHp;
     float playerPositionX;      //위치
@@ -52,7 +51,6 @@ public class SaveFileUI : MonoBehaviour
     private void Start()
     {
         gameObject.transform.parent.gameObject.SetActive(false);
-        pauseMenu.onSave += SaveFileStart;
         LoadRankingData();
     }
 
@@ -61,7 +59,8 @@ public class SaveFileUI : MonoBehaviour
         setUpItem = FindObjectOfType<SetUpItem>();
         timer = GetComponent<Timer>();
         save1 = transform.GetChild(0).GetComponent<Button>();
-        pauseMenu = FindObjectOfType<PauseMenu>();
+
+        startSave = FindObjectOfType<PauseMenu>();
 
         player = FindObjectOfType<PlayerBase>();
         playInfo = GetComponent<PlayInfo>();
@@ -69,12 +68,16 @@ public class SaveFileUI : MonoBehaviour
     private void OnEnable()
     {
         save1.onClick.AddListener(SaveFile);
+        startSave.onSave += SaveFileStart;
     }
+
 
     private void SaveFileStart()
     {
-        gameObject.SetActive(true);
+        gameObject.transform.parent.gameObject.SetActive(true);
 
+        SaveData saveData = new();
+        playerName = saveData.playerName;
         currentDay = timer.day;
         currentTime = timer.hour;
         PlayerData(player);
@@ -87,6 +90,7 @@ public class SaveFileUI : MonoBehaviour
         workbenchPositionZ = setUpItem.transform.position.z;
     }
 
+    //플레이어 데이터 저장
     private void PlayerData(PlayerBase player)
     {
         int newHp = player.HP;
@@ -98,24 +102,20 @@ public class SaveFileUI : MonoBehaviour
         player.GetToolItem(toolTag, toolLevel);
         toolName = (int)toolTag;
     }
-
-    /*private void CurrentTime(Quaternion sun)
-    {
-        //시간 저장
-        currentTimeX = sun.x;
-        currentTimeY = sun.y;
-        currentTimeZ = sun.z;
-    }*/
-
+    //아이템 데이터 저장
     void SaveItem()
     {
-        itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
-        for (int i = 0; i < ItemManager.Instance.itemInventory.ItemTypeArray.Length; i++)
+        if (ItemManager.Instance.itemInventory.ItemTypeArray != null)
         {
-            itemTypes[i] = (int)ItemManager.Instance.itemInventory.ItemTypeArray[i];
+            itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
+            for (int i = 0; i < ItemManager.Instance.itemInventory.ItemTypeArray.Length; i++)
+            {
+                itemTypes[i] = (int)ItemManager.Instance.itemInventory.ItemTypeArray[i];
+            }
         }
     }
 
+    //세이브데이터에 저장(json)파일 만들기
     void SaveRankingData()
     {
         SaveData saveData = new();
@@ -137,10 +137,13 @@ public class SaveFileUI : MonoBehaviour
         saveData.currentTime = currentTime;
         saveData.currentDay = currentDay;
 
-        saveData.itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
-        for (int i = 0; i < ItemManager.Instance.itemInventory.ItemTypeArray.Length; i++)
+        if (ItemManager.Instance.itemInventory.ItemTypeArray != null)
         {
-            saveData.itemTypes[i] = (int)ItemManager.Instance.itemInventory.ItemTypeArray[i];
+            saveData.itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
+            for (int i = 0; i < ItemManager.Instance.itemInventory.ItemTypeArray.Length; i++)
+            {
+                saveData.itemTypes[i] = (int)ItemManager.Instance.itemInventory.ItemTypeArray[i];
+            }
         }
 
         saveData.workbenchPositionX = setUpItem.transform.position.x;
@@ -160,6 +163,7 @@ public class SaveFileUI : MonoBehaviour
         File.WriteAllText(fullPath, json);              // fullPath에 json내용 파일로 기록하기        
     }
 
+    //세이브파일 만들까말까
     bool LoadRankingData()
     {
         bool result = false;
@@ -197,15 +201,17 @@ public class SaveFileUI : MonoBehaviour
         onChangeTool?.Invoke((ToolItemTag)toolName, toolLevel);
 
         //아이템
-
-        ItemManager.Instance.itemInventory.ItemAmountArray = itemCount;
-        for (int i = 0; i < itemTypes.Length; i++)
+        if (ItemManager.Instance.itemInventory.ItemTypeArray != null)
         {
-            ItemManager.Instance.itemInventory.ItemTypeArray[i] = (ItemType)itemTypes[i];
+            ItemManager.Instance.itemInventory.ItemAmountArray = itemCount;
+            for (int i = 0; i < itemTypes.Length; i++)
+            {
+                ItemManager.Instance.itemInventory.ItemTypeArray[i] = (ItemType)itemTypes[i];
+            }
         }
 
         //맵
-        UnityEngine.Quaternion rotation = UnityEngine.Quaternion.Euler(currentTimeX, currentTimeY, currentTimeZ);
+        Quaternion rotation = Quaternion.Euler(currentTimeX, currentTimeY, currentTimeZ);
         onLoardRotate?.Invoke(rotation);
         //ui
         onLoardDay?.Invoke(currentDay);
@@ -219,5 +225,13 @@ public class SaveFileUI : MonoBehaviour
         playInfo.SetData(currentDay, currentTime);
         SaveRankingData();  // 새로 저장하고 
         RefreshSet(); // UI 갱신
+
+        Debug.Log("저장~~~~~~~~~");
     }
+   /* private void SaveFile()
+    {
+        playInfo.SetData(currentDay, currentTime);
+        SaveRankingData();  // 새로 저장하고 
+        RefreshSet(); // UI 갱신
+    }*/
 }
