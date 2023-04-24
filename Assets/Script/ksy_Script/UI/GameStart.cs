@@ -23,6 +23,6 @@ public class GameStart : MonoBehaviour
 
     private void CallDataPanel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

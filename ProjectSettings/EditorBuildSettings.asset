@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ksy_Scenes/TestLoadScene/StartScene.unity
-    guid: 21809cf9befc63646ae489f434ae7395
+    path: Assets/Scenes/PlayScene/Start.unity
+    guid: 9d65a929d385b63488df9e6912f4b6a0
   - enabled: 1
-    path: Assets/Scenes/ksy_Scenes/TestLoadScene/LoadingInNight 1.unity
-    guid: d96aa5d3964d52c4686039532c85d34c
+    path: Assets/Scenes/PlayScene/Loading.unity
+    guid: 24b2685be3f16b84ca58fda0f17690c5
   - enabled: 1
-    path: Assets/Scenes/ksy_Scenes/TestLoadScene/TestPlayScene.unity
-    guid: 02a63a2ec51e2d645ac5e43e600f6678
+    path: Assets/Scenes/PlayScene/Play.unity
+    guid: 5d319b4ec45324144bee4e1ca3bd68e5
   - enabled: 1
-    path: Assets/Scenes/ksy_Scenes/TestLoadScene/TestPlay_Jun.unity
-    guid: 9a747047ae473ef4380aa5f8c92d15a1
+    path: Assets/Scenes/PlayScene/AfterLoadingPlayScene.unity
+    guid: e51a1454c33d7a44fab2433ebea80bf8
   m_configObjects: {}
