@@ -13,5 +13,9 @@ public class LoadingCamera : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
