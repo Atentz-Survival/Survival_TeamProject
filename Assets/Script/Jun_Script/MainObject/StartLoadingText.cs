@@ -35,8 +35,11 @@ public class StartLoadingText : MonoBehaviour
 
     private void Update()
     {
-        player.transform.position = Vector3.zero;
-        player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if(player != null)
+        {
+            player.transform.position = Vector3.zero;
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j, TextMeshProUGUI k)
@@ -87,7 +90,7 @@ public class StartLoadingText : MonoBehaviour
 
     IEnumerator ChargeSlider()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(3);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(2);
         operation.allowSceneActivation = false;
 
 
