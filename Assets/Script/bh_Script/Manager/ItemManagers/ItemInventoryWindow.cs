@@ -81,6 +81,12 @@ public class ItemInventoryWindow : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        PlayerBase playerbase = FindObjectOfType<PlayerBase>();
+        playerbase.onInventory -= OnAndOff;
+    }
+
     public void RefreshItemInventory()
     {
         for (int i = 0; i < ItemManager.Instance.itemInventoryMaxSpace; i++)
