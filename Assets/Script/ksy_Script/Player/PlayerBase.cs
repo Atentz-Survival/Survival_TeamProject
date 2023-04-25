@@ -214,6 +214,7 @@ public class PlayerBase : MonoBehaviour
         DataController.Instance.gameData.playerHp = HP;
         DataController.Instance.gameData.currentToolItem = playercurrentToolItem;
         DataController.Instance.gameData.toolLevel = playertoolLevel;
+        DataController.Instance.gameData.playerRotation = transform.rotation;
     }
 
    private void PreInitialize()
@@ -271,6 +272,7 @@ public class PlayerBase : MonoBehaviour
         isEqualWithState[0] = true;
         state = playerState.Nomal;
 
+        transform.rotation = DataController.Instance.gameData.playerRotation;
         transform.position = DataController.Instance.gameData.playerPosition;
         HP = DataController.Instance.gameData.playerHp;
         playercurrentToolItem = DataController.Instance.gameData.currentToolItem;
