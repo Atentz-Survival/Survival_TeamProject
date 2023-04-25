@@ -42,6 +42,7 @@ public class LoadingTent : MonoBehaviour
                         // 여기서 텐트에 G키 활성화 시키기.
                         if (Input.GetKeyDown(KeyCode.G))
                         {
+                            DataController.Instance.SaveGameData();
                             SceneManager.LoadScene(1);
                         }
                     }

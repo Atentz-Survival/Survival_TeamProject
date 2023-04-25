@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 5d319b4ec45324144bee4e1ca3bd68e5
   - enabled: 1
     path: Assets/Scenes/PlayScene/AfterLoadingPlayScene.unity
-    guid: e51a1454c33d7a44fab2433ebea80bf8
+    guid: e9876dd46bd9b8244be2e43c08e8eeac
   - enabled: 1
     path: Assets/Scenes/PlayScene/LoadingStart.unity
     guid: d163296a039a1c446a762b0c117f003b

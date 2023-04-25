@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class LoadingPlayer : MonoBehaviour
 {
-    private void Awake()
-    {
-        var obj = FindObjectsOfType<LoadingPlayer>();
-        if (obj.Length == 1)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void Awake()
+    //{
+    //    var obj = FindObjectsOfType<LoadingPlayer>();
+    //    if (obj.Length == 1)
+    //    {
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

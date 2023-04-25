@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class LoadingCamera : MonoBehaviour
 {
-    private void Awake()
-    {
-        var obj = FindObjectsOfType<LoadingCamera>();
-        if (obj.Length == 1)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void Awake()
+    //{
+    //    var obj = FindObjectsOfType<LoadingCamera>();
+    //    if (obj.Length == 1)
+    //    {
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
