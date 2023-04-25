@@ -35,8 +35,8 @@ public class LoadingText : MonoBehaviour
 
     private void Update()
     {
-        player.transform.position = Vector3.zero;
-        player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //player.transform.position = Vector3.zero;
+        //player.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j, TextMeshProUGUI k)

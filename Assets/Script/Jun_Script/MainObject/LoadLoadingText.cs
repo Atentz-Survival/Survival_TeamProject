@@ -33,14 +33,14 @@ public class LoadLoadingText : MonoBehaviour
         isload?.Invoke();
     }
 
-    private void Update()
-    {
-        if(player != null)
-        {
-            player.transform.position = Vector3.zero;
-            player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
+    //private void Update()
+    //{
+    //    //if(player != null)
+    //    //{
+    //    //    player.transform.position = Vector3.zero;
+    //    //    player.transform.rotation = Quaternion.Euler(0, 0, 0);
+    //    //}
+    //}
 
     public IEnumerator ChnageText(float time, TextMeshProUGUI i, TextMeshProUGUI j, TextMeshProUGUI k)
     {
