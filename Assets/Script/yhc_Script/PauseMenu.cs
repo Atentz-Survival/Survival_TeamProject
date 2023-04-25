@@ -70,7 +70,8 @@ public class PauseMenu : MonoBehaviour
 
     private void CallMainMenu()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;      // 일시정지 해제
+        SceneManager.LoadScene(0);  // 0번씬으로
     }
 
     private void CallOptionMenu()
@@ -84,7 +85,7 @@ public class PauseMenu : MonoBehaviour
     private void ClosePauseMenu()
     {
         gameObject.SetActive(false);
-        playerUI.menuClosed = !playerUI.menuClosed;
         Time.timeScale = 1.0f;
+        playerUI.menuClosed = !playerUI.menuClosed;
     }
 }

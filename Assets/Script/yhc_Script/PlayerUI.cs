@@ -82,13 +82,13 @@ public class PlayerUI : MonoBehaviour
         if(menuClosed)
         {
             pauseMenu.gameObject.SetActive(true);
-            Time.timeScale = 0.0f;
+            Time.timeScale = 0.0f;      // 게임 일시 정지
             menuClosed = !menuClosed;
         }
         else if(!menuClosed)
         {
             pauseMenu.gameObject.SetActive(false);
-            Time.timeScale = 1.0f;
+            Time.timeScale = 1.0f;      // 일시 정지 해제
             menuClosed = !menuClosed;
         }
     }
@@ -98,13 +98,13 @@ public class PlayerUI : MonoBehaviour
         if (pauseMenu != null && menuClosed)
         {
             pauseMenu.gameObject.SetActive(true);
-            Time.timeScale = 0.0f;
+            Time.timeScale = 0.0f;      // 게임 일시 정지
             menuClosed = !menuClosed;
         }
         else if( pauseMenu != null && !menuClosed ) 
         {
             pauseMenu.gameObject.SetActive(false);
-            Time.timeScale = 1.0f;
+            Time.timeScale = 1.0f;      // 일시 정지 해제
             menuClosed = !menuClosed;
         }
         else
@@ -138,8 +138,12 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 플레이어 사망시 메인 버튼의 기능
+    /// </summary>
     private void CallMainMenu()
     {
+        Time.timeScale = 1.0f;      // 메인버튼 누르면 일시정지 해제
         SceneManager.LoadScene(0);  // 죽고 난 후 main버튼 클릭시 0번씬으로 이동하도록 변경
     }
 
@@ -151,4 +155,5 @@ public class PlayerUI : MonoBehaviour
         help.gameObject.SetActive(false);
         StopCoroutine(OnHelpPanel());
     }
+   
 }
