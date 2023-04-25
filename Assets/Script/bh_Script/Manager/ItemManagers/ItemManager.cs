@@ -125,7 +125,9 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory.ItemsInventoryWindow.ExplanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
             itemInventory.ItemsInventoryWindow.ToolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
             PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-            playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
+            if (playerbase != null) { //Àá±ñÅ×½ºÆ®
+                playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
+            } //Àá±ñÅ×½ºÆ®
             itemInventory.ItemsInventoryWindow.RefreshItemInventory();
             itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
@@ -134,6 +136,17 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory.ItemsInventoryWindow.gameObject.SetActive(false);
         }
         setUpItem = FindObjectOfType<SetUpItem>();
+        if(setUpItem != null)
+        {
+            if (itemInventory.FindItem(ItemType.CraftingTable, 1))
+            {
+                setUpItem.gameObject.SetActive(false);
+            }
+            else 
+            {
+
+            }
+        }
     }
 
     private void OnDisable()
@@ -162,6 +175,7 @@ public class ItemManager : Singleton<ItemManager>
         {
             if (hit.collider.gameObject.CompareTag("HousingPlace"))
             {
+                setUpItem.gameObject.SetActive(true);
                 setUpItem.SetUp();
                 setUpItem.transform.position = hit.point;
                 isUse = true;
@@ -199,5 +213,9 @@ public class ItemManager : Singleton<ItemManager>
         }
     }
 
+    public void WithdrawObject()
+    {
+        setUpItem.gameObject.SetActive(false);
+    }
 
 }

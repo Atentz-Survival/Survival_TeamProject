@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: StonePickaxe
   m_EditorClassIdentifier: 
   itemName: "\uB3CC\uACE1\uAD2D\uC774"
-  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uACE1\uAD2D\uC774."
+  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uACE1\uAD2D\uC774. \uC0AC\uC6A9\uC2DC \uAD11\uC11D\uB97C
+    \uCE98 \uB54C \uCCB4\uB825\uC18C\uBAA8\uAC00 \uC801\uC5B4\uC9C4\uB2E4."
   tag: 2
   iconSprite: {fileID: 21300000, guid: f7b7750c0fc542449bb405e3d2b30177, type: 3}
   productionMaterialTypeList: 000000000300000009000000
