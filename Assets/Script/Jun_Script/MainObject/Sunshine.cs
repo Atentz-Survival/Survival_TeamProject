@@ -64,6 +64,8 @@ public class Sunshine : MonoBehaviour
         // OnRespawn = SunLight;
         OnRespawn = SunRotate;
         // instance = this;
+
+        HourChange += RoundTime;                        // 여기서 선샤인값을 받는다.
         RenderSettings.fogDensity = morningFog;
         pauseMenu.updateData += SetData;
         if (DataController.Instance.WasSaved == false)
@@ -176,6 +178,13 @@ public class Sunshine : MonoBehaviour
     private void Initialize()
     {
         round = DataController.Instance.gameData.currentSunRotate;
+    }
+
+    private void RoundTime()
+    {
+        vec = Quaternion.Euler((int)round, 0, 0);
+        Debug.Log(round);
+        int time = (int)round / 15;
     }
     // 텐트와 상호작용시 할 내용
     // 텐트와 상호작용시 -> 로딩 씬 출현 -> 다시 씬을 불러들여와서 쿼터니언의 범위 값이 0이되게한다.
