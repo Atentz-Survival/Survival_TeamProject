@@ -234,16 +234,21 @@ public class SaveFileUI : MonoBehaviour
 
     private void Awake()
     {
-        saveButton = gameObject.transform.GetChild(0).GetComponent<Button>();
+        saveButton = gameObject.transform.GetChild(1).GetComponent<Button>();
     }
     private void OnEnable()
     {
         saveButton.onClick.AddListener(OnSaveFile);
     }
 
-    private void OnSaveFile()
+    private void OnDisable()
+    {
+        saveButton.onClick.RemoveAllListeners();
+    }
+
+    public void OnSaveFile()
     {
         Debug.Log("ssss");
-        //DataController.Instance.SaveGameData();
+        DataController.Instance.SaveGameData();
     }
 }
