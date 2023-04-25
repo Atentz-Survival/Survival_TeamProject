@@ -8,16 +8,30 @@ public class SaveBoardUI : MonoBehaviour
 {
     // 세이브보드 버튼 관리용
 
+    PauseMenu pauseMenu;
+
     Button saveCloseButton;
 
     private void Awake()
     {
         saveCloseButton = transform.GetChild(2).GetComponent<Button>();
+        pauseMenu =FindObjectOfType<PauseMenu>();
     }
 
     private void Start()
     {
         saveCloseButton.onClick.AddListener(CloseSaveBoard);
+
+        gameObject.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        pauseMenu.onSave += OpenSaveBoard;
+    }
+
+    private void OpenSaveBoard()
+    {
+        gameObject.SetActive(true);
     }
 
     // 버튼 기능 추가

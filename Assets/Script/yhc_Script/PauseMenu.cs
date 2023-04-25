@@ -37,13 +37,22 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        resume.onClick.AddListener(ResumeGame);
+        /*resume.onClick.AddListener(ResumeGame);
         save.onClick.AddListener(CallSaveMenu);
         main.onClick.AddListener(CallMainMenu);
         option.onClick.AddListener(CallOptionMenu);
-        menuClosedButton.onClick.AddListener(ClosePauseMenu);   // 퍼즈 메뉴 닫기버튼
+        menuClosedButton.onClick.AddListener(ClosePauseMenu);   // 퍼즈 메뉴 닫기버튼*/
         gameObject.SetActive(false);
         optionMenu.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        resume.onClick.AddListener(ResumeGame);
+        main.onClick.AddListener(CallMainMenu);
+        option.onClick.AddListener(CallOptionMenu);
+        menuClosedButton.onClick.AddListener(ClosePauseMenu);   // 퍼즈 메뉴 닫기버튼
+        save.onClick.AddListener(CallSaveMenu);
     }
 
 
@@ -57,6 +66,7 @@ public class PauseMenu : MonoBehaviour
     private void CallSaveMenu()
     {
         onSave?.Invoke();
+        Debug.Log("sdf;waihg;ohwaG");
     }
 
     private void CallMainMenu()

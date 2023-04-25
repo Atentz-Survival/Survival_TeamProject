@@ -232,7 +232,6 @@ public class SaveFileUI : MonoBehaviour
 {
     // 세이브보드 버튼 관리용
     Button saveButton;
-    PauseMenu startSave;
 
     public Action SaveFile;
     private void Awake()
@@ -240,17 +239,6 @@ public class SaveFileUI : MonoBehaviour
         saveButton = transform.GetChild(0).GetComponent<Button>();
     }
 
-    private void Start()
-    {
-        startSave = FindObjectOfType<PauseMenu>();
-        gameObject.transform.parent.gameObject.SetActive(false);
-        startSave.onSave += SaveFileStart;
-    }
-
-    private void SaveFileStart()
-    {
-        gameObject.transform.parent.gameObject.SetActive(true);
-    }
 
     private void OnEnable()
     {
