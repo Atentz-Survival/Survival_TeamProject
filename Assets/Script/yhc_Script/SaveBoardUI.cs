@@ -12,6 +12,8 @@ public class SaveBoardUI : MonoBehaviour
 
     Button saveCloseButton;
 
+    public Action updateData;
+
     private void Awake()
     {
         saveCloseButton = transform.GetChild(2).GetComponent<Button>();
@@ -32,6 +34,7 @@ public class SaveBoardUI : MonoBehaviour
     private void OpenSaveBoard()
     {
         gameObject.SetActive(true);
+        updateData?.Invoke();
     }
 
     // 버튼 기능 추가

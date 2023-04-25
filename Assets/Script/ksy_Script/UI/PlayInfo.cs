@@ -11,23 +11,23 @@ public class PlayInfo : MonoBehaviour
     TextMeshProUGUI recordText2;
     TextMeshProUGUI recordText3;
 
-    SaveFileUI save;
-
-    private void Start()
-    {
-        save = FindObjectOfType<SaveFileUI>();
-        save.SaveFile += SetData;
-    }
+    SaveBoardUI pauseMenu;
 
     private void Awake()
     {
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
         // 컴포넌트 찾기
         Transform child = transform.GetChild(0);
         recordText = child.GetComponent<TextMeshProUGUI>();
         Transform child1 = transform.GetChild(1);
         recordText2 = child1.GetComponent<TextMeshProUGUI>();
         Transform child3 = transform.GetChild(2);
-        recordText2 = child3.GetComponent<TextMeshProUGUI>();
+        recordText3 = child3.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Start()
+    {
+        pauseMenu.updateData += SetData;
     }
 
     public void SetData()

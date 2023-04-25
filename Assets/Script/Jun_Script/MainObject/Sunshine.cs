@@ -43,12 +43,17 @@ public class Sunshine : MonoBehaviour
     float round;
 
     Quaternion vec;
-
+    SaveBoardUI pauseMenu;
     // fog
     private float morningFog;   // 아침의 안개량
 
     //15도마다 델리게이트를 송신하기 위한 체크용 변수.
     int currentRound = 0;
+
+    private void Awake()
+    {
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
+    }
 
     private void Start()
     {
@@ -56,6 +61,7 @@ public class Sunshine : MonoBehaviour
         OnRespawn = SunRotate;
         // instance = this;
         RenderSettings.fogDensity = morningFog;
+        pauseMenu.updateData += SetData;
     }
 
     private void Update()
@@ -146,6 +152,10 @@ public class Sunshine : MonoBehaviour
 
     }
 
+    public void SetData()
+    {
+        DataController.Instance.gameData.currentSunRotate = round;
+    }
     // 텐트와 상호작용시 할 내용
     // 텐트와 상호작용시 -> 로딩 씬 출현 -> 다시 씬을 불러들여와서 쿼터니언의 범위 값이 0이되게한다.
     // get set을 이용하면 되지않을까....?

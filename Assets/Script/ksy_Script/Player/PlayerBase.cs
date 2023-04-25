@@ -80,12 +80,17 @@ public class PlayerBase : MonoBehaviour
 
     public Action<ToolItemTag, int> GetToolItem;    //장착 아이템 관련 델리게이트
 
+    private int playercurrentToolItem;
+    private int playertoolLevel;
+
     //------------------------------기타----------------------------------------------
     [Header("컴포넌트")]
     private Animator anim;
     private Rigidbody rigid;
 
     private ItemInventoryWindowExplanRoom item;
+
+    SaveBoardUI pauseMenu;
 
     private Axe axe;
     private FishinfRod fishingRod;
@@ -103,6 +108,7 @@ public class PlayerBase : MonoBehaviour
     //----------------------------------일반 함수-------------------------------
     private void Awake()
     {
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInput();
@@ -161,7 +167,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Start()
     {
-        
+        pauseMenu.updateData += SetData;
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         if( item == null ) 
         {
@@ -203,7 +209,16 @@ public class PlayerBase : MonoBehaviour
         state = playerState.Nomal;
     }
 
+    public void SetData()
+    {
+        DataController.Instance.gameData.playerPosition = transform.position;
+        DataController.Instance.gameData.playerHp = HP;
+        DataController.Instance.gameData.currentToolItem = playercurrentToolItem;
+        DataController.Instance.gameData.toolLevel = playertoolLevel;
 
+
+        
+    }
 
     private void LoadingHp(int obj)
     {
@@ -391,7 +406,8 @@ public class PlayerBase : MonoBehaviour
                 isEqualWithState[4] = true;
                 break;
         }
-        GetToolItem?.Invoke(toolItem, level);
+        playercurrentToolItem = (int)toolItem;
+        playertoolLevel = level;
     }
 
     void ResetToolState()

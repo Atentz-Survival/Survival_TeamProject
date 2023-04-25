@@ -213,7 +213,6 @@ using System;
 public class DataController : MonoBehaviour
 {
     SaveFileUI saveButton;
-    GameData playerData = new GameData();
 
     static GameObject _container;
     static GameObject Container
@@ -258,6 +257,7 @@ public class DataController : MonoBehaviour
 
     private void Start()
     {
+        
         saveButton = FindObjectOfType<SaveFileUI>();
         saveButton.SaveFile += MakeSaveFile;
     }

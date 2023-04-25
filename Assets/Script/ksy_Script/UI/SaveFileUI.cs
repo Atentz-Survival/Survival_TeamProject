@@ -234,9 +234,10 @@ public class SaveFileUI : MonoBehaviour
     Button saveButton;
 
     public Action SaveFile;
+
     private void Awake()
     {
-        saveButton = transform.GetChild(0).GetComponent<Button>();
+        saveButton = gameObject.transform.GetChild(0).GetComponent<Button>();
     }
 
 
@@ -247,6 +248,7 @@ public class SaveFileUI : MonoBehaviour
 
     private void OnSaveFile()
     {
+        Debug.Log("세이브 클릭");
         SaveFile?.Invoke();
     }
 }

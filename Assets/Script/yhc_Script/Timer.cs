@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
-    SaveFileUI save;
+    SaveBoardUI pauseMenu;
     TextMeshProUGUI timerText;
     Sunshine sunshine;
     public int timeSpeed = 1;
@@ -18,14 +18,19 @@ public class Timer : MonoBehaviour
     { 
         timerText = GetComponent<TextMeshProUGUI>();
         sunshine = FindObjectOfType<Sunshine>();
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
     }
 
     private void Start()
     {
-        save = FindObjectOfType<SaveFileUI>();
         timerText.text = $"Day : {day} \nHour : {hour}"; // 시계 초기값 1일차 6시로 설정
+        /*sunshine.HourChange += OnHourChange;
+        save.SaveFile += setData;*/
         sunshine.HourChange += OnHourChange;
-        save.SaveFile += setData;
+        pauseMenu.updateData += setData;
+    }
+    private void OnEnable()
+    {
     }
 
 
