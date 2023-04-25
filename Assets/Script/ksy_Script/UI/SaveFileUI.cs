@@ -1,5 +1,3 @@
-
-
 /*public class SaveFileUI : MonoBehaviour
 {
     Button save1;
@@ -222,3 +220,45 @@
         Debug.Log("저장~~~~~~~~~");
     }
 }*/
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SaveFileUI : MonoBehaviour
+{
+    // 세이브보드 버튼 관리용
+    Button saveButton;
+    PauseMenu startSave;
+
+    public Action SaveFile;
+    private void Awake()
+    {
+        saveButton = transform.GetChild(0).GetComponent<Button>();
+    }
+
+    private void Start()
+    {
+        startSave = FindObjectOfType<PauseMenu>();
+        gameObject.transform.parent.gameObject.SetActive(false);
+        startSave.onSave += SaveFileStart;
+    }
+
+    private void SaveFileStart()
+    {
+        gameObject.transform.parent.gameObject.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        saveButton.onClick.AddListener(OnSaveFile);
+    }
+
+    private void OnSaveFile()
+    {
+        SaveFile?.Invoke();
+    }
+}

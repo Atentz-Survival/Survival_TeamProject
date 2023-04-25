@@ -212,6 +212,7 @@ using System;
 
 public class DataController : MonoBehaviour
 {
+    SaveFileUI saveButton;
     GameData playerData = new GameData();
 
     static GameObject _container;
@@ -257,6 +258,8 @@ public class DataController : MonoBehaviour
 
     private void Start()
     {
+        saveButton = FindObjectOfType<SaveFileUI>();
+        saveButton.SaveFile += MakeSaveFile;
     }
 
     public void LoadGameData()
@@ -283,4 +286,10 @@ public class DataController : MonoBehaviour
         File.WriteAllText(filePath, ToJsonData);
         Debug.Log("저장완료");
     }
+
+    private void MakeSaveFile()
+    {
+        SaveGameData();
+    }
+
 }

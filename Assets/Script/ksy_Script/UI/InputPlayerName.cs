@@ -31,7 +31,7 @@ public class InputPlayerName : MonoBehaviour
     {
         inputField.text = text;
         DataController.Instance.gameData.playerName = inputField.text;
-        inputField.gameObject.SetActive(false); // 입력 완료되었으니 다시 안보이게 만들기
+        inputField.transform.parent.parent.gameObject.SetActive(false); // 입력 완료되었으니 다시 안보이게 만들기
         //SceneManager.LoadScene(2);
     }
 }

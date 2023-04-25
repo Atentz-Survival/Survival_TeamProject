@@ -10,6 +10,15 @@ public class PlayInfo : MonoBehaviour
     TextMeshProUGUI recordText;
     TextMeshProUGUI recordText2;
     TextMeshProUGUI recordText3;
+
+    SaveFileUI save;
+
+    private void Start()
+    {
+        save = FindObjectOfType<SaveFileUI>();
+        save.SaveFile += SetData;
+    }
+
     private void Awake()
     {
         // 컴포넌트 찾기
@@ -21,9 +30,10 @@ public class PlayInfo : MonoBehaviour
         recordText2 = child3.GetComponent<TextMeshProUGUI>();
     }
 
-    public void SetData(int record, int record2)
+    public void SetData()
     {
-        recordText2.text = record.ToString();
-        recordText3.text = record2.ToString();
+        recordText.text = DataController.Instance.gameData.playerName;
+        recordText2.text = DataController.Instance.gameData.currentDay.ToString();
+        recordText3.text = DataController.Instance.gameData.currentTime.ToString();
     }
 }

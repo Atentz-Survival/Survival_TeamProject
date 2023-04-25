@@ -133,6 +133,8 @@ public class PlayerBase : MonoBehaviour
         inputActions.OpenWindow.OpenCraftWindow.performed += OnMaking;
 
         //-----전달 받을 델리게이트----
+        item.onChangeHp += OnUpgradeHp; // <<인벤
+        item.onChangeTool += OnUpgradeTool;
     }
 
     private void OnDisable()
@@ -171,15 +173,12 @@ public class PlayerBase : MonoBehaviour
         HP = maxHp;
         HpChange();
 /*--------------------HP 델리게이트 전달 받기-------------------------------*/
-        item.onChangeHp += OnUpgradeHp; // <<인벤
 
         axe.UsingTool += OnUpgradeHp;
         reap.UsingTool += OnUpgradeHp;
         pick.UsingTool += OnUpgradeHp;
         fishingRod.UsingTool += OnUpgradeHp;
-        rHand.UsingTool += OnUpgradeHp;
-
-        item.onChangeTool += OnUpgradeTool; 
+        rHand.UsingTool += OnUpgradeHp; 
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
 
