@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEditor;
 using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 
@@ -62,6 +65,14 @@ public class Sunshine : MonoBehaviour
         // instance = this;
         RenderSettings.fogDensity = morningFog;
         pauseMenu.updateData += SetData;
+        if (DataController.Instance.WasSaved == false)
+        {
+            PreInitialize();
+        }
+        else
+        {
+            Initialize();
+        }
     }
 
     private void Update()
@@ -155,6 +166,15 @@ public class Sunshine : MonoBehaviour
     public void SetData()
     {
         DataController.Instance.gameData.currentSunRotate = round;
+    }
+    private void PreInitialize()
+    {
+        round = 0.0f;
+    }
+
+    private void Initialize()
+    {
+        round = DataController.Instance.gameData.currentSunRotate;
     }
     // 텐트와 상호작용시 할 내용
     // 텐트와 상호작용시 -> 로딩 씬 출현 -> 다시 씬을 불러들여와서 쿼터니언의 범위 값이 0이되게한다.

@@ -11,6 +11,7 @@ public class GameData
     public string playerName;         //이름
     public int playerHp;
     public Vector3 playerPosition;      //위치
+    public Quaternion playerRotation;
 
     /*public int[] itemCount;             // 갯수
     public int[] itemTypes;          // 종류
