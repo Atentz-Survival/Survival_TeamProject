@@ -249,4 +249,14 @@ public class ItemInventory : MonoBehaviour
         }
         AddItem(itemType, amount);
     }
+
+    public void LoadInventoryData(int[] typeArray, int[] amoutArray, int[] equipToolArray)
+    {
+        for (int i = 0; i < ItemManager.Instance.itemInventoryMaxSpace; i++) 
+        {
+            ItemTypeArray[i] = (ItemType)typeArray[i];
+        }
+        ItemAmountArray = amoutArray;
+        _equipToolIndex = equipToolArray;
+    }
 }
