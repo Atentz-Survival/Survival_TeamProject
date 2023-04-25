@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 [Serializable]
 public class GameData
 {
+
     public string playerName;         //이름
     public int playerHp;
     public Vector3 playerPosition;      //위치

@@ -26,11 +26,13 @@ public class NewButtonSceneChange : MonoBehaviour
     private void TestFunction2()
     {
         //로드씬 델리게이트(세이브 값 가져오기)
+        DataController.Instance.LoadGameData();
         SceneManager.LoadScene(2);
     }
 
     void TestFunction()
     {
+        DataController.Instance.DeleteSaveFile();
         whatIsYOurNAme?.Invoke();
     }
 }

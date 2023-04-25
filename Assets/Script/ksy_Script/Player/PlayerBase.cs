@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -167,6 +169,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Start()
     {
+        
         pauseMenu.updateData += SetData;
         item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
         if( item == null ) 
@@ -194,6 +197,33 @@ public class PlayerBase : MonoBehaviour
         craft.DoAction += CraftDoAction;
         craft.DontAction += CraftDontAction;
 
+
+        if(DataController.Instance.WasSaved == false)
+        {
+            PreInitialize();
+        }
+        else
+        {
+            Initialize();
+        }
+    }
+
+    public void SetData()
+    {
+        DataController.Instance.gameData.playerPosition = transform.position;
+        DataController.Instance.gameData.playerHp = HP;
+        DataController.Instance.gameData.currentToolItem = playercurrentToolItem;
+        DataController.Instance.gameData.toolLevel = playertoolLevel;
+    }
+
+   private void PreInitialize()
+    {
+        isAction = false;
+        isRun = false;
+        isDead = false;
+        isDoing = false;
+        ifCraft = false;
+
         tools = new GameObject[toolsNames.Length];
         for (int i = 0; i < tools.Length; i++)
         {
@@ -207,23 +237,48 @@ public class PlayerBase : MonoBehaviour
         }
         isEqualWithState[0] = true;
         state = playerState.Nomal;
+
+        transform.position = Vector3.zero;
+        HP = maxHp;
+        playercurrentToolItem = int.MinValue;
+        playertoolLevel = int.MinValue;
+
+        /*transform.position = DataController.Instance.gameData.playerPosition;
+        HP = DataController.Instance.gameData.playerHp;
+        playercurrentToolItem = DataController.Instance.gameData.currentToolItem;
+        playertoolLevel = DataController.Instance.gameData.toolLevel;*/
     }
 
-    public void SetData()
+    private void Initialize()
     {
-        DataController.Instance.gameData.playerPosition = transform.position;
-        DataController.Instance.gameData.playerHp = HP;
-        DataController.Instance.gameData.currentToolItem = playercurrentToolItem;
-        DataController.Instance.gameData.toolLevel = playertoolLevel;
+        isAction = false;
+        isRun = false;
+        isDead = false;
+        isDoing = false;
+        ifCraft = false;
 
+        tools = new GameObject[toolsNames.Length];
+        for (int i = 0; i < tools.Length; i++)
+        {
+            tools[i] = GameObject.Find(toolsNames[i]);
+            tools[i].SetActive(false);
+        }
 
-        
+        for (int i = 0; i < isEqualWithState.Length; i++)
+        {
+            isEqualWithState[i] = false;
+        }
+        isEqualWithState[0] = true;
+        state = playerState.Nomal;
+
+        transform.position = DataController.Instance.gameData.playerPosition;
+        HP = DataController.Instance.gameData.playerHp;
+        playercurrentToolItem = DataController.Instance.gameData.currentToolItem;
+        playertoolLevel = DataController.Instance.gameData.toolLevel;
+        OnUpgradeTool((ToolItemTag)playercurrentToolItem, playertoolLevel);
     }
 
-    private void LoadingHp(int obj)
-    {
-        HP = obj;
-    }
+
 
     private void FixedUpdate()
     {
