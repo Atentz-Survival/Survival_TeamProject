@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: StoneAxe
   m_EditorClassIdentifier: 
   itemName: "\uB3CC\uB3C4\uB07C"
-  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uB3C4\uB07C."
+  explan: "\uB3CC\uB85C \uB9CC\uB4E0 \uB3C4\uB07C. \uC0AC\uC6A9\uC2DC \uB098\uBB34\uB97C
+    \uBCA8 \uB54C \uCCB4\uB825\uC18C\uBAA8\uAC00 \uC801\uC5B4\uC9C4\uB2E4."
   tag: 2
   iconSprite: {fileID: 21300000, guid: daa387658944b4c42a007fa73ae4810a, type: 3}
   productionMaterialTypeList: 0300000009000000
