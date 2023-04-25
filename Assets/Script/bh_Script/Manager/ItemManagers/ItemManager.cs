@@ -121,16 +121,18 @@ public class ItemManager : Singleton<ItemManager>
             dropItemPools[i]?.MakeObjectPool();
         }
         itemInventory.ItemsInventoryWindow = FindObjectOfType<ItemInventoryWindow>();
-        itemInventory.ItemsInventoryWindow.ExplanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
-        itemInventory.ItemsInventoryWindow.ToolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
-        PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-        playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
-        itemInventory.ItemsInventoryWindow.RefreshItemInventory();
-        itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
-        itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
-        itemInventory.ItemsInventoryWindow.ExplanRoom._itemDumpButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemDump);
-        itemInventory.ItemsInventoryWindow.ExplanRoom.gameObject.SetActive(false);
-        itemInventory.ItemsInventoryWindow.gameObject.SetActive(false);
+        if (itemInventory.ItemsInventoryWindow != null) {
+            itemInventory.ItemsInventoryWindow.ExplanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+            itemInventory.ItemsInventoryWindow.ToolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
+            PlayerBase playerbase = FindObjectOfType<PlayerBase>();
+            playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
+            itemInventory.ItemsInventoryWindow.RefreshItemInventory();
+            itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
+            itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
+            itemInventory.ItemsInventoryWindow.ExplanRoom._itemDumpButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemDump);
+            itemInventory.ItemsInventoryWindow.ExplanRoom.gameObject.SetActive(false);
+            itemInventory.ItemsInventoryWindow.gameObject.SetActive(false);
+        }
         setUpItem = FindObjectOfType<SetUpItem>();
     }
 
