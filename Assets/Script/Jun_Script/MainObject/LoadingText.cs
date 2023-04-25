@@ -105,6 +105,7 @@ public class LoadingText : MonoBehaviour
             else
             {
                 slider.value = 9.0f;
+                DataController.Instance.SaveGameData();
                 operation.allowSceneActivation = true;
                 yield break;
             }
