@@ -72,16 +72,10 @@ public class CraftingWindow : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerBase>();
-        //gameObject.SetActive(false); //잠깐막음
-        gameObject.SetActive(true); //잠깐테스트
-        if (player != null) { //잠깐테스트
-            player.onMaking += OpenCraftingWindow;
-        } //잠깐테스트
+        gameObject.SetActive(false);
+        player.onMaking += OpenCraftingWindow;
         startCraft.onClick.AddListener(OnMakeTool);
         menuCloseButton.onClick.AddListener(CloseMenu);
-        RefreshCraftingWindow();// 잠깐테스트
-        startCraft.interactable = true; // 잠깐테스트
-        canMakeTool = true; //잠깐테스트
     }
 
     void OnMakeTool()

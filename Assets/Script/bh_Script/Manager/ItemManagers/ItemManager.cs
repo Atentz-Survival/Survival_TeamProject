@@ -125,9 +125,7 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory.ItemsInventoryWindow.ExplanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
             itemInventory.ItemsInventoryWindow.ToolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
             PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-            if (playerbase != null) { //잠깐테스트
-                playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
-            } //잠깐테스트
+            playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
             itemInventory.ItemsInventoryWindow.RefreshItemInventory();
             itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
