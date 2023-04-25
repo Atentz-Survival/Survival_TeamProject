@@ -66,7 +66,6 @@ public class PauseMenu : MonoBehaviour
     private void CallSaveMenu()
     {
         onSave?.Invoke();
-        Debug.Log("sdf;waihg;ohwaG");
     }
 
     private void CallMainMenu()

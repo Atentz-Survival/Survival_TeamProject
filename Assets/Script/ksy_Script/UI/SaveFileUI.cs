@@ -224,23 +224,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveFileUI : MonoBehaviour
 {
     // 세이브보드 버튼 관리용
-    Button saveButton;
-
-    public Action SaveFile;
+    public Button saveButton;
 
     private void Awake()
     {
         saveButton = gameObject.transform.GetChild(0).GetComponent<Button>();
     }
-
-
     private void OnEnable()
     {
         saveButton.onClick.AddListener(OnSaveFile);
@@ -248,7 +243,7 @@ public class SaveFileUI : MonoBehaviour
 
     private void OnSaveFile()
     {
-        Debug.Log("세이브 클릭");
-        SaveFile?.Invoke();
+        Debug.Log("ssss");
+        //DataController.Instance.SaveGameData();
     }
 }

@@ -23,9 +23,9 @@ public class SaveBoardUI : MonoBehaviour
     private void Start()
     {
         saveCloseButton.onClick.AddListener(CloseSaveBoard);
-
         gameObject.SetActive(false);
     }
+
     private void OnEnable()
     {
         pauseMenu.onSave += OpenSaveBoard;
