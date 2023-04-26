@@ -28,7 +28,7 @@ public class ItemInventoryWindow : MonoBehaviour
         set => toolItemTag_Length = value;
     }
 
-    Color InventoryNormalColor = new Color(255f / 255f, 227f / 255f, 0, 1f);
+    Color InventoryNormalColor = Color.white;
     public Color inventoryNormalColor
     {
         get => InventoryNormalColor;
