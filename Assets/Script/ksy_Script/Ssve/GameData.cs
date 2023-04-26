@@ -12,10 +12,11 @@ public class GameData
     public int playerHp;
     public Vector3 playerPosition;      //위치
 
-    /*public int[] itemCount;             // 갯수
-    public int[] itemTypes;          // 종류
-*/
-   /* public Vector3 workbenchPosition;   //제작대 위치*/
+    public int[] itemCount;             // 갯수
+    public ItemType[] itemTypes;          // 종류
+    public int[] toolType;
+
+    //public Vector3 workbenchPosition;   //제작대 위치
 
     public int currentToolItem;
     public int toolLevel;         // 장착한 장비아이템 레벨

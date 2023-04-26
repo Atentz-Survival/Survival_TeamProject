@@ -19,18 +19,19 @@ public class NewButtonSceneChange : MonoBehaviour
     }
     private void OnEnable()
     {
-        newButton.onClick.AddListener(TestFunction);
-        LoadGame.onClick.AddListener(TestFunction2);
+        newButton.onClick.AddListener(StartGameFunction);
+        LoadGame.onClick.AddListener(LoadGameFunction);
     }
 
-    private void TestFunction2()
+    private void LoadGameFunction()
     {
+
         //로드씬 델리게이트(세이브 값 가져오기)
         DataController.Instance.LoadGameData();
         SceneManager.LoadScene(2);
     }
 
-    void TestFunction()
+    void StartGameFunction()
     {
         DataController.Instance.DeleteSaveFile();
         whatIsYOurNAme?.Invoke();
