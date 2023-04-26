@@ -214,6 +214,9 @@ public class PlayerBase : MonoBehaviour
         DataController.Instance.gameData.playerHp = HP;
         DataController.Instance.gameData.currentToolItem = playercurrentToolItem;
         DataController.Instance.gameData.toolLevel = playertoolLevel;
+        DataController.Instance.gameData.toolType = ItemManager.Instance.itemInventory._equipToolIndex;
+        DataController.Instance.gameData.itemCount = ItemManager.Instance.itemInventory.ItemAmountArray;
+        DataController.Instance.gameData.itemTypes = ItemManager.Instance.itemInventory.ItemTypeArray;
     }
 
    private void PreInitialize()
@@ -275,7 +278,10 @@ public class PlayerBase : MonoBehaviour
         HP = DataController.Instance.gameData.playerHp;
         playercurrentToolItem = DataController.Instance.gameData.currentToolItem;
         playertoolLevel = DataController.Instance.gameData.toolLevel;
-        OnUpgradeTool((ToolItemTag)playercurrentToolItem, playertoolLevel);
+        ItemManager.Instance.itemInventory._equipToolIndex = DataController.Instance.gameData.toolType;
+        ItemManager.Instance.itemInventory.ItemAmountArray = DataController.Instance.gameData.itemCount;
+        ItemManager.Instance.itemInventory.ItemTypeArray = DataController.Instance.gameData.itemTypes;
+        //OnUpgradeTool((ToolItemTag)playercurrentToolItem, playertoolLevel);
     }
 
 
