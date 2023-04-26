@@ -1,9 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 using UnityEngine.UI;
+using static PlayerBase;
+
 public class Timer : MonoBehaviour
 {
     SaveBoardUI pauseMenu;
@@ -11,8 +16,8 @@ public class Timer : MonoBehaviour
     Sunshine sunshine;
     public int timeSpeed = 1;
 
-    public int day = 1;
-    public int hour = 6;
+    public int day;
+    public int hour;
 
     private void Awake()
     { 
@@ -23,14 +28,28 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        timerText.text = $"Day : {day} \nHour : {hour}"; // 시계 초기값 1일차 6시로 설정
-        /*sunshine.HourChange += OnHourChange;
-        save.SaveFile += setData;*/
         sunshine.HourChange += OnHourChange;
         pauseMenu.updateData += setData;
+        if (DataController.Instance.WasSaved == false)
+        {
+            PreInitialize();
+        }
+        else
+        {
+            Initialize();
+        }
+        timerText.text = $"Day : {day} \nHour : {hour}"; // 시계 초기값 1일차 6시로 설정
     }
-    private void OnEnable()
+    private void PreInitialize()
     {
+        day = 1;
+        hour = 6;
+    }
+
+    private void Initialize()
+    {
+        day = DataController.Instance.gameData.currentDay;
+        hour = DataController.Instance.gameData.currentTime;
     }
 
 
