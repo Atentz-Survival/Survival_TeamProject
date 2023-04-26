@@ -85,6 +85,16 @@ public class ItemManager : Singleton<ItemManager>
     public bool IsHousingMode => isHousingMode;
 
     SetUpItem setUpItem;
+    public SetUpItem SetUpAItem => setUpItem;
+
+    [SerializeField]
+    Vector3 setUpItemPosition;
+    public Vector3 SetUpItemPosition
+    {
+        get => setUpItemPosition;
+        set => setUpItemPosition = value;
+    }
+
 
     protected override void PreInitialize()
     {
@@ -144,7 +154,7 @@ public class ItemManager : Singleton<ItemManager>
             }
             else 
             {
-
+                setUpItem.transform.position = setUpItemPosition;
             }
         }
     }

@@ -214,6 +214,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
             ItemManager.Instance.itemInventory.ItemTypeArray[currentIndex] = ItemType.Null;
             ItemManager.Instance.itemInventory.ItemAmountArray[currentIndex] = 0;
             ItemManager.Instance.itemInventory.emptySpaceStartIndex -= 1;
+            ItemManager.Instance.SetUpItemPosition = ItemManager.Instance.SetUpAItem.transform.position;
             itemInventoryWindow.SetExplan(ItemInventoryWindow.notSelect);
             initialize();
         }

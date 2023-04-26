@@ -410,6 +410,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6bf07830f4b2583468cca1bb51d595e8, type: 2}
   - {fileID: 11400000, guid: d3126f954d5144641b2a03f30bf519aa, type: 2}
   - {fileID: 11400000, guid: 5233417661144654eb910dc914081686, type: 2}
+  setUpItemPosition: {x: -0.33, y: 0.01, z: -3.69}
 --- !u!1 &4586358297168579759
 GameObject:
   m_ObjectHideFlags: 0
