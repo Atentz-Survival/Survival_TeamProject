@@ -20,8 +20,9 @@ public class GameData
     public int currentToolItem;
     public int toolLevel;         // 장착한 장비아이템 레벨
 
-    public int currentDay;         // 날짜 저장 배열
+    public int currentDay;         // 날짜
     public int currentTime;
 
     public float currentSunRotate;
+    public float currentRotateTime;
 }

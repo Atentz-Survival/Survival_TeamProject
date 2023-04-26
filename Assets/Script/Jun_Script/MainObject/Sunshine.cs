@@ -93,6 +93,7 @@ public class Sunshine : MonoBehaviour
         t += Time.deltaTime;
         round = vecT * t;
         vec = Quaternion.Euler(round, 0, 0);
+
         
         
 
@@ -169,15 +170,19 @@ public class Sunshine : MonoBehaviour
     public void SetData()
     {
         DataController.Instance.gameData.currentSunRotate = round;
+        DataController.Instance.gameData.currentRotateTime = t;
     }
     private void PreInitialize()
     {
+        t = 0.0f;
         round = 0.0f;
     }
 
     private void Initialize()
     {
         round = DataController.Instance.gameData.currentSunRotate;
+        t = DataController.Instance.gameData.currentRotateTime;
+        vec = Quaternion.Euler(round, 0, 0);
     }
 
     private void RoundTime()
