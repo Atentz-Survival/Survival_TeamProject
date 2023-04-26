@@ -32,7 +32,7 @@ public class Sunshine : MonoBehaviour
     public Action<Quaternion> DayTimeDeli;
     public Action HourChange;
 
-    // CubemapTransition 관련 변수 -----------------------------------------------
+    // CubemapTransition 관련 변수 --------------------------------------------------------
     public Material skybox;
     float alpha = 0.0f;
     public float beta = 0.5f;
@@ -42,12 +42,12 @@ public class Sunshine : MonoBehaviour
     // 낮밤 확인 변수
     public bool isNight = false;
 
-    // Sunshine의 회전값을 나타내는 변수--------------------------------------------
+    // Sunshine의 회전값을 나타내는 변수 (Update)--------------------------------------------
     public float vecT = 0.5f;    // 6분경과 : 0.3333f
     float t;
     float round;
 
-    // 기타----------------------------------------------------------------------
+    // 기타-------------------------------------------------------------------------------
     Quaternion vec;
     SaveBoardUI pauseMenu;
     // fog
@@ -56,6 +56,12 @@ public class Sunshine : MonoBehaviour
     //15도마다 델리게이트를 송신하기 위한 체크용 변수.
     int currentRound = 0;
 
+
+    // Sunshine의 회전값을 나타내는 변수 (FixedUpdate) --------------------------------------
+    public float rec = 1.0f;
+    float rotationAmount;
+
+
     private void Awake()
     {
         pauseMenu = FindObjectOfType<SaveBoardUI>();
@@ -63,12 +69,12 @@ public class Sunshine : MonoBehaviour
 
     private void Start()
     {
-        // OnRespawn = SunLight;
-        OnRespawn = SunRotate;
-        // instance = this;
+        rotationAmount = 0.0f;
 
-        HourChange += RoundTime;                        // 여기서 선샤인값을 받는다.
+        OnRespawn = SunRotate;
+        //HourChange += RoundTime;                        // 여기서 선샤인값을 받는다.
         RenderSettings.fogDensity = morningFog;
+
         pauseMenu.updateData += SetData;
         if (DataController.Instance.WasSaved == false)
         {
@@ -82,12 +88,23 @@ public class Sunshine : MonoBehaviour
 
     private void Update()
     {
-        OnRespawn?.Invoke();
-        OnRespawn();
-        SunRotate();
+        //OnRespawn?.Invoke();
+        //OnRespawn();
+        //SunRotate();
         SetFog();
     }
 
+    private void FixedUpdate()
+    {
+        RotateFixed();
+    }
+
+    public void RotateFixed()
+    {
+        rotationAmount += rec * Time.fixedDeltaTime;
+        Quaternion deltaQua = Quaternion.Euler(rotationAmount, 0, 0);
+        transform.rotation = deltaQua;
+    }
     public void SunRotate()
     {
         // [1] 목표 : 12분에 0 ~ 180도만큼 회전 -> 12분에 180 ~ 360도 회전 : 180/720 = 1/4 : 0.25
@@ -118,7 +135,7 @@ public class Sunshine : MonoBehaviour
     public void SetFog()
     {
         Vector3 eulerAngle = transform.rotation.eulerAngles;
-        Debug.Log(eulerAngle);
+        //Debug.Log(eulerAngle);
         if (eulerAngle.x <= 180.0f && eulerAngle.x >= 0.0f) //  0 <= x <= 170
         {
             RenderSettings.fogDensity = morningFog;             // 아침의 fog량은 0.0001로 고정.
@@ -147,7 +164,8 @@ public class Sunshine : MonoBehaviour
             }
             else
             {
-                skybox.SetFloat("_CubemapTransition", 0.8f);
+                alpha = 0.8f;
+                skybox.SetFloat("_CubemapTransition", alpha);
             }
         }
 
@@ -170,30 +188,38 @@ public class Sunshine : MonoBehaviour
         }
     }
 
+    // ------------------------- 04/26 float alpha 의 값과 float.RenderSettings.fogDensity 의 값을 세이브할 필요가 있을거 같습니다---------------------------------------
+    // float alpha 는 Cubemap Transition의 수치이며, alpha를 저장하면 하늘의 색을 저장할 수 있다.
+    // float.RenderSettings.fogDensity 는 Fog의 수치이며, 밤이 되었을 때 Fog로 어둡게 표현하기 위해 사용.
+    // ----------------------------------------------------------------------------------------------------------------------------------------------------
+
     public void SetData()
     {
-        DataController.Instance.gameData.currentSunRotate = round;
-        DataController.Instance.gameData.currentRotateTime = t;
+        //DataController.Instance.gameData.currentSunRotate = round;
+        //DataController.Instance.gameData.currentRotateTime = t;
+        DataController.Instance.gameData.currentSunRotate = rotationAmount;
     }
     private void PreInitialize()
     {
-        t = 0.0f;
-        round = 0.0f;
+        //t = 0.0f;
+        //round = 0.0f;
+        rotationAmount = 0.0f;
     }
 
     private void Initialize()
     {
-        round = DataController.Instance.gameData.currentSunRotate;
-        t = DataController.Instance.gameData.currentRotateTime;
-        vec = Quaternion.Euler(round, 0, 0);
+        //round = DataController.Instance.gameData.currentSunRotate;
+        //t = DataController.Instance.gameData.currentRotateTime;
+        //vec = Quaternion.Euler(round, 0, 0);
+        rotationAmount = DataController.Instance.gameData.currentSunRotate;
     }
 
-    private void RoundTime()
-    {
-        vec = Quaternion.Euler((int)round, 0, 0);
-        Debug.Log(round);
-        int time = (int)round / 15;
-    }
+    //private void RoundTime()
+    //{
+    //    vec = Quaternion.Euler((int)round, 0, 0);
+    //    Debug.Log(round);
+    //    int time = (int)round / 15;
+    //}
     // 텐트와 상호작용시 할 내용
     // 텐트와 상호작용시 -> 로딩 씬 출현 -> 다시 씬을 불러들여와서 쿼터니언의 범위 값이 0이되게한다.
     // get set을 이용하면 되지않을까....?

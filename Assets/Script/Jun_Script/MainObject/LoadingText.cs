@@ -28,9 +28,14 @@ public class LoadingText : MonoBehaviour
     {
         player = FindObjectOfType<PlayerBase>();
         slider.value = 0.0f;
+        isloading?.Invoke();
+        // ------------------------------------ 04/26 여기서 Save후 로드를 바로 진행하였다 ----------------------------------------------------
+        // (1) 문제점 MainCamra가 돌아가짐
+        // (2) Sunshine의 값도 저장이되서 다시 불러오면 0부터 시작을 안함
+        DataController.Instance.SaveGameData();
+        DataController.Instance.LoadGameData();
         StartCoroutine(ChnageText(1.5f, text1, text2 , texx3));
         StartCoroutine(ChargeSlider());
-        isloading?.Invoke();
     }
 
     private void Update()
@@ -87,7 +92,7 @@ public class LoadingText : MonoBehaviour
 
     IEnumerator ChargeSlider()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(3);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(2);
         operation.allowSceneActivation = false;
 
 
