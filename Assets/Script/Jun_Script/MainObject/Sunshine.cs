@@ -58,8 +58,8 @@ public class Sunshine : MonoBehaviour
 
 
     // Sunshine의 회전값을 나타내는 변수 (FixedUpdate) --------------------------------------
-    public float rec = 1.0f;
-    float rotationAmount;
+    float rec = 1.0f;
+    public float rotationAmount;
 
 
     private void Awake()
@@ -71,7 +71,6 @@ public class Sunshine : MonoBehaviour
     {
         rotationAmount = 0.0f;
 
-        OnRespawn = SunRotate;
         //HourChange += RoundTime;                        // 여기서 선샤인값을 받는다.
         RenderSettings.fogDensity = morningFog;
 
@@ -88,9 +87,9 @@ public class Sunshine : MonoBehaviour
 
     private void Update()
     {
-        //OnRespawn?.Invoke();
+        OnRespawn?.Invoke();
         //OnRespawn();
-        //SunRotate();
+        SunRotate();
         SetFog();
     }
 
@@ -104,6 +103,14 @@ public class Sunshine : MonoBehaviour
         rotationAmount += rec * Time.fixedDeltaTime;
         Quaternion deltaQua = Quaternion.Euler(rotationAmount, 0, 0);
         transform.rotation = deltaQua;
+
+        if ((int)(rotationAmount % 15) == 0 && currentRound != (int)rotationAmount && (int)rotationAmount != 360)
+        {
+            //델리게이트
+            currentRound = (int)rotationAmount;
+            Debug.Log("SunRotate에서 15도 초과로 인한 델리게이트 발생");
+            HourChange?.Invoke();
+        }
     }
     public void SunRotate()
     {
@@ -114,15 +121,7 @@ public class Sunshine : MonoBehaviour
         round = vecT * t;
         vec = Quaternion.Euler(round, 0, 0);
 
-        if ((int)(round % 15) == 0 && currentRound != (int)round && (int)round != 360)
-        {
-            //델리게이트
-            currentRound = (int)round;
-            Debug.Log("SunRotate에서 15도 초과로 인한 델리게이트 발생");
-            HourChange?.Invoke();
-        }
-
-        transform.rotation = vec;  // 1초에 0.25도 만큼 회전
+        // transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
         DayTimeDeli?.Invoke(vec);
         // 로테이션값을 시간처럼 시각화하기

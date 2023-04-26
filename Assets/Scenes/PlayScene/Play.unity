@@ -5514,7 +5514,6 @@ GameObject:
   - component: {fileID: 366985323}
   - component: {fileID: 366985322}
   - component: {fileID: 366985325}
-  - component: {fileID: 366985326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5602,18 +5601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1655135093}
   speed: 1
---- !u!114 &366985326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366985321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73703803ac30404ebc47a3e9f553649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &368301709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7388,9 +7375,9 @@ MonoBehaviour:
   skybox: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
   beta: 0.0066
   maxAlpha: 0.6
-  forTimeInGame: 0.003
   isNight: 0
   vecT: 0.333
+  rotationAmount: 0
 --- !u!1 &500603372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12278,18 +12265,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3918036935182654285, guid: b5991b8efe7e0044888b9058f6d3119f, type: 3}
   m_PrefabInstance: {fileID: 1969559627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &907033935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907033930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6921c8e49b8f1d544ab7d3935dc50a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &907033936
 CapsuleCollider:
   m_ObjectHideFlags: 0
