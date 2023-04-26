@@ -30,22 +30,24 @@ public class Sunshine : MonoBehaviour
     }
 
     public Action<Quaternion> DayTimeDeli;
-
-    public Material skybox;
-    float alpha = 0.0f;
-    public float beta = 0.0008f;
-
-    public float maxAlpha = 0.6f;
-    public float forTimeInGame;  // 시간의 경과
-
-    public bool isNight = false;
-
     public Action HourChange;
 
+    // CubemapTransition 관련 변수 -----------------------------------------------
+    public Material skybox;
+    float alpha = 0.0f;
+    public float beta = 0.5f;
+    private float gamma = 0.5f;
+    public float maxAlpha = 0.6f;
+
+    // 낮밤 확인 변수
+    public bool isNight = false;
+
+    // Sunshine의 회전값을 나타내는 변수--------------------------------------------
     public float vecT = 0.5f;    // 6분경과 : 0.3333f
     float t;
     float round;
 
+    // 기타----------------------------------------------------------------------
     Quaternion vec;
     SaveBoardUI pauseMenu;
     // fog
@@ -83,6 +85,7 @@ public class Sunshine : MonoBehaviour
         OnRespawn?.Invoke();
         OnRespawn();
         SunRotate();
+        SetFog();
     }
 
     public void SunRotate()
@@ -94,17 +97,14 @@ public class Sunshine : MonoBehaviour
         round = vecT * t;
         vec = Quaternion.Euler(round, 0, 0);
 
-        
-        
-
-        if( (int)(round%15)==0 && currentRound != (int)round && (int)round !=360)
+        if ((int)(round % 15) == 0 && currentRound != (int)round && (int)round != 360)
         {
             //델리게이트
             currentRound = (int)round;
             Debug.Log("SunRotate에서 15도 초과로 인한 델리게이트 발생");
             HourChange?.Invoke();
         }
-        
+
         transform.rotation = vec;  // 1초에 0.25도 만큼 회전
                                    // Debug.Log(transform.rotation.x);
         DayTimeDeli?.Invoke(vec);
@@ -113,15 +113,19 @@ public class Sunshine : MonoBehaviour
         {
             t = 0f;
         }
-        // Debug.Log(vec);
+    }
 
-        if ((vec.x >= 0 && vec.x <= 0.0001f) || (vec.x >= -0.0001f && vec.x <= 0)) //  0 <= x <= 170
+    public void SetFog()
+    {
+        Vector3 eulerAngle = transform.rotation.eulerAngles;
+        Debug.Log(eulerAngle);
+        if (eulerAngle.x <= 180.0f && eulerAngle.x >= 0.0f) //  0 <= x <= 170
         {
             RenderSettings.fogDensity = morningFog;             // 아침의 fog량은 0.0001로 고정.
             isNight = false;                    // 낮이 된다.
         }
 
-        else if ((vec.x >=0.9999f && vec.x <= 1.0f)||(vec.x <= -0.9999f && vec.x >= -1.0f))     // Light의 x값이 170보다 커지면
+        else if ((eulerAngle.x >180.0f && eulerAngle.x <=360.0f)||(eulerAngle.x < 0.0f))     // Light의 x값이 170보다 커지면
         {
             isNight = true;                     // 밤
         }
@@ -130,32 +134,32 @@ public class Sunshine : MonoBehaviour
 
         if (isNight)                            // 밤이 되면
         {
-            RenderSettings.fogDensity += 0.000004f;              // 여기 조정!!!!!!!!!!!!!!!!!!
-            if (RenderSettings.fogDensity >= 0.1f)              // 여기 조정!!!!!!!!!!!!!!!!!!
+            RenderSettings.fogDensity += 0.000004f;
+            if (RenderSettings.fogDensity >= 0.1f) 
             {
                 RenderSettings.fogDensity = 0.1f;
             }
-            
-            if(alpha >= 0.6f && alpha < 0.8f)
+
+            if (alpha >= 0.6f && alpha < 0.8f)
             {
-                alpha += beta * forTimeInGame;
+                alpha += beta* gamma * Time.deltaTime;
                 skybox.SetFloat("_CubemapTransition", alpha);
             }
             else
             {
                 skybox.SetFloat("_CubemapTransition", 0.8f);
-            } 
+            }
         }
 
         else
         {
             if (alpha < 0.6f && alpha >= 0.0f)      // -0.1~
             {
-                alpha += beta * forTimeInGame;              // 여기 조정!!!!!!!!!!!!!!!!!!
+                alpha += beta * gamma * Time.deltaTime;
                 skybox.SetFloat("_CubemapTransition", alpha);   // CubemapTrasition의 수치가 alpha가 된다. : 0 ~ 0.6
             }
 
-            else if (alpha >= maxAlpha&& alpha < 0.7f)
+            else if (alpha >= maxAlpha && alpha < 0.7f)
             {
                 alpha = maxAlpha;                               // 0.6
             }
@@ -164,7 +168,6 @@ public class Sunshine : MonoBehaviour
                 alpha = 0.0f;
             }
         }
-
     }
 
     public void SetData()
