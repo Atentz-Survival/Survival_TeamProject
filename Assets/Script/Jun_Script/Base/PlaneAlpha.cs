@@ -16,12 +16,17 @@ public class PlaneAlpha : MonoBehaviour
     {
         SetActivate(0);
         itemManager.OnHousingmode += ChangeAlpha;
+        itemManager.OffHousingmode += ChangeAlphaZero;
     }
 
     public void ChangeAlpha()
     {
         SetActivate(255);
-        Debug.Log(mat.color.a);
+    }
+
+    public void ChangeAlphaZero()
+    {
+        SetActivate(0);
     }
     
     void SetActivate(float alpha)
@@ -30,4 +35,5 @@ public class PlaneAlpha : MonoBehaviour
         color.a = alpha;
         mat.color = color;
     }
+
 }
