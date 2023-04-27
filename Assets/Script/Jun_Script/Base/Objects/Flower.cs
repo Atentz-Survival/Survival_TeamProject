@@ -7,24 +7,47 @@ public class Flower : PlaneBase
 {
     Action<int> FlowerHp;
 
-    public Transform rotateObject;
-    private bool isDisFlower = false;
+    //public Transform rotateObject;
+    Sunshine sun;
+    private bool isDisFlower;
+    SaveBoardUI pauseMenu;
 
+    private void Awake()
+    {
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
+        sun = FindObjectOfType<Sunshine>();
+    }
     private void Start()
     {
         Sunshine.OnRespawn += RespawnF;
         FlowerHp += FlowerObject;
+        isDisFlower = false;
+
+        pauseMenu.updateData += SetData;
+        if (DataController.Instance.WasSaved == false)
+        {
+            PreInitialize();
+        }
+        else
+        {
+            Initialize();
+        }
     }
+    //private void Update()
+    //{
+    //    RespawnF();
+    //}
 
     private void RespawnF()
     {
         if (isDisFlower)
         {
-            Quaternion qua = rotateObject.rotation;
-            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f))
+            float qua = sun.transform.rotation.x;
+            if ((qua >= -0.0004f && qua <= 0.0f) || (qua <= 0.0004f && qua >= 0.0f))
             {
                 gameObject.SetActive(true);
                 Debug.Log("FlowerRespawn");
+                isDisFlower = false;
             }
         }
     }
@@ -167,5 +190,19 @@ public class Flower : PlaneBase
     void FlowerObject(int Hp)
     {
         Hp = objectHP;
+    }
+
+    public void SetData()
+    {
+        DataController.Instance.gameData.flowerIsFlower = isDisFlower;
+    }
+    private void PreInitialize()
+    {
+        isDisFlower = false;
+    }
+
+    private void Initialize()
+    {
+        isDisFlower = DataController.Instance.gameData.flowerIsFlower;
     }
 }
