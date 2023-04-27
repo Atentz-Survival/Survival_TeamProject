@@ -12583,7 +12583,6 @@ GameObject:
   - component: {fileID: 928047297}
   - component: {fileID: 928047296}
   - component: {fileID: 928047295}
-  - component: {fileID: 928047300}
   m_Layer: 0
   m_Name: Plane
   m_TagString: HousingPlace
@@ -12599,7 +12598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928047293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.12829, y: -55.79, z: 34.257587}
+  m_LocalPosition: {x: 12.12829, y: -55.8, z: 34.257587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12860,19 +12859,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!114 &928047300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928047293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed966783bc85824584ba18dc282e5fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 2e3fe719eece0ce45a47859435eb62b9, type: 2}
 --- !u!1001 &935003129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13502,7 +13488,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh379710
+  m_Name: pb_Mesh552610
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14007,7 +13993,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh378826
+  m_Name: pb_Mesh551724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19848,7 +19834,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh379008
+  m_Name: pb_Mesh551908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20139,6 +20125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1459738141}
+  - component: {fileID: 1459738142}
   m_Layer: 0
   m_Name: BaseCampPosition
   m_TagString: HousingPlace
@@ -20154,7 +20141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459738140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.12829, y: 55.8, z: -34.257587}
+  m_LocalPosition: {x: -12.12829, y: 55.9, z: -34.257587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20164,6 +20151,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1459738142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459738140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed966783bc85824584ba18dc282e5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 2e3fe719eece0ce45a47859435eb62b9, type: 2}
 --- !u!1001 &1464778683
 PrefabInstance:
   m_ObjectHideFlags: 0
