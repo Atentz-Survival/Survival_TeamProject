@@ -71,8 +71,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -96,8 +94,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -121,8 +117,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -149,8 +143,6 @@ public class BasementObject : MonoBehaviour
         obj.transform.position = transform.position;
         target = obj;
         Debug.Log("Time1");
-
-        Invoke("TimeCount", 4.0f);
     }
 
 
@@ -174,8 +166,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -199,8 +189,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -225,8 +213,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position + Vector3.up;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -250,8 +236,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position + Vector3.up;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -275,8 +259,6 @@ public class BasementObject : MonoBehaviour
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
             obj.transform.position = transform.position + Vector3.up;
             target = obj;
-
-            Invoke("TimeCount", 4.0f);
         }
     }
 
@@ -292,24 +274,18 @@ public class BasementObject : MonoBehaviour
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     public void Hand_Drop_Tree2()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     public void Hand_Drop_Tree3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     // 맨손 Rock--------------------------------------------------------------------------------------
 
@@ -318,24 +294,18 @@ public class BasementObject : MonoBehaviour
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     public void Hand_Drop_Rock2()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     public void Hand_Drop_Rock3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
     // 맨손 Flower------------------------------------------------------------------------------------
 
@@ -344,8 +314,6 @@ public class BasementObject : MonoBehaviour
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
 
     public void Hand_Drop_Flower2()
@@ -353,8 +321,6 @@ public class BasementObject : MonoBehaviour
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
 
     public void Hand_Drop_Flower3()
@@ -362,8 +328,6 @@ public class BasementObject : MonoBehaviour
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut);
         obj.transform.position = transform.position + Vector3.up;
         target = obj;
-
-        Invoke("TimeCount", 4.0f);
     }
 
     // 맨손 체력회복-------------------------------------------------------------------------------------

@@ -155,8 +155,8 @@ public class Flower : PlaneBase
 
                 gameObject.SetActive(false);
                 isDisFlower = true;
-                float a_Hand = 0.5f;
-                float b_Hand = 0.8f;
+                float a_Hand = 0.25f;
+                float b_Hand = 0.75f;
                 float c_Hand = 1.0f;
                 if (Hand_Random <= a_Hand)
                 {

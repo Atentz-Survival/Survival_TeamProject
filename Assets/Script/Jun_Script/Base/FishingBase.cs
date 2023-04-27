@@ -127,7 +127,6 @@ public class FishingBase : MonoBehaviour
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec* 10);
 
-        Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-1");
     }
 
@@ -142,7 +141,6 @@ public class FishingBase : MonoBehaviour
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 
-        Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-2");
     }
 
@@ -157,7 +155,7 @@ public class FishingBase : MonoBehaviour
         rigid = fobj.GetComponent<Rigidbody>();
         rigid.AddForce(disVec * 10);
 
-        Invoke("FishFalse", 6.0f);
+        //Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-3");
     }
 

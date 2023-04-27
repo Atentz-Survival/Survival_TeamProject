@@ -159,8 +159,8 @@ public class Tree : PlaneBase
 
                 gameObject.SetActive(false);
                 isDisTree = true;
-                float a_Hand = 0.50f;
-                float b_Hand = 0.80f;
+                float a_Hand = 0.25f;
+                float b_Hand = 0.75f;
                 float c_Hand = 1.00f;
                 // float d_Hand = 0.00f;
                 if (Hand_Random <= a_Hand)
