@@ -159,6 +159,7 @@ public class ItemManager : Singleton<ItemManager>
             }
         }
         OnHousingmode = null;
+        OffHousingmode = null;
     }
 
     private void OnDisable()
