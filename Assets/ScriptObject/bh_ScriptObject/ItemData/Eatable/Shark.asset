@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: "\uC0C1\uC5B4"
   explan: "\uB369\uCE58\uAC00 \uD06C\uACE0 \uB0A0\uCE74\uB85C\uC6B4 \uC774\uBE68\uC744
     \uC9C0\uB2CC \uBB3C\uACE0\uAE30...\uC5B4\uB5BB\uAC8C \uC7A1\uC558\uB0D0?(\uC0AC\uC6A9
-    \uC2DC \uD5C8\uAE30 + 100)"
+    \uC2DC \uD5C8\uAE30 + 700)"
   tag: 0
   iconSprite: {fileID: 21300000, guid: e68cd8a720e2c624ab618c5b9029b830, type: 3}
   productionMaterialTypeList: 
