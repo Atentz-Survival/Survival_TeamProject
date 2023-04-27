@@ -11,28 +11,48 @@ public class Tree : PlaneBase
 {
     public Action<int> TreeHp;
 
-    public Transform rotateObject;
-    private bool isDisTree = false;     // 나무가 사라졌는지 확인하기위한 변수
+    Sunshine sun;
+    private bool isDisTree;     // 나무가 사라졌는지 확인하기위한 변수
+    SaveBoardUI pauseMenu;
+
+    private void Awake()
+    {
+        pauseMenu = FindObjectOfType<SaveBoardUI>();
+        sun = FindObjectOfType<Sunshine>();
+    }
 
     private void Start()
     {
         Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
         TreeHp += TreeObject;
-        
+        isDisTree = false;
+
+        pauseMenu.updateData += SetData;
+        if (DataController.Instance.WasSaved == false)
+        {
+            PreInitialize();
+        }
+        else
+        {
+            Initialize();
+        }
     }
+    //private void Update()
+    //{
+    //    Respawn();
+    //}
 
     private void Respawn()
     {
         // Debug.Log(gameObject);
         if (isDisTree)
         {
-            Quaternion qua = rotateObject.rotation;
-            // Debug.Log(qua);
-            if ((qua.x >= -0.001f && qua.x <= 0.0f) || (qua.x <= 0.001f && qua.x >= 0.0f))
+            float qua = sun.transform.rotation.x;
+            if ((qua >= -0.0004f && qua <= 0.0f) || (qua <= 0.0004f && qua >= 0.0f))
             {
-                // 쿼터니안의 범위는 0~ 1.0 ~ 0 ~ -1.0 ~ 0 의 2*sin x 의 그래프와같은 형태이므로 아침이오기전의 값인 -0.001f 와 0.001값부터 아침이되는 0사이에 오브젝트 활성화
                 gameObject.SetActive(true);
                 Debug.Log("TreeRespawn");
+                isDisTree = false;
             }
         }
     }
@@ -175,5 +195,19 @@ public class Tree : PlaneBase
     void TreeObject(int Hp)
     {
         Hp = objectHP;
+    }
+
+    public void SetData()
+    {
+        DataController.Instance.gameData.treeIsTree = isDisTree;
+    }
+    private void PreInitialize()
+    {
+        isDisTree = false;
+    }
+
+    private void Initialize()
+    {
+        isDisTree = DataController.Instance.gameData.treeIsTree;
     }
 }

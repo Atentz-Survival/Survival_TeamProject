@@ -34,13 +34,13 @@ public class Sunshine : MonoBehaviour
 
     // CubemapTransition 관련 변수 --------------------------------------------------------
     public Material skybox;
-    float alpha = 0.0f;
+    float alpha;
     public float beta = 0.5f;
     private float gamma = 0.5f;
     public float maxAlpha = 0.6f;
 
     // 낮밤 확인 변수
-    public bool isNight = false;
+    public bool isNight;
 
     // Sunshine의 회전값을 나타내는 변수 (Update)--------------------------------------------
     public float vecT = 0.5f;    // 6분경과 : 0.3333f
@@ -70,6 +70,8 @@ public class Sunshine : MonoBehaviour
     private void Start()
     {
         rotationAmount = 0.0f;
+        isNight = false;
+        alpha = 0.0f;
 
         //HourChange += RoundTime;                        // 여기서 선샤인값을 받는다.
         RenderSettings.fogDensity = morningFog;
@@ -197,12 +199,18 @@ public class Sunshine : MonoBehaviour
         //DataController.Instance.gameData.currentSunRotate = round;
         //DataController.Instance.gameData.currentRotateTime = t;
         DataController.Instance.gameData.currentSunRotate = rotationAmount;
+        DataController.Instance.gameData.currentIsNight = isNight;
+        DataController.Instance.gameData.cubemap = alpha;
+        DataController.Instance.gameData.fogDens = RenderSettings.fogDensity;
     }
     private void PreInitialize()
     {
         //t = 0.0f;
         //round = 0.0f;
         rotationAmount = 0.0f;
+        isNight = false;
+        alpha = 0.0f;
+        RenderSettings.fogDensity = morningFog;
     }
 
     private void Initialize()
@@ -211,6 +219,9 @@ public class Sunshine : MonoBehaviour
         //t = DataController.Instance.gameData.currentRotateTime;
         //vec = Quaternion.Euler(round, 0, 0);
         rotationAmount = DataController.Instance.gameData.currentSunRotate;
+        isNight = DataController.Instance.gameData.currentIsNight;
+        alpha = DataController.Instance.gameData.cubemap;
+        RenderSettings.fogDensity = DataController.Instance.gameData.fogDens;
     }
 
     //private void RoundTime()

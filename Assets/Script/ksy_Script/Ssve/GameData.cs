@@ -24,6 +24,11 @@ public class GameData
     public int currentDay;         // 날짜
     public int currentTime;
 
-    public float currentSunRotate;
-    public float currentRotateTime;
+    public float currentSunRotate;  // Sunshine의 회전값
+    public bool currentIsNight;     // 낮, 밤 구분
+    public float cubemap;           // 하늘
+    public float fogDens;           // 밤의 어두운 정도
+
+    public bool flowerIsFlower;     // 꽃의 생성
+    public bool treeIsTree;         // 나무의 생성
 }
