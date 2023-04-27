@@ -20,7 +20,6 @@ public class PlayerUI : MonoBehaviour
     Transform keySet;
     Transform help;
 
-    float diePanelOpen;
     public bool menuClosed;
     bool keySetOn = false;
 
@@ -42,14 +41,13 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        diePanelOpen = 0.0f;
         player = FindObjectOfType<PlayerBase>();
         menuClosed = true;
         
         diePanel.gameObject.SetActive(false);
         keySet.gameObject.SetActive(false);
 
-        player.onDie += OneDiePanel;
+        player.onDie += OnDiePanel;
         pauseButton.onClick.AddListener(CallPauseMenu);
         returnMainButton.onClick.AddListener(CallMainMenu);
 
@@ -114,14 +112,10 @@ public class PlayerUI : MonoBehaviour
         Debug.Log("퍼즈");
     }
 
-    private void OneDiePanel()
+    // 사망패널 기능 코루틴으로 변경
+    private void OnDiePanel()
     {
-        float delay = 4.0f;
-        diePanelOpen += Time.deltaTime;
-        if (diePanelOpen > delay)
-        {
-            diePanel.gameObject.SetActive(true);
-        }
+        StartCoroutine(OnDiePanelCor());
     }
 
     private void OnKeySet(InputAction.CallbackContext _)
@@ -156,4 +150,15 @@ public class PlayerUI : MonoBehaviour
         StopCoroutine(OnHelpPanel());
     }
    
+    /// <summary>
+    /// 사망 패널 활성화용 코루틴
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator OnDiePanelCor()
+    {
+        Debug.Log("코루틴 시작");
+        yield return new WaitForSeconds(3.0f);
+        diePanel.gameObject.SetActive(true);
+        StopCoroutine(OnDiePanelCor());
+    }
 }

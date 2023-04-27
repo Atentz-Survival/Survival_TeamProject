@@ -56,7 +56,6 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-
     private void ResumeGame()
     {
         gameObject.SetActive(false);
