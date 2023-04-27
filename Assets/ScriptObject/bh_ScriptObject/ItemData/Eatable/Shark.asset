@@ -18,5 +18,7 @@ MonoBehaviour:
     \uC2DC \uD5C8\uAE30 + 100)"
   tag: 0
   iconSprite: {fileID: 21300000, guid: e68cd8a720e2c624ab618c5b9029b830, type: 3}
-  amountOfHungerRecovery: 100
+  productionMaterialTypeList: 
+  productionMaterialAmountList: 
+  amountOfHungerRecovery: 700
   itemsAffectStatus: 0
