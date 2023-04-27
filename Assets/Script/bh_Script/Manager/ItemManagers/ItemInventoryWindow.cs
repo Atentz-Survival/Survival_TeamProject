@@ -81,11 +81,11 @@ public class ItemInventoryWindow : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-        playerbase.onInventory -= OnAndOff;
-    }
+    //private void OnDestroy()
+    //{
+    //    PlayerBase playerbase = FindObjectOfType<PlayerBase>();
+    //    playerbase.onInventory -= OnAndOff;
+    //}
 
     public void RefreshItemInventory()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -95,6 +96,7 @@ public class ItemManager : Singleton<ItemManager>
         set => setUpItemPosition = value;
     }
 
+    public Action OnHousingmode; 
 
     protected override void PreInitialize()
     {
@@ -135,9 +137,7 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory.ItemsInventoryWindow.ExplanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
             itemInventory.ItemsInventoryWindow.ToolItemTag_Length = System.Enum.GetValues(typeof(ToolItemTag)).Length;
             PlayerBase playerbase = FindObjectOfType<PlayerBase>();
-            if (playerbase != null) { //濡械纔蝶お
-                playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
-            } //濡械纔蝶お
+            playerbase.onInventory += itemInventory.ItemsInventoryWindow.OnAndOff;
             itemInventory.ItemsInventoryWindow.RefreshItemInventory();
             itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
@@ -157,6 +157,7 @@ public class ItemManager : Singleton<ItemManager>
                 setUpItem.transform.position = setUpItemPosition;
             }
         }
+        OnHousingmode = null;
     }
 
     private void OnDisable()
@@ -202,7 +203,8 @@ public class ItemManager : Singleton<ItemManager>
             isHousingMode = true;
             housingAction.Player.Enable();
             housingAction.Player.SetUp.performed += SetUpObject;
-            Debug.Log("On六六六六");
+            OnHousingmode?.Invoke();
+            //Debug.Log("On六六六六");
 
         }   
     }
@@ -214,7 +216,7 @@ public class ItemManager : Singleton<ItemManager>
             isHousingMode = false;
             housingAction.Player.SetUp.performed -= SetUpObject;
             housingAction.Player.Disable();
-            Debug.Log("OFF六六六六");
+            //Debug.Log("OFF六六六六");
             if (itemInventory.ItemsInventoryWindow.gameObject.activeSelf == false)
             {
                 itemInventory.ItemsInventoryWindow.gameObject.SetActive(true);
