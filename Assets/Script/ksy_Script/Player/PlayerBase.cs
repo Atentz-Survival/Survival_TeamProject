@@ -25,6 +25,7 @@ public class PlayerBase : MonoBehaviour
     private bool isDoing = false;
 
     private bool ifCraft = false;
+    private bool isMove = true;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
     {
@@ -114,6 +115,17 @@ public class PlayerBase : MonoBehaviour
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInput();
+        axe = FindObjectOfType<Axe>();
+        fishingRod = FindObjectOfType<FishinfRod>();
+        reap = FindObjectOfType<Reap>();
+        pick = FindObjectOfType<Pick>();
+        rHand = FindObjectOfType<RightHand>();
+        craft = FindObjectOfType<CraftingWindow>();
+        item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        if (item == null)
+        {
+            item = ItemManager.Instance.itemInventory.ItemsInventoryWindow.ExplanRoom;
+        }
     }
     private void OnEnable()
     {
@@ -135,12 +147,22 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.Activity.canceled += OnAvtivityStop;
 
         inputActions.CharacterMove.Interaction_Item.performed += OnGrab;
-        inputActions.CharacterMove.Interaction_Item.canceled += OnGrab;
 
         inputActions.OpenWindow.OpenItemWindow.performed += Oninventory;
         inputActions.OpenWindow.OpenCraftWindow.performed += OnMaking;
 
         //-----전달 받을 델리게이트----
+        pauseMenu.updateData += SetData;
+        item.onChangeHp += OnUpgradeHp; // <<인벤
+        item.onChangeTool += OnUpgradeTool;
+
+        axe.UsingTool += OnUpgradeHp;
+        reap.UsingTool += OnUpgradeHp;
+        pick.UsingTool += OnUpgradeHp;
+        fishingRod.UsingTool += OnUpgradeHp;
+        rHand.UsingTool += OnUpgradeHp;
+        craft.DoAction += CraftDoAction;
+        craft.DontAction += CraftDontAction;
     }
 
     private void OnDisable()
@@ -160,7 +182,6 @@ public class PlayerBase : MonoBehaviour
         inputActions.CharacterMove.Activity.canceled -= OnAvtivityStop;
 
         inputActions.CharacterMove.Interaction_Item.performed -= OnGrab;
-        inputActions.CharacterMove.Interaction_Item.canceled -= OnGrab;
         inputActions.CharacterMove.Disable();
         inputActions.OpenWindow.Disable();
     }
@@ -169,10 +190,8 @@ public class PlayerBase : MonoBehaviour
 
     private void Start()
     {
-        
-        pauseMenu.updateData += SetData;
-        item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
-        if( item == null ) 
+        /*item = FindObjectOfType<ItemInventoryWindowExplanRoom>();
+        if (item == null)
         {
             item = ItemManager.Instance.itemInventory.ItemsInventoryWindow.ExplanRoom;
         }
@@ -183,9 +202,8 @@ public class PlayerBase : MonoBehaviour
         pick = FindObjectOfType<Pick>();
         rHand = FindObjectOfType<RightHand>();
         craft = FindObjectOfType<CraftingWindow>();
-        HP = maxHp;
-        HpChange();
-        /*--------------------HP 델리게이트 전달 받기-------------------------------*/
+
+        pauseMenu.updateData += SetData;
         item.onChangeHp += OnUpgradeHp; // <<인벤
         item.onChangeTool += OnUpgradeTool;
 
@@ -193,10 +211,12 @@ public class PlayerBase : MonoBehaviour
         reap.UsingTool += OnUpgradeHp;
         pick.UsingTool += OnUpgradeHp;
         fishingRod.UsingTool += OnUpgradeHp;
-        rHand.UsingTool += OnUpgradeHp; 
+        rHand.UsingTool += OnUpgradeHp;
         craft.DoAction += CraftDoAction;
-        craft.DontAction += CraftDontAction;
+        craft.DontAction += CraftDontAction;*/
 
+        HP = maxHp;
+        HpChange();
 
         if(DataController.Instance.WasSaved == false)
         {
@@ -316,16 +336,19 @@ public class PlayerBase : MonoBehaviour
     }
     void Move()
     {
-        V3 = new Vector3(0, mouseDelta, 0);      //마우스 z좌표 이동 y축 회전 값으로 저장
-        mouseDelta = 0.0f;                       //초기하 작업
-        transform.Rotate(V3 * turnSpeed);        // 턴스피드 속도만큼 회전
-        if (isRun == true)
+        if (isMove == true)
         {
-            rigid.MovePosition(Time.fixedDeltaTime * rushSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
-        }
-        else
-        {
-            rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);       // 로컬(본인기준 왼오위아래) 방향 이동처리
+            V3 = new Vector3(0, mouseDelta, 0);      //마우스 z좌표 이동 y축 회전 값으로 저장
+            mouseDelta = 0.0f;                       //초기하 작업
+            transform.Rotate(V3 * turnSpeed);        // 턴스피드 속도만큼 회전
+            if (isRun == true)
+            {
+                rigid.MovePosition(Time.fixedDeltaTime * rushSpeed * transform.TransformDirection(inputDir).normalized + transform.position);
+            }
+            else
+            {
+                rigid.MovePosition(Time.fixedDeltaTime * moveSpeed * transform.TransformDirection(inputDir).normalized + transform.position);       // 로컬(본인기준 왼오위아래) 방향 이동처리
+            }
         }
     }
 
@@ -554,9 +577,21 @@ public class PlayerBase : MonoBehaviour
 
     private void OnGrab(InputAction.CallbackContext context)
     {
-        anim.SetBool("ItemGrab", !context.canceled);
+        isMove = false;
+        anim.SetTrigger("ItemGrab");
+        if(context.canceled)
+        {
+            isMove = true;
+        }
+        else
+        {
+            Invoke("EnableMovement", 1f); // 1초 뒤에 이동 가능하도록 설정
+        }
     }
-
+    void EnableMovement()
+    {
+        isMove = true;
+    }
 
     //----------------------------------장소 상호작용 함수-------------------------------
 
