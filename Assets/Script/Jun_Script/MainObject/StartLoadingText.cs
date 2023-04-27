@@ -90,7 +90,7 @@ public class StartLoadingText : MonoBehaviour
 
     IEnumerator ChargeSlider()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(2);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
         operation.allowSceneActivation = false;
 
 

@@ -248,7 +248,6 @@ public class SaveFileUI : MonoBehaviour
 
     public void OnSaveFile()
     {
-        Debug.Log("ssss");
         DataController.Instance.SaveGameData();
     }
 }
