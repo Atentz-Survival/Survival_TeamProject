@@ -211,7 +211,7 @@ public class BasementObject : MonoBehaviour
         void objectInit1()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up;
+            obj.transform.position = transform.position + Vector3.forward;
             target = obj;
         }
     }
@@ -234,7 +234,7 @@ public class BasementObject : MonoBehaviour
         void objectInit2()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up;
+            obj.transform.position = transform.position + Vector3.forward;
             target = obj;
         }
     }
@@ -257,7 +257,7 @@ public class BasementObject : MonoBehaviour
         void objectInit3()
         {
             GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.up;
+            obj.transform.position = transform.position + Vector3.forward;
             target = obj;
         }
     }
@@ -292,19 +292,19 @@ public class BasementObject : MonoBehaviour
     public void Hand_Drop_Rock1()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone);
-        obj.transform.position = transform.position + Vector3.up;
+        obj.transform.position = transform.position + Vector3.forward + Vector3.left;
         target = obj;
     }
     public void Hand_Drop_Rock2()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron);
-        obj.transform.position = transform.position + Vector3.up;
+        obj.transform.position = transform.position + Vector3.forward + Vector3.left;
         target = obj;
     }
     public void Hand_Drop_Rock3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold);
-        obj.transform.position = transform.position + Vector3.up;
+        obj.transform.position = transform.position + Vector3.forward + Vector3.left;
         target = obj;
     }
     // 맨손 Flower------------------------------------------------------------------------------------
