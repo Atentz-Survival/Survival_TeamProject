@@ -58,7 +58,7 @@ public class Test_Pool : Test_Base
         //}
 
         ItemManager.Instance.itemInventory.AddItem(ItemType.CraftingTable, 1);
-        
+
     }
 
     protected override void DoAction4(InputAction.CallbackContext _)
