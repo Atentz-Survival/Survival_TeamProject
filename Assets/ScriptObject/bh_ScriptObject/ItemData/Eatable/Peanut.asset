@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uB545\uCF69"
   explan: "\uBA39\uC73C\uBA74 \uD3EC\uB9CC\uAC10\uC774 \uC788\uB294 \uACE0\uC18C\uD55C
-    \uACAC\uACFC\uB958.(\uC0AC\uC6A9 \uC2DC \uD5C8\uAE30 + 15)"
+    \uACAC\uACFC\uB958.(\uC0AC\uC6A9 \uC2DC \uD5C8\uAE30 + 300)"
   tag: 0
   iconSprite: {fileID: 21300000, guid: c19c517cc55f856429799fc23b89868d, type: 3}
   productionMaterialTypeList: 
