@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e41c179774233948aec27231ef4ece4, type: 3}
-  m_Name: Peanut
+  m_Name: Strawberry
   m_EditorClassIdentifier: 
-  itemName: "\uB545\uCF69"
-  explan: "\uBA39\uC73C\uBA74 \uD3EC\uB9CC\uAC10\uC774 \uC788\uB294 \uACE0\uC18C\uD55C
-    \uACAC\uACFC\uB958.(\uC0AC\uC6A9 \uC2DC \uD5C8\uAE30 + 15)"
+  itemName: "\uB538\uAE30"
+  explan: "\uBE68\uAC1B\uACE0 \uB2EC\uB2EC\uD55C \uACFC\uC77C.(\uC0AC\uC6A9 \uC2DC
+    \uD5C8\uAE30 + 5)"
   tag: 0
-  iconSprite: {fileID: 21300000, guid: c19c517cc55f856429799fc23b89868d, type: 3}
-  amountOfHungerRecovery: 15
+  iconSprite: {fileID: 21300000, guid: d302462080c797b4aab1808b4ab69c2f, type: 3}
+  productionMaterialTypeList: 
+  productionMaterialAmountList: 
+  amountOfHungerRecovery: 200
   itemsAffectStatus: 0
