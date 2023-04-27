@@ -24,10 +24,12 @@ public class Test_Pool : Test_Base
 
     protected override void DoAction1(InputAction.CallbackContext _)
     {
-        GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = new Vector3(4.4f, 0.85f, -0.5f);
-        Debug.Log($"시작이야아아 : {time}");
-        //ItemManager.Instance.itemInventory.AddItem(ItemType.Strawberry, 1);
+        //GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        //obj.transform.position = new Vector3(4.4f, 0.85f, -0.5f);
+        //Debug.Log($"시작이야아아 : {time}");
+        ItemManager.Instance.itemInventory.AddItem(ItemType.Stone, 30);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.Firewood, 30);
+        ItemManager.Instance.itemInventory.AddItem(ItemType.Strawberry, 30);
         //ItemManager.Instance.itemInventory.MakeItem(ItemType.GoldPickaxe, 1);
     }
 

@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uC81C\uC791\uB300"
   explan: "\uAC01\uC885 \uC544\uC774\uD15C\uC744 \uC81C\uC791\uD560 \uC218 \uC788\uB294
-    \uC81C\uC791\uB300."
+    \uC81C\uC791\uB300. \uC0AC\uC6A9\uC0AC \uC6D0\uD558\uB294 \uBD84\uD64D\uC0C9
+    \uC9C0\uC5ED\uC744 \uD074\uB9AD\uD558\uC5EC \uADF8 \uACF3\uC5D0 \uC81C\uC791\uB300\uB97C
+    \uBC30\uCE58\uD560 \uC218 \uC788\uB2E4."
   tag: 4
   iconSprite: {fileID: 21300000, guid: c45f8d85a021c82489ee00e1e9fe4268, type: 3}
+  productionMaterialTypeList: 
+  productionMaterialAmountList: 

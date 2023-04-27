@@ -9,7 +9,9 @@ public class CraftingWindow : MonoBehaviour
 {
     PlayerBase player;
     Button startCraft;
+    public Button StartCraft => startCraft;
     Button menuCloseButton; // 닫기 버튼 추가
+    public Button MenuCloseButton => menuCloseButton;
 
     public const int notSelect = -1;
     int _SelectedIndex = notSelect;
@@ -71,46 +73,30 @@ public class CraftingWindow : MonoBehaviour
     }
     private void Start()
     {
-        player = FindObjectOfType<PlayerBase>();
-        gameObject.SetActive(false);
-        player.onMaking += OpenCraftingWindow;
-        startCraft.onClick.AddListener(OnMakeTool);
-        menuCloseButton.onClick.AddListener(CloseMenu);
+        //player = FindObjectOfType<PlayerBase>();
+        //gameObject.SetActive(false);
+        //player.onMaking += OpenCraftingWindow;
+        //startCraft.onClick.AddListener(OnMakeTool);
+        //menuCloseButton.onClick.AddListener(CloseMenu);
     }
 
-    void OnMakeTool()
+    public void OnMakeTool()
     {
+        Debug.Log($"canMakeTool : {canMakeTool}");
         if(canMakeTool == true)
         {
             //Debug.Log("제작 가능");
-            for (int i = 0; i < ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList.Count; i++)
-            {
-                if (!ItemManager.Instance.itemInventory.FindItem(ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList[i], ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialAmountList[i] * 1))
-                {
-                    _itemMakeGuideText.text = "제작 재료가 부족합니다.";
-                    return;
-                }
-            }
-
-            if (ItemManager.Instance.itemInventory.emptySpaceStartIndex < ItemManager.Instance.itemInventoryMaxSpace)
-            {
                 for (int i = 0; i < ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList.Count; i++)
                 {
                     ItemManager.Instance.itemInventory.SubtractItem(ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList[i], ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialAmountList[i] * 1);
                 }
                 ItemManager.Instance.itemInventory.AddItem(makePossibleItems[_selectedIndex], 1);
                 _itemMakeGuideText.text = $"{ItemManager.Instance[makePossibleItems[_selectedIndex]].ItemName} 1개를 제작완료하였습니다!";
-            }
-            else
-            {
-                _itemMakeGuideText.text = "아이템 칸이 모자랍니다. 아이템 칸을 1칸 이상 비워주세요.";
-            }
-
-
+            CheckCanMakeTool();
         }
     }
 
-    private void OpenCraftingWindow()
+    public void OpenCraftingWindow()
     {
        if (gameObject.activeSelf == true)
        {
@@ -123,14 +109,15 @@ public class CraftingWindow : MonoBehaviour
            gameObject.SetActive(true);
            RefreshCraftingWindow();
            DontAction?.Invoke();
-           startCraft.interactable = canMakeTool;  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
-       }
+           startCraft.interactable = false;  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
+           Debug.Log($"canMakeTool : {canMakeTool}");
+        }
     }
 
     /// <summary>
     /// 버튼 닫기용 함수
     /// </summary>
-    private void CloseMenu()
+    public void CloseMenu()
     {
         CleanMenu();
         gameObject.SetActive(false);
@@ -186,14 +173,16 @@ public class CraftingWindow : MonoBehaviour
         if (_selectedIndex != notSelect)
         {
             craftingWindowRooms[_selectedIndex]._panelImage.color = Color.white;
+            _selectedIndex = notSelect;
         }
 
-            for (int i = 0; i < productionMaterialImages.Length; i++)
+
+        for (int i = 0; i < productionMaterialImages.Length; i++)
         {
             productionMaterialImages[i].enabled = false;
             productionMaterialTexts[i].text = string.Empty;
         }
-        startCraft.gameObject.SetActive(false);
+        
         _itemMakeGuideText.text = string.Empty;
     }
 
@@ -227,8 +216,37 @@ public class CraftingWindow : MonoBehaviour
                 productionMaterialTexts[i].text = string.Empty;
             }
         }
-        startCraft.gameObject.SetActive(true);
+        
         _itemMakeGuideText.text = string.Empty;
         _selectedIndex = index;
+        CheckCanMakeTool();
+    }
+
+    public void CheckCanMakeTool()
+    {
+        canMakeTool = true;
+        if (_selectedIndex != notSelect)
+        {
+            if (ItemManager.Instance.itemInventory.emptySpaceStartIndex < ItemManager.Instance.itemInventoryMaxSpace)
+            {
+                for (int i = 0; i < ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList.Count; i++)
+                {
+                    if (!ItemManager.Instance.itemInventory.FindItem(ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList[i], ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialAmountList[i] * 1))
+                    {
+                        canMakeTool = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                canMakeTool = false;
+            }
+        }
+        else
+        {
+            canMakeTool = false;
+        }
+        startCraft.interactable = canMakeTool;
     }
 }

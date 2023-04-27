@@ -50,6 +50,13 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
         set => itemInventoryWindow = value;
     }
 
+    CraftingWindow craftingWindow;
+    public CraftingWindow CraftingsWindow
+    {
+        get => craftingWindow;
+        set => craftingWindow = value;
+    }
+
     void Awake()
     {
         Transform child1 = transform.GetChild(0);
@@ -151,6 +158,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
             }
         }
         itemInventoryWindow.RefreshItemInventory();
+        CraftingsWindow.CheckCanMakeTool();
     }
 
     public void ItemDump()
@@ -189,6 +197,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
                 initialize();
             }
             itemInventoryWindow.RefreshItemInventory();
+            CraftingsWindow.CheckCanMakeTool();
         }
     }
 
@@ -219,6 +228,7 @@ public class ItemInventoryWindowExplanRoom : MonoBehaviour
             initialize();
         }
         itemInventoryWindow.RefreshItemInventory();
+        CraftingsWindow.CheckCanMakeTool();
     }
     // Update is called once per frame
 
