@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -95,6 +96,7 @@ public class ItemManager : Singleton<ItemManager>
         set => setUpItemPosition = value;
     }
 
+    public Action OnHousingmode; 
 
     protected override void PreInitialize()
     {
@@ -155,6 +157,7 @@ public class ItemManager : Singleton<ItemManager>
                 setUpItem.transform.position = setUpItemPosition;
             }
         }
+        OnHousingmode = null;
     }
 
     private void OnDisable()
@@ -200,7 +203,8 @@ public class ItemManager : Singleton<ItemManager>
             isHousingMode = true;
             housingAction.Player.Enable();
             housingAction.Player.SetUp.performed += SetUpObject;
-            Debug.Log("Onせせせせ");
+            OnHousingmode?.Invoke();
+            //Debug.Log("Onせせせせ");
 
         }   
     }
@@ -212,7 +216,7 @@ public class ItemManager : Singleton<ItemManager>
             isHousingMode = false;
             housingAction.Player.SetUp.performed -= SetUpObject;
             housingAction.Player.Disable();
-            Debug.Log("OFFせせせせ");
+            //Debug.Log("OFFせせせせ");
             if (itemInventory.ItemsInventoryWindow.gameObject.activeSelf == false)
             {
                 itemInventory.ItemsInventoryWindow.gameObject.SetActive(true);
