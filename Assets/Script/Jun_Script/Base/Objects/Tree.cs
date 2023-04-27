@@ -23,7 +23,7 @@ public class Tree : PlaneBase
 
     private void Start()
     {
-        Sunshine.OnRespawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
+        sun.OnRspawn += Respawn;      // Onrespawn의 낮밤이 실행될때 respawn실행(sunshine에서 update에 넣었기 때문에 Update를 우회하여 실행)
         TreeHp += TreeObject;
         isDisTree = false;
 
@@ -37,10 +37,6 @@ public class Tree : PlaneBase
             Initialize();
         }
     }
-    //private void Update()
-    //{
-    //    Respawn();
-    //}
 
     private void Respawn()
     {
@@ -51,7 +47,6 @@ public class Tree : PlaneBase
             if ((qua >= -0.0004f && qua <= 0.0f) || (qua <= 0.0004f && qua >= 0.0f))
             {
                 gameObject.SetActive(true);
-                Debug.Log("TreeRespawn");
                 isDisTree = false;
             }
         }

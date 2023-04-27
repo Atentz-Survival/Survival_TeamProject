@@ -19,7 +19,7 @@ public class Flower : PlaneBase
     }
     private void Start()
     {
-        Sunshine.OnRespawn += RespawnF;
+        sun.OnRspawn += RespawnF;
         FlowerHp += FlowerObject;
         isDisFlower = false;
 
@@ -33,10 +33,6 @@ public class Flower : PlaneBase
             Initialize();
         }
     }
-    //private void Update()
-    //{
-    //    RespawnF();
-    //}
 
     private void RespawnF()
     {
@@ -46,7 +42,6 @@ public class Flower : PlaneBase
             if ((qua >= -0.0004f && qua <= 0.0f) || (qua <= 0.0004f && qua >= 0.0f))
             {
                 gameObject.SetActive(true);
-                Debug.Log("FlowerRespawn");
                 isDisFlower = false;
             }
         }

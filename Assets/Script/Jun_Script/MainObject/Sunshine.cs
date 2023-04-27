@@ -12,9 +12,10 @@ using UnityEngine.SceneManagement;
 
 public class Sunshine : MonoBehaviour
 {
-    public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
-    public static ReSpawnObject OnRespawn;                 // 이 클래스내의 함수를 OnRespawn변수로 참조
+    //public delegate void ReSpawnObject();                  // 스폰을 위해 태양의 회전과 밤낮을 델리게이트로
+    //public static ReSpawnObject OnRespawn;                 // 이 클래스내의 함수를 OnRespawn변수로 참조
 
+    public Action OnRspawn;
 
     public Quaternion Vec
     {
@@ -89,8 +90,7 @@ public class Sunshine : MonoBehaviour
 
     private void Update()
     {
-        OnRespawn?.Invoke();
-        //OnRespawn();
+        OnRspawn?.Invoke();
         SunRotate();
         SetFog();
     }
@@ -189,11 +189,6 @@ public class Sunshine : MonoBehaviour
         }
     }
 
-    // ------------------------- 04/26 float alpha 의 값과 float.RenderSettings.fogDensity 의 값을 세이브할 필요가 있을거 같습니다---------------------------------------
-    // float alpha 는 Cubemap Transition의 수치이며, alpha를 저장하면 하늘의 색을 저장할 수 있다.
-    // float.RenderSettings.fogDensity 는 Fog의 수치이며, 밤이 되었을 때 Fog로 어둡게 표현하기 위해 사용.
-    // ----------------------------------------------------------------------------------------------------------------------------------------------------
-
     public void SetData()
     {
         //DataController.Instance.gameData.currentSunRotate = round;
@@ -223,16 +218,4 @@ public class Sunshine : MonoBehaviour
         alpha = DataController.Instance.gameData.cubemap;
         RenderSettings.fogDensity = DataController.Instance.gameData.fogDens;
     }
-
-    //private void RoundTime()
-    //{
-    //    vec = Quaternion.Euler((int)round, 0, 0);
-    //    Debug.Log(round);
-    //    int time = (int)round / 15;
-    //}
-    // 텐트와 상호작용시 할 내용
-    // 텐트와 상호작용시 -> 로딩 씬 출현 -> 다시 씬을 불러들여와서 쿼터니언의 범위 값이 0이되게한다.
-    // get set을 이용하면 되지않을까....?
-
-    // 04/10 씬 생성완료 씬을 설정해서 텐트와 상호작용 시 로딩 씬출력 텍스트 필요
 }
