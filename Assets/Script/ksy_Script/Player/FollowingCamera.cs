@@ -1,3 +1,5 @@
+using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +13,21 @@ public class FollowingCamera : MonoBehaviour
     Vector3 offset;
     float lenght;
 
+    // 시네머신 카메라용 컴포넌트
+    CinemachineBrain brain;
+    public CinemachineBrain Brain => brain; // 사망 카메라 전달용 프로퍼티
+    PlayerBase player;                      // 플레이어 사망 델리게이트 받기용
+
+    private void Awake()
+    {
+        brain = GetComponent<CinemachineBrain>();   // 시네머신 브레인
+        player = FindObjectOfType<PlayerBase>();    // 플레이어 찾기
+    }
+
     private void Start()
     {
+        brain.enabled = false;  // 시네머신 비활성화해서 기존 카메라 시점으로 게임 진행
+        player.onDie += OnCineMachine;  // 사망시 시네머신 함수 실행
         if (DataController.Instance.WasSaved == false)
         {
             PreInitialize();
@@ -52,18 +67,24 @@ public class FollowingCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Slerp(     // ȣ�� �׸��� �����̰� �����
-            transform.position,                 // ���� ��ġ���� 
-            target.position + Quaternion.LookRotation(target.forward) * offset, // offset��ŭ ������ ��ġ��(ȸ�� �����)
-            1.0f);       // Time.fixedDeltaTime * speed��ŭ ����
+        transform.position = Vector3.Slerp(     // 호를 그리며 움직이게 만들기
+            transform.position,                 // 현재 위치에서 
+            target.position + Quaternion.LookRotation(target.forward) * offset, // offset만큼 떨어진 위치로(회전 적용됨)
+            1.0f);       // Time.fixedDeltaTime * speed만큼 보간
 
-        transform.LookAt(target);               // ī�޶� ��ǥ���� �ٶ󺸱�
+        transform.LookAt(target);               // 카메라가 목표지점 바라보기
 
-        // target���� ī�޶�� ������ ����
+        // target에서 카메라로 나가는 레이
         Ray ray = new Ray(target.position, transform.position - target.position);
-        if (Physics.Raycast(ray, out RaycastHit hit, lenght))  // �浹 üũ
+        if (Physics.Raycast(ray, out RaycastHit hit, lenght))  // 충돌 체크
         {
-            transform.position = hit.point;                     // �浹�ϸ� �浹�� ��ġ�� ī�޶� �ű�
+            transform.position = hit.point;                     // 충돌하면 충돌한 위치로 카메라 옮김
         }
+    }
+
+
+    private void OnCineMachine()
+    {
+        brain.enabled = true;   // 브레인 실행
     }
 }

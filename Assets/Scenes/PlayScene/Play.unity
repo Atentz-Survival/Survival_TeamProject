@@ -4696,7 +4696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319829914}
   m_LocalRotation: {x: 0.030530859, y: 0.07063977, z: -0.0021631124, w: 0.9970322}
-  m_LocalPosition: {x: -0.4600004, y: 0.2, z: -3.2300007}
+  m_LocalPosition: {x: -0.46002197, y: 0.2000122, z: -3.2300007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5514,6 +5514,7 @@ GameObject:
   - component: {fileID: 366985323}
   - component: {fileID: 366985322}
   - component: {fileID: 366985325}
+  - component: {fileID: 366985326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5579,8 +5580,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366985321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.030530859, y: 0.07063977, z: -0.0021631124, w: 0.9970322}
+  m_LocalPosition: {x: 959.54, y: 540.2, z: -3.2300007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5601,6 +5602,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1655135093}
   speed: 1
+--- !u!114 &366985326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366985321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &368301709
 PrefabInstance:
   m_ObjectHideFlags: 0
