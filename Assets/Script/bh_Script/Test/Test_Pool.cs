@@ -8,6 +8,7 @@ public class Test_Pool : Test_Base
 {
     ItemInventoryWindow itemInventoryWindow;
     ItemInventoryWindowExplanRoom explanRoom;
+    float time = 0f;
     //test
 
     void Start() 
@@ -16,12 +17,18 @@ public class Test_Pool : Test_Base
         //explanRoom = FindObjectOfType<ItemInventoryWindowExplanRoom>();
     }
 
+    void Update()
+    {
+        time += Time.deltaTime;
+    }
+
     protected override void DoAction1(InputAction.CallbackContext _)
     {
-        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = Vector3.up * 9;
-        //ItemManager.Instance.itemInventory.AddItem(ItemType.StonePickaxe, 1);
-        ItemManager.Instance.itemInventory.MakeItem(ItemType.GoldPickaxe, 1);
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = new Vector3(4.4f, 0.85f, -0.5f);
+        Debug.Log($"시작이야아아 : {time}");
+        //ItemManager.Instance.itemInventory.AddItem(ItemType.Strawberry, 1);
+        //ItemManager.Instance.itemInventory.MakeItem(ItemType.GoldPickaxe, 1);
     }
 
     protected override void DoAction2(InputAction.CallbackContext _)
@@ -57,7 +64,7 @@ public class Test_Pool : Test_Base
         //    ItemManager.Instance.itemInventory.emptySpaceStartIndex++;
         //}
 
-        ItemManager.Instance.itemInventory.AddItem(ItemType.CraftingTable, 1);
+        //ItemManager.Instance.itemInventory.AddItem(ItemType.CraftingTable, 1);
 
     }
 
