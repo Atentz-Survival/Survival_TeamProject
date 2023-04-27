@@ -96,7 +96,8 @@ public class ItemManager : Singleton<ItemManager>
         set => setUpItemPosition = value;
     }
 
-    public Action OnHousingmode; 
+    public Action OnHousingmode;
+    public Action OffHousingmode;
 
     protected override void PreInitialize()
     {
@@ -222,6 +223,7 @@ public class ItemManager : Singleton<ItemManager>
                 itemInventory.ItemsInventoryWindow.gameObject.SetActive(true);
                 itemInventory.ItemsInventoryWindow.AfterItemUse(isUse);
             }
+            OffHousingmode?.Invoke();
         }
     }
 
