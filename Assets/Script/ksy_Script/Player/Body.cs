@@ -64,7 +64,7 @@ public class Body : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Workbench"))
+        if (other.gameObject.CompareTag("Workbench") || ItemManager.Instance.SetUpAItem.gameObject.activeSelf == true)
         {
             player.ifCraft = false;
         }
