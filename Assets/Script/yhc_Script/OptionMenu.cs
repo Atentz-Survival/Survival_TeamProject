@@ -14,6 +14,7 @@ public class OptionMenu : MonoBehaviour
     public bool optionClosed;
 
 
+
     private void Awake()
     {
         brightnessSlider = GetComponentInChildren<Slider>();
@@ -26,7 +27,9 @@ public class OptionMenu : MonoBehaviour
     private void Start()
     {
         opCloseButton.onClick.AddListener(CloseOption);
+        brightnessSlider.onValueChanged.AddListener(ChangeBrightness);  // 밝기조절 옵션 작동방식 변경
     }
+
 
     private void OnEnable()
     {
@@ -34,16 +37,10 @@ public class OptionMenu : MonoBehaviour
         uiact.UI.Esc.performed += ESC;
     }
 
-
     private void OnDisable()
     {
         uiact.UI.Esc.performed -= ESC;
         uiact.UI.Disable();
-    }
-
-    private void Update()
-    {
-        brightness.color = new Color (0,0,0, brightnessSlider.value);
     }
 
     private void ESC(InputAction.CallbackContext _)
@@ -60,5 +57,11 @@ public class OptionMenu : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    // 슬라이더 바뀔때만 변경
+    private void ChangeBrightness(float arg0)
+    {
+        brightness.color = new Color(0, 0, 0, brightnessSlider.value);
     }
 }

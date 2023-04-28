@@ -47,6 +47,7 @@ public class PlayerUI : MonoBehaviour
         diePanel.gameObject.SetActive(false);
         keySet.gameObject.SetActive(false);
 
+        player.onUpgradeHp += RefreshHPSlider;
         player.onDie += OnDiePanel;
         pauseButton.onClick.AddListener(CallPauseMenu);
         returnMainButton.onClick.AddListener(CallMainMenu);
@@ -54,7 +55,7 @@ public class PlayerUI : MonoBehaviour
         StartCoroutine(OnHelpPanel());
     }
 
-    private void FixedUpdate()
+    private void RefreshHPSlider(float ratio)
     {
         HPUI.value = player.HP;
     }
@@ -64,7 +65,6 @@ public class PlayerUI : MonoBehaviour
         uikey.UI.Enable();
         uikey.UI.Esc.performed += ESC;
         uikey.UI.KeySet.performed += OnKeySet;
-
     }
 
 
