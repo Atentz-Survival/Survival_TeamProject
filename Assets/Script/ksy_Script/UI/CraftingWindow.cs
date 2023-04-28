@@ -42,6 +42,7 @@ public class CraftingWindow : MonoBehaviour
     public Action DontAction;
     public Action DoAction;
 
+    public Action makeShip;
 
 
     private void Awake()
@@ -86,13 +87,17 @@ public class CraftingWindow : MonoBehaviour
         if(canMakeTool == true)
         {
             //Debug.Log("제작 가능");
-                for (int i = 0; i < ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList.Count; i++)
-                {
-                    ItemManager.Instance.itemInventory.SubtractItem(ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList[i], ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialAmountList[i] * 1);
-                }
-                ItemManager.Instance.itemInventory.AddItem(makePossibleItems[_selectedIndex], 1);
-                _itemMakeGuideText.text = $"{ItemManager.Instance[makePossibleItems[_selectedIndex]].ItemName} 1개를 제작완료하였습니다!";
+           for (int i = 0; i < ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList.Count; i++)
+            {
+                ItemManager.Instance.itemInventory.SubtractItem(ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialTypeList[i], ItemManager.Instance[makePossibleItems[_selectedIndex]].ProductionMaterialAmountList[i] * 1);
+            }
+            ItemManager.Instance.itemInventory.AddItem(makePossibleItems[_selectedIndex], 1);
+            _itemMakeGuideText.text = $"{ItemManager.Instance[makePossibleItems[_selectedIndex]].ItemName} 1개를 제작완료하였습니다!";
             CheckCanMakeTool();
+            if (_selectedIndex == 12)
+            {
+                makeShip?.Invoke();
+            }
         }
     }
 

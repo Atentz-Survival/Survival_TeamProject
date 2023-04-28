@@ -87,6 +87,8 @@ public class ItemManager : Singleton<ItemManager>
 
     SetUpItem setUpItem;
     public SetUpItem SetUpAItem => setUpItem;
+    CraftingWindow craftingsWindow;
+    public CraftingWindow CraftingsWindow => craftingsWindow;
 
     [SerializeField]
     Vector3 setUpItemPosition;
@@ -144,6 +146,7 @@ public class ItemManager : Singleton<ItemManager>
             itemInventory.ItemsInventoryWindow.ExplanRoom.ItemInventoryWindow_p = itemInventory.ItemsInventoryWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom._itemUseButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemUse);
             itemInventory.ItemsInventoryWindow.ExplanRoom._itemDumpButton.onClick.AddListener(itemInventory.ItemsInventoryWindow.ExplanRoom.ItemDump);
+            craftingsWindow = craftingWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom.CraftingsWindow = craftingWindow;
             itemInventory.ItemsInventoryWindow.ExplanRoom.gameObject.SetActive(false);
             itemInventory.ItemsInventoryWindow.gameObject.SetActive(false);
