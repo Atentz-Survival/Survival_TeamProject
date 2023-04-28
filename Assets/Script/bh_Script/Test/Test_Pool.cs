@@ -30,6 +30,7 @@ public class Test_Pool : Test_Base
         ItemManager.Instance.itemInventory.AddItem(ItemType.Stone, 30);
         ItemManager.Instance.itemInventory.AddItem(ItemType.Firewood, 30);
         ItemManager.Instance.itemInventory.AddItem(ItemType.Strawberry, 30);
+        Debug.Log($"{ItemManager.Instance.SetUpItemPosition.x} {ItemManager.Instance.SetUpItemPosition.y} {ItemManager.Instance.SetUpItemPosition.z}");
         //ItemManager.Instance.itemInventory.MakeItem(ItemType.GoldPickaxe, 1);
     }
 

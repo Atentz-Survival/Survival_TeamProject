@@ -24,7 +24,7 @@ public class PlayerBase : MonoBehaviour
 
     private bool isDoing = false;
 
-    private bool ifCraft = false;
+    public bool ifCraft = false;
     private bool isMove = true;
 
     public int HP                      // 현재 hp 프로퍼티 > ui
@@ -69,14 +69,20 @@ public class PlayerBase : MonoBehaviour
         Fishing,        //낚시
     }
 
+
     playerState state;
     public Action<playerState> GetState;
     public playerState State
     {
         get => state;
+        set => state = value;
     }
     /*------------------ToolItem 상태 -------------------*/
     private bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
+    public bool[] IsdEqualState
+    {
+        get => isEqualWithState;
+    }
 
     private GameObject[] tools;                     // axe, Reap, Pick, FishingRod 순서대로
     private string[] toolsNames = { "Axe", "Reap", "Pick", "FishingRod" };
@@ -513,10 +519,9 @@ public class PlayerBase : MonoBehaviour
 
     //----------------------------------그랩용 함수-------------------------------
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        ifCraft = false;
-        if(other.gameObject.CompareTag("Workbench"))
+        if(other.gameObject.CompareTag("Workbench") && ItemManager.Instance.SetUpAItem.gameObject.activeSelf==true)
         {
             ifCraft = true;
         }
@@ -579,7 +584,7 @@ public class PlayerBase : MonoBehaviour
         {
             isAction = false;
         }
-    }
+    }*/
 
     private void OnGrab(InputAction.CallbackContext context)
     {
