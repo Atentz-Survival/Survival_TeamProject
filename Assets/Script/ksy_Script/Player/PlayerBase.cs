@@ -312,7 +312,7 @@ public class PlayerBase : MonoBehaviour
         ItemManager.Instance.itemInventory.ItemTypeArray = DataController.Instance.gameData.itemTypes;
 
         ItemManager.Instance.SetUpItemPosition = DataController.Instance.gameData.workbenchPosition;
-        //OnUpgradeTool((ToolItemTag)playercurrentToolItem, playertoolLevel);
+        OnUpgradeTool((ToolItemTag)playercurrentToolItem, playertoolLevel);
     }
 
 
@@ -608,8 +608,10 @@ public class PlayerBase : MonoBehaviour
 
     private void OnMaking(InputAction.CallbackContext obj)
     {
-        if(ifCraft == true)
+        if (ifCraft == true && ItemManager.Instance.SetUpAItem.gameObject.activeSelf == true)
+        {
             onMaking?.Invoke();
+        }
     }
     private void CraftDontAction()
     {

@@ -114,7 +114,7 @@ public class CraftingWindow : MonoBehaviour
            gameObject.SetActive(true);
            RefreshCraftingWindow();
            DontAction?.Invoke();
-           startCraft.interactable = false;  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
+           /*startCraft.interactable = false;*/  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
            Debug.Log($"canMakeTool : {canMakeTool}");
         }
     }
@@ -142,6 +142,7 @@ public class CraftingWindow : MonoBehaviour
         else 
         {
             _itemMakeGuideText.text = "아이템 칸이 모자랍니다. 아이템 칸을 1칸 이상 비워주세요.";
+            startCraft.interactable = false;
         }
     }
 
