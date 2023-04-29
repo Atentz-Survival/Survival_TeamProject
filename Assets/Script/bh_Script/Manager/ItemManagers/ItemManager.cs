@@ -101,6 +101,8 @@ public class ItemManager : Singleton<ItemManager>
     public Action OnHousingmode;
     public Action OffHousingmode;
 
+    WaitForSeconds wait = new WaitForSeconds(0.5f);
+
     protected override void PreInitialize()
     {
         if (initialized == false)
@@ -170,6 +172,8 @@ public class ItemManager : Singleton<ItemManager>
         }
         OnHousingmode = null;
         OffHousingmode = null;
+        StopAllCoroutines();
+        StartCoroutine(RefreshEmptySpaceStartIndex());
     }
 
     private void OnDisable()
@@ -243,4 +247,17 @@ public class ItemManager : Singleton<ItemManager>
         setUpItem.gameObject.SetActive(false);
     }
 
+    IEnumerator RefreshEmptySpaceStartIndex()
+    {
+        yield return wait;
+        for (int i = 0; i < itemInventoryMaxSpace; i++)
+        {
+            if (itemInventory.ItemTypeArray[i] == ItemType.Null)
+            {
+                itemInventory.emptySpaceStartIndex = i;
+                break;
+            }
+        }
+
+    }
 }
