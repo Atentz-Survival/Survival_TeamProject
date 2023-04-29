@@ -55,11 +55,6 @@ public class PlayerUI : MonoBehaviour
         StartCoroutine(OnHelpPanel());
     }
 
-    private void RefreshHPSlider(float ratio)
-    {
-        HPUI.value = player.HP;
-    }
-
     private void OnEnable()
     {
         uikey.UI.Enable();
@@ -160,5 +155,10 @@ public class PlayerUI : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         diePanel.gameObject.SetActive(true);
         StopCoroutine(OnDiePanelCor());
+    }
+
+    private void RefreshHPSlider(float ratio)
+    {
+        HPUI.value = player.HP;
     }
 }
