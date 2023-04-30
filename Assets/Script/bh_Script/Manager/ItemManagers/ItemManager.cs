@@ -159,17 +159,6 @@ public class ItemManager : Singleton<ItemManager>
             craftingWindow.gameObject.SetActive(false);
         }
         setUpItem = FindObjectOfType<SetUpItem>();
-        if(setUpItem != null)
-        {
-            if (itemInventory.FindItem(ItemType.CraftingTable, 1))
-            {
-                setUpItem.gameObject.SetActive(false);
-            }
-            else 
-            {
-                setUpItem.transform.position = setUpItemPosition;
-            }
-        }
         OnHousingmode = null;
         OffHousingmode = null;
         StopAllCoroutines();
@@ -256,6 +245,17 @@ public class ItemManager : Singleton<ItemManager>
             {
                 itemInventory.emptySpaceStartIndex = i;
                 break;
+            }
+        }
+        if (setUpItem != null)
+        {
+            if (itemInventory.FindItem(ItemType.CraftingTable, 1))
+            {
+                setUpItem.gameObject.SetActive(false);
+            }
+            else
+            {
+                setUpItem.transform.position = setUpItemPosition;
             }
         }
 
