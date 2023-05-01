@@ -115,7 +115,7 @@ public class CraftingWindow : MonoBehaviour
            RefreshCraftingWindow();
            DontAction?.Invoke();
            /*startCraft.interactable = false;*/  //불값의 변경에 따른 클릭 가능 여부 f키 누를때마다 체크
-           Debug.Log($"canMakeTool : {canMakeTool}");
+           canMakeTool = false;
         }
     }
 
