@@ -52,214 +52,67 @@ public class BasementObject : MonoBehaviour
 
     public void FlowerDrop1()
     {
-        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-        float a = 0.90f;
-
-        if (a_Random <= a)
-        {
-            objectInit1();
-        }
-        else
-        {
-            Debug.Log("None1");
-        }
-
-        // FishingRod
-
-        void objectInit1()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
     }
 
     public void FlowerDrop2()
     {
-        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float b = 0.90f;
-
-        if (b_Random <= b)
-        {
-            objectInit2();
-        }
-        else
-        {
-            Debug.Log("None2");
-        }
-
-        void objectInit2()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
     }
 
     public void FlowerDrop3()
     {
-        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float c = 0.90f;
-
-        if (c_Random <= c)
-        {
-            objectInit3();
-        }
-        else
-        {
-            Debug.Log("None3");
-        }
-
-        void objectInit3()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
     }
 
 
     public void TreeDrop1()
     {
-        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-        float a = 0.90f;
-
-        if (a_Random <= a)
-        {
-            Debug.Log("Step1");
-            objectInit1();
-        }
-        else
-        {
-            Debug.Log("None1");
-        }
-    }
-
-    public void objectInit1()
-    {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Firewood); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
         obj.transform.position = transform.position;
         target = obj;
-        Debug.Log("Time1");
     }
 
 
     public void TreeDrop2()
     {
-        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float b = 0.90f;
-
-        if (b_Random <= b)
-        {
-            objectInit2();
-        }
-        else
-        {
-            Debug.Log("None2");
-        }
-
-        void objectInit2()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX3); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
     }
 
     public void TreeDrop3()
     {
-        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float c = 0.90f;
-
-        if (c_Random <= c)
-        {
-            objectInit3();
-        }
-        else
-        {
-            Debug.Log("None3");
-        }
-
-        void objectInit3()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.FirewoodX5); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position;
+        target = obj;
     }
 
     public void RockDrop1()
     {
-        float a_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-        float a = 0.90f;
-
-        if (a_Random <= a)
-        {
-            objectInit1();
-        }
-        else
-        {
-            Debug.Log("None1");
-        }
-
-        // FishingRod
-
-        void objectInit1()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Stone); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
+        target = obj;
     }
 
     public void RockDrop2()
     {
-        float b_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float b = 0.90f;
-
-        if (b_Random <= b)
-        {
-            objectInit2();
-        }
-        else
-        {
-            Debug.Log("None2");
-        }
-
-        void objectInit2()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Iron); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
+        target = obj;
     }
 
     public void RockDrop3()
     {
-        float c_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-
-        float c = 0.90f;
-
-        if (c_Random <= c)
-        {
-            objectInit3();
-        }
-        else
-        {
-            Debug.Log("None3");
-        }
-
-        void objectInit3()
-        {
-            GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-            obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
-            target = obj;
-        }
+        GameObject obj = ItemManager.Instance.GetObject(ItemType.Gold); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
+        obj.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 0.3f;
+        target = obj;
     }
 
     private void TimeCount()
