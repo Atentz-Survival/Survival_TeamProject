@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -276,6 +277,19 @@ public class PlayerBase : MonoBehaviour
         HP = DataController.Instance.gameData.playerHp;
         playercurrentToolItem = DataController.Instance.gameData.currentToolItem;
         playertoolLevel = DataController.Instance.gameData.toolLevel;*/
+        ItemManager.Instance.itemInventory.ItemAmountArray = new int[ItemManager.Instance.itemInventoryMaxSpace];
+        ItemManager.Instance.itemInventory.ItemTypeArray = new ItemType[ItemManager.Instance.itemInventoryMaxSpace];
+        ItemManager.Instance.itemInventory._equipToolIndex = new int[System.Enum.GetValues(typeof(ToolItemTag)).Length];
+
+        for (int i = 0; i < ItemManager.Instance.itemInventoryMaxSpace; i++)
+        {
+            ItemManager.Instance.itemInventory.ItemTypeArray[i] = ItemType.Null;
+        }
+        for (int i = 0; i < ItemManager.Instance.itemInventory._equipToolIndex.Length; i++)
+        {
+            ItemManager.Instance.itemInventory._equipToolIndex[i] = -1;
+        }
+        ItemManager.Instance.SetUpItemPosition = new Vector3(-0.33f, 0.01f, -3.69f);
     }
 
     private void Initialize()
