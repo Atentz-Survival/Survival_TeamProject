@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FollowingCamera : MonoBehaviour
 {
@@ -28,6 +27,12 @@ public class FollowingCamera : MonoBehaviour
     {
         brain.enabled = false;  // 시네머신 비활성화해서 기존 카메라 시점으로 게임 진행
         player.onDie += OnCineMachine;  // 사망시 시네머신 함수 실행
+        StartCoroutine(DDorutine());
+    }
+
+    IEnumerator DDorutine()
+    {
+        yield return new WaitForSeconds(0.05f);
         if (DataController.Instance.WasSaved == false)
         {
             PreInitialize();

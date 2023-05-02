@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -41,7 +39,7 @@ public class PlayerBase : MonoBehaviour
                 hp = value;
                 Debug.Log(hp);
             }
-            else if (value < 1 && isDead==false)
+            else if (value < 2 && isDead==false)
             {
                 isDead = true;
                 hp = 0;
@@ -78,7 +76,7 @@ public class PlayerBase : MonoBehaviour
         set => state = value;
     }
     /*------------------ToolItem 상태 -------------------*/
-    private bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
+    public bool[] isEqualWithState = new bool[5];   //playerState enum 순서대로
     public bool[] IsdEqualState
     {
         get => isEqualWithState;
@@ -377,7 +375,7 @@ public class PlayerBase : MonoBehaviour
 
     IEnumerator Decrease()
     {
-            while (HP > 0 && isDead==false)
+            while (HP > -1 && isDead==false)
             {
                 yield return new WaitForSeconds(1.0f);  //test
                 HP--;
@@ -503,6 +501,11 @@ public class PlayerBase : MonoBehaviour
         }
         playercurrentToolItem = (int)toolItem;
         playertoolLevel = level;
+        if(level == -1)
+        {
+            ResetToolState();
+            isEqualWithState[0] = true;
+        }
     }
 
     void ResetToolState()
