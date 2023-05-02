@@ -12,8 +12,6 @@ public class Flower : PlaneBase
     private bool isDisFlower;
     SaveBoardUI pauseMenu;
 
-    bool isDestroy = false;
-
     private void Awake()
     {
         pauseMenu = FindObjectOfType<SaveBoardUI>();
@@ -51,145 +49,138 @@ public class Flower : PlaneBase
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(!isDestroy)
+        if (collision.gameObject.CompareTag("Reap"))
         {
-            if (collision.gameObject.CompareTag("Reap"))
+            objectHP--;
+            Debug.Log($"First : {objectHP}");
+
+            float flower_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+
+            if (objectHP > 0)
             {
-                objectHP--;
-                Debug.Log($"First : {objectHP}");
+                GameObject obj = Instantiate(Effect);
+                obj.transform.position = transform.position;
+            }
 
-                float flower_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+            else if (objectHP == 0)
+            {
+                Debug.Log($"Second : {objectHP}");
+                GameObject obj = Instantiate(Meffect);
+                obj.transform.position = transform.position;
 
-                if (objectHP > 0)
+                gameObject.SetActive(false);
+
+                isDisFlower = true;
+
+                if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
                 {
-                    GameObject obj = Instantiate(Effect);
-                    obj.transform.position = transform.position;
-                }
-
-                else if (objectHP == 0)
-                {
-                    Debug.Log($"Second : {objectHP}");
-                    GameObject obj = Instantiate(Meffect);
-                    obj.transform.position = transform.position;
-
-                    gameObject.SetActive(false);
-                    isDisFlower = true;
-                    isDestroy = true;
-
-                    if (collision.gameObject.transform.GetChild(0).gameObject.activeSelf == true)
+                    if(flower_Random <= 0.75f)
                     {
-                        if (flower_Random <= 0.75f)
-                        {
-                            FlowerDrop1();
-                        }
-                        else if (flower_Random <= 0.95f)
-                        {
-                            FlowerDrop2();
-                        }
-                        else
-                        {
-                            FlowerDrop3();
-                        }
+                        FlowerDrop1();
                     }
-                    else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
+                    else if(flower_Random<= 0.95f)
                     {
-                        if (flower_Random <= 0.6f)
-                        {
-                            FlowerDrop1();
-                        }
-                        else if (flower_Random <= 0.85f)
-                        {
-                            FlowerDrop2();
-                        }
-                        else
-                        {
-                            FlowerDrop3();
-                        }
-                    }
-                    else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
-                    {
-                        if (flower_Random <= 0.45f)
-                        {
-                            FlowerDrop1();
-                        }
-                        else if (flower_Random <= 0.7f)
-                        {
-                            FlowerDrop2();
-                        }
-                        else
-                        {
-                            FlowerDrop3();
-                        }
+                        FlowerDrop2();
                     }
                     else
                     {
-                        Debug.Log("None");
+                        FlowerDrop3();
                     }
-
-                    objectHP = objectMaxHP;
-
                 }
-            }
-
-            // 맨손 -----------------------------------------------------------------
-            else if (collision.gameObject.CompareTag("RightHand"))
-            {
-                Debug.Log("RightHand");
-                handObjectHp--;
-
-                Debug.Log(handObjectHp);
-
-                float Hand_Random = UnityEngine.Random.Range(0.0f, 1.0f);
-                Debug.Log(Hand_Random);
-
-                if (handObjectHp > 0)
+                else if (collision.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
                 {
-                    GameObject obj = Instantiate(Effect);
-                    obj.transform.position = transform.position;
-                }
-                else if (handObjectHp == 0)
-                {
-                    GameObject obj = Instantiate(Meffect);
-                    obj.transform.position = transform.position;
-
-                    gameObject.SetActive(false);
-                    isDisFlower = true;
-                    isDestroy = true;
-
-                    float a_Hand = 0.25f;
-                    float b_Hand = 0.75f;
-                    float c_Hand = 1.0f;
-                    if (Hand_Random <= a_Hand)
+                    if(flower_Random <= 0.6f)
                     {
-                        Debug.Log("None");
+                        FlowerDrop1();
                     }
-                    else if (Hand_Random <= b_Hand)
+                    else if(flower_Random <= 0.85f)
                     {
-                        Hand_Drop_Flower1();
+                        FlowerDrop2();
                     }
-                    else if (Hand_Random <= c_Hand)
-                    {
-                        Hand_Drop_Flower2();
-                    }
-                    //else if (Hand_Random <= c_Hand)
-                    //{
-                    //    // 플레이어의 체력 증가
-                    //    Hand_HpCare();
-                    //}
                     else
                     {
-                        Debug.Log("ERROR");
+                        FlowerDrop3();
                     }
-                    handObjectHp = handObjectMaxHp;
                 }
+                else if (collision.gameObject.transform.GetChild(2).gameObject.activeSelf == true)
+                {
+                    if(flower_Random <= 0.45f)
+                    {
+                        FlowerDrop1();
+                    }
+                    else if(flower_Random <= 0.7f)
+                    {
+                        FlowerDrop2();
+                    }
+                    else
+                    {
+                        FlowerDrop3();
+                    }
+                }
+                else
+                {
+                    Debug.Log("None");
+                }
+
+                objectHP = objectMaxHP;
+                
             }
-            else
-            {
-                Debug.Log("This Tool can not be used");
-            }
-            isDestroy = false;
         }
 
+        // 맨손 -----------------------------------------------------------------
+        else if (collision.gameObject.CompareTag("RightHand"))
+        {
+            Debug.Log("RightHand");
+            handObjectHp--;
+
+            Debug.Log(handObjectHp);
+
+            float Hand_Random = UnityEngine.Random.Range(0.0f, 1.0f);
+            Debug.Log(Hand_Random);
+
+            if (handObjectHp > 0)
+            {
+                GameObject obj = Instantiate(Effect);
+                obj.transform.position = transform.position;
+            }
+            else if (handObjectHp <= 0)
+            {
+                GameObject obj = Instantiate(Meffect);
+                obj.transform.position = transform.position;
+
+                gameObject.SetActive(false);
+                isDisFlower = true;
+                float a_Hand = 0.25f;
+                float b_Hand = 0.75f;
+                float c_Hand = 1.0f;
+                if (Hand_Random <= a_Hand)
+                {
+                    Debug.Log("None");
+                }
+                else if (Hand_Random <= b_Hand)
+                {
+                    Hand_Drop_Flower1();
+                }
+                else if (Hand_Random <= c_Hand)
+                {
+                    Hand_Drop_Flower2();
+                }
+                //else if (Hand_Random <= c_Hand)
+                //{
+                //    // 플레이어의 체력 증가
+                //    Hand_HpCare();
+                //}
+                else
+                {
+                    Debug.Log("ERROR");
+                }
+                handObjectHp = handObjectMaxHp;
+            }
+        }
+        else
+        {
+            Debug.Log("This Tool can not be used");
+        }
     }
     void FlowerObject(int Hp)
     {
