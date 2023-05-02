@@ -53,21 +53,21 @@ public class BasementObject : MonoBehaviour
     public void FlowerDrop1()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Strawberry); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = transform.position;
+        obj.transform.position = transform.position + Vector3.up;
         target = obj;
     }
 
     public void FlowerDrop2()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Avocado); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = transform.position;
+        obj.transform.position = transform.position + Vector3.up;
         target = obj;
     }
 
     public void FlowerDrop3()
     {
         GameObject obj = ItemManager.Instance.GetObject(ItemType.Peanut); // Tomato 게임오브젝트를 ItemManager에서 가져와 활성화
-        obj.transform.position = transform.position;
+        obj.transform.position = transform.position + Vector3.up;
         target = obj;
     }
 
