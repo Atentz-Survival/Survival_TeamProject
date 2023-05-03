@@ -118,7 +118,7 @@ public class FishingBase : MonoBehaviour
     public void FishDrop1()
     {
         Debug.Log("Alpha");
-        GameObject fobj = ItemManager.Instance.GetObject(ItemType.Gamzami);
+        GameObject fobj = ItemManager.Instance.GetObject(ItemType.Gazami);
         fobj.transform.position = transform.position;
         desTarget = fobj;
 
