@@ -19,7 +19,7 @@ public class FishingBase : MonoBehaviour
     //public float speedRate = 1.0f;          // 허공 시간을 기준으로 한 이동속도의 배율
     //private const float gravity = -9.8f;    // 중력
 
-    private Vector3 endPos;                 // 타겟의 위치
+    private Transform endPos;                 // 타겟의 위치
     private Vector3 startPos;               // 생성 위치
 
     // 낚시할때의 대기시간
@@ -34,7 +34,7 @@ public class FishingBase : MonoBehaviour
 
     private void Start()
     {
-        endPos = target.transform.position;
+        endPos = target.transform;
         if (target == null)
         {
             Player player = FindObjectOfType<Player>();
@@ -123,9 +123,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0 , 50 , 0) + Vector3.right;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0 , 4 , 0) + Vector3.right*2;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec* 10);
+        rigid.AddForce(disVec*0.1f , ForceMode.Impulse);
 
         Debug.Log("Step3-1");
     }
@@ -137,9 +137,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 4, 0) + Vector3.right*2;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec * 10);
+        rigid.AddForce(disVec*0.1f , ForceMode.Impulse);
 
         Debug.Log("Step3-2");
     }
@@ -151,9 +151,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos - startPos) + new Vector3(0, 50, 0) + Vector3.right;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 4, 0) + Vector3.right*6;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec * 10);
+        rigid.AddForce(disVec , ForceMode.Impulse);
 
         //Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-3");
