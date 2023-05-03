@@ -123,9 +123,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos.position - startPos) + new Vector3(0 , 4 , 0) + Vector3.right*2;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0 , 5 , 0) + Vector3.right*2;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec*0.1f , ForceMode.Impulse);
+        rigid.AddForce(disVec*0.04f , ForceMode.Impulse);
 
         Debug.Log("Step3-1");
     }
@@ -137,9 +137,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 4, 0) + Vector3.right*2;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 5, 0) + Vector3.right*2;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec*0.1f , ForceMode.Impulse);
+        rigid.AddForce(disVec*0.04f , ForceMode.Impulse);
 
         Debug.Log("Step3-2");
     }
@@ -151,9 +151,9 @@ public class FishingBase : MonoBehaviour
         desTarget = fobj;
 
         startPos = fobj.transform.position;
-        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 4, 0) + Vector3.right*6;
+        Vector3 disVec = (endPos.position - startPos) + new Vector3(0, 5, 0) + Vector3.right*6;
         rigid = fobj.GetComponent<Rigidbody>();
-        rigid.AddForce(disVec , ForceMode.Impulse);
+        rigid.AddForce(disVec*0.4f , ForceMode.Impulse);
 
         //Invoke("FishFalse", 6.0f);
         Debug.Log("Step3-3");
